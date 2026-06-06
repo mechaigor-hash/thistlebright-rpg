@@ -8,7 +8,7 @@ This repo uses an original child-friendly setting and rules engine. The supplied
 
 Rendered A4 PDFs live in `pdf/`:
 
-- `pdf/player-handbook.pdf` — 21 pages; character creation, simple dice rule, stats, one illustrated page per kindred/race, one illustrated page per adventure job/class, spells, gear, and worked example.
+- `pdf/player-handbook.pdf` — 21 pages; character creation, simple dice rule, stats, one full painterly illustrated page per kindred/race, one full painterly illustrated page per adventure job/class, spells, gear, and worked example.
 - `pdf/guide-book.pdf` — 7 pages; how to guide scenes for 5–7 year olds, wobbles, adventure structure, and tiny tables.
 - `pdf/bestiary.pdf` — 7 pages; friendly creature entries and creature builder.
 - `pdf/campaigns.pdf` — 7 pages; ready-to-run linked mini campaign.
