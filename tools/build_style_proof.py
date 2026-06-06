@@ -128,14 +128,15 @@ html, body { margin:0; background:var(--paper); color:var(--ink); font-family: G
 .book { font-size:10.35pt; line-height:1.31; }
 p, li { orphans:3; widows:3; } p { margin:0 0 2.6mm; } ul, ol { margin:1.2mm 0 3mm; padding-left:5.2mm; break-inside:avoid-page; } li { margin:.45mm 0; }
 h1,h2,h3,h4 { break-after:avoid-page; text-wrap:balance; }
-.page { position:relative; height:297mm; min-height:297mm; padding:13mm 14mm 14mm; background:
+.page { position:relative; height:297mm; min-height:297mm; padding:13mm 14mm 20mm; background:
  radial-gradient(circle at 10% 6%, rgba(184,138,45,.13), transparent 42mm),
  radial-gradient(circle at 94% 20%, rgba(81,48,109,.08), transparent 50mm),
  linear-gradient(90deg, rgba(91,56,22,.09), transparent 8mm, transparent calc(100% - 8mm), rgba(91,56,22,.08)),
  var(--paper2); page-break-after:always; overflow:hidden; }
-.page::before { content:''; position:absolute; left:0; right:0; bottom:0; height:74mm; background:radial-gradient(ellipse at 18% 100%, rgba(184,138,45,.20), transparent 42mm), radial-gradient(ellipse at 82% 100%, rgba(81,48,109,.13), transparent 45mm), linear-gradient(0deg, rgba(215,191,139,.28), transparent 68%); pointer-events:none; }
-.page::after { content:''; position:absolute; inset:5mm; border:1px solid rgba(184,138,45,.45); pointer-events:none; }
-.page-number { position:absolute; right:14mm; bottom:6mm; color:#8a7652; font-size:8pt; letter-spacing:.08em; }
+.page::before { content:''; position:absolute; left:12mm; right:12mm; bottom:12mm; height:1px; background:linear-gradient(90deg, transparent, rgba(184,138,45,.72), transparent); pointer-events:none; z-index:0; }
+.page::after { content:''; position:absolute; inset:5mm; border:1px solid rgba(184,138,45,.45); pointer-events:none; z-index:4; }
+.page > * { position:relative; z-index:1; }
+.page-number { position:absolute; z-index:5; right:14mm; bottom:5.2mm; min-width:8mm; text-align:center; color:#7b6239; font-size:8pt; line-height:1; letter-spacing:.08em; padding:1.2mm 0; background:rgba(255,248,229,.82); border-top:1px solid rgba(184,138,45,.55); border-bottom:1px solid rgba(184,138,45,.35); }
 .full-bleed { padding:0; background:#251b16; }
 .full-bleed::before { display:none; }
 .full-bleed img.bg { position:relative; z-index:0; display:block; width:100%; height:309mm; margin:-6mm 0; object-fit:cover; object-position:center; transform:scale(1.035); }
