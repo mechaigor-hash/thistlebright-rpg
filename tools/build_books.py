@@ -77,6 +77,17 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .hero-strip { position:relative; height:88mm; margin:-3mm -4mm 4mm; overflow:hidden; background:#271d17; break-inside:avoid-page; }
 .hero-strip img { width:100%; height:100%; object-fit:cover; transform:scale(1.035); }
 .hero-strip .mini { position:absolute; left:6mm; bottom:5mm; right:6mm; padding:2.8mm 3.4mm; background:rgba(255,248,229,.92); border-left:2mm solid var(--red); box-shadow:0 1mm 5mm rgba(0,0,0,.22); }
+.feature-page { padding:10mm 12mm 18mm; }
+.feature-top { display:grid; grid-template-columns:82mm 1fr; gap:6mm; align-items:stretch; margin-bottom:4mm; }
+.feature-art { height:130mm; overflow:hidden; border:1px solid rgba(112,77,35,.55); background:#2b2118; box-shadow:0 1.4mm 5mm rgba(0,0,0,.18); }
+.feature-art img { width:100%; height:100%; object-fit:cover; display:block; }
+.feature-intro { padding:4mm; background:linear-gradient(180deg, rgba(255,251,239,.92), rgba(242,226,187,.72)); border:1px solid rgba(184,138,45,.46); }
+.feature-intro h2 { margin:0 0 2mm; color:#6f2d29; font-size:22pt; line-height:1; font-variant:small-caps; border-bottom:1px solid rgba(184,138,45,.55); padding-bottom:1.5mm; }
+.feature-kicker { color:#56336d; text-transform:uppercase; letter-spacing:.08em; font-size:8pt; margin-bottom:1.5mm; }
+.feature-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.4mm 5mm; }
+.feature-box { break-inside:avoid-page; min-height:38mm; padding:3mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
+.feature-box h3 { margin-top:0; font-size:12pt; }
+.feature-quote { margin-top:3mm; padding:3mm; background:rgba(86,51,109,.10); border-left:2mm solid rgba(86,51,109,.65); font-style:italic; }
 .sheet-page .page { padding:11mm 13mm 18mm; }
 .sheet { display:grid; grid-template-columns:1fr 1fr; gap:3.2mm; }
 .sheet-box { min-height:17mm; }
@@ -111,6 +122,9 @@ class Book:
         p = self.page_no()
         cls = 'columns' if columns else ''
         self.pages.append(f'''<section class="page"><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div><div class="page-number">{p}</div></section>''')
+    def feature_page(self, kicker: str, title: str, image: str, intro: str, body: str):
+        p = self.page_no()
+        self.pages.append(f'''<section class="page feature-page"><div class="feature-top"><figure class="feature-art"><img src="{art(image)}" alt="{esc(title)} illustration"></figure><div class="feature-intro"><div class="feature-kicker">{esc(kicker)}</div><h2>{esc(title)}</h2><p class="drop">{intro}</p></div></div>{body}<div class="page-number">{p}</div></section>''')
     def write(self):
         html = '<!doctype html><html><head><meta charset="utf-8"><title>'+esc(self.title)+'</title><style>'+CSS+'</style></head><body><main class="book">' + '\n'.join(self.pages) + '</main></body></html>'
         (PRINT / f"{self.slug}-a4.html").write_text(html, encoding="utf-8")
@@ -125,6 +139,58 @@ def split(left, right): return f"<div class='split'><div class='col'>{left}</div
 def spot(img, caption=""):
     cap = f"<div class='mini'>{caption}</div>" if caption else ""
     return f"<div class='hero-strip'><img src='{art(img)}' alt='art'>{cap}</div>"
+
+def feature_box(title, body):
+    return f"<div class='feature-box'><h3>{title}</h3>{body}</div>"
+
+def feature_grid(items):
+    return "<div class='feature-grid'>" + "".join(feature_box(t, b) for t, b in items) + "</div>"
+
+def make_svg_asset(filename, title, subtitle, palette, symbols):
+    bg1, bg2, accent, ink = palette
+    chips = "".join(f"<circle cx='{18+i*18}' cy='168' r='6' fill='{c}' opacity='.88'/>" for i,c in enumerate(symbols[:5]))
+    marks = "".join(f"<path d='M{25+i*28} {35+(i%3)*18} q 10 -14 20 0 q -10 14 -20 0' fill='none' stroke='{accent}' stroke-width='2' opacity='.5'/>" for i in range(5))
+    svg=f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 1120">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="{bg1}"/><stop offset="1" stop-color="{bg2}"/></linearGradient>
+    <radialGradient id="r" cx="50%" cy="28%" r="70%"><stop stop-color="#fff7d9" stop-opacity=".55"/><stop offset="1" stop-color="#fff7d9" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="820" height="1120" fill="url(#g)"/>
+  <rect x="38" y="38" width="744" height="1044" rx="28" fill="url(#r)" stroke="#f6df9b" stroke-width="5" opacity=".95"/>
+  <path d="M0 850 C160 760 290 810 410 725 C560 620 670 720 820 640 L820 1120 L0 1120 Z" fill="#243a2d" opacity=".50"/>
+  <path d="M0 930 C190 850 320 910 470 805 C610 705 720 840 820 760 L820 1120 L0 1120 Z" fill="#1d2c28" opacity=".55"/>
+  {marks}
+  <circle cx="410" cy="345" r="174" fill="#fff2c3" opacity=".72"/>
+  <circle cx="410" cy="345" r="122" fill="{accent}" opacity=".36"/>
+  <path d="M410 190 C370 250 332 305 332 388 C332 482 372 555 410 555 C448 555 488 482 488 388 C488 305 450 250 410 190 Z" fill="{ink}" opacity=".78"/>
+  <circle cx="410" cy="248" r="48" fill="#f6d49d"/>
+  <path d="M354 307 C384 332 436 332 466 307" fill="none" stroke="#f4e4c4" stroke-width="15" stroke-linecap="round" opacity=".9"/>
+  <path d="M300 502 C356 464 464 464 520 502" fill="none" stroke="#f4e4c4" stroke-width="20" stroke-linecap="round" opacity=".9"/>
+  <g transform="translate(0 0)">{chips}</g>
+  <text x="410" y="705" text-anchor="middle" font-family="Georgia,serif" font-size="64" font-weight="700" fill="#fff7dc">{esc(title)}</text>
+  <text x="410" y="760" text-anchor="middle" font-family="Georgia,serif" font-size="32" fill="#fff7dc">{esc(subtitle)}</text>
+</svg>"""
+    (ART/filename).write_text(svg, encoding='utf-8')
+
+def ensure_feature_art():
+    specs = [
+        ('kindred-glenfolk.svg','Glenfolk','Practical hearts of croft and castle',('#7b4d2b','#d2a461','#2e6b49','#5d3524'),['#d3a24f','#6f8c4b','#b8573f']),
+        ('kindred-thistle-fairy.svg','Thistle Fairy','Tiny crowns and secret paths',('#5b3678','#c17bd1','#e4b547','#47275d'),['#e7b8ff','#ffd65a','#78d5a6']),
+        ('kindred-brownie-helper.svg','Brownie Helper','Warm kitchens and clever hands',('#6a452e','#d0975d','#8d5a2e','#4a2f22'),['#f1c37d','#b36b42','#ffe0aa']),
+        ('kindred-selkie-born.svg','Selkie-Born','Loch dreams and seal-cloaks',('#1f5872','#83c6ce','#c9e7e4','#173d52'),['#b9edf0','#5c98b2','#e7f6ff']),
+        ('kindred-rowan-kin.svg','Rowan-Kin','Leaf crowns and old promises',('#2c5b3f','#90b86c','#c13f36','#253f2d'),['#c84038','#71a35c','#e3c067']),
+        ('kindred-heather-giantling.svg','Heather Giantling','Gentle strength under purple hills',('#56336d','#b58bbd','#e0b34f','#453055'),['#d4a2df','#8d70aa','#f1ce79']),
+        ('job-thistle-knight.svg','Thistle Knight','Brave shields and kind promises',('#6f2d29','#c96b4f','#d7b34d','#512820'),['#e0bc58','#893a36','#f3db91']),
+        ('job-loch-scout.svg','Loch Scout','Maps, tracks, and misty stepping-stones',('#24516a','#7fb2c4','#c2dfc9','#1e4052'),['#bce7f1','#638fa5','#e9f5cc']),
+        ('job-song-spark-bard.svg','Song-Spark Bard','Cheerful music in dark woods',('#6d3b83','#d991b8','#f0c85a','#4e2d63'),['#ffcf5a','#d874b0','#fff0a3']),
+        ('job-hearth-mage.svg','Hearth Mage','Tea-steam, sparks, and tiny lights',('#7d3b2d','#e4a45c','#ffd15e','#563226'),['#ffd15e','#f28254','#fff3bf']),
+        ('job-beast-friend.svg','Beast Friend','Gentle words for worried creatures',('#285740','#83b76f','#d4b15d','#233f31'),['#9bd27e','#d7b95b','#f4e6ae']),
+        ('job-puzzle-tinker.svg','Puzzle Tinker','Little tools and bright ideas',('#4b5269','#a9a775','#d8a13e','#303746'),['#c8c477','#d99a32','#e8e0b8']),
+    ]
+    for spec in specs:
+        make_svg_asset(*spec)
+
+ensure_feature_art()
 
 # Player handbook
 ph = Book("player-handbook", "Player Handbook", "Character creation, simple rules, kindreds, jobs, spells, gear, and a worked example", "01-cover.png")
@@ -153,24 +219,44 @@ ph.text_page("Stat creation", f"""
 {card('If a child worries about —', p('Say: “Blank means story chance, not bad. Friends can help you.”'))}
 </div>
 """, columns=False)
-ph.art_page("03-race-kindreds.png", "Step 1: Pick your kindred", "Your kindred is where your fairy-tale hero comes from. It gives a picture, a story gift, and a way to join the world.")
-ph.text_page("Kindreds", "".join([
-card('Glenfolk', p('Croft, cottage, castle, or market-lane children with practical hearts.')+ul(['<strong>Gift:</strong> once per adventure, remember a local clue.', '<strong>Look:</strong> tartan scarf, muddy boots, treasure pockets.', '<strong>Friend:</strong> knows a helpful auntie, shepherd, or baker.'])),
-card('Thistle Fairy', p('Small bright folk with manners, shimmer, and secret paths.')+ul(['<strong>Gift:</strong> once per scene, notice nearby fairy magic.', '<strong>Look:</strong> petal cloak, star freckles, tiny crown.', '<strong>Friend:</strong> can ask insects and flowers for gossip.'])),
-card('Brownie Helper', p('Cozy fixers who tidy, mend, and improve small things.')+ul(['<strong>Gift:</strong> repair or improve one tiny object each scene.', '<strong>Look:</strong> apron, tool pouch, flour on nose.', '<strong>Friend:</strong> every kitchen has a secret for you.'])),
-card('Selkie-Born', p('Gentle loch-hearted heroes with moonlit dreams.')+ul(['<strong>Gift:</strong> understand water, weather, or a sad feeling.', '<strong>Look:</strong> soft seal-cloak, shell button, sea-glass charm.', '<strong>Friend:</strong> seals, rain, and waves may answer kindly.'])),
-card('Rowan-Kin', p('Forest children with leaf crowns and careful listening.')+ul(['<strong>Gift:</strong> ask a tree, bird, or breeze for one hint.', '<strong>Look:</strong> red berries, green cloak, bark-pattern gloves.', '<strong>Friend:</strong> old trees remember old promises.'])),
-card('Heather Giantling', p('Small for a giant, huge for a fairy, and very gentle.')+ul(['<strong>Gift:</strong> lift, push, or carry one heavy thing safely.', '<strong>Look:</strong> big knitted jumper, pebble buttons, warm laugh.', '<strong>Friend:</strong> stones, hills, and goats know your family.']))
-]))
-ph.art_page("04-class-paths.png", "Step 2: Pick your adventure job", "Your job says what you like doing when trouble appears. Each job has one gift that helps the whole table.")
-ph.text_page("Adventure jobs", "".join([
-card('Thistle Knight', p('Protects friends and stands bravely at the front.')+ul(['<strong>Try:</strong> hold a shield, make a promise, stand between danger and a friend.', '<strong>Best stat:</strong> Brave.'])+rb('<strong>Gift:</strong> once per scene, turn a scary moment into a brave one.')),
-card('Loch Scout', p('Finds paths, listens for clues, and spots hidden doors.')+ul(['<strong>Try:</strong> follow tracks, read a map, notice a tiny sound.', '<strong>Best stat:</strong> Quick.'])+rb('<strong>Gift:</strong> ask the Guide one “what do I notice?” question.')),
-card('Song-Spark Bard', p('Uses music, jokes, and stories to lift everyone up.')+ul(['<strong>Try:</strong> cheer a friend, calm a crowd, make a grumpy bridge laugh.', '<strong>Best stat:</strong> Kind.'])+rb('<strong>Gift:</strong> give another hero +1 after a kind song or cheer.')),
-card('Hearth Mage', p('Carries warm, safe magic: sparks, steam, tea, and tiny lights.')+ul(['<strong>Try:</strong> light a path, warm cold hands, reveal a hidden breeze.', '<strong>Best stat:</strong> Kind or Brave.'])+rb('<strong>Gift:</strong> create a small helpful magical effect.')),
-card('Beast Friend', p('Understands animals and earns trust with gentle patience.')+ul(['<strong>Try:</strong> offer a snack, copy animal sounds, ask what it feels.', '<strong>Best stat:</strong> Kind.'])+rb('<strong>Gift:</strong> ask a friendly creature for a small favor.')),
-card('Puzzle Tinker', p('Builds, opens, balances, folds, and wonders how things work.')+ul(['<strong>Try:</strong> fix a latch, build a tiny bridge, turn clues into a plan.', '<strong>Best stat:</strong> Quick.'])+rb('<strong>Gift:</strong> make a simple tool from ordinary bits.'))
-]))
+ph.art_page("03-race-kindreds.png", "Step 1: Pick your kindred", "Each kindred now has its own illustrated page. Let children point at the picture first, then read only the choices they need.")
+kindreds = [
+    dict(title='Glenfolk', image='kindred-glenfolk.svg', intro='Glenfolk are croft, cottage, castle, and market-lane children with practical hearts. They know how to ask neighbours, find a dry path, and make ordinary things feel brave.', gift='Once per adventure, remember a local clue or helpful person.', look=['Tartan scarf, muddy boots, treasure pockets.', 'A wooden badge, snack cloth, or tiny family charm.'], table=['Ask an auntie, shepherd, baker, guard, or gardener for help.', 'Know what a tool is called or where a path should go.', 'Offer practical kindness: a snack, blanket, or fixed latch.'], prompt='“I know someone who might help.”'),
+    dict(title='Thistle Fairy', image='kindred-thistle-fairy.svg', intro='Thistle Fairies are small bright folk with manners, shimmer, and secret paths. They are excellent at noticing fairy marks that bigger people step over.', gift='Once per scene, notice nearby fairy magic.', look=['Petal cloak, star freckles, tiny crown.', 'Boots that never quite touch the puddles.'], table=['Ask flowers, moths, or beetles for tiny gossip.', 'Spot a hidden ring of mushrooms or a polite fairy door.', 'Remember an old rule of fairy manners.'], prompt='“I bow politely and look for the sparkle.”'),
+    dict(title='Brownie Helper', image='kindred-brownie-helper.svg', intro='Brownie Helpers are cozy fixers who tidy, mend, and improve small things. They turn a messy room, broken spoon, or squeaky hinge into a clue.', gift='Repair or improve one tiny object each scene.', look=['Apron, tool pouch, flour on nose.', 'Buttons, string, thimble hat, or polished spoon.'], table=['Fix a latch, mend a pouch, clean mud from a clue.', 'Find the important thing hiding in a pile of mess.', 'Make a worried home feel safe again.'], prompt='“I can fix the little thing first.”'),
+    dict(title='Selkie-Born', image='kindred-selkie-born.svg', intro='Selkie-Born heroes have gentle loch-hearts and moonlit dreams. They understand water, weather, and the soft feelings people hide under their coats.', gift='Understand water, weather, or a sad feeling.', look=['Soft seal-cloak, shell button, sea-glass charm.', 'Wet curls, quiet eyes, and pockets full of smooth stones.'], table=['Hear what rain, waves, or a puddle is trying to say.', 'Comfort a lonely creature without many words.', 'Find a safe way across shallow water.'], prompt='“I listen to the loch before I answer.”'),
+    dict(title='Rowan-Kin', image='kindred-rowan-kin.svg', intro='Rowan-Kin are forest children with leaf crowns and careful listening. Old trees remember them, birds trust them, and red berries mark their promises.', gift='Ask a tree, bird, or breeze for one hint.', look=['Red berries, green cloak, bark-pattern gloves.', 'Leaf crown, acorn buttons, or a walking twig.'], table=['Read bent grass, scratched bark, or a bird alarm.', 'Ask an old tree who passed this way.', 'Hide gently among leaves without frightening anyone.'], prompt='“I ask the old tree what it remembers.”'),
+    dict(title='Heather Giantling', image='kindred-heather-giantling.svg', intro='Heather Giantlings are small for giants, huge for fairies, and very gentle. They are best when something heavy, high, or frightening needs a careful friend.', gift='Lift, push, or carry one heavy thing safely.', look=['Big knitted jumper, pebble buttons, warm laugh.', 'Purple heather in hair and boots like little boats.'], table=['Hold a door, carry a tired friend, or move a fallen branch.', 'Stand calmly when a noise is big.', 'Ask hills, stones, or goats about family stories.'], prompt='“I can be big and gentle at the same time.”'),
+]
+kindred_stats = {'Glenfolk':'Kind or Quick', 'Thistle Fairy':'Quick', 'Brownie Helper':'Kind', 'Selkie-Born':'Kind', 'Rowan-Kin':'Quick', 'Heather Giantling':'Brave'}
+kindred_scenes = {'Glenfolk':'A village gate is stuck and everyone has an idea.', 'Thistle Fairy':'A secret flower-door opens only after a polite greeting.', 'Brownie Helper':'A kitchen clue is hidden under a very silly mess.', 'Selkie-Born':'A sad loch-creature will only speak to someone gentle.', 'Rowan-Kin':'An old tree remembers the wrong name and needs patient listening.', 'Heather Giantling':'A fallen branch blocks the path, but small animals live underneath.'}
+for k in kindreds:
+    ph.feature_page('Kindred', k['title'], k['image'], k['intro'], feature_grid([
+        ('Story gift', p(k['gift'])),
+        ('Look', ul(k['look'])),
+        ('Good at the table', ul(k['table'])),
+        ('Best first stat', p(kindred_stats[k['title']])),
+        ('First scene idea', p(kindred_scenes[k['title']])),
+        ('Say this', f"<div class='feature-quote'>{k['prompt']}</div>"),
+    ]))
+ph.art_page("04-class-paths.png", "Step 2: Pick your adventure job", "Each job now has its own illustrated page. The job says what a hero likes doing when trouble appears.")
+jobs = [
+    dict(title='Thistle Knight', image='job-thistle-knight.svg', intro='Thistle Knights protect friends and stand bravely at the front. They are not rough or bossy; they make scary moments feel safer for everyone.', gift='Once per scene, turn a scary moment into a brave one.', stat='Brave', tryit=['Hold a shield or walking stick like a promise.', 'Stand between danger and a friend.', 'Say a brave sentence out loud.'], kit=['Soft shield', 'Promise ribbon', 'Thistle badge'], prompt='“I stand tall so my friend can try.”'),
+    dict(title='Loch Scout', image='job-loch-scout.svg', intro='Loch Scouts find paths, listen for clues, and spot hidden doors. They love maps, footprints, bird calls, and the first tiny sign that something changed.', gift='Ask the Guide one “what do I notice?” question.', stat='Quick', tryit=['Follow tracks through reeds or heather.', 'Read a map or remember a landmark.', 'Balance across stepping stones.'], kit=['Chalk', 'String map', 'Tiny lantern'], prompt='“I look closely before we move.”'),
+    dict(title='Song-Spark Bard', image='job-song-spark-bard.svg', intro='Song-Spark Bards use music, jokes, and stories to lift everyone up. Their magic is cheer, rhythm, and the courage that comes from being heard.', gift='Give another hero +1 after a kind song, rhyme, joke, or cheer.', stat='Kind', tryit=['Cheer a friend who feels unsure.', 'Calm a crowd with a rhyme.', 'Make a grumpy bridge laugh politely.'], kit=['Bell', 'Ribbon drum', 'Story cards'], prompt='“I sing the brave bit for you.”'),
+    dict(title='Hearth Mage', image='job-hearth-mage.svg', intro='Hearth Mages carry warm, safe magic: sparks, steam, tea, and tiny lights. Their spells help problems; they do not solve the whole story alone.', gift='Create a small helpful magical effect.', stat='Kind or Brave', tryit=['Light a path with a glow-pebble.', 'Warm cold hands with tea-steam.', 'Reveal a hidden breeze or fairy mark.'], kit=['Teacup', 'Glow pebble', 'Little spoon wand'], prompt='“A tiny warm spell might help.”'),
+    dict(title='Beast Friend', image='job-beast-friend.svg', intro='Beast Friends understand animals and earn trust with gentle patience. They notice tails, ears, paws, feathers, and feelings before they roll dice.', gift='Ask a friendly creature for a small favor.', stat='Kind', tryit=['Offer a snack without grabbing.', 'Copy a small sound politely.', 'Ask what the creature feels.'], kit=['Oat pouch', 'Soft brush', 'Kindness bell'], prompt='“I crouch down and speak gently.”'),
+    dict(title='Puzzle Tinker', image='job-puzzle-tinker.svg', intro='Puzzle Tinkers build, open, balance, fold, and wonder how things work. They like ordinary bits: string, cups, buttons, chalk, and clever questions.', gift='Make a simple tool from ordinary bits.', stat='Quick', tryit=['Fix a latch or squeaky hinge.', 'Build a tiny bridge from safe pieces.', 'Turn clues into a simple plan.'], kit=['String', 'Chalk', 'Button box'], prompt='“What if this little thing fits here?”'),
+]
+for j in jobs:
+    ph.feature_page('Adventure job', j['title'], j['image'], j['intro'], feature_grid([
+        ('Gift', p(j['gift'])),
+        ('Best stat', p(f"<span class='big-stat'>{j['stat']}</span>")),
+        ('Try this', ul(j['tryit'])),
+        ('Starter kit', ul(j['kit'])),
+        ('Say this', f"<div class='feature-quote'>{j['prompt']}</div>"),
+        ('Team role', p('This job shines most when it helps another hero have a turn.')),
+    ]))
 ph.text_page("Spells, gear, and treasure", f"""
 {split(
 spot('02-part-opener.png', '<strong>Rule:</strong> magic helps the story; it does not solve every problem alone.') + '''<h3>Safe little spells</h3>''' + ul(['<strong>Glow-pebble:</strong> make a small light.', '<strong>Tea-steam:</strong> warm cold hands or reveal a breeze.', '<strong>Thistle-tickle:</strong> distract a grumpy creature for a moment.', '<strong>Kind whisper:</strong> help someone say what they feel.', '<strong>Button-bridge:</strong> make a tiny bridge for one small creature.', '<strong>Heather-hush:</strong> quiet a noisy room for one careful question.']) + mini('Spell limit', 'A spell can help one small problem. Big problems still need friends, ideas, and choices.'),

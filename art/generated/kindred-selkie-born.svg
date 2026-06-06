@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 1120">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1f5872"/><stop offset="1" stop-color="#83c6ce"/></linearGradient>
+    <radialGradient id="r" cx="50%" cy="28%" r="70%"><stop stop-color="#fff7d9" stop-opacity=".55"/><stop offset="1" stop-color="#fff7d9" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="820" height="1120" fill="url(#g)"/>
+  <rect x="38" y="38" width="744" height="1044" rx="28" fill="url(#r)" stroke="#f6df9b" stroke-width="5" opacity=".95"/>
+  <path d="M0 850 C160 760 290 810 410 725 C560 620 670 720 820 640 L820 1120 L0 1120 Z" fill="#243a2d" opacity=".50"/>
+  <path d="M0 930 C190 850 320 910 470 805 C610 705 720 840 820 760 L820 1120 L0 1120 Z" fill="#1d2c28" opacity=".55"/>
+  <path d='M25 35 q 10 -14 20 0 q -10 14 -20 0' fill='none' stroke='#c9e7e4' stroke-width='2' opacity='.5'/><path d='M53 53 q 10 -14 20 0 q -10 14 -20 0' fill='none' stroke='#c9e7e4' stroke-width='2' opacity='.5'/><path d='M81 71 q 10 -14 20 0 q -10 14 -20 0' fill='none' stroke='#c9e7e4' stroke-width='2' opacity='.5'/><path d='M109 35 q 10 -14 20 0 q -10 14 -20 0' fill='none' stroke='#c9e7e4' stroke-width='2' opacity='.5'/><path d='M137 53 q 10 -14 20 0 q -10 14 -20 0' fill='none' stroke='#c9e7e4' stroke-width='2' opacity='.5'/>
+  <circle cx="410" cy="345" r="174" fill="#fff2c3" opacity=".72"/>
+  <circle cx="410" cy="345" r="122" fill="#c9e7e4" opacity=".36"/>
+  <path d="M410 190 C370 250 332 305 332 388 C332 482 372 555 410 555 C448 555 488 482 488 388 C488 305 450 250 410 190 Z" fill="#173d52" opacity=".78"/>
+  <circle cx="410" cy="248" r="48" fill="#f6d49d"/>
+  <path d="M354 307 C384 332 436 332 466 307" fill="none" stroke="#f4e4c4" stroke-width="15" stroke-linecap="round" opacity=".9"/>
+  <path d="M300 502 C356 464 464 464 520 502" fill="none" stroke="#f4e4c4" stroke-width="20" stroke-linecap="round" opacity=".9"/>
+  <g transform="translate(0 0)"><circle cx='18' cy='168' r='6' fill='#b9edf0' opacity='.88'/><circle cx='36' cy='168' r='6' fill='#5c98b2' opacity='.88'/><circle cx='54' cy='168' r='6' fill='#e7f6ff' opacity='.88'/></g>
+  <text x="410" y="705" text-anchor="middle" font-family="Georgia,serif" font-size="64" font-weight="700" fill="#fff7dc">Selkie-Born</text>
+  <text x="410" y="760" text-anchor="middle" font-family="Georgia,serif" font-size="32" fill="#fff7dc">Loch dreams and seal-cloaks</text>
+</svg>
