@@ -35,6 +35,12 @@ h4 { margin:2.2mm 0 1mm; color:#56336d; font-size:10.8pt; }
 .columns { display:grid; grid-template-columns:1fr 1fr; gap:4.5mm 7mm; align-items:start; }
 .three { display:grid; grid-template-columns:1fr 1fr 1fr; gap:3.3mm; }
 .card-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.6mm; }
+.split { display:grid; grid-template-columns:1fr 1fr; gap:5mm 7mm; align-items:start; }
+.col { break-inside:avoid-page; page-break-inside:avoid; }
+.dense-list li { margin:.25mm 0; }
+.mini-card { break-inside:avoid-page; page-break-inside:avoid; margin:2mm 0; padding:2.3mm 2.8mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
+.columns > .option-card { min-height:62mm; }
+.columns > .creature { min-height:58mm; }
 .option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.94), rgba(242,226,187,.78)); border:1px solid rgba(154,116,55,.55); box-shadow:inset 0 0 0 1px rgba(255,255,255,.38); }
 .option-card h3, .creature h3 { margin-top:0; }
 .rulebox, .readaloud { margin:2.6mm 0; border-left:2.2mm solid rgba(86,51,109,.66); }
