@@ -2,16 +2,36 @@
 
 Fresh start for a D&D-inspired, Scottish fairy mythology, high-fantasy tabletop RPG for children aged 5–7.
 
-This repo begins with the page style system first: A4 print layout, full-bleed artwork, face-safe overlays, two-column parchment rules pages, card grids, bestiary layout, and character sheet style.
+This repo uses an original child-friendly setting and rules engine. The supplied D&D Player's Handbook PDF was used only as a broad page-design reference for bookcraft: A4 print layout, full-bleed artwork, strong hierarchy, parchment rules pages, and integrated illustrations. This project does not copy D&D text, art, logos, mechanics, or trade dress.
 
-## Current artifact
+## Current books
 
-- `printable-a4/style-proof-a4.html` — 10-page style proof
-- `pdf/style-proof.pdf` — generated PDF after running `tools/render_style_proof.py`
-- `STYLE_GUIDE.md` — layout and art rules
-- `art/prompts/` — reproducible art prompts
+Rendered A4 PDFs live in `pdf/`:
+
+- `pdf/player-handbook.pdf` — 11 pages; character creation, simple dice rule, stats, kindreds, jobs, spells, gear, and worked example.
+- `pdf/guide-book.pdf` — 7 pages; how to guide scenes for 5–7 year olds, wobbles, adventure structure, and tiny tables.
+- `pdf/bestiary.pdf` — 7 pages; friendly creature entries and creature builder.
+- `pdf/campaigns.pdf` — 7 pages; ready-to-run linked mini campaign.
+- `pdf/character-sheets.pdf` — 4 pages; blank sheet, finished example, and quick-reference cards.
+- `pdf/style-proof.pdf` — original 10-page style proof.
+
+## Rules summary
+
+- Roll one six-sided die only when the answer is exciting.
+- Add stat stars: `★★`, `★`, or `—`.
+- Total `1–2`: wobble. Total `3–4`: yes, but. Total `5+`: bright success.
+- Three stats: Brave, Kind, Quick.
+- Character creation stays simple: pick one best stat `★★`, one okay stat `★`, and leave one blank `—`.
 
 ## Build
+
+```bash
+python3 tools/build_books.py
+uv run --with weasyprint python tools/render_books.py
+python3 tools/qa_books.py
+```
+
+Style proof only:
 
 ```bash
 python3 tools/build_style_proof.py
@@ -19,4 +39,8 @@ uv run --with weasyprint python tools/render_style_proof.py
 python3 tools/qa_render_pages.py
 ```
 
-The supplied Player's Handbook PDF was used only as a broad page-design reference. This project does not copy its text, art, logos, mechanics, or trade dress.
+## QA
+
+- `qa/books-contact.jpg` — sampled rendered pages from every book.
+- `qa/book-pages/` — rasterized sample pages from each PDF.
+- `qa/style-proof-contact.jpg` — style proof contact sheet.

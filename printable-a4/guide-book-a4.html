@@ -1,0 +1,91 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Guide Book</title><style>
+@page { size:A4 portrait; margin:0; background:#f8efd8; }
+* { box-sizing:border-box; }
+:root { --ink:#2b2118; --muted:#665540; --red:#87312d; --gold:#b9892e; --green:#285740; --purple:#56336d; --paper:#fff8e9; --paper2:#f5e8ca; --line:#c7aa70; --blue:#24516a; }
+html, body { margin:0; background:#f8efd8; color:var(--ink); font-family: Georgia, 'Times New Roman', serif; }
+.book { font-size:10.25pt; line-height:1.31; }
+p { margin:0 0 2.5mm; } p, li { orphans:3; widows:3; }
+ul, ol { margin:1mm 0 3mm; padding-left:5.2mm; break-inside:avoid-page; } li { margin:.42mm 0; }
+h1,h2,h3,h4 { break-after:avoid-page; text-wrap:balance; }
+.page { position:relative; height:297mm; min-height:297mm; padding:12mm 14mm 19mm; background:
+  radial-gradient(circle at 9% 5%, rgba(184,138,45,.14), transparent 42mm),
+  radial-gradient(circle at 94% 18%, rgba(86,51,109,.08), transparent 48mm),
+  linear-gradient(90deg, rgba(91,56,22,.08), transparent 8mm, transparent calc(100% - 8mm), rgba(91,56,22,.07)),
+  var(--paper); page-break-after:always; overflow:hidden; }
+.page::before { content:''; position:absolute; left:12mm; right:12mm; bottom:12mm; height:1px; background:linear-gradient(90deg, transparent, rgba(184,138,45,.72), transparent); pointer-events:none; z-index:0; }
+.page::after { content:''; position:absolute; inset:5mm; border:1px solid rgba(184,138,45,.43); pointer-events:none; z-index:4; }
+.page > * { position:relative; z-index:1; }
+.page-number { position:absolute; z-index:5; right:14mm; bottom:5.1mm; min-width:8mm; text-align:center; color:#765f37; font-size:8pt; line-height:1; letter-spacing:.08em; padding:1.2mm 0; background:rgba(255,248,229,.84); border-top:1px solid rgba(184,138,45,.55); border-bottom:1px solid rgba(184,138,45,.35); }
+.full-bleed { padding:0; background:#251b16; }
+.full-bleed::before { display:none; }
+.full-bleed::after { inset:6mm; border-color:rgba(255,234,168,.56); }
+.full-bleed img.bg { position:relative; z-index:0; display:block; width:100%; height:309mm; margin:-6mm 0; object-fit:cover; object-position:center; transform:scale(1.035); }
+.scrim { position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(15,10,6,.10), rgba(15,10,6,.04) 45%, rgba(15,10,6,.57)); }
+.title-panel, .overlay { position:absolute; z-index:2; left:50%; transform:translateX(-50%); background:linear-gradient(180deg, rgba(255,250,238,.96), rgba(244,224,180,.91)); border:1px solid rgba(91,57,22,.55); box-shadow:0 1.5mm 8mm rgba(0,0,0,.30); }
+.title-panel { top:19mm; width:166mm; padding:6mm 8mm 5mm; border-top:2.2mm solid var(--red); text-align:center; }
+.title-panel h1 { margin:0; color:#692620; font-size:32pt; line-height:.96; font-variant:small-caps; letter-spacing:.015em; }
+.title-panel p { margin:2.5mm 0 0; color:#3b2a1d; font-size:12.4pt; }
+.overlay { bottom:9mm; width:158mm; padding:4mm 5mm; border-left:2.5mm solid rgba(135,49,45,.78); border-radius:1.4mm 4mm 4mm 1.4mm; }
+.overlay h2, .overlay h3 { margin:0 0 1.5mm; padding:0 0 1mm; border-bottom:1px solid rgba(135,49,45,.35); color:#722c28; font-size:17.5pt; line-height:1.04; font-variant:small-caps; }
+.overlay p:last-child { margin-bottom:0; }
+h2.section { margin:0 0 3mm; color:#6f2d29; font-size:21pt; font-variant:small-caps; letter-spacing:.015em; }
+h2.section::first-letter { font-size:1.25em; }
+h3 { margin:3.6mm 0 1.3mm; color:#285640; font-size:13pt; border-bottom:1px solid rgba(184,138,45,.55); }
+h4 { margin:2.2mm 0 1mm; color:#56336d; font-size:10.8pt; }
+.columns { display:grid; grid-template-columns:1fr 1fr; gap:4.5mm 7mm; align-items:start; }
+.three { display:grid; grid-template-columns:1fr 1fr 1fr; gap:3.3mm; }
+.card-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.6mm; }
+.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.94), rgba(242,226,187,.78)); border:1px solid rgba(154,116,55,.55); box-shadow:inset 0 0 0 1px rgba(255,255,255,.38); }
+.option-card h3, .creature h3 { margin-top:0; }
+.rulebox, .readaloud { margin:2.6mm 0; border-left:2.2mm solid rgba(86,51,109,.66); }
+.questbox { margin:2.8mm 0; border-left:2.2mm solid rgba(40,87,64,.75); }
+.small { font-size:8.8pt; color:var(--muted); }
+.big-stat { font-size:20pt; color:#74322d; letter-spacing:.04em; }
+table { width:100%; border-collapse:collapse; margin:2.2mm 0 3mm; font-size:8.6pt; break-inside:avoid-page; }
+th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { background:#dfd0a4; color:#263b2e; } tr:nth-child(even) td { background:rgba(235,222,184,.58); }
+.keep { break-inside:avoid-page; page-break-inside:avoid; }
+.drop:first-letter { font-size:23pt; line-height:1; color:#87312d; padding-right:1mm; font-weight:700; }
+.spot { height:54mm; overflow:hidden; margin:0 0 3mm; background:#241a16; border:1px solid rgba(128,92,45,.48); break-inside:avoid-page; }
+.spot img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.025); display:block; }
+.hero-strip { position:relative; height:88mm; margin:-3mm -4mm 4mm; overflow:hidden; background:#271d17; break-inside:avoid-page; }
+.hero-strip img { width:100%; height:100%; object-fit:cover; transform:scale(1.035); }
+.hero-strip .mini { position:absolute; left:6mm; bottom:5mm; right:6mm; padding:2.8mm 3.4mm; background:rgba(255,248,229,.92); border-left:2mm solid var(--red); box-shadow:0 1mm 5mm rgba(0,0,0,.22); }
+.sheet-page .page { padding:11mm 13mm 18mm; }
+.sheet { display:grid; grid-template-columns:1fr 1fr; gap:3.2mm; }
+.sheet-box { min-height:17mm; }
+.sheet-box.big { min-height:44mm; }
+.sheet-box.tall { min-height:62mm; }
+.line { border-bottom:1px solid #836a42; min-height:7mm; margin-top:2mm; }
+.badge { display:inline-block; padding:.8mm 2mm; margin:.4mm .8mm .4mm 0; background:#ead9ad; border:1px solid #b9954d; border-radius:4mm; font-size:8.5pt; }
+.toc li { margin:1.2mm 0; }
+</style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/02-part-opener.png" alt="Guide Book cover"><div class="scrim"></div><div class="title-panel"><h1>Guide Book</h1><p>How to run warm high-fantasy adventures for 5–7 year olds</p></div><div class="overlay"><h3>Thistlebright Adventures</h3><p>Scottish fairy myth, high fantasy, safe wonder, and table rules made for brave young players.</p></div></section>
+<section class="page"><h2 class="section">Your job as Guide</h2><div class="columns">
+<p class='drop'>The Guide is not the boss of fun. You describe the world, listen to children, ask what they try, and help the dice turn ideas into surprises.</p>
+<ul><li>Use short scenes: 5 to 12 minutes each.</li><li>Give choices in twos or threes, not long menus.</li><li>Name feelings before fights: scared, proud, sleepy, lonely, worried.</li><li>Let the children succeed often. The fun is in how it happens.</li></ul>
+<div class='hero-strip'><img src='../art/generated/03-race-kindreds.png' alt='art'><div class='mini'><strong>Guide stance:</strong> make every scene readable from the art, then support the child’s idea.</div></div>
+<div class='rulebox'><strong>Safety tone:</strong> no gore, no cruelty, no permanent harm. Trouble can be spooky, muddy, noisy, or puzzling.</div>
+<h3>Useful phrases</h3><ul><li>“Yes, and what does that look like?”</li><li>“Who are you helping?”</li><li>“Which stat fits your idea?”</li><li>“That is a wobble, so something funny changes.”</li></ul>
+</div><div class="page-number">2</div></section>
+<section class="page"><h2 class="section">Scene recipe</h2><div class="">
+<div class='option-card'><h3>1. A picture</h3><p>Start with something children can see: misty bridge, silver fox, giant teacup, glowing thistle.</p></div>
+<div class='option-card'><h3>2. A feeling</h3><p>Pick one: worried, excited, lonely, sleepy, proud, grumpy, curious.</p></div>
+<div class='option-card'><h3>3. A choice</h3><p>Offer two helpful directions: follow the bells or talk to the fox.</p></div>
+<div class='option-card'><h3>4. A roll</h3><p>Only roll if the answer is exciting. Use Brave, Kind, or Quick.</p></div>
+<div class='option-card'><h3>5. A change</h3><p>After each scene, something should be different: a clue, friend, promise, opened path, or new question.</p></div>
+<div class='questbox'><strong>Read aloud:</strong> “The moon is caught in the loch like a silver coin. The kelpie foal stamps, worried and wet. What do you do?”</div>
+</div><div class="page-number">3</div></section>
+<section class="page full-bleed"><img class="bg" src="../art/generated/05-bestiary-catalog.png" alt="Creatures are characters"><div class="scrim"></div><div class="overlay"><h2>Creatures are characters</h2><p>A creature should usually want something before it blocks something. Children can help, trick, soothe, race, sing, or befriend it.</p></div><div class="page-number">4</div></section>
+<section class="page"><h2 class="section">Running rolls and wobbles</h2><div class="columns">
+<h3>Choosing the stat</h3><ul><li>Use <strong>Brave</strong> when the hero faces pressure.</li><li>Use <strong>Kind</strong> when feelings, friendship, or care matter.</li><li>Use <strong>Quick</strong> when speed, balance, noticing, or sneaking matters.</li></ul>
+<h3>Good wobbles</h3><ul><li>A hat blows away.</li><li>The map gets wet.</li><li>A bell rings and wakes someone.</li><li>A helpful creature misunderstands.</li><li>A path opens, but it is muddy.</li></ul>
+<div class='rulebox'><strong>Never make a wobble mean “you did nothing.”</strong> Always move the story.</div>
+</div><div class="page-number">5</div></section>
+<section class="page"><h2 class="section">Building adventures</h2><div class="">
+<table><tr><th>Part</th><th>Question</th><th>Example</th></tr><tr><td>Hook</td><td>Who needs help?</td><td>A fairy cannot find the right door.</td></tr><tr><td>Path</td><td>Where must heroes go?</td><td>Across the heather bridge.</td></tr><tr><td>Friend</td><td>Who can help?</td><td>A shy fox with silver whiskers.</td></tr><tr><td>Puzzle</td><td>What needs a clever choice?</td><td>Three bells ring, but only one is kind.</td></tr><tr><td>Ending</td><td>How is the glen warmer now?</td><td>The lost moon-bell is returned.</td></tr></table>
+<div class='questbox'><strong>Guide promise:</strong> prepare situations, not answers. If the child invents a kind solution, let it matter.</div>
+</div><div class="page-number">6</div></section>
+<section class="page"><h2 class="section">Tiny tables</h2><div class="columns">
+<h3>What is strange here?</h3><table><tr><td>1</td><td>A thistle glows like a lantern.</td></tr><tr><td>2</td><td>Footprints turn into tiny flowers.</td></tr><tr><td>3</td><td>A crow speaks only in compliments.</td></tr><tr><td>4</td><td>The bridge asks for a joke.</td></tr><tr><td>5</td><td>A teacup storm rains indoors.</td></tr><tr><td>6</td><td>A sleeping troll snores bubbles.</td></tr></table>
+<h3>What does the creature want?</h3><table><tr><td>1</td><td>A snack.</td></tr><tr><td>2</td><td>A song.</td></tr><tr><td>3</td><td>Someone to listen.</td></tr><tr><td>4</td><td>A lost button.</td></tr><tr><td>5</td><td>Help being brave.</td></tr><tr><td>6</td><td>A promise kept.</td></tr></table>
+<h3>How can it enter a scene?</h3><table><tr><td>1</td><td>It blocks a path by accident.</td></tr><tr><td>2</td><td>It is crying quietly.</td></tr><tr><td>3</td><td>It has the clue but misunderstands it.</td></tr><tr><td>4</td><td>It challenges the heroes to a silly contest.</td></tr><tr><td>5</td><td>It asks for a promise.</td></tr><tr><td>6</td><td>It follows the heroes home.</td></tr></table>
+</div><div class="page-number">7</div></section></main></body></html>

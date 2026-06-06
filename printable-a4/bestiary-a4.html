@@ -1,0 +1,74 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Bestiary</title><style>
+@page { size:A4 portrait; margin:0; background:#f8efd8; }
+* { box-sizing:border-box; }
+:root { --ink:#2b2118; --muted:#665540; --red:#87312d; --gold:#b9892e; --green:#285740; --purple:#56336d; --paper:#fff8e9; --paper2:#f5e8ca; --line:#c7aa70; --blue:#24516a; }
+html, body { margin:0; background:#f8efd8; color:var(--ink); font-family: Georgia, 'Times New Roman', serif; }
+.book { font-size:10.25pt; line-height:1.31; }
+p { margin:0 0 2.5mm; } p, li { orphans:3; widows:3; }
+ul, ol { margin:1mm 0 3mm; padding-left:5.2mm; break-inside:avoid-page; } li { margin:.42mm 0; }
+h1,h2,h3,h4 { break-after:avoid-page; text-wrap:balance; }
+.page { position:relative; height:297mm; min-height:297mm; padding:12mm 14mm 19mm; background:
+  radial-gradient(circle at 9% 5%, rgba(184,138,45,.14), transparent 42mm),
+  radial-gradient(circle at 94% 18%, rgba(86,51,109,.08), transparent 48mm),
+  linear-gradient(90deg, rgba(91,56,22,.08), transparent 8mm, transparent calc(100% - 8mm), rgba(91,56,22,.07)),
+  var(--paper); page-break-after:always; overflow:hidden; }
+.page::before { content:''; position:absolute; left:12mm; right:12mm; bottom:12mm; height:1px; background:linear-gradient(90deg, transparent, rgba(184,138,45,.72), transparent); pointer-events:none; z-index:0; }
+.page::after { content:''; position:absolute; inset:5mm; border:1px solid rgba(184,138,45,.43); pointer-events:none; z-index:4; }
+.page > * { position:relative; z-index:1; }
+.page-number { position:absolute; z-index:5; right:14mm; bottom:5.1mm; min-width:8mm; text-align:center; color:#765f37; font-size:8pt; line-height:1; letter-spacing:.08em; padding:1.2mm 0; background:rgba(255,248,229,.84); border-top:1px solid rgba(184,138,45,.55); border-bottom:1px solid rgba(184,138,45,.35); }
+.full-bleed { padding:0; background:#251b16; }
+.full-bleed::before { display:none; }
+.full-bleed::after { inset:6mm; border-color:rgba(255,234,168,.56); }
+.full-bleed img.bg { position:relative; z-index:0; display:block; width:100%; height:309mm; margin:-6mm 0; object-fit:cover; object-position:center; transform:scale(1.035); }
+.scrim { position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(15,10,6,.10), rgba(15,10,6,.04) 45%, rgba(15,10,6,.57)); }
+.title-panel, .overlay { position:absolute; z-index:2; left:50%; transform:translateX(-50%); background:linear-gradient(180deg, rgba(255,250,238,.96), rgba(244,224,180,.91)); border:1px solid rgba(91,57,22,.55); box-shadow:0 1.5mm 8mm rgba(0,0,0,.30); }
+.title-panel { top:19mm; width:166mm; padding:6mm 8mm 5mm; border-top:2.2mm solid var(--red); text-align:center; }
+.title-panel h1 { margin:0; color:#692620; font-size:32pt; line-height:.96; font-variant:small-caps; letter-spacing:.015em; }
+.title-panel p { margin:2.5mm 0 0; color:#3b2a1d; font-size:12.4pt; }
+.overlay { bottom:9mm; width:158mm; padding:4mm 5mm; border-left:2.5mm solid rgba(135,49,45,.78); border-radius:1.4mm 4mm 4mm 1.4mm; }
+.overlay h2, .overlay h3 { margin:0 0 1.5mm; padding:0 0 1mm; border-bottom:1px solid rgba(135,49,45,.35); color:#722c28; font-size:17.5pt; line-height:1.04; font-variant:small-caps; }
+.overlay p:last-child { margin-bottom:0; }
+h2.section { margin:0 0 3mm; color:#6f2d29; font-size:21pt; font-variant:small-caps; letter-spacing:.015em; }
+h2.section::first-letter { font-size:1.25em; }
+h3 { margin:3.6mm 0 1.3mm; color:#285640; font-size:13pt; border-bottom:1px solid rgba(184,138,45,.55); }
+h4 { margin:2.2mm 0 1mm; color:#56336d; font-size:10.8pt; }
+.columns { display:grid; grid-template-columns:1fr 1fr; gap:4.5mm 7mm; align-items:start; }
+.three { display:grid; grid-template-columns:1fr 1fr 1fr; gap:3.3mm; }
+.card-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.6mm; }
+.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.94), rgba(242,226,187,.78)); border:1px solid rgba(154,116,55,.55); box-shadow:inset 0 0 0 1px rgba(255,255,255,.38); }
+.option-card h3, .creature h3 { margin-top:0; }
+.rulebox, .readaloud { margin:2.6mm 0; border-left:2.2mm solid rgba(86,51,109,.66); }
+.questbox { margin:2.8mm 0; border-left:2.2mm solid rgba(40,87,64,.75); }
+.small { font-size:8.8pt; color:var(--muted); }
+.big-stat { font-size:20pt; color:#74322d; letter-spacing:.04em; }
+table { width:100%; border-collapse:collapse; margin:2.2mm 0 3mm; font-size:8.6pt; break-inside:avoid-page; }
+th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { background:#dfd0a4; color:#263b2e; } tr:nth-child(even) td { background:rgba(235,222,184,.58); }
+.keep { break-inside:avoid-page; page-break-inside:avoid; }
+.drop:first-letter { font-size:23pt; line-height:1; color:#87312d; padding-right:1mm; font-weight:700; }
+.spot { height:54mm; overflow:hidden; margin:0 0 3mm; background:#241a16; border:1px solid rgba(128,92,45,.48); break-inside:avoid-page; }
+.spot img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.025); display:block; }
+.hero-strip { position:relative; height:88mm; margin:-3mm -4mm 4mm; overflow:hidden; background:#271d17; break-inside:avoid-page; }
+.hero-strip img { width:100%; height:100%; object-fit:cover; transform:scale(1.035); }
+.hero-strip .mini { position:absolute; left:6mm; bottom:5mm; right:6mm; padding:2.8mm 3.4mm; background:rgba(255,248,229,.92); border-left:2mm solid var(--red); box-shadow:0 1mm 5mm rgba(0,0,0,.22); }
+.sheet-page .page { padding:11mm 13mm 18mm; }
+.sheet { display:grid; grid-template-columns:1fr 1fr; gap:3.2mm; }
+.sheet-box { min-height:17mm; }
+.sheet-box.big { min-height:44mm; }
+.sheet-box.tall { min-height:62mm; }
+.line { border-bottom:1px solid #836a42; min-height:7mm; margin-top:2mm; }
+.badge { display:inline-block; padding:.8mm 2mm; margin:.4mm .8mm .4mm 0; background:#ead9ad; border:1px solid #b9954d; border-radius:4mm; font-size:8.5pt; }
+.toc li { margin:1.2mm 0; }
+</style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/05-bestiary-catalog.png" alt="Bestiary cover"><div class="scrim"></div><div class="title-panel"><h1>Bestiary</h1><p>Friendly creatures, gentle problems, and encounter ideas</p></div><div class="overlay"><h3>Thistlebright Adventures</h3><p>Scottish fairy myth, high fantasy, safe wonder, and table rules made for brave young players.</p></div></section>
+<section class="page"><h2 class="section">How to use creatures</h2><div class="columns">
+<p class='drop'>In Thistlebright, a creature is a story moment. It might be scared, proud, hungry, lonely, sleepy, or confused. Heroes are encouraged to notice feelings first.</p>
+<div class='rulebox'><strong>Entry format:</strong> What it feels, what it wants, how it helps, and what makes the scene funny or tricky.</div>
+<ul><li>Use creatures as friends, messengers, puzzles, guardians, or comic interruptions.</li><li>For this age, avoid “kill it” goals. Use helping, calming, racing, finding, sharing, or promising.</li><li>If a creature is dangerous, make the danger environmental: slippery bank, loud roar, storm cloud, falling pine cones.</li></ul>
+</div><div class="page-number">2</div></section>
+<section class="page"><h2 class="section">Loch and glen creatures</h2><div class="columns"><div class='creature'><h3>Moon-Kelpie Foal</h3><p><strong>Feels:</strong> Lonely and nervous.<br><strong>Wants:</strong> Its moon-bell returned.<br><strong>Helps by:</strong> Carries one hero safely across shallow water.<br><strong>Complication:</strong> Splashes the map when startled.</p><p><span class='badge'>Brave</span><span class='badge'>Kind</span><span class='badge'>Quick</span> Pick one depending on the child’s idea.</p></div><div class='creature'><h3>Thistle Sprite</h3><p><strong>Feels:</strong> Proud and tiny.<br><strong>Wants:</strong> Someone to admire its thorn crown.<br><strong>Helps by:</strong> Shows a hidden fairy path.<br><strong>Complication:</strong> Gets offended by rude pointing.</p><p><span class='badge'>Brave</span><span class='badge'>Kind</span><span class='badge'>Quick</span> Pick one depending on the child’s idea.</p></div><div class='creature'><h3>Moss Troll Napper</h3><p><strong>Feels:</strong> Sleepy and warm-hearted.<br><strong>Wants:</strong> A quieter place to nap.<br><strong>Helps by:</strong> Lifts a log bridge.<br><strong>Complication:</strong> Snores bubbles that float away clues.</p><p><span class='badge'>Brave</span><span class='badge'>Kind</span><span class='badge'>Quick</span> Pick one depending on the child’s idea.</p></div><div class='creature'><h3>Silver Fox Familiar</h3><p><strong>Feels:</strong> Curious and polite.<br><strong>Wants:</strong> A riddle answered.<br><strong>Helps by:</strong> Leads heroes to tracks.<br><strong>Complication:</strong> Only speaks in compliments.</p><p><span class='badge'>Brave</span><span class='badge'>Kind</span><span class='badge'>Quick</span> Pick one depending on the child’s idea.</p></div></div><div class="page-number">3</div></section>
+<section class="page full-bleed"><img class="bg" src="../art/generated/05-bestiary-catalog.png" alt="Creature scenes"><div class="scrim"></div><div class="overlay"><h2>Creature scenes</h2><p>Use the picture first: what does the child notice, who looks worried, and what helpful thing might the heroes try?</p></div><div class="page-number">4</div></section>
+<section class="page"><h2 class="section">Forest and sky creatures</h2><div class="columns"><div class='creature'><h3>Rowan Owl</h3><p><strong>Feels:</strong> Wise but forgetful.<br><strong>Wants:</strong> Help remembering a name.<br><strong>Helps by:</strong> Sees through mist.<br><strong>Complication:</strong> Calls everyone “young acorn”.</p><p><span class='badge'>Best first move</span> ask what the creature feels.</p></div><div class='creature'><h3>Heather Hare</h3><p><strong>Feels:</strong> Fast and worried.<br><strong>Wants:</strong> Its red ribbon untangled.<br><strong>Helps by:</strong> Carries a message.<br><strong>Complication:</strong> Keeps changing direction.</p><p><span class='badge'>Best first move</span> ask what the creature feels.</p></div><div class='creature'><h3>Teacup Dragon</h3><p><strong>Feels:</strong> Hot-tempered but small.<br><strong>Wants:</strong> A biscuit and apology.<br><strong>Helps by:</strong> Boils water for tea or steam clues.<br><strong>Complication:</strong> Sneezes sparks into puddles.</p><p><span class='badge'>Best first move</span> ask what the creature feels.</p></div><div class='creature'><h3>Loch Lantern Jelly</h3><p><strong>Feels:</strong> Shy and glowing.<br><strong>Wants:</strong> A dark pool made less lonely.<br><strong>Helps by:</strong> Lights underwater steps.<br><strong>Complication:</strong> Floats away if shouted at.</p><p><span class='badge'>Best first move</span> ask what the creature feels.</p></div></div><div class="page-number">5</div></section>
+<section class="page"><h2 class="section">Tiny odd creatures</h2><div class=""><div class='creature'><h3>Bog-Boot Brownie</h3><p><strong>Feels:</strong> Helpful and muddy.<br><strong>Wants:</strong> A pair of boots to clean.<br><strong>Helps by:</strong> Finds footprints.<br><strong>Complication:</strong> Cleans the wrong thing first.</p></div><div class='creature'><h3>Cloud Sheep</h3><p><strong>Feels:</strong> Dreamy and soft.<br><strong>Wants:</strong> A shepherd star.<br><strong>Helps by:</strong> Makes a fluffy bridge.<br><strong>Complication:</strong> Drifts when children giggle.</p></div><div class='rulebox'><strong>Make your own:</strong> choose an animal, add a fairy object, then give it one feeling and one wish.</div></div><div class="page-number">6</div></section>
+<section class="page"><h2 class="section">Creature builder</h2><div class="">
+<table><tr><th>Roll</th><th>Animal</th><th>Fairy twist</th><th>Feeling</th></tr><tr><td>1</td><td>Fox</td><td>silver whiskers</td><td>worried</td></tr><tr><td>2</td><td>Hare</td><td>bell tail</td><td>excited</td></tr><tr><td>3</td><td>Owl</td><td>moon glasses</td><td>sleepy</td></tr><tr><td>4</td><td>Pony</td><td>kelp mane</td><td>lonely</td></tr><tr><td>5</td><td>Dragon</td><td>teacup size</td><td>proud</td></tr><tr><td>6</td><td>Sheep</td><td>cloud wool</td><td>confused</td></tr></table>
+<div class='questbox'><strong>Example:</strong> Roll 4, 2, 1: a pony with a bell tail who is worried. It lost the bell that tells the loch when to sleep.</div>
+</div><div class="page-number">7</div></section></main></body></html>

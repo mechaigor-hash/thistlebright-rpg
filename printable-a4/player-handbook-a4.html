@@ -1,0 +1,105 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Player Handbook</title><style>
+@page { size:A4 portrait; margin:0; background:#f8efd8; }
+* { box-sizing:border-box; }
+:root { --ink:#2b2118; --muted:#665540; --red:#87312d; --gold:#b9892e; --green:#285740; --purple:#56336d; --paper:#fff8e9; --paper2:#f5e8ca; --line:#c7aa70; --blue:#24516a; }
+html, body { margin:0; background:#f8efd8; color:var(--ink); font-family: Georgia, 'Times New Roman', serif; }
+.book { font-size:10.25pt; line-height:1.31; }
+p { margin:0 0 2.5mm; } p, li { orphans:3; widows:3; }
+ul, ol { margin:1mm 0 3mm; padding-left:5.2mm; break-inside:avoid-page; } li { margin:.42mm 0; }
+h1,h2,h3,h4 { break-after:avoid-page; text-wrap:balance; }
+.page { position:relative; height:297mm; min-height:297mm; padding:12mm 14mm 19mm; background:
+  radial-gradient(circle at 9% 5%, rgba(184,138,45,.14), transparent 42mm),
+  radial-gradient(circle at 94% 18%, rgba(86,51,109,.08), transparent 48mm),
+  linear-gradient(90deg, rgba(91,56,22,.08), transparent 8mm, transparent calc(100% - 8mm), rgba(91,56,22,.07)),
+  var(--paper); page-break-after:always; overflow:hidden; }
+.page::before { content:''; position:absolute; left:12mm; right:12mm; bottom:12mm; height:1px; background:linear-gradient(90deg, transparent, rgba(184,138,45,.72), transparent); pointer-events:none; z-index:0; }
+.page::after { content:''; position:absolute; inset:5mm; border:1px solid rgba(184,138,45,.43); pointer-events:none; z-index:4; }
+.page > * { position:relative; z-index:1; }
+.page-number { position:absolute; z-index:5; right:14mm; bottom:5.1mm; min-width:8mm; text-align:center; color:#765f37; font-size:8pt; line-height:1; letter-spacing:.08em; padding:1.2mm 0; background:rgba(255,248,229,.84); border-top:1px solid rgba(184,138,45,.55); border-bottom:1px solid rgba(184,138,45,.35); }
+.full-bleed { padding:0; background:#251b16; }
+.full-bleed::before { display:none; }
+.full-bleed::after { inset:6mm; border-color:rgba(255,234,168,.56); }
+.full-bleed img.bg { position:relative; z-index:0; display:block; width:100%; height:309mm; margin:-6mm 0; object-fit:cover; object-position:center; transform:scale(1.035); }
+.scrim { position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(15,10,6,.10), rgba(15,10,6,.04) 45%, rgba(15,10,6,.57)); }
+.title-panel, .overlay { position:absolute; z-index:2; left:50%; transform:translateX(-50%); background:linear-gradient(180deg, rgba(255,250,238,.96), rgba(244,224,180,.91)); border:1px solid rgba(91,57,22,.55); box-shadow:0 1.5mm 8mm rgba(0,0,0,.30); }
+.title-panel { top:19mm; width:166mm; padding:6mm 8mm 5mm; border-top:2.2mm solid var(--red); text-align:center; }
+.title-panel h1 { margin:0; color:#692620; font-size:32pt; line-height:.96; font-variant:small-caps; letter-spacing:.015em; }
+.title-panel p { margin:2.5mm 0 0; color:#3b2a1d; font-size:12.4pt; }
+.overlay { bottom:9mm; width:158mm; padding:4mm 5mm; border-left:2.5mm solid rgba(135,49,45,.78); border-radius:1.4mm 4mm 4mm 1.4mm; }
+.overlay h2, .overlay h3 { margin:0 0 1.5mm; padding:0 0 1mm; border-bottom:1px solid rgba(135,49,45,.35); color:#722c28; font-size:17.5pt; line-height:1.04; font-variant:small-caps; }
+.overlay p:last-child { margin-bottom:0; }
+h2.section { margin:0 0 3mm; color:#6f2d29; font-size:21pt; font-variant:small-caps; letter-spacing:.015em; }
+h2.section::first-letter { font-size:1.25em; }
+h3 { margin:3.6mm 0 1.3mm; color:#285640; font-size:13pt; border-bottom:1px solid rgba(184,138,45,.55); }
+h4 { margin:2.2mm 0 1mm; color:#56336d; font-size:10.8pt; }
+.columns { display:grid; grid-template-columns:1fr 1fr; gap:4.5mm 7mm; align-items:start; }
+.three { display:grid; grid-template-columns:1fr 1fr 1fr; gap:3.3mm; }
+.card-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.6mm; }
+.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.94), rgba(242,226,187,.78)); border:1px solid rgba(154,116,55,.55); box-shadow:inset 0 0 0 1px rgba(255,255,255,.38); }
+.option-card h3, .creature h3 { margin-top:0; }
+.rulebox, .readaloud { margin:2.6mm 0; border-left:2.2mm solid rgba(86,51,109,.66); }
+.questbox { margin:2.8mm 0; border-left:2.2mm solid rgba(40,87,64,.75); }
+.small { font-size:8.8pt; color:var(--muted); }
+.big-stat { font-size:20pt; color:#74322d; letter-spacing:.04em; }
+table { width:100%; border-collapse:collapse; margin:2.2mm 0 3mm; font-size:8.6pt; break-inside:avoid-page; }
+th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { background:#dfd0a4; color:#263b2e; } tr:nth-child(even) td { background:rgba(235,222,184,.58); }
+.keep { break-inside:avoid-page; page-break-inside:avoid; }
+.drop:first-letter { font-size:23pt; line-height:1; color:#87312d; padding-right:1mm; font-weight:700; }
+.spot { height:54mm; overflow:hidden; margin:0 0 3mm; background:#241a16; border:1px solid rgba(128,92,45,.48); break-inside:avoid-page; }
+.spot img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.025); display:block; }
+.hero-strip { position:relative; height:88mm; margin:-3mm -4mm 4mm; overflow:hidden; background:#271d17; break-inside:avoid-page; }
+.hero-strip img { width:100%; height:100%; object-fit:cover; transform:scale(1.035); }
+.hero-strip .mini { position:absolute; left:6mm; bottom:5mm; right:6mm; padding:2.8mm 3.4mm; background:rgba(255,248,229,.92); border-left:2mm solid var(--red); box-shadow:0 1mm 5mm rgba(0,0,0,.22); }
+.sheet-page .page { padding:11mm 13mm 18mm; }
+.sheet { display:grid; grid-template-columns:1fr 1fr; gap:3.2mm; }
+.sheet-box { min-height:17mm; }
+.sheet-box.big { min-height:44mm; }
+.sheet-box.tall { min-height:62mm; }
+.line { border-bottom:1px solid #836a42; min-height:7mm; margin-top:2mm; }
+.badge { display:inline-block; padding:.8mm 2mm; margin:.4mm .8mm .4mm 0; background:#ead9ad; border:1px solid #b9954d; border-radius:4mm; font-size:8.5pt; }
+.toc li { margin:1.2mm 0; }
+</style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/01-cover.png" alt="Player Handbook cover"><div class="scrim"></div><div class="title-panel"><h1>Player Handbook</h1><p>Character creation, simple rules, kindreds, jobs, spells, gear, and a worked example</p></div><div class="overlay"><h3>Thistlebright Adventures</h3><p>Scottish fairy myth, high fantasy, safe wonder, and table rules made for brave young players.</p></div></section>
+<section class="page"><h2 class="section">How to use this book</h2><div class="columns">
+<ol class='toc'><li>Choose who helps as the Guide.</li><li>Make a hero in five easy steps.</li><li>Use Brave, Kind, and Quick when a roll is exciting.</li><li>Keep the story warm: heroes can be muddy, surprised, or silly, but never shamed.</li></ol>
+<div class='hero-strip'><img src='../art/generated/02-part-opener.png' alt='art'><div class='mini'><strong>Table feel:</strong> point at the picture, ask what the hero notices, then roll only when it is exciting.</div></div>
+<div class='rulebox'><strong>For ages 5–7:</strong> read choices aloud, let children point to pictures, and use stars or stickers for stats instead of lots of numbers.</div>
+<h3>What you need</h3><ul><li>One six-sided die.</li><li>A pencil, character sheet, and three little counters.</li><li>A grown-up or older sibling Guide.</li><li>A promise to listen and take turns.</li></ul>
+<h3>What players say</h3><ul><li>“I help.”</li><li>“I try the brave thing.”</li><li>“Can I talk to it?”</li><li>“I have an idea!”</li></ul>
+</div><div class="page-number">2</div></section>
+<section class="page full-bleed"><img class="bg" src="../art/generated/02-part-opener.png" alt="Welcome to the glen"><div class="scrim"></div><div class="overlay"><h2>Welcome to the glen</h2><p>Tiny bells ring beneath the heather. A fairy guide invites the heroes to help a magical place without making the rules too big.</p></div><div class="page-number">3</div></section>
+<section class="page"><h2 class="section">The easy dice rule</h2><div class="columns">
+<p class='drop'>When the answer is obvious, no roll is needed. When everyone leans forward and wonders what might happen, roll one six-sided die and add the hero's matching stat stars.</p>
+<table><tr><th>Total</th><th>Result</th><th>Say it like this</th></tr><tr><td>1–2</td><td>Wobble</td><td>It goes wrong in a funny, safe, or messy way.</td></tr><tr><td>3–4</td><td>Yes, but...</td><td>It works, and there is a tiny cost or choice.</td></tr><tr><td>5+</td><td>Bright success</td><td>It works well, and the hero feels proud.</td></tr></table>
+<div class='rulebox'><strong>No failure spiral:</strong> a wobble changes the scene; it does not stop the adventure.</div>
+<h3>The three stats</h3><ul><li><strong>Brave</strong> — standing tall, protecting, climbing, daring, saying “I can try.”</li><li><strong>Kind</strong> — helping, calming, sharing, talking, understanding feelings.</li><li><strong>Quick</strong> — sneaking, catching, dodging, spotting, balancing.</li></ul>
+</div><div class="page-number">4</div></section>
+<section class="page"><h2 class="section">Stat creation</h2><div class="">
+<div class='option-card'><h3>Step 1: Pick your best stat</h3><p>Put <span class="big-stat">★★</span> in the thing your hero is best at.</p></div>
+<div class='option-card'><h3>Step 2: Pick your okay stat</h3><p>Put <span class="big-stat">★</span> in the thing your hero can usually do.</p></div>
+<div class='option-card'><h3>Step 3: Leave one blank</h3><p>Put <span class="big-stat">—</span> in the thing your hero is still learning. This is not bad; it makes stories fun.</p></div>
+<div class='rulebox'><strong>Example:</strong> Rowan the Beast Friend has Kind ★★, Quick ★, Brave —. Rowan talks gently to foxes, moves carefully, and is still learning to be bold.</div>
+<div class='questbox'><strong>Helper question:</strong> “Which one sounds most like your hero: brave, kind, or quick?”</div>
+<div class='card-grid'>
+<div class='option-card'><h3>If a child wants all ★★</h3><p>Say: “Every hero is still learning something. Which one will be funny to practise?”</p></div>
+<div class='option-card'><h3>If a child worries about —</h3><p>Say: “Blank means story chance, not bad. Friends can help you.”</p></div>
+</div>
+</div><div class="page-number">5</div></section>
+<section class="page full-bleed"><img class="bg" src="../art/generated/03-race-kindreds.png" alt="Step 1: Pick your kindred"><div class="scrim"></div><div class="overlay"><h2>Step 1: Pick your kindred</h2><p>Your kindred is where your fairy-tale hero comes from. It gives a picture, a story gift, and a way to join the world.</p></div><div class="page-number">6</div></section>
+<section class="page"><h2 class="section">Kindreds</h2><div class="columns"><div class='option-card'><h3>Glenfolk</h3><p>Croft, cottage, castle, or market-lane children with practical hearts.</p><ul><li><strong>Gift:</strong> once per adventure, remember a local clue.</li><li><strong>Look:</strong> tartan scarf, muddy boots, treasure pockets.</li></ul></div><div class='option-card'><h3>Thistle Fairy</h3><p>Small bright folk with manners, shimmer, and secret paths.</p><ul><li><strong>Gift:</strong> once per scene, notice nearby fairy magic.</li><li><strong>Look:</strong> petal cloak, star freckles, tiny crown.</li></ul></div><div class='option-card'><h3>Brownie Helper</h3><p>Cozy fixers who tidy, mend, and improve small things.</p><ul><li><strong>Gift:</strong> repair or improve one tiny object each scene.</li><li><strong>Look:</strong> apron, tool pouch, flour on nose.</li></ul></div><div class='option-card'><h3>Selkie-Born</h3><p>Gentle loch-hearted heroes with moonlit dreams.</p><ul><li><strong>Gift:</strong> understand water, weather, or a sad feeling.</li><li><strong>Look:</strong> soft seal-cloak, shell button, sea-glass charm.</li></ul></div><div class='option-card'><h3>Rowan-Kin</h3><p>Forest children with leaf crowns and careful listening.</p><ul><li><strong>Gift:</strong> ask a tree, bird, or breeze for one hint.</li><li><strong>Look:</strong> red berries, green cloak, bark-pattern gloves.</li></ul></div><div class='option-card'><h3>Heather Giantling</h3><p>Small for a giant, huge for a fairy, and very gentle.</p><ul><li><strong>Gift:</strong> lift, push, or carry one heavy thing safely.</li><li><strong>Look:</strong> big knitted jumper, pebble buttons, warm laugh.</li></ul></div></div><div class="page-number">7</div></section>
+<section class="page full-bleed"><img class="bg" src="../art/generated/04-class-paths.png" alt="Step 2: Pick your adventure job"><div class="scrim"></div><div class="overlay"><h2>Step 2: Pick your adventure job</h2><p>Your job says what you like doing when trouble appears. Each job has one gift that helps the whole table.</p></div><div class="page-number">8</div></section>
+<section class="page"><h2 class="section">Adventure jobs</h2><div class="columns"><div class='option-card'><h3>Thistle Knight</h3><p>Protects friends and stands bravely at the front.</p><div class='rulebox'><strong>Gift:</strong> once per scene, turn a scary moment into a brave one.</div></div><div class='option-card'><h3>Loch Scout</h3><p>Finds paths, listens for clues, and spots hidden doors.</p><div class='rulebox'><strong>Gift:</strong> ask the Guide one “what do I notice?” question.</div></div><div class='option-card'><h3>Song-Spark Bard</h3><p>Uses music, jokes, and stories to lift everyone up.</p><div class='rulebox'><strong>Gift:</strong> give another hero +1 after a kind song or cheer.</div></div><div class='option-card'><h3>Hearth Mage</h3><p>Carries warm, safe magic: sparks, steam, tea, and tiny lights.</p><div class='rulebox'><strong>Gift:</strong> create a small helpful magical effect.</div></div><div class='option-card'><h3>Beast Friend</h3><p>Understands animals and earns trust with gentle patience.</p><div class='rulebox'><strong>Gift:</strong> ask a friendly creature for a small favor.</div></div><div class='option-card'><h3>Puzzle Tinker</h3><p>Builds, opens, balances, folds, and wonders how things work.</p><div class='rulebox'><strong>Gift:</strong> make a simple tool from ordinary bits.</div></div></div><div class="page-number">9</div></section>
+<section class="page"><h2 class="section">Spells, gear, and treasure</h2><div class="columns">
+<div class='hero-strip'><img src='../art/generated/02-part-opener.png' alt='art'><div class='mini'><strong>Rule:</strong> magic helps the story; it does not solve every problem alone.</div></div>
+<h3>Safe little spells</h3><ul><li><strong>Glow-pebble:</strong> make a small light.</li><li><strong>Tea-steam:</strong> warm cold hands or reveal a breeze.</li><li><strong>Thistle-tickle:</strong> distract a grumpy creature for a moment.</li><li><strong>Kind whisper:</strong> help someone say what they feel.</li></ul>
+<h3>Starting gear</h3><ul><li>A snack wrapped in cloth.</li><li>One useful tool.</li><li>One pretty charm.</li><li>One thing your hero drew themselves.</li></ul>
+<div class='rulebox'><strong>Treasure is story-first:</strong> a shiny button can matter more than a bag of coins if it unlocks a promise.</div>
+</div><div class="page-number">10</div></section>
+<section class="page"><h2 class="section">Making a hero: quick checklist</h2><div class="">
+<ol><li>Name your hero.</li><li>Pick a kindred.</li><li>Pick an adventure job.</li><li>Choose stats: ★★, ★, and —.</li><li>Pick one gear item and one charm.</li><li>Answer: “Who do I want to help?”</li></ol>
+<div class='questbox'><strong>Worked example:</strong> Rowan Moonbutton is a Selkie-Born Beast Friend. Stats: Kind ★★, Quick ★, Brave —. Gear: oat pouch. Charm: sea-glass button. Rowan wants to help nervous animals.</div>
+<div class='rulebox'><strong>Grown-up tip:</strong> do not quiz a child on rules. Ask what they imagine, then translate that into Brave, Kind, or Quick.</div>
+<div class='card-grid'>
+<div class='option-card'><h3>End of session</h3><p>Ask: “Who did we help?” “What should we draw?” “What promise did we make?”</p></div>
+<div class='option-card'><h3>Tiny advancement</h3><p>After three adventures, add one sticker beside a gift. The sticker is a memory, not a new complicated rule.</p></div>
+</div>
+</div><div class="page-number">11</div></section></main></body></html>
