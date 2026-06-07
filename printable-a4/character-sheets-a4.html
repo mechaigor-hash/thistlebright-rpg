@@ -67,12 +67,17 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .feature-box { break-inside:avoid-page; min-height:38mm; padding:3mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
 .feature-box h3 { margin-top:0; font-size:12pt; }
 .feature-quote { margin-top:3mm; padding:3mm; background:rgba(86,51,109,.10); border-left:2mm solid rgba(86,51,109,.65); font-style:italic; }
-.statline { display:grid; grid-template-columns:repeat(5,1fr); gap:1.5mm; margin:2mm 0 3mm; }
-.stat { text-align:center; padding:1.7mm 1mm; background:#ead9ad; border:1px solid #b9954d; font-size:8.5pt; }
-.stat strong { display:block; color:#6f2d29; font-size:10pt; }
-.shop table, .spell-list table { font-size:8.2pt; }
-.creature-feature .feature-art { height:142mm; }
-.creature-feature .feature-box { min-height:31mm; }
+.statline { display:grid; grid-template-columns:repeat(5,1fr); gap:1.2mm; margin:1.7mm 0 2.5mm; }
+.vitals { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2mm; margin:1.8mm 0 2.2mm; }
+.stat, .vital { text-align:center; padding:1.45mm .8mm; background:#ead9ad; border:1px solid #b9954d; font-size:8pt; }
+.stat strong, .vital strong { display:block; color:#6f2d29; font-size:9.4pt; }
+.shop table, .spell-list table, .advancement table, .currency table { font-size:8.1pt; }
+.creature-feature .feature-top { grid-template-columns:76mm 1fr; align-items:start; }
+.creature-feature .feature-art { height:125mm; }
+.creature-feature .feature-intro { min-height:125mm; }
+.creature-feature .feature-box { min-height:28mm; }
+.creature-lore { font-size:9.3pt; line-height:1.25; margin-bottom:1.2mm; }
+.stat-note { font-size:8.2pt; color:var(--muted); margin-top:1mm; }
 .sheet-page .page { padding:11mm 13mm 18mm; }
 .sheet { display:grid; grid-template-columns:1fr 1fr; gap:3.2mm; }
 .sheet-box { min-height:17mm; }
@@ -81,15 +86,16 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .line { border-bottom:1px solid #836a42; min-height:7mm; margin-top:2mm; }
 .badge { display:inline-block; padding:.8mm 2mm; margin:.4mm .8mm .4mm 0; background:#ead9ad; border:1px solid #b9954d; border-radius:4mm; font-size:8.5pt; }
 .toc li { margin:1.2mm 0; }
-</style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/03-race-kindreds.png" alt="Character Sheets cover"><div class="scrim"></div><div class="title-panel"><h1>Character Sheets</h1><p>Printable hero sheets, helper cards, and quick reference</p></div><div class="overlay"><h3>Thistlebright Adventures</h3><p>Scottish fairy myth, high fantasy, safe wonder, and table rules made for brave young players.</p></div></section>
+</style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/03-race-kindreds.png" alt="Character Sheets cover"><div class="scrim"></div><div class="title-panel"><h1>Adventures in Alba</h1><p>Character Sheets — Printable hero sheets, helper cards, and quick reference</p></div><div class="overlay"><h3>Adventures in Alba</h3><p>Scottish fairy myth, classic fantasy adventure, gentle danger, and table rules made for brave young players.</p></div></section>
 <section class="page"><h2 class="section">Blank hero sheet</h2><div class="">
 <div class='sheet'>
 <div class='sheet-box'><strong>Hero name</strong><div class='line'></div></div><div class='sheet-box'><strong>Player name</strong><div class='line'></div></div>
 <div class='sheet-box'><strong>Kindred</strong><div class='line'></div></div><div class='sheet-box'><strong>Adventure job</strong><div class='line'></div></div>
 <div class='sheet-box'><strong>Strength</strong><br><span class='big-stat'>+__</span></div><div class='sheet-box'><strong>Int</strong><br><span class='big-stat'>+__</span></div>
 <div class='sheet-box'><strong>Agility</strong><br><span class='big-stat'>+__</span></div><div class='sheet-box'><strong>Wis</strong><br><span class='big-stat'>+__</span></div>
-<div class='sheet-box'><strong>Luck</strong><br><span class='big-stat'>+__</span></div><div class='sheet-box'><strong>My gift</strong><div class='line'></div></div>
-<div class='sheet-box big'><strong>Gear and charm</strong><div class='line'></div><div class='line'></div></div><div class='sheet-box big'><strong>I want to help...</strong><div class='line'></div><div class='line'></div></div>
+<div class='sheet-box'><strong>Luck</strong><br><span class='big-stat'>+__</span></div><div class='sheet-box'><strong>HP / MP</strong><br><span class='big-stat'>__/__</span></div>
+<div class='sheet-box'><strong>Level</strong><div class='line'></div></div><div class='sheet-box'><strong>My gift</strong><div class='line'></div></div>
+<div class='sheet-box big'><strong>Coins and gear</strong><div class='line'></div><div class='line'></div></div><div class='sheet-box big'><strong>I want to help...</strong><div class='line'></div><div class='line'></div></div>
 <div class='sheet-box tall'><strong>Draw your hero</strong></div><div class='sheet-box tall'><strong>Adventure notes / stickers</strong></div>
 </div>
 </div><div class="page-number">2</div></section>
@@ -99,13 +105,15 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <div class='sheet-box'><strong>Kindred</strong><p>Selkie-Born</p></div><div class='sheet-box'><strong>Adventure job</strong><p>Beast Friend</p></div>
 <div class='sheet-box'><strong>Strength</strong><br><span class='big-stat'>+0</span></div><div class='sheet-box'><strong>Int</strong><br><span class='big-stat'>+0</span></div>
 <div class='sheet-box'><strong>Agility</strong><br><span class='big-stat'>+1</span></div><div class='sheet-box'><strong>Wis</strong><br><span class='big-stat'>+2</span></div>
-<div class='sheet-box'><strong>Luck</strong><br><span class='big-stat'>+1</span></div><div class='sheet-box'><strong>My gift</strong><p>Ask a friendly creature for a small favor.</p></div>
-<div class='sheet-box big'><strong>Gear and charm</strong><p>Oat pouch, sea-glass button.</p></div><div class='sheet-box big'><strong>I want to help...</strong><p>nervous animals feel safe.</p></div>
+<div class='sheet-box'><strong>Luck</strong><br><span class='big-stat'>+1</span></div><div class='sheet-box'><strong>HP / MP</strong><br><span class='big-stat'>10 / 8</span></div>
+<div class='sheet-box'><strong>Level</strong><p>1</p></div><div class='sheet-box'><strong>My gift</strong><p>Ask a friendly creature for a small favor.</p></div>
+<div class='sheet-box big'><strong>Coins and gear</strong><p>2 copper, oat pouch, sea-glass button.</p></div><div class='sheet-box big'><strong>I want to help...</strong><p>nervous animals feel safe.</p></div>
 <div class='sheet-box tall'><strong>Draw your hero</strong><p class='small'>Soft seal-cloak, muddy boots, kind smile.</p></div><div class='sheet-box tall'><strong>Adventure notes</strong><p>Helped the moon-kelpie foal.</p></div>
 </div>
 </div><div class="page-number">3</div></section>
 <section class="page"><h2 class="section">Quick reference cards</h2><div class="">
 <div class='option-card'><h3>Roll rule</h3><p>Roll d6 + stat bonus. 1–3 wobble. 4–5 yes, but. 6+ bright success.</p></div>
+<div class='option-card'><h3>HP / MP</h3><p>HP handles bumps and tiredness. MP fuels spells. Cantrips cost 0 MP.</p></div>
 <div class='option-card'><h3>Stats</h3><p><strong>Strength</strong> lifts/protects. <strong>Int</strong> solves/knows. <strong>Agility</strong> moves/sneaks. <strong>Wis</strong> notices/understands. <strong>Luck</strong> handles charms/surprises.</p></div>
 <div class='option-card'><h3>Turn prompt</h3><p>“What do you try?” then “How does your hero do it?”</p></div>
 <div class='option-card'><h3>Kindness rule</h3><p>Heroes can be muddy, surprised, or silly. The story never shames a child for helping.</p></div>

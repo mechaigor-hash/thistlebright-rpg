@@ -1,4 +1,4 @@
-# Thistlebright RPG visual style guide
+# Alba RPG visual style guide
 
 Audience: children aged 5–7, with grown-up helper/Guide support.
 Mood: Scottish fairy myth + high fantasy, brave but safe, no gore/horror.
