@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the Adventures in Alba RPG book set.
 
-Original child-friendly tabletop content. The D&D PHB reference is used only for
+Original adventurer-friendly tabletop content. The D&D PHB reference is used only for
 broad bookcraft/style principles; this script does not copy text, art, rules, or
 trade dress.
 """
@@ -48,7 +48,7 @@ h1,h2,h3,h4 { break-after:avoid-page; text-wrap:balance; }
 .title-panel p { margin:2.5mm 0 0; color:#3b2a1d; font-size:12.4pt; }
 .overlay { bottom:9mm; width:158mm; padding:4mm 5mm; border-left:2.5mm solid rgba(135,49,45,.78); border-radius:1.4mm 4mm 4mm 1.4mm; }
 .overlay h2, .overlay h3 { margin:0 0 1.5mm; padding:0 0 1mm; border-bottom:1px solid rgba(135,49,45,.35); color:#722c28; font-size:17.5pt; line-height:1.04; font-variant:small-caps; }
-.overlay p:last-child { margin-bottom:0; }
+.overlay p:last-adventurer { margin-bottom:0; }
 h2.section { margin:0 0 3mm; color:#6f2d29; font-size:21pt; font-variant:small-caps; letter-spacing:.015em; }
 h2.section::first-letter { font-size:1.25em; }
 h3 { margin:3.6mm 0 1.3mm; color:#285640; font-size:13pt; border-bottom:1px solid rgba(184,138,45,.55); }
@@ -69,7 +69,7 @@ h4 { margin:2.2mm 0 1mm; color:#56336d; font-size:10.8pt; }
 .small { font-size:8.8pt; color:var(--muted); }
 .big-stat { font-size:20pt; color:#74322d; letter-spacing:.04em; }
 table { width:100%; border-collapse:collapse; margin:2.2mm 0 3mm; font-size:8.6pt; break-inside:avoid-page; }
-th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { background:#dfd0a4; color:#263b2e; } tr:nth-child(even) td { background:rgba(235,222,184,.58); }
+th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { background:#dfd0a4; color:#263b2e; } tr:nth-adventurer(even) td { background:rgba(235,222,184,.58); }
 .keep { break-inside:avoid-page; page-break-inside:avoid; }
 .drop:first-letter { font-size:23pt; line-height:1; color:#87312d; padding-right:1mm; font-weight:700; }
 .spot { height:54mm; overflow:hidden; margin:0 0 3mm; background:#241a16; border:1px solid rgba(128,92,45,.48); break-inside:avoid-page; }
@@ -125,7 +125,7 @@ class Book:
         return self.n
     def cover_page(self):
         self.n += 1
-        self.pages.append(f'''<section class="page full-bleed"><img class="bg" src="{art(self.cover)}" alt="{esc(self.title)} cover"><div class="scrim"></div><div class="title-panel"><h1>Adventures in Alba</h1><p>{esc(self.title)} — {esc(self.subtitle)}</p></div><div class="overlay"><h3>Adventures in Alba</h3><p>Scottish fairy myth, classic fantasy adventure, gentle danger, and table rules made for brave young players.</p></div></section>''')
+        self.pages.append(f'''<section class="page full-bleed"><img class="bg" src="{art(self.cover)}" alt="{esc(self.title)} cover"><div class="scrim"></div><div class="title-panel"><h1>Adventures in Alba</h1><p>{esc(self.title)} — {esc(self.subtitle)}</p></div><div class="overlay"><h3>Adventures in Alba</h3><p>Scottish fairy myth, classic fantasy adventure, gentle danger, and table rules made for brave Adventurers.</p></div></section>''')
     def art_page(self, image: str, heading: str, text: str):
         p = self.page_no()
         self.pages.append(f'''<section class="page full-bleed"><img class="bg" src="{art(image)}" alt="{esc(heading)}"><div class="scrim"></div><div class="overlay"><h2>{esc(heading)}</h2><p>{esc(text)}</p></div><div class="page-number">{p}</div></section>''')
@@ -219,7 +219,7 @@ ph.cover_page()
 ph.text_page("How to use this book", f"""
 {split(
 '''<ol class='toc'><li>Choose who helps as the Guide.</li><li>Make a hero in five easy steps.</li><li>Use Strength, Int, Agility, Wis, or Luck when a roll is exciting.</li><li>Keep the story warm: heroes can be muddy, surprised, or silly, but never shamed.</li></ol>''' + spot('02-part-opener.png', '<strong>Table feel:</strong> point at the picture, ask what the hero notices, then roll only when it is exciting.'),
-rb('<strong>For ages 5–7:</strong> read choices aloud, let children point to pictures, and use small bonuses (+2, +1, +0) instead of lots of maths.') + '''<h3>What you need</h3>''' + ul(['One six-sided die.', 'A pencil, character sheet, and three little counters.', 'A grown-up or older sibling Guide.', 'A promise to listen and take turns.']) + '''<h3>What players say</h3>''' + ul(['“I help.”', '“I try the brave thing.”', '“Can I talk to it?”', '“I look closer.”', '“Can my friend help?”']) + mini('First table promise', 'Every player gets a turn to say one idea before the dice decide anything.')
+rb('<strong>For Adventurers 5–7:</strong> read choices aloud, let adventurers point to pictures, and use small bonuses (+2, +1, +0) instead of lots of maths.') + '''<h3>What you need</h3>''' + ul(['One six-sided die.', 'A pencil, character sheet, and three little counters.', 'A grown-up or older sibling Guide.', 'A promise to listen and take turns.']) + '''<h3>What players say</h3>''' + ul(['“I help.”', '“I try the brave thing.”', '“Can I talk to it?”', '“I look closer.”', '“Can my friend help?”']) + mini('First table promise', 'Every player gets a turn to say one idea before the dice decide anything.')
 )}
 """, columns=False)
 ph.art_page("02-part-opener.png", "Welcome to the glen", "Tiny bells ring beneath the heather. A fairy guide invites the heroes to help a magical place without making the rules too big.")
@@ -242,7 +242,7 @@ ph.text_page("HP, MP, and resting", f"""
 <div class='advancement'>
 {split(
 '''<h3>Heart Points (HP)</h3><p>HP shows how much bumping, slipping, startling, and tiring a hero can handle before they need a rest. Heroes are never described as badly hurt; low HP means muddy, shaken, sleepy, or overwhelmed.</p><table><tr><th>Level</th><th>Hero HP</th><th>Hero MP</th></tr><tr><td>1</td><td>10 + Strength</td><td>6 + Wis or Luck</td></tr><tr><td>2+</td><td>+2 HP each level</td><td>+1 MP each level</td></tr></table>''',
-'''<h3>Magic Points (MP)</h3><p>MP fuels adventure spells. Cantrips cost 0 MP. Most spells cost 1 MP; bigger story spells cost 2 MP if the Guide allows them.</p><h3>Resting</h3>''' + ul(['<strong>Snack rest:</strong> after a quiet snack, regain 2 HP and 1 MP.', '<strong>Safe camp:</strong> after a full rest, regain all HP and MP.', '<strong>At 0 HP:</strong> the hero sits out one tense moment, then returns with 1 HP when a friend helps.']) + rb('<strong>Gentle rule:</strong> HP is pacing, not punishment. Children should feel worried for the hero, not scared for themselves.')
+'''<h3>Magic Points (MP)</h3><p>MP fuels adventure spells. Cantrips cost 0 MP. Most spells cost 1 MP; bigger story spells cost 2 MP if the Guide allows them.</p><h3>Resting</h3>''' + ul(['<strong>Snack rest:</strong> after a quiet snack, regain 2 HP and 1 MP.', '<strong>Safe camp:</strong> after a full rest, regain all HP and MP.', '<strong>At 0 HP:</strong> the hero sits out one tense moment, then returns with 1 HP when a friend helps.']) + rb('<strong>Gentle rule:</strong> HP is pacing, not punishment. Adventurers should feel worried for the hero, not scared for themselves.')
 )}
 </div>
 """, columns=False)
@@ -254,20 +254,31 @@ ph.text_page("Leveling and feats", f"""
 {card('Deep Spark', p('+2 MP. Your first adventure spell each session costs 0 MP.'))}
 {card('Lucky Pocket', p('Once per session, spend a copper, button, or charm to reroll Luck.'))}
 {card('Helpful Friend', p('When you help another hero, they gain +2 instead of +1.'))}
+{card('Storm Runner', p('At level 4+, ignore one weather trouble per session if you describe a bold dash.'))}
+{card('Oath Keeper', p('At level 4+, when you keep a promise despite danger, regain 1 MP.'))}
+{card('Monster Friend', p('At level 8+, one creature you helped may return once as an ally.'))}
+{card('Relic Bearer', p('At level 8+, carry one extra enchanted item without trouble.'))}
 </div>
 </div>
 """, columns=False)
 ph.art_page("03-race-kindreds.png", "Step 1: Pick your kindred", "Each kindred now has its own illustrated page. Let adventurers point at the picture first, then read only the choices they need.")
 kindreds = [
-    dict(title='Glenfolk', image='kindred-glenfolk.png', intro='Glenfolk are croft, cottage, castle, and market-lane children with practical hearts. They know how to ask neighbours, find a dry path, and make ordinary things feel brave.', gift='Once per adventure, remember a local clue or helpful person.', look=['Tartan scarf, muddy boots, treasure pockets.', 'A wooden badge, snack cloth, or tiny family charm.'], table=['Ask an auntie, shepherd, baker, guard, or gardener for help.', 'Know what a tool is called or where a path should go.', 'Offer practical kindness: a snack, blanket, or fixed latch.'], culture='Glenfolk grow up where ordinary people meet fairy trouble: fishing piers, bakery lanes, crofts, castles, and wind-bent roads. Their families teach names, favours, and practical courage.', home='A smoky cottage, market street, watch tower, or sheep path with a view of rain.', trait='Good manners with common folk; practical plans; knowing who owns the key.', prompt='“I know someone who might help.”'),
+    dict(title='Glenfolk', image='kindred-glenfolk.png', intro='Glenfolk are croft, cottage, castle, and market-lane adventurers with practical hearts. They know how to ask neighbours, find a dry path, and make ordinary things feel brave.', gift='Once per adventure, remember a local clue or helpful person.', look=['Tartan scarf, muddy boots, treasure pockets.', 'A wooden badge, snack cloth, or tiny family charm.'], table=['Ask an auntie, shepherd, baker, guard, or gardener for help.', 'Know what a tool is called or where a path should go.', 'Offer practical kindness: a snack, blanket, or fixed latch.'], culture='Glenfolk grow up where ordinary people meet fairy trouble: fishing piers, bakery lanes, crofts, castles, and wind-bent roads. Their families teach names, favours, and practical courage.', home='A smoky cottage, market street, watch tower, or sheep path with a view of rain.', trait='Good manners with common folk; practical plans; knowing who owns the key.', prompt='“I know someone who might help.”'),
     dict(title='Thistle Fairy', image='kindred-thistle-fairy.png', intro='Thistle Fairies are small bright folk with manners, shimmer, and secret paths. They are excellent at noticing fairy marks that bigger people step over.', gift='Once per scene, notice nearby fairy magic.', look=['Petal cloak, star freckles, tiny crown.', 'Boots that never quite touch the puddles.'], table=['Ask flowers, moths, or beetles for tiny gossip.', 'Spot a hidden ring of mushrooms or a polite fairy door.', 'Remember an old rule of fairy manners.'], culture='Thistle Fairies keep old courtesies: say thank you to doorways, bow to bees, and never laugh at a mushroom ring. They can be dramatic, but they hate lonely places.', home='A flower hall, bell-stem tower, hollow thorn, or moonlit garden path.', trait='Fairy etiquette, secret doors, tiny gossip, and lucky timing.', prompt='“I bow politely and look for the sparkle.”'),
     dict(title='Brownie Helper', image='kindred-brownie-helper.png', intro='Brownie Helpers are cozy fixers who tidy, mend, and improve small things. They turn a messy room, broken spoon, or squeaky hinge into a clue.', gift='Repair or improve one tiny object each scene.', look=['Apron, tool pouch, flour on nose.', 'Buttons, string, thimble hat, or polished spoon.'], table=['Fix a latch, mend a pouch, clean mud from a clue.', 'Find the important thing hiding in a pile of mess.', 'Make a worried home feel safe again.'], culture='Brownie Helpers believe a home is a promise you can sweep, mend, stir, and share. They notice what changed in a room because they know how rooms should feel.', home='A warm kitchen, stable loft, hidden pantry, or workshop under the stairs.', trait='Mending, cleaning, small tools, and spotting what is out of place.', prompt='“I can fix the little thing first.”'),
     dict(title='Selkie-Born', image='kindred-selkie-born.png', intro='Selkie-Born heroes have gentle loch-hearts and moonlit dreams. They understand water, weather, and the soft feelings people hide under their coats.', gift='Understand water, weather, or a sad feeling.', look=['Soft seal-cloak, shell button, sea-glass charm.', 'Wet curls, quiet eyes, and pockets full of smooth stones.'], table=['Hear what rain, waves, or a puddle is trying to say.', 'Comfort a lonely creature without many words.', 'Find a safe way across shallow water.'], culture='Selkie-Born families tell stories beside dark water. They know that songs can be maps, tears can be messages, and coats can carry memories.', home='A loch shore, fishing boat, moon pool, sea cave, or rain-soft village.', trait='Listening, weather sense, comfort, swimming, and quiet courage.', prompt='“I listen to the loch before I answer.”'),
-    dict(title='Rowan-Kin', image='kindred-rowan-kin.png', intro='Rowan-Kin are forest children with leaf crowns and careful listening. Old trees remember them, birds trust them, and red berries mark their promises.', gift='Ask a tree, bird, or breeze for one hint.', look=['Red berries, green cloak, bark-pattern gloves.', 'Leaf crown, acorn buttons, or a walking twig.'], table=['Read bent grass, scratched bark, or a bird alarm.', 'Ask an old tree who passed this way.', 'Hide gently among leaves without frightening anyone.'], culture='Rowan-Kin learn that every path has a memory. They tie red threads for promises and leave crumbs for birds who carry news.', home='A rowan grove, mossy den, treehouse, old standing stone, or fern tunnel.', trait='Nature signs, quiet movement, forest memory, and protective promises.', prompt='“I ask the old tree what it remembers.”'),
+    dict(title='Rowan-Kin', image='kindred-rowan-kin.png', intro='Rowan-Kin are forest adventurers with leaf crowns and careful listening. Old trees remember them, birds trust them, and red berries mark their promises.', gift='Ask a tree, bird, or breeze for one hint.', look=['Red berries, green cloak, bark-pattern gloves.', 'Leaf crown, acorn buttons, or a walking twig.'], table=['Read bent grass, scratched bark, or a bird alarm.', 'Ask an old tree who passed this way.', 'Hide gently among leaves without frightening anyone.'], culture='Rowan-Kin learn that every path has a memory. They tie red threads for promises and leave crumbs for birds who carry news.', home='A rowan grove, mossy den, treehouse, old standing stone, or fern tunnel.', trait='Nature signs, quiet movement, forest memory, and protective promises.', prompt='“I ask the old tree what it remembers.”'),
     dict(title='Heather Giantling', image='kindred-heather-giantling.png', intro='Heather Giantlings are small for giants, huge for fairies, and very gentle. They are best when something heavy, high, or frightening needs a careful friend.', gift='Lift, push, or carry one heavy thing safely.', look=['Big knitted jumper, pebble buttons, warm laugh.', 'Purple heather in hair and boots like little boats.'], table=['Hold a door, carry a tired friend, or move a fallen branch.', 'Stand calmly when a noise is big.', 'Ask hills, stones, or goats about family stories.'], culture='Heather Giantlings are taught that strength is for shelter. They remember hill songs, stone names, and how to make big footsteps soft.', home='A hillside bothy, giant family cairn, sheep meadow, or cave with a warm fire.', trait='Careful strength, carrying friends, big calm, and hill-country stories.', prompt='“I can be big and gentle at the same time.”'),
+
+    dict(title='Cairnling', image='nonhuman-kindreds.png', intro='Cairnlings are living little stone-folk awakened from old hill cairns. They have pebble shoulders, moss brows, and memories older than castles.', gift='Once per adventure, ask old stone what it has seen or endured.', look=['Pebble plates, moss beard, carved rune cheeks.', 'A hollow chest that softly echoes when danger is near.'], table=['Stand firm against wind, fear, or pushing.', 'Remember ancient roads, burials, borders, and broken oaths.', 'Blend into rocks, cairns, walls, and ruins.'], culture='Cairnlings keep the oldest promises of Alba. They carve memory-knots into stones and believe every hill has a voice.', home='A standing stone ring, mountain cairn, ruined tower, or sleeping giant road.', trait='Stone memory, patience, endurance, and old border knowledge.', prompt='“I listen to the stone under my feet.”'),
+    dict(title='Mosskin', image='nonhuman-kindreds.png', intro='Mosskin are antlered green folk of bog, bark, fern, and lichen. Their hair grows tiny leaves, and their footsteps smell of rain.', gift='Once per scene, make plants show a clue, path, or warning.', look=['Small antlers, fern cloak, bark fingers, green-gold eyes.', 'Mushrooms on the hat and a pouch of seeds.'], table=['Ask moss which way feet travelled.', 'Grow a tiny bridge, cushion, or hiding tuft.', 'Know whether a forest is angry, hungry, or afraid.'], culture='Mosskin clans move with seasons and speak to roots before making camp. They dislike axes used without thanks.', home='A bog island, oak hollow, fern den, or hidden green hall.', trait='Plant speech, bog lore, hiding, and patient healing.', prompt='“The moss knows who passed here.”'),
+    dict(title='Corbie-Folk', image='nonhuman-kindreds.png', intro='Corbie-Folk are raven-winged omen-speakers with black feathers, bright eyes, and a fondness for shiny secrets.', gift='Once per adventure, see an omen: a safe warning, lucky sign, or clue in the sky.', look=['Feather mantle, beak-like mask, black wing-cloak.', 'Silver rings, bone charms, or a pouch of bright buttons.'], table=['Fly or glide a short safe distance.', 'Understand ravens, crows, battlefield flags, and old songs.', 'Find shiny clues that others overlook.'], culture='Corbie-Folk are not bad omens; they are messengers. They carry news between clans, cairns, and battlefields.', home='A cliff nest, ruined belfry, pine rookery, or wind tower.', trait='Omens, messenger lore, aerial scouting, and shiny clues.', prompt='“I saw a sign in the black wings.”'),
+    dict(title='Star-Sprite', image='nonhuman-kindreds.png', intro='Star-Sprites are tiny blue-white folk fallen from cold northern lights. They glow when excited and hum when maps are wrong.', gift='Once per scene, glow starlight that reveals hidden ink, footprints, or fairy doors.', look=['Tiny luminous body, comet hair, silver freckles.', 'A lantern shell, star-pin, or moon-thread sash.'], table=['Slip through tiny spaces without separating from the group.', 'Read constellations, old prophecy marks, and moon doors.', 'Light one dark corner without using fire.'], culture='Star-Sprites tell time by constellations and trade dreams for safe shelter. They fear cages and love open skies.', home='A crystal cave, observatory ruin, moon pool, or thistle lantern.', trait='Starlight, tiny size, prophecy marks, and wonder.', prompt='“I shine just enough to see the secret.”'),
+    dict(title='Myceling', image='nonhuman-kindreds.png', intro='Mycelings are mushroom-and-root folk who remember places through underground threads. They are quiet, strange, and excellent at finding hidden connections.', gift='Once per adventure, ask the under-root network whether two places, people, or clues are connected.', look=['Mushroom cap hood, root fingers, soft glowing spots.', 'A satchel of spores, clay beads, and beetle-shell buttons.'], table=['Sense tunnels, cellars, buried doors, and old roots.', 'Share a whisper through a root or mushroom ring.', 'Recognize poisons, potions, and strange spores.'], culture='Mycelings are patient archivists of the earth. They treat decay as a library and old logs as storybooks.', home='A mushroom circle, root archive, cellar grove, or damp fairy hall.', trait='Connections, underground maps, spores, and quiet wisdom.', prompt='“Everything is connected underneath.”'),
+
 ]
-kindred_stats = {'Glenfolk':'Int or Wis', 'Thistle Fairy':'Luck', 'Brownie Helper':'Int', 'Selkie-Born':'Wis', 'Rowan-Kin':'Wis or Agility', 'Heather Giantling':'Strength'}
-kindred_scenes = {'Glenfolk':'A village gate is stuck and everyone has an idea.', 'Thistle Fairy':'A secret flower-door opens only after a polite greeting.', 'Brownie Helper':'A kitchen clue is hidden under a very silly mess.', 'Selkie-Born':'A sad loch-creature will only speak to someone gentle.', 'Rowan-Kin':'An old tree remembers the wrong name and needs patient listening.', 'Heather Giantling':'A fallen branch blocks the path, but small animals live underneath.'}
+kindred_stats = {'Glenfolk':'Int or Wis', 'Thistle Fairy':'Luck', 'Brownie Helper':'Int', 'Selkie-Born':'Wis', 'Rowan-Kin':'Wis or Agility', 'Heather Giantling':'Strength', 'Cairnling':'Strength or Wis', 'Mosskin':'Wis', 'Corbie-Folk':'Agility or Luck', 'Star-Sprite':'Luck', 'Myceling':'Int or Wis'}
+kindred_scenes = {'Glenfolk':'A village gate is stuck and everyone has an idea.', 'Thistle Fairy':'A secret flower-door opens only after a polite greeting.', 'Brownie Helper':'A kitchen clue is hidden under a very silly mess.', 'Selkie-Born':'A sad loch-creature will only speak to someone gentle.', 'Rowan-Kin':'An old tree remembers the wrong name and needs patient listening.', 'Heather Giantling':'A fallen branch blocks the path, but small animals live underneath.', 'Cairnling':'A border stone remembers the wrong king and blocks a road.', 'Mosskin':'A bog path grows angry because someone cut living roots.', 'Corbie-Folk':'Ravens circle a battlefield cairn with an omen nobody understands.', 'Star-Sprite':'A moon door opens only for starlight and a brave question.', 'Myceling':'The under-root network whispers that two mysteries share one source.'}
 for k in kindreds:
     ph.feature_page('Kindred', k['title'], k['image'], k['intro'], feature_grid([
         ('Story gift', p(k['gift'])),
@@ -391,7 +402,7 @@ ph.text_page("Equipment shop", f"""
 <tr><td>Bell</td><td>2 copper</td><td>Call a friend, mark a rhythm, or wake a sleepy path.</td></tr>
 <tr><td>Blank notebook</td><td>2 copper</td><td>Draw maps, clues, promises, and creature friends.</td></tr>
 </table>
-<h3>Coin names</h3><table><tr><th>Coin</th><th>Value</th><th>Use</th></tr><tr><td>Copper</td><td>Basic coin</td><td>Snacks, chalk, rope, simple tools.</td></tr><tr><td>Silver</td><td>10 copper</td><td>Starter purse, good tools, inn beds.</td></tr><tr><td>Gold</td><td>10 silver</td><td>Rare rewards, mounts, special training.</td></tr><tr><td>Mythral</td><td>10 gold</td><td>Legendary fairy metal; a story treasure.</td></tr></table><h3>Starter kits</h3><table><tr><th>Kit</th><th>Cost</th><th>Contains</th></tr>
+<h3>Coin names</h3><table><tr><th>Coin</th><th>Value</th><th>Use</th></tr><tr><td>Copper</td><td>Basic coin</td><td>Snacks, chalk, rope, simple tools.</td></tr><tr><td>Silver</td><td>10 copper</td><td>Starter purse, good tools, inn beds.</td></tr><tr><td>Gold</td><td>10 silver</td><td>Rare rewards, mounts, special training.</td></tr><tr><td>Mythral</td><td>100 gold</td><td>Legendary fairy metal; a story treasure.</td></tr></table><h3>Starter kits</h3><table><tr><th>Kit</th><th>Cost</th><th>Contains</th></tr>
 <tr><td>Knight kit</td><td>8 copper</td><td>Wooden shield, rope, snack bundle.</td></tr>
 <tr><td>Scout kit</td><td>8 copper</td><td>Lantern, chalk, soft boots.</td></tr>
 <tr><td>Mage kit</td><td>8 copper</td><td>Lucky button, notebook, bell, chalk.</td></tr>
@@ -408,13 +419,13 @@ ph.text_page("More spell and gear examples", f"""
 ph.text_page("Making a hero: quick checklist", f"""
 <ol><li>Name your hero.</li><li>Pick a kindred.</li><li>Pick an adventure job.</li><li>Choose stats: one +2, two +1, two +0.</li><li>Pick one gear item and one charm.</li><li>Answer: “Who do I want to help?”</li></ol>
 {qa('<strong>Worked example:</strong> Rowan Moonbutton is a Selkie-Born Beast Friend. Stats: Wis +2, Agility +1, Luck +1, Strength +0, Int +0. Gear: oat pouch. Charm: sea-glass button. Rowan wants to help nervous animals.')}
-{rb('<strong>Grown-up tip:</strong> do not quiz a child on rules. Ask what they imagine, then translate that into Strength, Int, Agility, Wis, or Luck.')}
+{rb('<strong>Grown-up tip:</strong> do not quiz a adventurer on rules. Ask what they imagine, then translate that into Strength, Int, Agility, Wis, or Luck.')}
 <h3>Common first purchases</h3><table><tr><th>Hero idea</th><th>Good buys</th></tr><tr><td>Protector</td><td>Shield, rope, snack bundle.</td></tr><tr><td>Explorer</td><td>Lantern, chalk, soft boots.</td></tr><tr><td>Mage</td><td>Lucky button, bell, notebook.</td></tr><tr><td>Animal friend</td><td>Oat pouch, warm cloak, snack.</td></tr></table>
 <div class='card-grid'>
 {card('End of session', p('Ask: “Who did we help?” “What should we draw?” “What promise did we make?”'))}
 {card('Track level', p('After a finished adventure, mark one story star. Four story stars usually means the hero gains a level.'))}
 {card('If a player is stuck', p('Offer two choices: “Do you want to talk kindly, move quickly, or do the brave thing?”'))}
-{card('If the group gets loud', p('Point to the picture, name one sound in the scene, then ask one child what their hero notices.'))}
+{card('If the group gets loud', p('Point to the picture, name one sound in the scene, then ask one adventurer what their hero notices.'))}
 </div>
 """, columns=False)
 
@@ -437,35 +448,61 @@ ph.text_page("Spell upgrades", f"""
 {card('Spell feat: Shared Spark', p('Spend 1 extra MP so a friend also gets +1.'))}
 {card('Spell feat: Bright Cantrip', p('Pick one cantrip. It can affect two tiny things instead of one.'))}
 {card('Spell feat: Old Words', p('You may ask the Guide what one rune, rhyme, or fairy name means.'))}
+{card('Spell feat: Potion Nose', p('You can identify a potion, poison, or enchantment ingredient by smell once per session.'))}
+{card('Spell feat: Rune Stitcher', p('You may repair one damaged charm during a safe camp.'))}
 </div>
 """, columns=False)
 ph.text_page("Advanced combat options", f"""
 {split(
 '<h3>Armor and shields</h3><table><tr><th>Gear</th><th>Cost</th><th>Rule</th></tr><tr><td>Padded cloak</td><td>4 silver</td><td>Once per scene, reduce 1 HP of trouble.</td></tr><tr><td>Wooden shield</td><td>6 silver</td><td>Protect a friend at +1 if you can reach them.</td></tr><tr><td>Thistle charm</td><td>1 gold</td><td>Reduce one bramble/spell trouble by 1 HP.</td></tr></table>',
-'<h3>Conditions</h3><table><tr><th>Condition</th><th>Means</th><th>Ends when</th></tr><tr><td>Tangled</td><td>You need help to move far.</td><td>Strength, Agility, or a friend helps.</td></tr><tr><td>Startled</td><td>Next roll is -1 unless soothed.</td><td>Friend says something kind.</td></tr><tr><td>Sleepy</td><td>You can act, but slowly.</td><td>Snack, song, or fresh air.</td></tr><tr><td>Glittered</td><td>Easy to spot.</td><td>Wash, cloak, or scene ends.</td></tr></table>' + rb('<strong>Boss phases:</strong> at half HP, a boss changes the scene: fog rolls in, bridge wakes, or the creature admits what it truly wants.')
+'<h3>Conditions</h3><table><tr><th>Condition</th><th>Means</th><th>Ends when</th></tr><tr><td>Tangled</td><td>You need help to move far.</td><td>Strength, Agility, or a friend helps.</td></tr><tr><td>Startled</td><td>Next roll is -1 unless soothed.</td><td>Friend says something kind.</td></tr><tr><td>Sleepy</td><td>You can act, but slowly.</td><td>Snack, song, or fresh air.</td></tr><tr><td>Glittered</td><td>Easy to spot.</td><td>Wash, cloak, or scene ends.</td></tr><tr><td>Poisoned</td><td>A venom causes a temporary condition.</td><td>Use the listed cure.</td></tr><tr><td>Cursed</td><td>A spell changes the scene rules.</td><td>Break the rune, oath, or item.</td></tr></table>' + rb('<strong>Boss phases:</strong> at half HP, a boss changes the scene: fog rolls in, bridge wakes, or the creature admits what it truly wants.') + '<h3>Battle complications</h3>' + ul(['Falling stones split the party into two zones.', 'A banner gives enemies +1 until cut down.', 'A poison cloud makes everyone seek clean water.', 'A frightened monster grabs a map instead of a hero.'])
+)}
+""", columns=False)
+
+ph.art_page("nonhuman-kindreds.png", "Stranger Kindreds of Alba", "Not every adventurer is human-shaped. Alba welcomes stone-born, moss-horned, raven-winged, star-lit, and mushroom-root heroes.")
+ph.text_page("Enchantments and magic items", f"""
+{split(
+'<h3>Enchanting rule</h3>' + ul(['Choose a plain item: blade, cloak, ring, harp, lantern, boots, spoon, shield.', 'Choose one enchantment word: Bright, Thorn, Loch, Cairn, Storm, Rowan, Moon, Ember.', 'Pay the ingredient cost and make a promise about how the item will be used.', 'Enchanted items add +1 only when the story clearly matches their word.']) + rb('<strong>Limit:</strong> carry one active enchanted item per level. Mythral items count as two.'),
+'<h3>Enchantment spells</h3><table><tr><th>Spell</th><th>Cost</th><th>Effect</th></tr><tr><td>Wake Charm</td><td>1 MP</td><td>Ask a sleeping magic item what it wants.</td></tr><tr><td>Bind Brightness</td><td>2 MP + silver dust</td><td>Store one cantrip inside an item until next dawn.</td></tr><tr><td>Rune-Lock</td><td>2 MP</td><td>Seal a door, chest, or promise until the right word is spoken.</td></tr><tr><td>Unweave Curse</td><td>3 MP group ritual</td><td>Turn a harmful enchantment into a clue, mark, or choice.</td></tr></table>'
+)}
+""", columns=False)
+ph.text_page("Magic item examples", f"""
+<div class='card-grid'>
+{card('Cairn-Knuckle Ring', p('+1 Strength when holding, bracing, or remembering an oath. If used selfishly, it grows heavy.'))}
+{card('Rowan-Bark Shield', p('Once per scene, reduce 2 HP of trouble from thorns, arrows, or frightened beasts.'))}
+{card('Loch-Mirror Cloak', p('+1 Agility in mist or moonlight; on a wobble, your reflection gives advice too late.'))}
+{card('Star-Moth Lantern', p('Reveals hidden ink, invisible tracks, and fairy doors; moths follow it everywhere.'))}
+{card('Storm-Harp String', p('A bard can spend 1 MP to turn thunder, shouting, or battle-noise into a steady rhythm.'))}
+{card('Mythral Seed Blade', p('A legendary story weapon. It cuts curses and brambles, not helpless foes. Worth 100 gold or one impossible promise.'))}
+</div>
+""", columns=False)
+ph.text_page("Potions and poisons", f"""
+{split(
+'<h3>Potions</h3><table><tr><th>Potion</th><th>Cost</th><th>Effect</th></tr><tr><td>Heatherheart Draught</td><td>2 silver</td><td>Regain 3 HP and ignore Startled once.</td></tr><tr><td>Loch-Breath Sip</td><td>3 silver</td><td>Breathe under calm water for one scene.</td></tr><tr><td>Giant-Step Tonic</td><td>1 gold</td><td>+1 Strength for lifting, pushing, or carrying in one scene.</td></tr><tr><td>Foxwit Tea</td><td>1 gold</td><td>+1 Int for riddles, traps, or runes in one scene.</td></tr></table>',
+'<h3>Poisons and venoms</h3><p>Poisons in this game are scary obstacles, not lethal gore. They make adventurers sleepy, confused, glittered, or slowed until treated.</p><table><tr><th>Poison</th><th>Source</th><th>Effect / cure</th></tr><tr><td>Nightshade Jam</td><td>Redcap trick</td><td>Sleepy for one scene; cured by bitter tea.</td></tr><tr><td>Black Bog Venom</td><td>Bog drake bite or thorn</td><td>-1 Agility until washed with clean running water.</td></tr><tr><td>Iron Crow Ink</td><td>Cursed feather</td><td>Cannot speak a lie; cured by confessing one useful truth.</td></tr><tr><td>Frost-Thistle Prickle</td><td>Winter barb</td><td>Startled; cured by warm cloak and a brave song.</td></tr></table>'
 )}
 """, columns=False)
 ph.write()
 
 # Guide book
-gm = Book("guide-book", "Guide Book", "How to run warm high-fantasy adventures for 5–7 year olds, with examples and dialogue", "02-part-opener.png")
+gm = Book("guide-book", "Guide Book", "How to run warm high-fantasy adventures for Adventurers 5–7, with examples and dialogue", "02-part-opener.png")
 gm.cover_page()
 gm.text_page("Your job as Guide", f"""
-<p class='drop'>The Guide is not the boss of fun. You describe the world, listen to children, ask what they try, and help the dice turn ideas into surprises.</p>
+<p class='drop'>The Guide is not the boss of fun. You describe the world, listen to adventurers, ask what they try, and help the dice turn ideas into surprises.</p>
 {split(
 ul(['Use short scenes: 5 to 12 minutes each.', 'Give choices in twos or threes, not long menus.', 'Name feelings before fights: scared, proud, sleepy, lonely, worried.', 'Let adventurers succeed often. The fun is in how it happens.']) + spot('03-race-kindreds.png', '<strong>Guide stance:</strong> make every scene readable from the art, then support the adventurer’s idea.'),
 rb('<strong>Safety tone:</strong> no gore, no cruelty, no permanent harm. Trouble can be spooky, muddy, noisy, or puzzling.') + '''<h3>Useful phrases</h3>''' + ul(['“Yes, and what does that look like?”', '“Who are you helping?”', '“Which stat fits your idea?”', '“That is a wobble, so something funny changes.”']) + mini('Guide rhythm', 'Picture → feeling → choice → roll only if exciting → warm change.')
 )}
 """, columns=False)
 gm.text_page("Scene recipe", f"""
-{card('1. A picture', p('Start with something children can see: misty bridge, silver fox, giant teacup, glowing thistle.'))}
+{card('1. A picture', p('Start with something adventurers can see: misty bridge, silver fox, giant teacup, glowing thistle.'))}
 {card('2. A feeling', p('Pick one: worried, excited, lonely, sleepy, proud, grumpy, curious.'))}
 {card('3. A choice', p('Offer two helpful directions: follow the bells or talk to the fox.'))}
 {card('4. A roll', p('Only roll if the answer is exciting. Use Strength, Int, Agility, Wis, or Luck.'))}
 {card('5. A change', p('After each scene, something should be different: a clue, friend, promise, opened path, or new question.'))}
 {qa('<strong>Read aloud:</strong> “The moon is caught in the loch like a silver coin. The kelpie foal stamps, worried and wet. What do you do?”')}
 """, columns=False)
-gm.art_page("05-bestiary-catalog.png", "Creatures are characters", "A creature should usually want something before it blocks something. Children can help, trick, soothe, race, sing, or befriend it.")
+gm.art_page("05-bestiary-catalog.png", "Creatures are characters", "A creature should usually want something before it blocks something. Adventurers can help, trick, soothe, race, sing, or befriend it.")
 gm.text_page("Running rolls and wobbles", f"""
 <h3>Choosing the stat</h3>{ul(['Use <strong>Strength</strong> for lifting, climbing, holding, pushing, or protecting.', 'Use <strong>Int</strong> for puzzles, plans, facts, reading runes, or clever tricks.', 'Use <strong>Agility</strong> for speed, balance, dodging, sneaking, or catching.', 'Use <strong>Wis</strong> for feelings, nature, animals, and noticing what matters.', 'Use <strong>Luck</strong> for charms, surprises, fairy bargains, and last chances.'])}
 <h3>Good wobbles</h3>{ul(['A hat blows away.', 'The map gets wet.', 'A bell rings and wakes someone.', 'A helpful creature misunderstands.', 'A path opens, but it is muddy.'])}
@@ -486,9 +523,9 @@ gm.text_page("Scene dressing examples", f"""
 '<h3>Dialogue starters</h3>' + ul(['Bridge: “I will not open for stomping feet. I open for polite ones.”', 'Sprite: “I am not lost. I am doing royal path inspection.”', 'Brownie: “Hold still! Those boots have clues on them!”', 'Fox: “A clever adventurer would notice the quiet puddle, and you look very clever.”', 'Owl: “Young acorn, I remember the path. I forgot the name of remembering.”']) + qa('<strong>Ask the players:</strong> “What do you say back?” “Who helps?” “Which stat fits your idea?”')
 )}
 """, columns=False)
-gm.text_page("Running dialogue with young players", f"""
+gm.text_page("Running dialogue with Adventurers", f"""
 <div class='card-grid'>
-{card('Offer two tones', p('“Do you ask gently, make a joke, or stand tall?” Children often answer faster when the choices are emotional.'))}
+{card('Offer two tones', p('“Do you ask gently, make a joke, or stand tall?” Adventurers often answer faster when the choices are emotional.'))}
 {card('Repeat their idea proudly', p('Adventurer: “I give it a biscuit.” Guide: “Excellent. You offer the dragon a biscuit like a peace treaty.”'))}
 {card('Make NPCs want something', p('Every speaker wants a snack, a promise, a name remembered, a path cleaned, a song, or help being brave.'))}
 {card('Let wobbles talk', p('On a wobble, the creature misunderstands: “You said boot? I thought you said flute!” Then the scene keeps moving.'))}
@@ -525,7 +562,7 @@ gm.text_page("More ready dialogue", f"""
 {card('Helpful shopkeeper', p('Shopkeeper: “Copper buys rope, silver buys a kit, gold buys a favour, and mythral buys a legend. Spend kindly.”'))}
 {card('Creature at 0 HP', p('Do not narrate harm. Say: “The creature is tired, muddy, and ready to listen.” Then offer help, promise, snack, or rest.'))}
 </div>
-{qa('<strong>Scene loop example:</strong> picture → feeling → choice → roll → wobble or success → new clue. Keep naming the next useful thing children can touch, ask, follow, or comfort.')}
+{qa('<strong>Scene loop example:</strong> picture → feeling → choice → roll → wobble or success → new clue. Keep naming the next useful thing adventurers can touch, ask, follow, or comfort.')}
 """, columns=False)
 
 gm.text_page("Guide depth: boss scenes and safety", f"""
@@ -548,14 +585,14 @@ be.text_page("How to use creature stat blocks", f"""
 be.text_page("Difficulty Rating", f"""
 <div class='advancement'>
 {rb('<strong>Formula:</strong> DR = round((HP + MP + Level×3 + positive stat bonuses×2) ÷ 10). Minimum DR is 1.')}
-<table><tr><th>DR</th><th>Meaning</th><th>Use at table</th></tr><tr><td>1</td><td>Tiny trouble</td><td>One child can usually solve it with a good idea.</td></tr><tr><td>2</td><td>Small scene</td><td>Good for a warm-up creature or comic obstacle.</td></tr><tr><td>3</td><td>Fair challenge</td><td>Needs teamwork, a spell, or two rolls.</td></tr><tr><td>4</td><td>Big scene</td><td>Use as the main creature for an adventure.</td></tr><tr><td>5+</td><td>Boss or wonder</td><td>Use rarely; make it emotional, not scary.</td></tr></table>
-{qa('<strong>Balancing tip:</strong> for 5–7 year olds, “harder” should mean more choices and more wonder, not harsher consequences.')}
+<table><tr><th>DR</th><th>Meaning</th><th>Use at table</th></tr><tr><td>1</td><td>Tiny trouble</td><td>One adventurer can usually solve it with a good idea.</td></tr><tr><td>2</td><td>Small scene</td><td>Good for a warm-up creature or comic obstacle.</td></tr><tr><td>3</td><td>Fair challenge</td><td>Needs teamwork, a spell, or two rolls.</td></tr><tr><td>4</td><td>Big scene</td><td>Use as the main creature for an adventure.</td></tr><tr><td>5+</td><td>Boss or wonder</td><td>Use rarely; make it emotional, not scary.</td></tr></table>
+{qa('<strong>Balancing tip:</strong> for Adventurers 5–7, “harder” should mean more choices and more wonder, not harsher consequences.')}
 </div>
 """, columns=False)
 creatures = [
- dict(name='Moon-Kelpie Foal', img='creature-moon-kelpie-foal.png', intro='A nervous water-pony child with a kelp mane and a moon-bell collar. It wants to be brave but splashes when startled.', lore='It circles moonlit shallows where lost songs sink. If heroes speak gently, it lowers its head so the bell-shaped mark on its collar can be seen. It is not trying to block the path; it is afraid the loch will forget bedtime.', stats={'STR':1,'INT':0,'AGI':2,'WIS':1,'LUK':1}, hp=9, mp=4, level=1, wants='Its moon-bell returned.', helps='Carries one hero safely across shallow water.', moves=['Moonlit Splash (1 MP): makes stepping stones shimmer for one turn.', 'Foal Gallop: races across water if someone sings softly.'], comp='Splashes the map when startled.'),
+ dict(name='Moon-Kelpie Foal', img='creature-moon-kelpie-foal.png', intro='A nervous water-pony adventurer with a kelp mane and a moon-bell collar. It wants to be brave but splashes when startled.', lore='It circles moonlit shallows where lost songs sink. If heroes speak gently, it lowers its head so the bell-shaped mark on its collar can be seen. It is not trying to block the path; it is afraid the loch will forget bedtime.', stats={'STR':1,'INT':0,'AGI':2,'WIS':1,'LUK':1}, hp=9, mp=4, level=1, wants='Its moon-bell returned.', helps='Carries one hero safely across shallow water.', moves=['Moonlit Splash (1 MP): makes stepping stones shimmer for one turn.', 'Foal Gallop: races across water if someone sings softly.'], comp='Splashes the map when startled.'),
  dict(name='Thistle Sprite', img='creature-thistle-sprite.png', intro='A tiny proud fairy with a thorn crown too large for its head. It guards paths because it secretly feels lonely.', lore='It announces itself with trumpet noises made from a grass stem. The crown keeps sliding over one eye, but the sprite insists this is royal fashion. It wants respect, company, and one job that feels important.', stats={'STR':-1,'INT':1,'AGI':2,'WIS':0,'LUK':2}, hp=6, mp=6, level=2, wants='Someone to admire its thorn crown.', helps='Shows a hidden fairy path.', moves=['Prickle Point (1 MP): blocks a rude shortcut with harmless thistles.', 'Royal Decree: demands a compliment or tiny flag.'], comp='Gets offended by rude pointing.'),
- dict(name='Moss Troll Napper', img='creature-moss-troll-napper.png', intro='A huge mossy troll who only wants a quiet nap. Birds nest in its hair and bubbles puff from its nose.', lore='This troll is older than several bridges and softer than it looks. Children may climb its mossy shoulder if they ask first. It becomes a problem when its snores roll downhill and shake clues loose from the trees.', stats={'STR':3,'INT':0,'AGI':-1,'WIS':1,'LUK':0}, hp=18, mp=2, level=3, wants='A quieter place to nap.', helps='Lifts a log bridge.', moves=['Gentle Lift: moves something heavy without breaking it.', 'Bubble Snore (1 MP): floats clues away unless caught.'], comp='Snores bubbles that float away clues.'),
+ dict(name='Moss Troll Napper', img='creature-moss-troll-napper.png', intro='A huge mossy troll who only wants a quiet nap. Birds nest in its hair and bubbles puff from its nose.', lore='This troll is older than several bridges and softer than it looks. Adventurers may climb its mossy shoulder if they ask first. It becomes a problem when its snores roll downhill and shake clues loose from the trees.', stats={'STR':3,'INT':0,'AGI':-1,'WIS':1,'LUK':0}, hp=18, mp=2, level=3, wants='A quieter place to nap.', helps='Lifts a log bridge.', moves=['Gentle Lift: moves something heavy without breaking it.', 'Bubble Snore (1 MP): floats clues away unless caught.'], comp='Snores bubbles that float away clues.'),
  dict(name='Silver Fox Familiar', img='creature-silver-fox-familiar.png', intro='A polite fox with silver whiskers, clever eyes, and too many compliments. It knows tracks no one else can see.', lore='The fox belongs to no wizard but knows every wizard worth knowing. It speaks in compliments because a curse once made rude words taste like nettles. It tests heroes with riddles to learn whether they listen.', stats={'STR':0,'INT':2,'AGI':2,'WIS':1,'LUK':1}, hp=10, mp=5, level=3, wants='A riddle answered.', helps='Leads heroes to tracks.', moves=['Compliment Riddle (1 MP): gives a clue wrapped in praise.', 'Silver Step: vanishes behind moonlit grass.'], comp='Only speaks in compliments.'),
  dict(name='Rowan Owl', img='creature-rowan-owl.png', intro='An old owl wearing rowan berries like spectacles. It sees through mist but forgets names at the funniest time.', lore='It remembers storms from before the village had a name, but it may call a lantern a “little sun bucket.” Heroes who are patient receive excellent advice hidden inside silly mistakes.', stats={'STR':0,'INT':2,'AGI':1,'WIS':3,'LUK':0}, hp=11, mp=6, level=4, wants='Help remembering a name.', helps='Sees through mist.', moves=['Mist Sight (1 MP): spots hidden doors or feelings.', 'Old Acorn Advice: gives wise advice with one wrong noun.'], comp='Calls everyone “young acorn.”'),
  dict(name='Heather Hare', img='creature-heather-hare.png', intro='A fast hare with a red ribbon tangled around one paw. It is worried, quick, and very easy to startle.', lore='The hare carries messages between hill paths but cannot sit still long enough to explain them. It thumps warnings in complicated rhythms. A calm hero can turn the thumps into a map.', stats={'STR':0,'INT':0,'AGI':3,'WIS':1,'LUK':1}, hp=8, mp=3, level=2, wants='Its red ribbon untangled.', helps='Carries a message.', moves=['Zigzag Dash: outruns almost anything on open heather.', 'Ear Twitch (1 MP): hears danger before it arrives.'], comp='Keeps changing direction.'),
@@ -585,13 +622,30 @@ be.text_page("Creature builder", f"""
 {card('Set HP and MP', p('Tiny: HP 6–8, MP 2–4. Normal: HP 9–12, MP 3–6. Big: HP 15+, MP 2–8.'))}
 {card('Set the stats', p('Pick one +3, one +2, two +1, and one +0. Very tiny creatures may have one -1 and one +3.'))}
 {card('Calculate DR', p('DR = round((HP + MP + Level×3 + positive stats×2) ÷ 10). Minimum 1.'))}
-{card('Make it child-friendly', p('Replace defeat with help, chase, song, puzzle, promise, snack, or finding a lost thing.'))}
+{card('Make it adventurer-friendly', p('Replace defeat with help, chase, song, puzzle, promise, snack, or finding a lost thing.'))}
 </div>
 """, columns=False)
 be.text_page("Creature tactics without scary combat", f"""
 {split(
 '<h3>What enemies do</h3>' + ul(['<strong>Guard:</strong> blocks a path until a promise is made.', '<strong>Grab:</strong> takes a hat, map, boot, spoon, or bell.', '<strong>Hide:</strong> runs into mist, reeds, cupboards, or clouds.', '<strong>Challenge:</strong> asks for a race, riddle, song, or brave sentence.', '<strong>Spend MP:</strong> uses one magical move, then gets tired or silly.']) + rb('<strong>At 0 HP:</strong> enemies stop, slump, nap, cry, apologise, or ask for help. No gore, no cruelty.'),
 '<h3>Difficulty in scenes</h3><table><tr><th>Party</th><th>Good DR</th><th>Use</th></tr><tr><td>1 new hero</td><td>1–2</td><td>One creature, one clear want.</td></tr><tr><td>2–3 heroes</td><td>2–3</td><td>Teamwork or one spell helps.</td></tr><tr><td>4 heroes</td><td>3–4</td><td>Main scene, multiple approaches.</td></tr><tr><td>Finale</td><td>4–5</td><td>Big wonder, many friends return.</td></tr></table>' + qa('<strong>Guide note:</strong> if a DR feels too high, reduce HP by 2 or MP by 1, or make the creature want help sooner.')
+)}
+""", columns=False)
+
+be.art_page("scary-bestiary-group.png", "Darker things in Alba", "Alba can be scary: haunted cairns, border wolves, cursed crows, bog drakes, draugr raiders, and redcap warbands.")
+extra_creatures = [
+ dict(name='Black Bog Drake', img='scary-bestiary-group.png', intro='A low, tar-black drake with peat smoke nostrils and ember eyes. It coils under rotten bridges and hates bright lanterns.', lore='Bog drakes are born where old battle magic sinks into marsh water. They are dangerous guardians, but they can be tricked by clean fire, honest songs, or offering to drain poisoned pools.', stats={'STR':4,'INT':1,'AGI':1,'WIS':1,'LUK':2}, hp=28, mp=10, level=7, wants='The bog left undisturbed and its poisoned pool cleansed.', helps='Guards a hidden causeway after being respected.', moves=['Peat-Smoke Breath (2 MP): Startled and lost unless Wis resists.', 'Bog Snap: 3 HP trouble and Tangled boots.', 'Sinkhole Coil (2 MP): changes the map by opening black mud.'], comp='Hates lantern-light but follows songs.'),
+ dict(name='Border Warg of the Red Wall', img='scary-bestiary-group.png', intro='An armored grey wolf bred by southern war-mages. It wears broken Albion chain and smells fear through stone.', lore='These wargs are not evil by nature; they were trained by conquerors. A freed warg may become a fierce protector of Alba.', stats={'STR':3,'INT':1,'AGI':3,'WIS':2,'LUK':0}, hp=24, mp=6, level=6, wants='Freedom from a cruel command collar.', helps='Tracks raiders and warns of border patrols.', moves=['Command Howl (1 MP): Startled unless a friend steadies you.', 'Iron Pounce: 3 HP trouble or knocked prone.', 'Scent the Fear: finds a hidden nervous target.'], comp='Obeys the collar until it is broken.'),
+ dict(name='Draugr Oath-Raider', img='scary-bestiary-group.png', intro='A sea-dead Norse warrior in barnacled mail who rises when a ship oath is broken. Its eyes burn cold blue.', lore='Draugr remember treasure, feasts, and betrayal. They can be laid to rest by returning a stolen token or finishing the oath carved on their shield.', stats={'STR':3,'INT':1,'AGI':0,'WIS':2,'LUK':1}, hp=26, mp=8, level=7, wants='Its broken ship-oath completed.', helps='Reveals a sea route or buried hoard.', moves=['Cold Oath Grip (2 MP): Sleepy and slowed until warmed.', 'Shield-Rattle: fear noise; Wis to stand firm.', 'Grave Tide (2 MP): water rises across the map.'], comp='Cannot cross a properly spoken guest-right promise.'),
+ dict(name='Iron Crow Swarm', img='scary-bestiary-group.png', intro='A murder of black iron-feathered crows that steals secrets, buttons, and battlefield names.', lore='Iron Crows gather where tyrants write false histories. They are terrifying in numbers but love bargains involving true names and shiny lies.', stats={'STR':0,'INT':3,'AGI':4,'WIS':1,'LUK':2}, hp=18, mp=12, level=6, wants='A secret worth carrying.', helps='Delivers a message across enemy lines.', moves=['Secret Peck (1 MP): steals one clue until asked the right question.', 'Wing-Dark (2 MP): makes the scene dim and noisy.', 'False Echo: repeats words in the wrong voice.'], comp='Cannot resist a polished lie or true apology.'),
+ dict(name='Albion Redcloak Captain', img='scary-bestiary-group.png', intro='A stern commander from the southern Dominion of Albion, wearing a red cloak and carrying a banner that tries to make Alba kneel.', lore='The Redcloak Captain represents a fantasy imperial faction, not a real people. Some Albion folk are ordinary traders and neighbors; the Dominion army is the villain.', stats={'STR':2,'INT':2,'AGI':1,'WIS':0,'LUK':1}, hp=22, mp=6, level=6, wants='Taxes, maps, and obedience for the Dominion.', helps='May retreat or bargain if shown the land itself rejects conquest.', moves=['Banner Command (2 MP): nearby minions gain +1 until the banner falls.', 'Shield Wall: blocks a path unless outflanked or persuaded.', 'Orderly Threat: Startled unless someone answers boldly.'], comp='Underestimates fairy law and local clans.'),
+]
+for c in extra_creatures:
+    be.creature_page(c['name'], c['img'], c['intro'], c['stats'], c['hp'], c['mp'], c['level'], c['lore'], feature_grid([('Wants', p(c['wants'])), ('Helps by', p(c['helps'])), ('Moves / spells', ul(c['moves'])), ('Complication', p(c['comp'])), ('Approach', p('Break the oath, collar, curse, banner, or false command that makes this enemy dangerous.')), ('Reward', p('A route, truce, freed ally, map, hoard clue, or faction reputation.'))]))
+be.text_page("Monster tactics: scary but playable", f"""
+{split(
+'<h3>Use real danger</h3>' + ul(['Let monsters hurt plans, gear, courage, position, and resources.', 'Use 2–3 HP trouble for ordinary hits; 3 HP for boss specials.', 'Make fear visible: thunder, banners, howls, cold breath, sinking ground.', 'Always show a counter: oath, light, true name, broken collar, lost token.']),
+'<h3>Faction monsters</h3><table><tr><th>Enemy</th><th>What stops it</th></tr><tr><td>Redcloak patrol</td><td>local law, fairy oath, clever terrain.</td></tr><tr><td>Norse draugr</td><td>completed oath or returned ship-token.</td></tr><tr><td>Barbarian raider</td><td>honour challenge, feast-right, or clan bargain.</td></tr><tr><td>Bog horror</td><td>clean water, lantern, song, or drained curse.</td></tr></table>'
 )}
 """, columns=False)
 be.write()
@@ -602,9 +656,9 @@ ca.cover_page()
 ca.text_page("How campaigns work", f"""
 <p class='drop'>A campaign for this age is a string of friendly episodes. Each session should have a clear helper, a magical place, one puzzle, and one warm ending.</p>
 {spot('02-part-opener.png', '<strong>Campaign rhythm:</strong> arrive, discover, help, celebrate.')}
-{rb('<strong>Length:</strong> 20–40 minutes per adventure. Stop while children still want more.')}
+{rb('<strong>Length:</strong> 20–40 minutes per adventure. Stop while adventurers still want more.')}
 {ul(['Start with a read-aloud box.', 'Ask one choice at a time.', 'Use three scenes: arrive, discover, help.', 'End with a sticker, drawing, or named promise.'])}
-<table><tr><th>Minute</th><th>What to do</th></tr><tr><td>0–5</td><td>Read the hook and ask what the heroes notice.</td></tr><tr><td>5–15</td><td>Meet a creature or obstacle with a feeling.</td></tr><tr><td>15–30</td><td>Try two or three child ideas, rolling only for exciting moments.</td></tr><tr><td>End</td><td>Name the friend helped and draw one treasure.</td></tr></table>
+<table><tr><th>Minute</th><th>What to do</th></tr><tr><td>0–5</td><td>Read the hook and ask what the heroes notice.</td></tr><tr><td>5–15</td><td>Meet a creature or obstacle with a feeling.</td></tr><tr><td>15–30</td><td>Try two or three adventurer ideas, rolling only for exciting moments.</td></tr><tr><td>End</td><td>Name the friend helped and draw one treasure.</td></tr></table>
 """)
 ca.art_page("02-part-opener.png", "Campaign: The Bells Under the Heather", "Three fairy bells have gone quiet, and the glen is forgetting its bedtime songs.")
 ca.text_page("Adventure 1: The Lost Moon-Bell", f"""
@@ -615,9 +669,9 @@ ca.text_page("Adventure 1: The Lost Moon-Bell", f"""
 """)
 ca.text_page("Adventure 2: The Grumpy Bridge", f"""
 {qa('<strong>Read aloud:</strong> “The bridge folds its stony arms. ‘No crossing,’ it rumbles, ‘unless someone remembers how to laugh politely.’”')}
-{ul(['The bridge is not mean; it is embarrassed because moss covers its carvings.', 'Children can clean, joke, sing, draw, or ask what happened.', 'A wobble makes the bridge sneeze pebbles, not hurt anyone.'])}
+{ul(['The bridge is not mean; it is embarrassed because moss covers its carvings.', 'Adventurers can clean, joke, sing, draw, or ask what happened.', 'A wobble makes the bridge sneeze pebbles, not hurt anyone.'])}
 {rb('<strong>Reward:</strong> the bridge teaches the party the safe stepping rhythm: clap, step, clap, step.')}
-<h3>Extra clues</h3>{ul(['Moss hides a carved smiling face.', 'The bridge remembers children who thanked it long ago.', 'A silver fox waits on the other side with dry socks.'])}
+<h3>Extra clues</h3>{ul(['Moss hides a carved smiling face.', 'The bridge remembers adventurers who thanked it long ago.', 'A silver fox waits on the other side with dry socks.'])}
 """)
 ca.text_page("Adventure 3: The Thistle Crown", f"""
 {qa('<strong>Read aloud:</strong> “A tiny sprite wears a crown too big for its head. It declares itself King of All Paths, then whispers, ‘Do I look brave?’”')}
@@ -630,8 +684,37 @@ ca.text_page("Mini campaign tracker", f"""
 {rb('<strong>Finale idea:</strong> every friend returns and adds one sound to the bedtime song: splash, clap, rustle, giggle, bell.')}
 <div class='card-grid'>
 {card('If time is short', p('Run only the hook, one helpful creature, and the warm ending.'))}
-{card('If children want more', p('Let them draw the new friend, then turn the drawing into the next adventure hook.'))}
+{card('If adventurers want more', p('Let them draw the new friend, then turn the drawing into the next adventure hook.'))}
 </div>
+""", columns=False)
+
+ca.art_page("alba-regional-map.png", "Campaign map: Alba at war and wonder", "Use the map to choose roads, clan lands, fairy woods, Norse seas, and the southern Dominion border.")
+ca.art_page("alba-town-dungeon-map.png", "Town and dungeon map", "Drop this spread into any session: village, keep, harbor, fairy mound, loch shrine, cave, and watchtower.")
+ca.text_page("Campaign 2: The Red Banner Road", f"""
+{qa('<strong>Premise:</strong> Redcloak agents from the Dominion of Albion have crossed the southern road to tax villages, measure fairy hills, and seize mythral relics.')}
+<h3>Six-session arc</h3><table><tr><th>Session</th><th>Episode</th><th>Main pressure</th></tr><tr><td>1</td><td>Taxes at Kettleford Bridge</td><td>Redcloak patrol demands coin and maps.</td></tr><tr><td>2</td><td>The Stolen Standing Stone</td><td>Albion surveyors move a fairy boundary marker.</td></tr><tr><td>3</td><td>Warg with the Iron Collar</td><td>Free a border warg from command magic.</td></tr><tr><td>4</td><td>Clan Moot under Rain</td><td>Unite rival clans without starting a feud.</td></tr><tr><td>5</td><td>Raid on the Red Supply Cart</td><td>Rescue prisoners, charms, and stolen maps.</td></tr><tr><td>6</td><td>The Banner That Lied</td><td>Break an enchanted conquest banner.</td></tr></table>
+<h3>Villain note</h3><p>The Dominion of Albion is a fantasy imperial faction. Do not say every southerner is evil; make the villains the army, greedy nobles, cursed banners, and officials trying to erase Alba's names.</p><h3>Scene tools</h3><div class='card-grid'>{card('Redcloak patrol', p('2 guards, 1 tax-mage, one nervous local guide.'))}{card('Moral choice', p('Rescue prisoners now, or steal the map that saves three villages later?'))}{card('Magic problem', p('The banner makes locals forget their own hill names.'))}{card('Reward', p('Clan reputation, a freed warg ally, or a red-sealed map.'))}</div>
+""", columns=False)
+ca.text_page("Campaign 3: Longships in the Mist", f"""
+{qa('<strong>Premise:</strong> Norse-style sea raiders, traders, and oath-ghosts arrive from the northern isles. Some want trade, some want plunder, and some are dead but still rowing.')}
+<div class='card-grid'>
+{card('Harbor Hook', p('A longship appears with no crew, one blue lantern, and a shield carved with a broken oath.'))}
+{card('Friendly Viking', p('Jorunn Wave-Smith wants peace, trade, and help laying her ancestor draugr to rest.'))}
+{card('Raider Threat', p('Skull-Sail Rurik steals bells because he thinks they command fairy weather.'))}
+{card('Sea Magic', p('Runes, whale-road maps, storm knots, salt charms, oath rings, and ghost anchors.'))}
+</div>
+<h3>Episodes</h3>{ul(['The Empty Longship', 'Market Day under Axes', 'Draugr in the Sea Cave', 'The Storm-Knot Duel', 'Feast-right at the Clan Hall', 'The Oath-Raiders Rest'])}<h3>Sea encounters</h3><table><tr><td>1</td><td>Fog hides a friendly trader and a hostile raider.</td></tr><tr><td>2</td><td>A seal-spirit demands the party judge an oath.</td></tr><tr><td>3</td><td>Draugr row beneath the boat at midnight.</td></tr><tr><td>4</td><td>A storm knot must be untied with song.</td></tr></table>
+""", columns=False)
+ca.text_page("Campaign 4: The Barbarian Queen of the North", f"""
+{qa('<strong>Premise:</strong> The storm-clans beyond the high passes are called barbarians by outsiders, but they have laws, poets, healers, and old reasons to distrust lowland kings.')}
+<h3>Key NPCs</h3><table><tr><th>Name</th><th>Role</th><th>What they want</th></tr><tr><td>Queen Maev Stormbraid</td><td>Clan war-leader</td><td>Return of a stolen clan cauldron.</td></tr><tr><td>Old Duthac</td><td>Oath poet</td><td>Someone to remember the true story.</td></tr><tr><td>Bran of the Broken Axe</td><td>Hot-headed champion</td><td>A fair duel, not a massacre.</td></tr><tr><td>Eithne Rowan-Seer</td><td>Seer</td><td>The Thorn Court kept out of clan dreams.</td></tr></table>
+<h3>Adventure structure</h3>{ul(['Prove guest-right by sharing food.', 'Solve a stolen-cauldron mystery.', 'Stop a duel using truth, not force.', 'Enter the storm cairn and face an oath monster.', 'Choose whether clans join Alba against the Dominion.'])}<h3>Clan customs</h3><table><tr><td>Guest-right</td><td>Food shared means no one may attack under that roof.</td></tr><tr><td>Truth-song</td><td>A bard may settle disputes by singing the true version.</td></tr><tr><td>Fair challenge</td><td>A duel can be riddle, wrestling, race, poem, or shield-hold.</td></tr></table>
+""", columns=False)
+ca.text_page("Encounter maps and travel procedures", f"""
+{split(
+'<h3>Travel turn</h3>' + ul(['Pick route: road, moor, loch, forest, coast, old Roman road, fairy path.', 'Choose pace: careful, normal, urgent.', 'Roll one travel event if the route is dangerous.', 'Mark food, weather, one rumor, and one map change.']) + '<h3>Map symbols</h3><table><tr><td>Castle</td><td>law, soldiers, taxes</td></tr><tr><td>Cairn</td><td>oaths, ghosts, memory</td></tr><tr><td>Loch</td><td>water magic, kelpies, secrets</td></tr><tr><td>Longship</td><td>raids, trade, oaths</td></tr></table>',
+'<h3>Travel events</h3><table><tr><td>1</td><td>Redcloak patrol measuring land.</td></tr><tr><td>2</td><td>Norse trader offers a cursed bargain.</td></tr><tr><td>3</td><td>Barbarian scouts test guest-right.</td></tr><tr><td>4</td><td>Fairy ring moves the road.</td></tr><tr><td>5</td><td>Monster sign: claw marks, cold fog, iron feathers.</td></tr><tr><td>6</td><td>Helpful local: shepherd, fisher, brownie, corbie messenger.</td></tr></table>'
+)}
 """, columns=False)
 ca.write()
 
@@ -667,7 +750,7 @@ sheet.text_page("Quick reference cards", f"""
 {card('HP / MP', p('HP handles bumps and tiredness. MP fuels spells. Cantrips cost 0 MP.'))}
 {card('Stats', p('<strong>Strength</strong> lifts/protects. <strong>Int</strong> solves/knows. <strong>Agility</strong> moves/sneaks. <strong>Wis</strong> notices/understands. <strong>Luck</strong> handles charms/surprises.'))}
 {card('Turn prompt', p('“What do you try?” then “How does your hero do it?”'))}
-{card('Kindness rule', p('Heroes can be muddy, surprised, or silly. The story never shames a child for helping.'))}
+{card('Kindness rule', p('Heroes can be muddy, surprised, or silly. The story never shames a adventurer for helping.'))}
 {card('Wobble ideas', p('Lost hat, wet map, wrong door, sleepy troll, ringing bell, muddied boots.'))}
 {card('End of session', p('Name one friend made, one brave choice, and one thing to draw.'))}
 """, columns=False)
@@ -677,10 +760,12 @@ sheet.write()
 am = Book("adventure-module", "Adventure Module", "Five linked one-shots with maps, read-alouds, encounters, treasure, and scaling", "alba-map.png")
 am.cover_page()
 am.art_page("alba-map.png", "The Bells of Alba", "A five-part starter campaign across lochs, hills, cottages, fairy mounds, and a stormy thorn crown.")
+am.art_page("alba-town-dungeon-map.png", "Adventure map spread", "Use this map for village, keep, loch shrine, fairy mound, cave, and watchtower scenes.")
+am.art_page("alba-frontier-map.png", "Border threat map", "Use this map when Redcloak patrols, Norse longships, storm-clans, or monsters enter the campaign.")
 am.text_page("How to run these adventures", f"""
 {split(
 '<h3>Session recipe</h3>' + ul(['Read the boxed opening.', 'Ask what the adventurers notice.', 'Run two scenes and one creature moment.', 'Give treasure that changes the next scene.', 'End with a friend, promise, or map mark.']) + rb('<strong>Length:</strong> each adventure is built for 30–45 minutes.') + '<h3>DM checklist</h3>' + ul(['Circle one feeling: scared, proud, lonely, sleepy, worried.', 'Underline one clue the heroes can touch.', 'Pick one NPC voice: whispery, grand, grumpy, giggly.', 'Choose one safe cost before rolling: noise, mud, delay, lost hat.']),
-'<h3>Scaling</h3><table><tr><th>Group</th><th>Change</th></tr><tr><td>1 adventurer</td><td>Reduce enemy HP by 4 and MP by 2.</td></tr><tr><td>2–3 adventurers</td><td>Use listed stats.</td></tr><tr><td>4+ adventurers</td><td>Add one clue objective or +3 HP to the main creature.</td></tr><tr><td>Older kids</td><td>Add a timer, locked door, or rival helper.</td></tr></table>' + '<h3>Quick rewards</h3><table><tr><td>1</td><td>Helpful map mark</td></tr><tr><td>2</td><td>1d6 copper</td></tr><tr><td>3</td><td>Friendly promise</td></tr><tr><td>4</td><td>Consumable charm</td></tr></table>'
+'<h3>Scaling</h3><table><tr><th>Group</th><th>Change</th></tr><tr><td>1 adventurer</td><td>Reduce enemy HP by 4 and MP by 2.</td></tr><tr><td>2–3 adventurers</td><td>Use listed stats.</td></tr><tr><td>4+ adventurers</td><td>Add one clue objective or +3 HP to the main creature.</td></tr><tr><td>Older Adventurers</td><td>Add a timer, locked door, or rival helper.</td></tr></table>' + '<h3>Quick rewards</h3><table><tr><td>1</td><td>Helpful map mark</td></tr><tr><td>2</td><td>1d6 copper</td></tr><tr><td>3</td><td>Friendly promise</td></tr><tr><td>4</td><td>Consumable charm</td></tr></table>'
 )}
 """, columns=False)
 for title, read, scenes, creature, treasure in [
@@ -698,7 +783,7 @@ for title, read, scenes, creature, treasure in [
 <div class='card-grid'>{card('Read-aloud closer', p('Ask each adventurer what their hero looks like at the end of the scene: muddy boots, proud smile, glowing pocket, or new friend.'))}{card('If they get stuck', p('Show one clue in the art, have an NPC ask a simple question, or let a pet notice the safest path.'))}{card('Optional twist', p('A rival helper arrives, the weather changes, or the treasure points to the next map mark.'))}{card('Level note', p('After a big kindness, mark one star toward the next level.'))}</div>
 """, columns=False)
 am.text_page("Campaign tracker", f"""
-<table><tr><th>Adventure</th><th>Friend made</th><th>Treasure</th><th>Promise</th></tr><tr><td>Bell-Root Path</td><td></td><td></td><td></td></tr><tr><td>Glass Loch</td><td></td><td></td><td></td></tr><tr><td>Sooty Chimney</td><td></td><td></td><td></td></tr><tr><td>Hollow Hill</td><td></td><td></td><td></td></tr><tr><td>Thorn Crown Storm</td><td></td><td></td><td></td></tr></table>
+<p>Use this tracker to connect every one-shot to the larger war for Alba. Add map marks, faction reputation, and which monster became an ally.</p><table><tr><th>Adventure</th><th>Friend made</th><th>Treasure</th><th>Promise</th></tr><tr><td>Bell-Root Path</td><td></td><td></td><td></td></tr><tr><td>Glass Loch</td><td></td><td></td><td></td></tr><tr><td>Sooty Chimney</td><td></td><td></td><td></td></tr><tr><td>Hollow Hill</td><td></td><td></td><td></td></tr><tr><td>Thorn Crown Storm</td><td></td><td></td><td></td></tr></table>
 {rb('<strong>Leveling suggestion:</strong> level up after adventures 2 and 5. Award a feat after adventure 5 if the party reaches level 4.')}
 """, columns=False)
 am.write()
@@ -718,11 +803,35 @@ sg.text_page("Factions and fairy courts", f"""
 """, columns=False)
 sg.text_page("Holidays, legends, and gods/spirits", f"""
 <div class='card-grid'>
-{card('First Thistle Day', p('Children tie ribbons to safe paths. Sprites demand tiny speeches.'))}
+{card('First Thistle Day', p('Adventurers tie ribbons to safe paths. Sprites demand tiny speeches.'))}
 {card('Loch Lantern Night', p('Families float candle boats and ask the loch to remember kind names.'))}
 {card('The Kindly Cailleach', p('An ancient winter spirit who tests manners, then gives warm socks.'))}
 {card('The Rowan Stag', p('A spirit of honest paths. Its antlers glow when a promise is true.'))}
 </div>
+""", columns=False)
+
+sg.art_page("alba-regional-map.png", "Greater Alba", "A high fantasy medieval Scotland of clans, crowns, fairy courts, storm coasts, southern forts, and old mythral roads.")
+sg.art_page("alba-frontier-map.png", "Frontiers and enemies", "The coast brings longships; the high passes bring storm-clans; the southern road brings the Dominion of Albion.")
+sg.text_page("Alba lore: high fantasy medieval Scotland", f"""
+<p class='drop'>Alba is a northern kingdom of rain-dark castles, heather hills, lochs deep enough to remember the moon, fairy roads, clan halls, and mythral seams under ancient cairns.</p>
+<div class='card-grid'>
+{card('The Crown of Alba', p('The king or queen rules by stone-oath: they must be accepted by clan, kirk, fairy court, and the Stone of Scone-Under-Stars.'))}
+{card('Mythral', p('Mythral is moon-silver from old cairns. One mythral coin equals 100 gold; most folk never see one.'))}
+{card('Fairy Law', p('Names, guest-right, promises, salt, iron, rowan, and music matter as much as swords.'))}
+{card('The Border', p('Southern forts mark the road to the Dominion of Albion, whose nobles want maps, taxes, mythral, and obedience.'))}
+</div>
+""", columns=False)
+sg.text_page("Major factions of Alba", f"""
+<p>Factions should pull the party in different directions. Give every faction a useful ally, a dangerous hardliner, and a favor they can offer.</p><table><tr><th>Faction</th><th>Style</th><th>Goal</th><th>Adventure hook</th></tr><tr><td>Clan MacThorn</td><td>Highland oath-warriors</td><td>Keep the old passes free.</td><td>A champion demands guest-right proof.</td></tr><tr><td>The Rowan Compact</td><td>Druids, seers, tree-wardens</td><td>Protect fairy roads and sacred groves.</td><td>A rowan grove accuses a town of oath-breaking.</td></tr><tr><td>The Kettle Guild</td><td>Tinkers, crafters, hearth-mages</td><td>Control enchantment recipes.</td><td>A stolen recipe makes cursed shields.</td></tr><tr><td>The Norse Sea-Kin</td><td>Vikings, traders, skalds, raiders</td><td>Trade, raid, and settle by oath.</td><td>A peaceful jarl needs help against draugr.</td></tr><tr><td>The Storm-Clans</td><td>So-called barbarians of the north</td><td>Defend clan law and old cauldrons.</td><td>They may ally with Alba if respected.</td></tr><tr><td>The Dominion of Albion</td><td>Southern imperial redcloaks</td><td>Tax, map, and conquer Alba.</td><td>Break an enchanted conquest banner.</td></tr></table>
+""", columns=False)
+sg.text_page("Albion, Vikings, and barbarians", f"""
+{split(
+'<h3>The Dominion of Albion</h3><p>Albion is a fantasy southern empire inspired by medieval border wars. The villains are imperial nobles, Redcloak officers, tax sorcerers, and conquest banners — not every person from the south.</p>' + ul(['Redcloak patrols measure land with iron chains.', 'Tax-mages try to rename hills so fairy law forgets them.', 'Border captains fear Alba because Alba refuses to kneel.']),
+'<h3>Norse and storm-clan neighbors</h3><p>Vikings can be raiders, traders, rivals, oath-keepers, or allies. The northern storm-clans are called barbarians by outsiders, but their own laws are strict: guest-right, fair challenge, clan debt, and truth-song.</p>' + ul(['A Norse jarl may hire the party to end a draugr curse.', 'A raider may become an ally after a feast-right promise.', 'A storm-clan queen may fight Albion if her stolen cauldron is returned.'])
+)}
+""", columns=False)
+sg.text_page("Places to put on maps", f"""
+<table><tr><th>Place</th><th>Use</th><th>Secret</th></tr><tr><td>Dun Rowan</td><td>capital hill-fort and oath stone</td><td>the stone speaks in dreams.</td></tr><tr><td>Skerryvik</td><td>Norse harbor town</td><td>half the town wants peace, half wants raids.</td></tr><tr><td>Redwall March</td><td>southern border forts</td><td>an Albion banner is alive and lying.</td></tr><tr><td>Cauldron Pass</td><td>storm-clan mountain road</td><td>barbarian queen guards a mythral spring.</td></tr><tr><td>Saint Brigid's Well</td><td>healing and prophecy</td><td>poison cannot cross it at dawn.</td></tr><tr><td>The Black Bog</td><td>monster lair and ruined battlefield</td><td>a bog drake sleeps on lost redcloak gold.</td></tr></table>
 """, columns=False)
 sg.write()
 
@@ -731,7 +840,7 @@ tc = Book("treasure-crafting", "Treasure and Crafting", "Magic items, potions, m
 tc.cover_page()
 tc.text_page("Treasure tiers", f"""
 <table><tr><th>Tier</th><th>Coin range</th><th>Examples</th></tr><tr><td>Copper</td><td>1–9 cp</td><td>chalk, snack, candle, ribbon.</td></tr><tr><td>Silver</td><td>1–9 sp</td><td>rope, lantern, padded cloak.</td></tr><tr><td>Gold</td><td>1–9 gp</td><td>spell charm, fine tool, fairy favor.</td></tr><tr><td>Mythral</td><td>1+ mp</td><td>legendary seed, moon key, named blade that refuses cruelty.</td></tr></table><div class='card-grid'>{card('Copper treasure', p('Three blue buttons, a candle stub, and a biscuit wrapped in wax paper.'))}{card('Silver treasure', p('A sturdy rope, a good lantern, or a map drawn by a fox.'))}{card('Gold treasure', p('A named charm, guild favor, or one spell scroll.'))}{card('Mythral treasure', p('A story-changing object that asks for a promise before it works.'))}</div>
-{rb('<strong>Conversion:</strong> 10 copper = 1 silver, 10 silver = 1 gold, 10 gold = 1 mythral.')}
+{rb('<strong>Conversion:</strong> 10 copper = 1 silver, 10 silver = 1 gold, 100 gold = 1 mythral.')}
 """, columns=False)
 tc.text_page("Crafting recipes", f"""
 <table><tr><th>Item</th><th>Ingredients</th><th>Effect</th></tr><tr><td>Glow-Pebble</td><td>pebble, firefly wink, 1 copper</td><td>Soft light for one scene.</td></tr><tr><td>Bravery Biscuit</td><td>oats, honey, brave word</td><td>Ignore Startled once.</td></tr><tr><td>Mist Ribbon</td><td>ribbon, loch water, song</td><td>+1 Agility in fog.</td></tr><tr><td>Promise Button</td><td>button, thread, true promise</td><td>Ask for one Luck clue.</td></tr><tr><td>Mythral Thorn Seed</td><td>mythral, thorn, giant tear</td><td>Grow a protective hedge in a finale.</td></tr></table>
@@ -739,13 +848,26 @@ tc.text_page("Crafting recipes", f"""
 tc.text_page("Fairy bargains", f"""
 {split(
 '<h3>Good bargain prices</h3>' + ul(['A song sung at sunset.', 'A promise to return a lost thing.', 'A drawing of the creature as a friend.', 'One shiny button, not a memory.', 'A day of helping clean a path.']),
-'<h3>Never take</h3>' + ul(["A real child's name, voice, or memory.", 'Anything that makes a player feel trapped.', 'A choice the adventurer cannot understand.']) + rb('<strong>Safe bargain rule:</strong> bargains are story hooks, not punishments. They should create a future scene, not remove agency.')
+'<h3>Never take</h3>' + ul(["A real adventurer's true name, voice, or memory.", 'Anything that makes a player feel trapped.', 'A choice the adventurer cannot understand.']) + rb('<strong>Safe bargain rule:</strong> bargains are story hooks, not punishments. They should create a future scene, not remove agency.')
 )}
+""", columns=False)
+
+tc.text_page("Magic item catalogue", f"""
+<p class='drop'>Magic items in Alba are named, opinionated, and tied to promises. Even simple relics should change a scene or create a hook.</p><table><tr><th>Item</th><th>Cost</th><th>Power</th><th>Quirk</th></tr><tr><td>Rowan-Bark Shield</td><td>8 gold</td><td>Reduce thorn, arrow, or fear trouble by 2 HP once per scene.</td><td>hums near broken promises.</td></tr><tr><td>Loch-Mirror Cloak</td><td>12 gold</td><td>+1 to sneak, dodge, or hide in mist/moonlight.</td><td>reflection sometimes waves first.</td></tr><tr><td>Cairn-Knuckle Ring</td><td>15 gold</td><td>+1 to hold, lift, brace, or remember an oath.</td><td>heavy when the wearer lies.</td></tr><tr><td>Star-Moth Lantern</td><td>20 gold</td><td>Reveals invisible ink, fairy doors, and ghost footprints.</td><td>attracts curious moths.</td></tr><tr><td>Mythral Seed Blade</td><td>1 mythral</td><td>Cuts curses, brambles, and conquest banners; refuses cruelty.</td><td>needs a promise before each quest.</td></tr></table>
+""", columns=False)
+tc.text_page("Enchanting recipes", f"""
+{split(
+'<h3>Enchanting steps</h3>' + ul(['Choose item and enchantment word.', 'Gather ingredient: rowan berry, loch glass, cairn dust, star moth wing, storm nail, mythral shaving.', 'Spend 2 MP or perform a group ritual.', 'State the promise that limits the item.']) + rb('<strong>Cost:</strong> simple enchantment 5 gold, strong enchantment 20 gold, mythral enchantment 100 gold or one mythral relic.'),
+'<h3>Recipe table</h3><table><tr><th>Enchantment</th><th>Ingredient</th><th>Effect</th></tr><tr><td>Bright</td><td>star moth wing</td><td>reveals hidden things.</td></tr><tr><td>Thorn</td><td>red thorn</td><td>protects or tangles.</td></tr><tr><td>Loch</td><td>moon-water</td><td>mist, water, memory.</td></tr><tr><td>Cairn</td><td>oath dust</td><td>stone, memory, endurance.</td></tr><tr><td>Storm</td><td>storm nail</td><td>speed, thunder, courage.</td></tr></table>'
+)}
+""", columns=False)
+tc.text_page("Potion and poison recipes", f"""
+<p>Potions are bought, brewed, stolen, gifted, or found in monster lairs. Poisons are obstacles with cures, not instant defeat.</p><table><tr><th>Recipe</th><th>Type</th><th>Ingredients</th><th>Effect</th></tr><tr><td>Heatherheart Draught</td><td>Potion</td><td>heather honey, warm oats, rowan berry</td><td>Regain 3 HP; ignore Startled once.</td></tr><tr><td>Loch-Breath Sip</td><td>Potion</td><td>moon-water, shell dust, seal-song</td><td>Breathe underwater for one scene.</td></tr><tr><td>Foxwit Tea</td><td>Potion</td><td>silver mint, foxglove leaf, honest riddle</td><td>+1 Int for riddles/runes/traps.</td></tr><tr><td>Nightshade Jam</td><td>Poison</td><td>dark berry, redcap sugar, sleepy root</td><td>Sleepy until bitter tea is drunk.</td></tr><tr><td>Black Bog Venom</td><td>Poison</td><td>bog drake scale, peat smoke, sour water</td><td>-1 Agility until washed in running water.</td></tr><tr><td>Iron Crow Ink</td><td>Poison/curse</td><td>iron feather, black salt, stolen word</td><td>Cannot speak a lie until one useful truth is told.</td></tr></table>
 """, columns=False)
 tc.write()
 
 # Bestiary volume 2
-b2 = Book("bestiary-vol-2", "Bestiary Volume 2", "More spooky, magical, child-safe creatures with spells and special attacks", "creature-mist-stag.png")
+b2 = Book("bestiary-vol-2", "Bestiary Volume 2", "More spooky, magical, adventurer-safe creatures with spells and special attacks", "creature-mist-stag.png")
 b2.cover_page()
 b2.text_page("Using scarier creatures safely", f"""
 {split(
@@ -763,6 +885,14 @@ for c in [
  dict(name='Ember Kettle Kobold', img='creature-ember-kettle-kobold.png', intro='A tiny cave kobold with a glowing kettle helmet. Steam whistles when it gets nervous.', lore='It tends dungeon tea boilers and trap kettles. It looks alarming in the dark, but is mostly afraid someone will waste good tea.', stats={'STR':1,'INT':2,'AGI':2,'WIS':0,'LUK':1}, hp=12, mp=8, level=4, wants='A perfect cup of cave tea.', helps='Disarms hot-steam traps.', moves=['Steam Whistle (1 MP): Startled unless someone laughs.', 'Kettle Pop (2 MP): launches harmless sparks for 2 HP trouble.', 'Trap-Tap: points out one device if offered tea.'], comp='Corrects everyone\'s tea manners.'),
 ]:
     b2.creature_page(c['name'], c['img'], c['intro'], c['stats'], c['hp'], c['mp'], c['level'], c['lore'], feature_grid([('Wants', p(c['wants'])), ('Helps by', p(c['helps'])), ('Spells / special attacks', ul(c['moves'])), ('Complication', p(c['comp'])), ('Gentle approach', p('Ask what it protects, what it fears, or what promise it needs.')), ('Reward', p('A path, charm, recipe, clue, or future ally.'))]))
+
+b2.art_page("scary-bestiary-group.png", "Scary things of war and border", "Use these when the campaign moves from fairy trouble to high fantasy danger: drakes, wargs, draugr, redcloaks, and iron crows.")
+for c in [
+ dict(name='Redcap Warband Boss', img='scary-bestiary-group.png', intro='A larger redcap with berry-black armor, a stolen horn, and a gang of bramble sneaks.', lore='It wants to turn fear into power. It is scary, bossy, and beatable by bravery, light, and offering its followers a safer home.', stats={'STR':2,'INT':2,'AGI':3,'WIS':0,'LUK':2}, hp=24, mp=10, level=6, wants='A dark hill where nobody laughs at it.', helps='Can reveal redcap tunnels if defeated fairly.', moves=['War Horn (2 MP): summons bramble minions.', 'Jam-Blade Feint: 3 HP trouble but no gore.', 'Bramble Ambush (2 MP): Tangled condition.'], comp='Followers abandon it if shown kindness.'),
+ dict(name='Albion Tax-Mage', img='scary-bestiary-group.png', intro='A southern Dominion sorcerer with iron measuring chains, red wax seals, and a book that tries to rename Alba.', lore='Tax-mages are dangerous because they erase local names. Break their ink, chain, or authority and their spell collapses.', stats={'STR':0,'INT':4,'AGI':1,'WIS':0,'LUK':1}, hp=18, mp=18, level=7, wants='Names, maps, taxes, and obedience.', helps='Knows secret Redcloak plans if captured or convinced.', moves=['Rename Hill (3 MP): fairy path closes until true name spoken.', 'Iron Chain Map (2 MP): blocks travel routes.', 'Red Wax Seal (1 MP): locks chest, gate, or mouth.'], comp='Cannot control a place whose true name is sung by locals.'),
+ dict(name='Barbarian Storm-Berserker', img='scary-bestiary-group.png', intro='A northern clan champion painted with storm spirals, fierce but bound by honor and guest-right.', lore='Outsiders call them barbarians; they call themselves the Storm-Clans. They are not monsters, but can be fearsome enemies if insulted.', stats={'STR':4,'INT':0,'AGI':2,'WIS':1,'LUK':1}, hp=26, mp=8, level=7, wants='A fair challenge and respect for clan law.', helps='Can become a mighty ally against Albion.', moves=['Storm Roar (2 MP): Startled unless answered bravely.', 'Axe-Flat Knockdown: 3 HP trouble; no gore.', 'Honor Challenge: one hero may duel with non-lethal stakes.'], comp='Must obey guest-right and cannot refuse a truthful poem.'),
+]:
+    b2.creature_page(c['name'], c['img'], c['intro'], c['stats'], c['hp'], c['mp'], c['level'], c['lore'], feature_grid([('Wants', p(c['wants'])), ('Helps by', p(c['helps'])), ('Spells / special attacks', ul(c['moves'])), ('Complication', p(c['comp'])), ('Approach', p('Find the law, oath, collar, true name, or respect that changes the fight.')), ('Reward', p('Faction clue, battle map, freed ally, or magic item ingredient.'))]))
 b2.write()
 
 # Printable table aids
@@ -785,13 +915,26 @@ ta.text_page("Item and coin cards", f"""
 {card('Lantern', p('Reveal one clue before a dark-scene roll.'))}
 {card('Tiny toolkit', p('Allows Int checks on small devices.'))}
 {card('Oat pouch', p('+1 Wis with hungry animals.'))}
-{card('Copper / Silver / Gold / Mythral', p('10 copper = 1 silver. 10 silver = 1 gold. 10 gold = 1 mythral.'))}
+{card('Copper / Silver / Gold / Mythral', p('10 copper = 1 silver. 10 silver = 1 gold. 100 gold = 1 mythral.'))}
 {card('Promise Button', p('Ask for one Luck clue when a promise matters.'))}
 </div>
 """, columns=False)
 ta.text_page("Condition and initiative tents", f"""
 <table><tr><th>Tent</th><th>Front</th><th>Back note</th></tr><tr><td>Hero turn</td><td>What do you try?</td><td>Pick stat after idea.</td></tr><tr><td>Tangled</td><td>Need help to move.</td><td>Ends with help/check.</td></tr><tr><td>Startled</td><td>-1 until soothed.</td><td>Kind words end it.</td></tr><tr><td>Sleepy</td><td>Slow but okay.</td><td>Snack/song/fresh air.</td></tr><tr><td>Boss phase</td><td>Scene changes.</td><td>Reveal true want.</td></tr></table>
 """, columns=False)
+
+ta.text_page("Potion, poison, and enchantment cards", f"""
+<div class='card-grid'>
+{card('Heatherheart Draught', p('Potion. Regain 3 HP and ignore Startled once.'))}
+{card('Loch-Breath Sip', p('Potion. Breathe underwater for one calm scene.'))}
+{card('Foxwit Tea', p('Potion. +1 Int for riddles, runes, and traps.'))}
+{card('Nightshade Jam', p('Poison. Sleepy until bitter tea or warm song.'))}
+{card('Black Bog Venom', p('Poison. -1 Agility until washed in running water.'))}
+{card('Wake Charm', p('Enchanting spell. Ask a magic item what it wants.'))}
+</div>
+""", columns=False)
+ta.art_page("alba-regional-map.png", "Printable regional map", "Use for routes, factions, borders, and campaign travel.")
+ta.art_page("alba-town-dungeon-map.png", "Printable town/dungeon map", "Use for village, keep, cave, loch shrine, tower, and fairy mound encounters.")
 ta.write()
 
 

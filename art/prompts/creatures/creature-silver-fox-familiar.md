@@ -5,7 +5,7 @@ aspect: portrait
 filename: ../generated/creature-silver-fox-familiar.png
 ---
 
-Warm high-fantasy children's RPG bestiary illustration for ages 5-7, Scottish fairy mythology, painterly watercolor and gouache, full creature scene in environment, expressive but friendly, storybook detail, no text, no logo, no icon, not a symbol, portrait composition.
+Warm high-fantasy adventurer RPG bestiary illustration for Adventurers 5–7, Scottish fairy mythology, painterly watercolor and gouache, full creature scene in environment, expressive but friendly, storybook detail, no text, no logo, no icon, not a symbol, portrait composition.
 
 Scene: A polite silver fox familiar with luminous whiskers and clever eyes, bowing on moonlit grass beside tiny glowing tracks, enchanted Scottish woodland.
 

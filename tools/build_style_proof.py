@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the first clean style-proof for Alba RPG.
 
-This intentionally starts from scratch: original child-friendly text, original
+This intentionally starts from scratch: original adventurer-friendly text, original
 layout system, and no copied D&D text/art. The provided PHB is used only as a
 high-level reference for bookcraft: parchment, heroic opener pages, strong
 hierarchy, integrated art, and readable RPG tables.
@@ -23,7 +23,7 @@ for d in [ART, PROMPTS, PRINT, PDF, QA, ROOT/"books", ROOT/"sheets", ROOT/"relea
 
 STYLE_GUIDE = """# Alba RPG visual style guide
 
-Audience: children aged 5–7, with grown-up helper/Guide support.
+Audience: Adventurers aged 5–7, with grown-up helper/Guide support.
 Mood: Scottish fairy myth + high fantasy, brave but safe, no gore/horror.
 
 Design rules learned from the first attempt:
@@ -48,35 +48,35 @@ filename: 01-cover.png
 aspect: portrait
 role: cover
 ---
-A full-bleed portrait fantasy book cover for a child-friendly tabletop RPG called Adventures in Alba. Scottish fairy glen at twilight, thistles, heather, standing stones, warm lanterns, a tiny Scottish fairy guide with tartan sash, friendly child heroes, distant gentle castle in mist, high fantasy but safe for ages 5-7. Rich painterly storybook illustration, parchment-gold and thistle-purple palette, no text, no logos, leave safe open space near top for title overlay.
+A full-bleed portrait fantasy book cover for a adventurer-friendly tabletop RPG called Adventures in Alba. Scottish fairy glen at twilight, thistles, heather, standing stones, warm lanterns, a tiny Scottish fairy guide with tartan sash, friendly adventurer heroes, distant gentle castle in mist, high fantasy but safe for ages 5-7. Rich painterly storybook illustration, parchment-gold and thistle-purple palette, no text, no logos, leave safe open space near top for title overlay.
 """,
 "02-part-opener.md": """---
 filename: 02-part-opener.png
 aspect: portrait
 role: chapter-opener
 ---
-Full-page portrait chapter opener art for a child-friendly Scottish fairy RPG. A group of small brave heroes cross a glowing bridge of mushrooms into an enchanted glen, a friendly fairy with silver wings points toward a moonlit path, thistles and Celtic knot motifs, sweeping high fantasy scale, warm and inviting, no danger, no text. Painterly watercolor and ink, full-bleed composition with safe lower-third for overlay panel.
+Full-page portrait chapter opener art for a adventurer-friendly Scottish fairy RPG. A group of small brave heroes cross a glowing bridge of mushrooms into an enchanted glen, a friendly fairy with silver wings points toward a moonlit path, thistles and Celtic knot motifs, sweeping high fantasy scale, warm and inviting, no danger, no text. Painterly watercolor and ink, full-bleed composition with safe lower-third for overlay panel.
 """,
 "03-race-kindreds.md": """---
 filename: 03-race-kindreds.png
 aspect: portrait
 role: step-spread
 ---
-Full-page portrait illustration showing five friendly fantasy kindreds for young children: glenfolk child with tartan scarf, tiny thistle fairy, helpful brownie with tool pouch, selkie-born child with soft seal-cloak, rowan-kin forest child with leaf crown. Scottish fairy mythology, cozy high fantasy, warm expressions, safe lower-third empty area for overlay text, no text, no labels.
+Full-page portrait illustration showing five friendly fantasy kindreds for young Adventurers: glenfolk Adventurer with tartan scarf, tiny thistle fairy, helpful brownie with tool pouch, selkie-born Adventurer with soft seal-cloak, rowan-kin forest Adventurer with leaf crown. Scottish fairy mythology, cozy high fantasy, warm expressions, safe lower-third empty area for overlay text, no text, no labels.
 """,
 "04-class-paths.md": """---
 filename: 04-class-paths.png
 aspect: portrait
 role: step-spread
 ---
-Full-page portrait illustration for choosing an adventure job in a child-friendly Scottish fairy RPG. Friendly young heroes: Thistle Knight with wooden practice sword and shield, Loch Scout with lantern map, Song-Spark Bard with small harp, Hearth Mage with glowing teacup spell, Beast Friend with fox companion. High fantasy, Scottish glen, safe and cheerful, no text, no labels, lower-third safe space for overlay.
+Full-page portrait illustration for choosing an adventure job in a adventurer-friendly Scottish fairy RPG. Friendly young heroes: Thistle Knight with wooden practice sword and shield, Loch Scout with lantern map, Song-Spark Bard with small harp, Hearth Mage with glowing teacup spell, Beast Friend with fox companion. High fantasy, Scottish glen, safe and cheerful, no text, no labels, lower-third safe space for overlay.
 """,
 "05-bestiary-catalog.md": """---
 filename: 05-bestiary-catalog.png
 aspect: portrait
 role: bestiary
 ---
-Full-page portrait child-friendly fantasy bestiary illustration: a gentle miniature kelpie foal by a moonlit loch, a thistle sprite, a sleepy moss troll, and a silver fox familiar gathered around a glowing storybook. Scottish fairy myth, magical but not scary, rich painterly style, parchment-gold and teal shadows, no text, lower-third safe space for overlay.
+Full-page portrait adventurer-friendly fantasy bestiary illustration: a gentle miniature kelpie foal by a moonlit loch, a thistle sprite, a sleepy moss troll, and a silver fox familiar gathered around a glowing storybook. Scottish fairy myth, magical but not scary, rich painterly style, parchment-gold and teal shadows, no text, lower-third safe space for overlay.
 """,
 }
 for name, content in PROMPT_DATA.items():
@@ -183,17 +183,17 @@ def opener():
     pages.append(f'''<section class="page full-bleed"><img class="bg" src="{img('02-part-opener.png')}" alt="Heroes entering the glen"><div class="scrim"></div><div class="chapter-badge"><div class="part">Part 1</div><div class="sub">Making a Hero</div></div><div class="overlay"><h2>Welcome to the glen</h2><p>Every adventure begins with a tiny brave choice. The Guide reads the scene, the players say what they try, and the dice help everyone discover what happens next.</p></div><div class="page-number">2</div></section>''')
 
 def rules_page():
-    pages.append('''<section class="page"><h2 class="section">The table rule</h2><div class="columns"><p class="drop">Adventures in Alba is played by talking together. A grown-up Guide describes a place, then each child says what their hero tries. The rules stay small so the story can stay big.</p><div class="readaloud"><strong>Read aloud:</strong> “You hear bells under the heather. A fox with silver whiskers bows and waits. What do you do?”</div><h3>When to roll</h3><p>Only roll when the answer is exciting. If an idea is safe and simple, it works. If it is tricky, roll one six-sided die.</p><table><tr><th>Roll</th><th>What happens</th></tr><tr><td>1–2</td><td>A wobble: something funny or inconvenient happens.</td></tr><tr><td>3–4</td><td>A yes, but: success with a tiny cost or choice.</td></tr><tr><td>5–6</td><td>A bright success: the hero does it well.</td></tr></table><div class="rulebox"><strong>Kindness rule:</strong> heroes can be scared, surprised, muddy, or silly, but the story never punishes a child for trying to help.</div><h3>The three numbers</h3><ul><li><strong>Brave</strong> for daring, protecting, and standing tall.</li><li><strong>Kind</strong> for helping, calming, and making friends.</li><li><strong>Quick</strong> for sneaking, catching, and balancing.</li></ul></div><div class="page-number">3</div></section>''')
+    pages.append('''<section class="page"><h2 class="section">The table rule</h2><div class="columns"><p class="drop">Adventures in Alba is played by talking together. A grown-up Guide describes a place, then each Adventurer says what their hero tries. The rules stay small so the story can stay big.</p><div class="readaloud"><strong>Read aloud:</strong> “You hear bells under the heather. A fox with silver whiskers bows and waits. What do you do?”</div><h3>When to roll</h3><p>Only roll when the answer is exciting. If an idea is safe and simple, it works. If it is tricky, roll one six-sided die.</p><table><tr><th>Roll</th><th>What happens</th></tr><tr><td>1–2</td><td>A wobble: something funny or inconvenient happens.</td></tr><tr><td>3–4</td><td>A yes, but: success with a tiny cost or choice.</td></tr><tr><td>5–6</td><td>A bright success: the hero does it well.</td></tr></table><div class="rulebox"><strong>Kindness rule:</strong> heroes can be scared, surprised, muddy, or silly, but the story never punishes an Adventurer for trying to help.</div><h3>The three numbers</h3><ul><li><strong>Brave</strong> for daring, protecting, and standing tall.</li><li><strong>Kind</strong> for helping, calming, and making friends.</li><li><strong>Quick</strong> for sneaking, catching, and balancing.</li></ul></div><div class="page-number">3</div></section>''')
 
 def step_pages():
     pages.append(f'''<section class="page full-bleed"><img class="bg" src="{img('03-race-kindreds.png')}" alt="Five friendly kindreds"><div class="scrim"></div><div class="overlay"><h3>Step 1: Pick your kindred</h3><p>Your kindred is your fairy-tale people. It gives one story gift and a way to picture your hero. Nobody is better or worse because of their kindred.</p></div><div class="page-number">4</div></section>''')
-    pages.append('''<section class="page"><h2 class="section">Kindreds of Alba</h2><div class="card-grid"><div class="option-card"><h3>Glenfolk</h3><p>Practical children from cottages, crofts, and market lanes.</p><ul><li><strong>Gift:</strong> once per adventure, remember a useful local clue.</li><li><strong>Look:</strong> tartan scarf, muddy boots, treasure pockets.</li></ul></div><div class="option-card"><h3>Thistle Fairy</h3><p>Small bright folk with shimmer, manners, and secret paths.</p><ul><li><strong>Gift:</strong> once per scene, notice nearby fairy magic.</li><li><strong>Look:</strong> petal cloak, star freckles, tiny crown.</li></ul></div><div class="option-card"><h3>Brownie Helper</h3><p>Cozy fixers who tidy, mend, and improve small things.</p><ul><li><strong>Gift:</strong> repair or improve one tiny object each scene.</li><li><strong>Look:</strong> apron, tool pouch, flour on nose.</li></ul></div><div class="option-card"><h3>Selkie-Born</h3><p>Gentle loch-hearted heroes with moonlit dreams.</p><ul><li><strong>Gift:</strong> understand water, weather, or a sad feeling.</li><li><strong>Look:</strong> soft seal-cloak, shell button, sea-glass charm.</li></ul></div></div><div class="page-number">5</div></section>''')
+    pages.append('''<section class="page"><h2 class="section">Kindreds of Alba</h2><div class="card-grid"><div class="option-card"><h3>Glenfolk</h3><p>Practical adventurers from cottages, crofts, and market lanes.</p><ul><li><strong>Gift:</strong> once per adventure, remember a useful local clue.</li><li><strong>Look:</strong> tartan scarf, muddy boots, treasure pockets.</li></ul></div><div class="option-card"><h3>Thistle Fairy</h3><p>Small bright folk with shimmer, manners, and secret paths.</p><ul><li><strong>Gift:</strong> once per scene, notice nearby fairy magic.</li><li><strong>Look:</strong> petal cloak, star freckles, tiny crown.</li></ul></div><div class="option-card"><h3>Brownie Helper</h3><p>Cozy fixers who tidy, mend, and improve small things.</p><ul><li><strong>Gift:</strong> repair or improve one tiny object each scene.</li><li><strong>Look:</strong> apron, tool pouch, flour on nose.</li></ul></div><div class="option-card"><h3>Selkie-Born</h3><p>Gentle loch-hearted heroes with moonlit dreams.</p><ul><li><strong>Gift:</strong> understand water, weather, or a sad feeling.</li><li><strong>Look:</strong> soft seal-cloak, shell button, sea-glass charm.</li></ul></div></div><div class="page-number">5</div></section>''')
     pages.append(f'''<section class="page full-bleed"><img class="bg" src="{img('04-class-paths.png')}" alt="Five adventure jobs"><div class="scrim"></div><div class="overlay"><h3>Step 2: Pick your adventure job</h3><p>Your job is what you like doing when adventure starts. It gives one bigger class gift that helps the whole table.</p></div><div class="page-number">6</div></section>''')
     pages.append('''<section class="page"><h2 class="section">Adventure jobs</h2><div class="columns"><div class="no-break"><h3>Thistle Knight</h3><p>Protects friends and stands bravely at the front.</p><div class="rulebox"><strong>Gift:</strong> once per scene, turn a scary moment into a brave one.</div></div><div class="no-break"><h3>Loch Scout</h3><p>Finds paths, listens for clues, and spots hidden doors.</p><div class="rulebox"><strong>Gift:</strong> ask the Guide one “what do I notice?” question.</div></div><div class="no-break"><h3>Song-Spark Bard</h3><p>Uses music, jokes, and stories to lift everyone up.</p><div class="rulebox"><strong>Gift:</strong> give another hero +1 after a kind song or cheer.</div></div><div class="no-break"><h3>Hearth Mage</h3><p>Carries warm, safe magic: sparks, steam, tea, and tiny lights.</p><div class="rulebox"><strong>Gift:</strong> create a small helpful magical effect.</div></div><div class="no-break"><h3>Beast Friend</h3><p>Understands animals and earns trust with gentle patience.</p><div class="rulebox"><strong>Gift:</strong> ask a friendly creature for a small favor.</div></div></div><div class="page-number">7</div></section>''')
 
 def bestiary():
     pages.append(f'''<section class="page full-bleed"><img class="bg" src="{img('05-bestiary-catalog.png')}" alt="Friendly bestiary creatures"><div class="scrim"></div><div class="overlay"><h2>Bestiary style</h2><p>Creatures are encounters, friends, mysteries, or puzzles — not bags of hit points. Every entry keeps a picture, a feeling, and a table action together.</p></div><div class="page-number">8</div></section>''')
-    pages.append('''<section class="page"><h2 class="section">Creature entry pattern</h2><div class="columns"><div class="hero-strip"><img src="../art/generated/05-bestiary-catalog.png" alt="Bestiary art"><div class="mini"><strong>Art rule:</strong> image first, overlay second, never a floating framed box.</div></div><h3>Moon-Kelpie Foal</h3><p class="drop">A young water horse with silver mane and shy eyes. It wants someone to find the bell it lost under the reeds.</p><table><tr><th>At the table</th><th>Use this</th></tr><tr><td>Wants</td><td>Its moon-bell returned.</td></tr><tr><td>Helps by</td><td>Carrying one hero safely across shallow water.</td></tr><tr><td>Complication</td><td>It splashes when nervous and soaks the map.</td></tr></table><div class="rulebox"><strong>Kind solution:</strong> sing softly, offer oats, or ask the loch what it remembers.</div><h3>Guide note</h3><p>For this age group, a creature should usually have a feeling before it has a fight. Scared, lonely, proud, sleepy, hungry, confused, or protective gives children something to respond to.</p></div><div class="page-number">9</div></section>''')
+    pages.append('''<section class="page"><h2 class="section">Creature entry pattern</h2><div class="columns"><div class="hero-strip"><img src="../art/generated/05-bestiary-catalog.png" alt="Bestiary art"><div class="mini"><strong>Art rule:</strong> image first, overlay second, never a floating framed box.</div></div><h3>Moon-Kelpie Foal</h3><p class="drop">A young water horse with silver mane and shy eyes. It wants someone to find the bell it lost under the reeds.</p><table><tr><th>At the table</th><th>Use this</th></tr><tr><td>Wants</td><td>Its moon-bell returned.</td></tr><tr><td>Helps by</td><td>Carrying one hero safely across shallow water.</td></tr><tr><td>Complication</td><td>It splashes when nervous and soaks the map.</td></tr></table><div class="rulebox"><strong>Kind solution:</strong> sing softly, offer oats, or ask the loch what it remembers.</div><h3>Guide note</h3><p>For this age group, a creature should usually have a feeling before it has a fight. Scared, lonely, proud, sleepy, hungry, confused, or protective gives Adventurers something to respond to.</p></div><div class="page-number">9</div></section>''')
 
 def sheet():
     pages.append('''<section class="page"><h2 class="section">Character sheet style</h2><p>This sheet is deliberately large, printable, and chunky. A five-year-old should be able to point at each box and explain it.</p><div class="sheet"><div class="box"><strong>Hero name</strong></div><div class="box"><strong>Player name</strong></div><div class="box"><strong>Kindred</strong></div><div class="box"><strong>Adventure job</strong></div><div class="box"><strong>Brave</strong><br>□ □ □</div><div class="box"><strong>Kind</strong><br>□ □ □</div><div class="box"><strong>Quick</strong><br>□ □ □</div><div class="box"><strong>Treasure</strong></div><div class="box big"><strong>Draw your hero</strong></div><div class="box big"><strong>My helper question</strong><br><br>When I am stuck, I can ask...</div></div><div class="page-number">10</div></section>''')
@@ -204,7 +204,7 @@ HTML = '<!doctype html><html><head><meta charset="utf-8"><title>Adventures in Al
 
 README = """# Alba RPG
 
-Fresh start for a D&D-inspired, Scottish fairy mythology, high-fantasy tabletop RPG for children aged 5–7.
+Fresh start for a D&D-inspired, Scottish fairy mythology, high-fantasy tabletop RPG for Adventurers aged 5–7.
 
 This repo begins with the page style system first: A4 print layout, full-bleed artwork, face-safe overlays, two-column parchment rules pages, card grids, bestiary layout, and character sheet style.
 
