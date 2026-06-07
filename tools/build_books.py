@@ -88,6 +88,12 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .feature-box { break-inside:avoid-page; min-height:38mm; padding:3mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
 .feature-box h3 { margin-top:0; font-size:12pt; }
 .feature-quote { margin-top:3mm; padding:3mm; background:rgba(86,51,109,.10); border-left:2mm solid rgba(86,51,109,.65); font-style:italic; }
+.statline { display:grid; grid-template-columns:repeat(5,1fr); gap:1.5mm; margin:2mm 0 3mm; }
+.stat { text-align:center; padding:1.7mm 1mm; background:#ead9ad; border:1px solid #b9954d; font-size:8.5pt; }
+.stat strong { display:block; color:#6f2d29; font-size:10pt; }
+.shop table, .spell-list table { font-size:8.2pt; }
+.creature-feature .feature-art { height:142mm; }
+.creature-feature .feature-box { min-height:31mm; }
 .sheet-page .page { padding:11mm 13mm 18mm; }
 .sheet { display:grid; grid-template-columns:1fr 1fr; gap:3.2mm; }
 .sheet-box { min-height:17mm; }
@@ -125,6 +131,10 @@ class Book:
     def feature_page(self, kicker: str, title: str, image: str, intro: str, body: str):
         p = self.page_no()
         self.pages.append(f'''<section class="page feature-page"><div class="feature-top"><figure class="feature-art"><img src="{art(image)}" alt="{esc(title)} illustration"></figure><div class="feature-intro"><div class="feature-kicker">{esc(kicker)}</div><h2>{esc(title)}</h2><p class="drop">{intro}</p></div></div>{body}<div class="page-number">{p}</div></section>''')
+    def creature_page(self, title: str, image: str, intro: str, stats: dict, body: str):
+        p = self.page_no()
+        stat_html = '<div class="statline">' + ''.join(f'<div class="stat"><strong>{k}</strong>{v:+d}</div>' for k,v in stats.items()) + '</div>'
+        self.pages.append(f'''<section class="page feature-page creature-feature"><div class="feature-top"><figure class="feature-art"><img src="{art(image)}" alt="{esc(title)} creature art"></figure><div class="feature-intro"><div class="feature-kicker">Creature stat block</div><h2>{esc(title)}</h2><p class="drop">{intro}</p>{stat_html}</div></div>{body}<div class="page-number">{p}</div></section>''')
     def write(self):
         html = '<!doctype html><html><head><meta charset="utf-8"><title>'+esc(self.title)+'</title><style>'+CSS+'</style></head><body><main class="book">' + '\n'.join(self.pages) + '</main></body></html>'
         (PRINT / f"{self.slug}-a4.html").write_text(html, encoding="utf-8")
@@ -198,27 +208,25 @@ ph = Book("player-handbook", "Player Handbook", "Character creation, simple rule
 ph.cover_page()
 ph.text_page("How to use this book", f"""
 {split(
-'''<ol class='toc'><li>Choose who helps as the Guide.</li><li>Make a hero in five easy steps.</li><li>Use Brave, Kind, and Quick when a roll is exciting.</li><li>Keep the story warm: heroes can be muddy, surprised, or silly, but never shamed.</li></ol>''' + spot('02-part-opener.png', '<strong>Table feel:</strong> point at the picture, ask what the hero notices, then roll only when it is exciting.'),
-rb('<strong>For ages 5–7:</strong> read choices aloud, let children point to pictures, and use stars or stickers for stats instead of lots of numbers.') + '''<h3>What you need</h3>''' + ul(['One six-sided die.', 'A pencil, character sheet, and three little counters.', 'A grown-up or older sibling Guide.', 'A promise to listen and take turns.']) + '''<h3>What players say</h3>''' + ul(['“I help.”', '“I try the brave thing.”', '“Can I talk to it?”', '“I look closer.”', '“Can my friend help?”']) + mini('First table promise', 'Every player gets a turn to say one idea before the dice decide anything.')
+'''<ol class='toc'><li>Choose who helps as the Guide.</li><li>Make a hero in five easy steps.</li><li>Use Strength, Int, Agility, Wis, or Luck when a roll is exciting.</li><li>Keep the story warm: heroes can be muddy, surprised, or silly, but never shamed.</li></ol>''' + spot('02-part-opener.png', '<strong>Table feel:</strong> point at the picture, ask what the hero notices, then roll only when it is exciting.'),
+rb('<strong>For ages 5–7:</strong> read choices aloud, let children point to pictures, and use small bonuses (+2, +1, +0) instead of lots of maths.') + '''<h3>What you need</h3>''' + ul(['One six-sided die.', 'A pencil, character sheet, and three little counters.', 'A grown-up or older sibling Guide.', 'A promise to listen and take turns.']) + '''<h3>What players say</h3>''' + ul(['“I help.”', '“I try the brave thing.”', '“Can I talk to it?”', '“I look closer.”', '“Can my friend help?”']) + mini('First table promise', 'Every player gets a turn to say one idea before the dice decide anything.')
 )}
 """, columns=False)
 ph.art_page("02-part-opener.png", "Welcome to the glen", "Tiny bells ring beneath the heather. A fairy guide invites the heroes to help a magical place without making the rules too big.")
 ph.text_page("The easy dice rule", f"""
 {split(
-'''<p class='drop'>When the answer is obvious, no roll is needed. When everyone leans forward and wonders what might happen, roll one six-sided die and add the hero's matching stat stars.</p><table><tr><th>Total</th><th>Result</th><th>Say it like this</th></tr><tr><td>1–2</td><td>Wobble</td><td>It goes wrong in a funny, safe, or messy way.</td></tr><tr><td>3–4</td><td>Yes, but...</td><td>It works, and there is a tiny cost or choice.</td></tr><tr><td>5+</td><td>Bright success</td><td>It works well, and the hero feels proud.</td></tr></table>''' + rb('<strong>No failure spiral:</strong> a wobble changes the scene; it does not stop the adventure.'),
-'''<h3>The three stats</h3>''' + ul(['<strong>Brave</strong> — standing tall, protecting, climbing, daring, saying “I can try.”', '<strong>Kind</strong> — helping, calming, sharing, talking, understanding feelings.', '<strong>Quick</strong> — sneaking, catching, dodging, spotting, balancing.']) + '''<h3>When not to roll</h3>''' + ul(['The action is safe and obvious.', 'A child is only describing how they look or feel.', 'The group already found a kind solution.', 'A roll would slow a warm moment.']) + mini('Helping rule', 'If another hero clearly helps, add +1 or let the child roll again and choose the better die.')
+'''<p class='drop'>When the answer is obvious, no roll is needed. When everyone leans forward and wonders what might happen, roll one six-sided die and add the hero's matching stat bonus.</p><table><tr><th>Total</th><th>Result</th><th>Say it like this</th></tr><tr><td>1–3</td><td>Wobble</td><td>It goes wrong in a funny, safe, or messy way.</td></tr><tr><td>4–5</td><td>Yes, but...</td><td>It works, and there is a tiny cost or choice.</td></tr><tr><td>6+</td><td>Bright success</td><td>It works well, and the hero feels proud.</td></tr></table>''' + rb('<strong>No failure spiral:</strong> a wobble changes the scene; it does not stop the adventure.'),
+'''<h3>The five classic stats</h3>''' + ul(['<strong>Strength</strong> — lifting, climbing, holding, pushing, protecting.', '<strong>Int</strong> — puzzles, facts, plans, reading runes, remembering.', '<strong>Agility</strong> — sneaking, dodging, catching, balancing, jumping.', '<strong>Wis</strong> — feelings, animals, nature, noticing, sensible choices.', '<strong>Luck</strong> — charms, surprises, odd magic, last-chance moments.']) + '''<h3>When not to roll</h3>''' + ul(['The action is safe and obvious.', 'A child is only describing how they look or feel.', 'The group already found a kind solution.', 'A roll would slow a warm moment.']) + mini('Helping rule', 'If another hero clearly helps, add +1 or let the child roll again and choose the better die.')
 )}
 """, columns=False)
-ph.text_page("Stat creation", f"""
-{card('Step 1: Pick your best stat', p('Put <span class="big-stat">★★</span> in the thing your hero is best at.'))}
-{card('Step 2: Pick your okay stat', p('Put <span class="big-stat">★</span> in the thing your hero can usually do.'))}
-{card('Step 3: Leave one blank', p('Put <span class="big-stat">—</span> in the thing your hero is still learning. This is not bad; it makes stories fun.'))}
-{rb('<strong>Example:</strong> Rowan the Beast Friend has Kind ★★, Quick ★, Brave —. Rowan talks gently to foxes, moves carefully, and is still learning to be bold.')}
-{qa('<strong>Helper question:</strong> “Which one sounds most like your hero: brave, kind, or quick?”')}
-<div class='card-grid'>
-{card('If a child wants all ★★', p('Say: “Every hero is still learning something. Which one will be funny to practise?”'))}
-{card('If a child worries about —', p('Say: “Blank means story chance, not bad. Friends can help you.”'))}
-</div>
+ph.text_page("Stat creation: classic five stats", f"""
+{card('1. Strength', p('Lifting, climbing, holding, pushing, protecting.'))}
+{card('2. Int', p('Puzzles, facts, plans, reading runes, remembering.'))}
+{card('3. Agility', p('Sneaking, dodging, catching, balancing, jumping.'))}
+{card('4. Wis', p('Feelings, animals, nature, noticing, sensible choices.'))}
+{card('5. Luck', p('Charms, surprises, odd magic, last-chance moments.'))}
+{rb('<strong>Assign bonuses:</strong> choose one best stat at <span class="big-stat">+2</span>, two good stats at <span class="big-stat">+1</span>, and two normal stats at <span class="big-stat">+0</span>.')}
+{qa('<strong>Worked example:</strong> Rowan the Beast Friend has Wis +2, Agility +1, Luck +1, Strength +0, Int +0.')}
 """, columns=False)
 ph.art_page("03-race-kindreds.png", "Step 1: Pick your kindred", "Each kindred now has its own illustrated page. Let children point at the picture first, then read only the choices they need.")
 kindreds = [
@@ -229,7 +237,7 @@ kindreds = [
     dict(title='Rowan-Kin', image='kindred-rowan-kin.png', intro='Rowan-Kin are forest children with leaf crowns and careful listening. Old trees remember them, birds trust them, and red berries mark their promises.', gift='Ask a tree, bird, or breeze for one hint.', look=['Red berries, green cloak, bark-pattern gloves.', 'Leaf crown, acorn buttons, or a walking twig.'], table=['Read bent grass, scratched bark, or a bird alarm.', 'Ask an old tree who passed this way.', 'Hide gently among leaves without frightening anyone.'], prompt='“I ask the old tree what it remembers.”'),
     dict(title='Heather Giantling', image='kindred-heather-giantling.png', intro='Heather Giantlings are small for giants, huge for fairies, and very gentle. They are best when something heavy, high, or frightening needs a careful friend.', gift='Lift, push, or carry one heavy thing safely.', look=['Big knitted jumper, pebble buttons, warm laugh.', 'Purple heather in hair and boots like little boats.'], table=['Hold a door, carry a tired friend, or move a fallen branch.', 'Stand calmly when a noise is big.', 'Ask hills, stones, or goats about family stories.'], prompt='“I can be big and gentle at the same time.”'),
 ]
-kindred_stats = {'Glenfolk':'Kind or Quick', 'Thistle Fairy':'Quick', 'Brownie Helper':'Kind', 'Selkie-Born':'Kind', 'Rowan-Kin':'Quick', 'Heather Giantling':'Brave'}
+kindred_stats = {'Glenfolk':'Int or Wis', 'Thistle Fairy':'Luck', 'Brownie Helper':'Int', 'Selkie-Born':'Wis', 'Rowan-Kin':'Wis or Agility', 'Heather Giantling':'Strength'}
 kindred_scenes = {'Glenfolk':'A village gate is stuck and everyone has an idea.', 'Thistle Fairy':'A secret flower-door opens only after a polite greeting.', 'Brownie Helper':'A kitchen clue is hidden under a very silly mess.', 'Selkie-Born':'A sad loch-creature will only speak to someone gentle.', 'Rowan-Kin':'An old tree remembers the wrong name and needs patient listening.', 'Heather Giantling':'A fallen branch blocks the path, but small animals live underneath.'}
 for k in kindreds:
     ph.feature_page('Kindred', k['title'], k['image'], k['intro'], feature_grid([
@@ -242,12 +250,12 @@ for k in kindreds:
     ]))
 ph.art_page("04-class-paths.png", "Step 2: Pick your adventure job", "Each job now has its own illustrated page. The job says what a hero likes doing when trouble appears.")
 jobs = [
-    dict(title='Thistle Knight', image='job-thistle-knight.png', intro='Thistle Knights protect friends and stand bravely at the front. They are not rough or bossy; they make scary moments feel safer for everyone.', gift='Once per scene, turn a scary moment into a brave one.', stat='Brave', tryit=['Hold a shield or walking stick like a promise.', 'Stand between danger and a friend.', 'Say a brave sentence out loud.'], kit=['Soft shield', 'Promise ribbon', 'Thistle badge'], prompt='“I stand tall so my friend can try.”'),
-    dict(title='Loch Scout', image='job-loch-scout.png', intro='Loch Scouts find paths, listen for clues, and spot hidden doors. They love maps, footprints, bird calls, and the first tiny sign that something changed.', gift='Ask the Guide one “what do I notice?” question.', stat='Quick', tryit=['Follow tracks through reeds or heather.', 'Read a map or remember a landmark.', 'Balance across stepping stones.'], kit=['Chalk', 'String map', 'Tiny lantern'], prompt='“I look closely before we move.”'),
-    dict(title='Song-Spark Bard', image='job-song-spark-bard.png', intro='Song-Spark Bards use music, jokes, and stories to lift everyone up. Their magic is cheer, rhythm, and the courage that comes from being heard.', gift='Give another hero +1 after a kind song, rhyme, joke, or cheer.', stat='Kind', tryit=['Cheer a friend who feels unsure.', 'Calm a crowd with a rhyme.', 'Make a grumpy bridge laugh politely.'], kit=['Bell', 'Ribbon drum', 'Story cards'], prompt='“I sing the brave bit for you.”'),
-    dict(title='Hearth Mage', image='job-hearth-mage.png', intro='Hearth Mages carry warm, safe magic: sparks, steam, tea, and tiny lights. Their spells help problems; they do not solve the whole story alone.', gift='Create a small helpful magical effect.', stat='Kind or Brave', tryit=['Light a path with a glow-pebble.', 'Warm cold hands with tea-steam.', 'Reveal a hidden breeze or fairy mark.'], kit=['Teacup', 'Glow pebble', 'Little spoon wand'], prompt='“A tiny warm spell might help.”'),
-    dict(title='Beast Friend', image='job-beast-friend.png', intro='Beast Friends understand animals and earn trust with gentle patience. They notice tails, ears, paws, feathers, and feelings before they roll dice.', gift='Ask a friendly creature for a small favor.', stat='Kind', tryit=['Offer a snack without grabbing.', 'Copy a small sound politely.', 'Ask what the creature feels.'], kit=['Oat pouch', 'Soft brush', 'Kindness bell'], prompt='“I crouch down and speak gently.”'),
-    dict(title='Puzzle Tinker', image='job-puzzle-tinker.png', intro='Puzzle Tinkers build, open, balance, fold, and wonder how things work. They like ordinary bits: string, cups, buttons, chalk, and clever questions.', gift='Make a simple tool from ordinary bits.', stat='Quick', tryit=['Fix a latch or squeaky hinge.', 'Build a tiny bridge from safe pieces.', 'Turn clues into a simple plan.'], kit=['String', 'Chalk', 'Button box'], prompt='“What if this little thing fits here?”'),
+    dict(title='Thistle Knight', image='job-thistle-knight.png', intro='Thistle Knights protect friends and stand bravely at the front. They are not rough or bossy; they make scary moments feel safer for everyone.', gift='Once per scene, turn a scary moment into a brave one.', stat='Strength', tryit=['Hold a shield or walking stick like a promise.', 'Stand between danger and a friend.', 'Say a brave sentence out loud.'], kit=['Soft shield', 'Promise ribbon', 'Thistle badge'], prompt='“I stand tall so my friend can try.”'),
+    dict(title='Loch Scout', image='job-loch-scout.png', intro='Loch Scouts find paths, listen for clues, and spot hidden doors. They love maps, footprints, bird calls, and the first tiny sign that something changed.', gift='Ask the Guide one “what do I notice?” question.', stat='Agility', tryit=['Follow tracks through reeds or heather.', 'Read a map or remember a landmark.', 'Balance across stepping stones.'], kit=['Chalk', 'String map', 'Tiny lantern'], prompt='“I look closely before we move.”'),
+    dict(title='Song-Spark Bard', image='job-song-spark-bard.png', intro='Song-Spark Bards use music, jokes, and stories to lift everyone up. Their magic is cheer, rhythm, and the courage that comes from being heard.', gift='Give another hero +1 after a kind song, rhyme, joke, or cheer.', stat='Wis', tryit=['Cheer a friend who feels unsure.', 'Calm a crowd with a rhyme.', 'Make a grumpy bridge laugh politely.'], kit=['Bell', 'Ribbon drum', 'Story cards'], prompt='“I sing the brave bit for you.”'),
+    dict(title='Hearth Mage', image='job-hearth-mage.png', intro='Hearth Mages carry warm, safe magic: sparks, steam, tea, and tiny lights. Their spells help problems; they do not solve the whole story alone.', gift='Create a small helpful magical effect.', stat='Wis or Luck', tryit=['Light a path with a glow-pebble.', 'Warm cold hands with tea-steam.', 'Reveal a hidden breeze or fairy mark.'], kit=['Teacup', 'Glow pebble', 'Little spoon wand'], prompt='“A tiny warm spell might help.”'),
+    dict(title='Beast Friend', image='job-beast-friend.png', intro='Beast Friends understand animals and earn trust with gentle patience. They notice tails, ears, paws, feathers, and feelings before they roll dice.', gift='Ask a friendly creature for a small favor.', stat='Wis', tryit=['Offer a snack without grabbing.', 'Copy a small sound politely.', 'Ask what the creature feels.'], kit=['Oat pouch', 'Soft brush', 'Kindness bell'], prompt='“I crouch down and speak gently.”'),
+    dict(title='Puzzle Tinker', image='job-puzzle-tinker.png', intro='Puzzle Tinkers build, open, balance, fold, and wonder how things work. They like ordinary bits: string, cups, buttons, chalk, and clever questions.', gift='Make a simple tool from ordinary bits.', stat='Agility', tryit=['Fix a latch or squeaky hinge.', 'Build a tiny bridge from safe pieces.', 'Turn clues into a simple plan.'], kit=['String', 'Chalk', 'Button box'], prompt='“What if this little thing fits here?”'),
 ]
 for j in jobs:
     ph.feature_page('Adventure job', j['title'], j['image'], j['intro'], feature_grid([
@@ -264,10 +272,57 @@ spot('02-part-opener.png', '<strong>Rule:</strong> magic helps the story; it doe
 '''<h3>Starting gear</h3>''' + ul(['A snack wrapped in cloth.', 'One useful tool.', 'One pretty charm.', 'One thing your hero drew themselves.', 'A spare ribbon, button, bell, shell, or smooth stone.', 'A tiny notebook for clues or doodles.']) + '''<h3>Useful tools</h3><table><tr><th>Tool</th><th>Use</th></tr><tr><td>Lantern</td><td>See misty paths.</td></tr><tr><td>String</td><td>Tie, measure, or rescue.</td></tr><tr><td>Chalk</td><td>Mark a safe way back.</td></tr><tr><td>Wooden cup</td><td>Offer water, tea, or kindness.</td></tr></table><h3>Treasure prompts</h3><table><tr><th>Find</th><th>Story use</th></tr><tr><td>Silver button</td><td>Opens a promise gate.</td></tr><tr><td>Ribbon</td><td>Marks a safe path.</td></tr><tr><td>Bell</td><td>Calls one fairy friend.</td></tr></table>''' + rb('<strong>Treasure is story-first:</strong> a shiny button can matter more than a bag of coins if it unlocks a promise.')
 )}
 """, columns=False)
+ph.text_page("Spell list", f"""
+<div class='spell-list'>
+<h3>Cantrips: always small, always safe</h3>
+<table><tr><th>Spell</th><th>Roll</th><th>What it does</th></tr>
+<tr><td>Glow-Pebble</td><td>Luck</td><td>Make a pebble or charm shine like a candle.</td></tr>
+<tr><td>Tea-Steam</td><td>Wis</td><td>Warm cold hands or reveal a hidden breeze.</td></tr>
+<tr><td>Button-Bridge</td><td>Int</td><td>Make a tiny bridge for toys, fairies, or clues.</td></tr>
+<tr><td>Heather-Hush</td><td>Wis</td><td>Quiet one noisy room long enough for a careful question.</td></tr>
+<tr><td>Thistle-Tickle</td><td>Luck</td><td>Distract a grumpy creature for one moment.</td></tr>
+<tr><td>Kind Whisper</td><td>Wis</td><td>Help someone say what they feel.</td></tr></table>
+<h3>Adventure spells</h3>
+<table><tr><th>Spell</th><th>Roll</th><th>Use</th></tr>
+<tr><td>Mist Step</td><td>Agility</td><td>Slip past a watcher if a friend describes the mist.</td></tr>
+<tr><td>Rune Read</td><td>Int</td><td>Ask the Guide one question about old writing.</td></tr>
+<tr><td>Lucky Button</td><td>Luck</td><td>Turn one wobble into “yes, but” once per session.</td></tr>
+<tr><td>Shield of Thistles</td><td>Strength</td><td>Hold back wind, rain, or falling branches for a turn.</td></tr>
+<tr><td>Foxfire Path</td><td>Wis</td><td>Find the gentlest route through a confusing place.</td></tr>
+<tr><td>Tiny Mend</td><td>Int</td><td>Repair a small broken object so it can help the story.</td></tr>
+</table>
+{rb('<strong>Spell rule:</strong> spells solve one small problem. Big problems still need choices, friends, and consequences.')}
+</div>
+""", columns=False)
+ph.text_page("Equipment shop", f"""
+<div class='shop'>
+{rb('<strong>Starter money:</strong> each hero starts with 10 thistle pennies. Choose a few useful things before the first adventure. Save at least 1 penny for snacks, tolls, or lucky wishes.')}
+<table><tr><th>Item</th><th>Cost</th><th>Use</th></tr>
+<tr><td>Lantern</td><td>3p</td><td>See in mist, caves, and under bridges.</td></tr>
+<tr><td>Rope</td><td>3p</td><td>Climb, tie, rescue, measure, or make a line.</td></tr>
+<tr><td>Chalk</td><td>1p</td><td>Mark a safe path or draw a puzzle answer.</td></tr>
+<tr><td>Snack bundle</td><td>1p</td><td>Share with a friend or hungry creature.</td></tr>
+<tr><td>Wooden shield</td><td>4p</td><td>Helps Strength rolls to protect or hold steady.</td></tr>
+<tr><td>Soft boots</td><td>4p</td><td>Helps Agility rolls to sneak or balance.</td></tr>
+<tr><td>Tiny toolkit</td><td>5p</td><td>Helps Int rolls to mend, open, or build.</td></tr>
+<tr><td>Oat pouch</td><td>2p</td><td>Helps Wis rolls with animals.</td></tr>
+<tr><td>Lucky button</td><td>3p</td><td>Helps one Luck roll per adventure.</td></tr>
+<tr><td>Warm cloak</td><td>3p</td><td>Stay cosy in rain, wind, or moonlit cold.</td></tr>
+<tr><td>Bell</td><td>2p</td><td>Call a friend, mark a rhythm, or wake a sleepy path.</td></tr>
+<tr><td>Blank notebook</td><td>2p</td><td>Draw maps, clues, promises, and creature friends.</td></tr>
+</table>
+<h3>Starter kits</h3><table><tr><th>Kit</th><th>Cost</th><th>Contains</th></tr>
+<tr><td>Knight kit</td><td>8p</td><td>Wooden shield, rope, snack bundle.</td></tr>
+<tr><td>Scout kit</td><td>8p</td><td>Lantern, chalk, soft boots.</td></tr>
+<tr><td>Mage kit</td><td>8p</td><td>Lucky button, notebook, bell, chalk.</td></tr>
+<tr><td>Friend kit</td><td>8p</td><td>Oat pouch, warm cloak, snack bundle, bell.</td></tr>
+</table>
+</div>
+""", columns=False)
 ph.text_page("Making a hero: quick checklist", f"""
-<ol><li>Name your hero.</li><li>Pick a kindred.</li><li>Pick an adventure job.</li><li>Choose stats: ★★, ★, and —.</li><li>Pick one gear item and one charm.</li><li>Answer: “Who do I want to help?”</li></ol>
-{qa('<strong>Worked example:</strong> Rowan Moonbutton is a Selkie-Born Beast Friend. Stats: Kind ★★, Quick ★, Brave —. Gear: oat pouch. Charm: sea-glass button. Rowan wants to help nervous animals.')}
-{rb('<strong>Grown-up tip:</strong> do not quiz a child on rules. Ask what they imagine, then translate that into Brave, Kind, or Quick.')}
+<ol><li>Name your hero.</li><li>Pick a kindred.</li><li>Pick an adventure job.</li><li>Choose stats: one +2, two +1, two +0.</li><li>Pick one gear item and one charm.</li><li>Answer: “Who do I want to help?”</li></ol>
+{qa('<strong>Worked example:</strong> Rowan Moonbutton is a Selkie-Born Beast Friend. Stats: Wis +2, Agility +1, Luck +1, Strength +0, Int +0. Gear: oat pouch. Charm: sea-glass button. Rowan wants to help nervous animals.')}
+{rb('<strong>Grown-up tip:</strong> do not quiz a child on rules. Ask what they imagine, then translate that into Strength, Int, Agility, Wis, or Luck.')}
 <div class='card-grid'>
 {card('End of session', p('Ask: “Who did we help?” “What should we draw?” “What promise did we make?”'))}
 {card('Tiny advancement', p('After three adventures, add one sticker beside a gift. The sticker is a memory, not a new complicated rule.'))}
@@ -291,13 +346,13 @@ gm.text_page("Scene recipe", f"""
 {card('1. A picture', p('Start with something children can see: misty bridge, silver fox, giant teacup, glowing thistle.'))}
 {card('2. A feeling', p('Pick one: worried, excited, lonely, sleepy, proud, grumpy, curious.'))}
 {card('3. A choice', p('Offer two helpful directions: follow the bells or talk to the fox.'))}
-{card('4. A roll', p('Only roll if the answer is exciting. Use Brave, Kind, or Quick.'))}
+{card('4. A roll', p('Only roll if the answer is exciting. Use Strength, Int, Agility, Wis, or Luck.'))}
 {card('5. A change', p('After each scene, something should be different: a clue, friend, promise, opened path, or new question.'))}
 {qa('<strong>Read aloud:</strong> “The moon is caught in the loch like a silver coin. The kelpie foal stamps, worried and wet. What do you do?”')}
 """, columns=False)
 gm.art_page("05-bestiary-catalog.png", "Creatures are characters", "A creature should usually want something before it blocks something. Children can help, trick, soothe, race, sing, or befriend it.")
 gm.text_page("Running rolls and wobbles", f"""
-<h3>Choosing the stat</h3>{ul(['Use <strong>Brave</strong> when the hero faces pressure.', 'Use <strong>Kind</strong> when feelings, friendship, or care matter.', 'Use <strong>Quick</strong> when speed, balance, noticing, or sneaking matters.'])}
+<h3>Choosing the stat</h3>{ul(['Use <strong>Strength</strong> for lifting, climbing, holding, pushing, or protecting.', 'Use <strong>Int</strong> for puzzles, plans, facts, reading runes, or clever tricks.', 'Use <strong>Agility</strong> for speed, balance, dodging, sneaking, or catching.'])}
 <h3>Good wobbles</h3>{ul(['A hat blows away.', 'The map gets wet.', 'A bell rings and wakes someone.', 'A helpful creature misunderstands.', 'A path opens, but it is muddy.'])}
 {rb('<strong>Never make a wobble mean “you did nothing.”</strong> Always move the story.')}
 """)
@@ -313,40 +368,42 @@ gm.text_page("Tiny tables", f"""
 gm.write()
 
 # Bestiary
-be = Book("bestiary", "Bestiary", "Friendly creatures, gentle problems, and encounter ideas", "05-bestiary-catalog.png")
+be = Book("bestiary", "Bestiary", "Friendly creatures, gentle problems, stat blocks, and encounter ideas", "05-bestiary-catalog.png")
 be.cover_page()
-be.text_page("How to use creatures", f"""
-<p class='drop'>In Thistlebright, a creature is a story moment. It might be scared, proud, hungry, lonely, sleepy, or confused. Heroes are encouraged to notice feelings first.</p>
-{spot('05-bestiary-catalog.png', '<strong>Creature rule:</strong> give it a feeling, a wish, and one funny complication before you think about danger.')}
-{rb('<strong>Entry format:</strong> What it feels, what it wants, how it helps, and what makes the scene funny or tricky.')}
-{ul(['Use creatures as friends, messengers, puzzles, guardians, or comic interruptions.', 'For this age, avoid “kill it” goals. Use helping, calming, racing, finding, sharing, or promising.', 'If a creature is dangerous, make the danger environmental: slippery bank, loud roar, storm cloud, falling pine cones.'])}
-<table><tr><th>Creature role</th><th>At the table</th></tr><tr><td>Friend</td><td>Offers help after kindness.</td></tr><tr><td>Guardian</td><td>Asks for a promise or proof.</td></tr><tr><td>Mystery</td><td>Acts strangely because it is worried.</td></tr><tr><td>Comic trouble</td><td>Makes a safe mess that changes the scene.</td></tr></table>
-""")
+be.text_page("How to use creature stat blocks", f"""
+<p class='drop'>Creatures now have classic fantasy stat blocks, but they are still story-first. Stats help the Guide choose a roll when a creature resists, races, hides, puzzles, or needs calming.</p>
+{spot('05-bestiary-catalog.png', '<strong>Creature rule:</strong> every creature has a feeling, a wish, useful stats, and a safe complication.')}
+{rb('<strong>Creature rolls:</strong> when a creature acts against a hero, roll d6 + the creature stat. For this age, use results to create funny trouble, not punishment.')}
+<table><tr><th>Stat</th><th>Creature use</th></tr><tr><td>Strength</td><td>Push, hold, carry, stomp, protect.</td></tr><tr><td>Int</td><td>Riddles, tricks, memories, old magic.</td></tr><tr><td>Agility</td><td>Race, dodge, fly, swim, sneak.</td></tr><tr><td>Wis</td><td>Feelings, nature, noticing, animal sense.</td></tr><tr><td>Luck</td><td>Fairy weirdness, charm magic, surprises.</td></tr></table>
+""", columns=False)
 creatures = [
-('Moon-Kelpie Foal','Lonely and nervous','Its moon-bell returned','Carries one hero safely across shallow water','Splashes the map when startled'),
-('Thistle Sprite','Proud and tiny','Someone to admire its thorn crown','Shows a hidden fairy path','Gets offended by rude pointing'),
-('Moss Troll Napper','Sleepy and warm-hearted','A quieter place to nap','Lifts a log bridge','Snores bubbles that float away clues'),
-('Silver Fox Familiar','Curious and polite','A riddle answered','Leads heroes to tracks','Only speaks in compliments'),
-('Rowan Owl','Wise but forgetful','Help remembering a name','Sees through mist','Calls everyone “young acorn”'),
-('Heather Hare','Fast and worried','Its red ribbon untangled','Carries a message','Keeps changing direction'),
-('Teacup Dragon','Hot-tempered but small','A biscuit and apology','Boils water for tea or steam clues','Sneezes sparks into puddles'),
-('Loch Lantern Jelly','Shy and glowing','A dark pool made less lonely','Lights underwater steps','Floats away if shouted at'),
-('Bog-Boot Brownie','Helpful and muddy','A pair of boots to clean','Finds footprints','Cleans the wrong thing first'),
-('Cloud Sheep','Dreamy and soft','A shepherd star','Makes a fluffy bridge','Drifts when children giggle')]
-body = "".join([f"<div class='creature'><h3>{n}</h3><p><strong>Feels:</strong> {feel}.<br><strong>Wants:</strong> {want}.<br><strong>Helps by:</strong> {help}.<br><strong>Complication:</strong> {comp}.</p><p><strong>Gentle approach:</strong> notice the feeling, offer one kind thing, then roll only if the creature is still unsure.</p><p><span class='badge'>Brave</span><span class='badge'>Kind</span><span class='badge'>Quick</span> Pick one depending on the child’s idea.</p></div>" for n,feel,want,help,comp in creatures[:4]])
-be.text_page("Loch and glen creatures", body)
-be.art_page("05-bestiary-catalog.png", "Creature scenes", "Use the picture first: what does the child notice, who looks worried, and what helpful thing might the heroes try?")
-body2 = "".join([f"<div class='creature'><h3>{n}</h3><p><strong>Feels:</strong> {feel}.<br><strong>Wants:</strong> {want}.<br><strong>Helps by:</strong> {help}.<br><strong>Complication:</strong> {comp}.</p><p><strong>Scene seed:</strong> it appears while the heroes are already trying to help someone else.</p><p><span class='badge'>Best first move</span> ask what the creature feels.</p></div>" for n,feel,want,help,comp in creatures[4:8]])
-be.text_page("Forest and sky creatures", body2)
-body3 = "".join([f"<div class='creature'><h3>{n}</h3><p><strong>Feels:</strong> {feel}.<br><strong>Wants:</strong> {want}.<br><strong>Helps by:</strong> {help}.<br><strong>Complication:</strong> {comp}.</p></div>" for n,feel,want,help,comp in creatures[8:]])
-be.text_page("Tiny odd creatures", body3 + rb('<strong>Make your own:</strong> choose an animal, add a fairy object, then give it one feeling and one wish.'), columns=False)
+ dict(name='Moon-Kelpie Foal', img='creature-moon-kelpie-foal.png', intro='A nervous water-pony child with a kelp mane and a moon-bell collar. It wants to be brave but splashes when startled.', stats={'STR':1,'INT':0,'AGI':2,'WIS':1,'LUK':1}, wants='Its moon-bell returned.', helps='Carries one hero safely across shallow water.', moves=['Moonlit Splash: makes stepping stones shimmer for one turn.', 'Foal Gallop: races across water if someone sings softly.'], comp='Splashes the map when startled.'),
+ dict(name='Thistle Sprite', img='creature-thistle-sprite.png', intro='A tiny proud fairy with a thorn crown too large for its head. It guards paths because it secretly feels lonely.', stats={'STR':-1,'INT':1,'AGI':2,'WIS':0,'LUK':2}, wants='Someone to admire its thorn crown.', helps='Shows a hidden fairy path.', moves=['Prickle Point: blocks a rude shortcut with harmless thistles.', 'Royal Decree: demands a compliment or tiny flag.'], comp='Gets offended by rude pointing.'),
+ dict(name='Moss Troll Napper', img='creature-moss-troll-napper.png', intro='A huge mossy troll who only wants a quiet nap. Birds nest in its hair and bubbles puff from its nose.', stats={'STR':3,'INT':0,'AGI':-1,'WIS':1,'LUK':0}, wants='A quieter place to nap.', helps='Lifts a log bridge.', moves=['Gentle Lift: moves something heavy without breaking it.', 'Bubble Snore: floats clues away unless caught.'], comp='Snores bubbles that float away clues.'),
+ dict(name='Silver Fox Familiar', img='creature-silver-fox-familiar.png', intro='A polite fox with silver whiskers, clever eyes, and too many compliments. It knows tracks no one else can see.', stats={'STR':0,'INT':2,'AGI':2,'WIS':1,'LUK':1}, wants='A riddle answered.', helps='Leads heroes to tracks.', moves=['Compliment Riddle: gives a clue wrapped in praise.', 'Silver Step: vanishes behind moonlit grass.'], comp='Only speaks in compliments.'),
+ dict(name='Rowan Owl', img='creature-rowan-owl.png', intro='An old owl wearing rowan berries like spectacles. It sees through mist but forgets names at the funniest time.', stats={'STR':0,'INT':2,'AGI':1,'WIS':3,'LUK':0}, wants='Help remembering a name.', helps='Sees through mist.', moves=['Mist Sight: spots hidden doors or feelings.', 'Old Acorn Advice: gives wise advice with one wrong noun.'], comp='Calls everyone “young acorn.”'),
+ dict(name='Heather Hare', img='creature-heather-hare.png', intro='A fast hare with a red ribbon tangled around one paw. It is worried, quick, and very easy to startle.', stats={'STR':0,'INT':0,'AGI':3,'WIS':1,'LUK':1}, wants='Its red ribbon untangled.', helps='Carries a message.', moves=['Zigzag Dash: outruns almost anything on open heather.', 'Ear Twitch: hears danger before it arrives.'], comp='Keeps changing direction.'),
+ dict(name='Teacup Dragon', img='creature-teacup-dragon.png', intro='A biscuit-sized dragon who lives in warm cups and thinks it is enormous. Its sparks are bright but small.', stats={'STR':1,'INT':1,'AGI':1,'WIS':0,'LUK':2}, wants='A biscuit and apology.', helps='Boils water for tea or steam clues.', moves=['Steam Puff: reveals invisible writing.', 'Spark Sneeze: lights a candle or startles a puddle.'], comp='Sneezes sparks into puddles.'),
+ dict(name='Loch Lantern Jelly', img='creature-loch-lantern-jelly.png', intro='A shy glowing jelly that floats under dark water like a little lantern. It dims when shouted at.', stats={'STR':-1,'INT':0,'AGI':1,'WIS':2,'LUK':2}, wants='A dark pool made less lonely.', helps='Lights underwater steps.', moves=['Soft Glow: lights a safe route beneath the surface.', 'Drift Away: escapes loud scenes without anger.'], comp='Floats away if shouted at.'),
+ dict(name='Bog-Boot Brownie', img='creature-bog-boot-brownie.png', intro='A muddy household fairy who loves cleaning boots, even when boots are not the problem.', stats={'STR':1,'INT':2,'AGI':1,'WIS':1,'LUK':0}, wants='A pair of boots to clean.', helps='Finds footprints.', moves=['Mud Map: reads footprints like a story.', 'Scrub Scrub: cleans one item until it shines.'], comp='Cleans the wrong thing first.'),
+ dict(name='Cloud Sheep', img='creature-cloud-sheep.png', intro='A dreamy sheep made of soft cloud wool. It drifts through sky meadows and forgets which star is its shepherd.', stats={'STR':1,'INT':0,'AGI':1,'WIS':1,'LUK':3}, wants='A shepherd star.', helps='Makes a fluffy bridge.', moves=['Cloud Bridge: makes one soft crossing for careful feet.', 'Dream Drift: carries a clue into the sky.'], comp='Drifts when children giggle.'),
+]
+for c in creatures:
+    be.creature_page(c['name'], c['img'], c['intro'], c['stats'], feature_grid([
+        ('Wants', p(c['wants'])),
+        ('Helps by', p(c['helps'])),
+        ('Moves', ul(c['moves'])),
+        ('Complication', p(c['comp'])),
+        ('Gentle approach', p('Name its feeling, offer one kind idea, then roll only if the moment is exciting.')),
+        ('Treasure/friend reward', p('A clue, safe path, charm, drawing prompt, or promise for later.')),
+    ]))
 be.text_page("Creature builder", f"""
-<table><tr><th>Roll</th><th>Animal</th><th>Fairy twist</th><th>Feeling</th></tr><tr><td>1</td><td>Fox</td><td>silver whiskers</td><td>worried</td></tr><tr><td>2</td><td>Hare</td><td>bell tail</td><td>excited</td></tr><tr><td>3</td><td>Owl</td><td>moon glasses</td><td>sleepy</td></tr><tr><td>4</td><td>Pony</td><td>kelp mane</td><td>lonely</td></tr><tr><td>5</td><td>Dragon</td><td>teacup size</td><td>proud</td></tr><tr><td>6</td><td>Sheep</td><td>cloud wool</td><td>confused</td></tr></table>
-{qa('<strong>Example:</strong> Roll 4, 2, 1: a pony with a bell tail who is worried. It lost the bell that tells the loch when to sleep.')}
+<table><tr><th>Roll</th><th>Animal</th><th>Fairy twist</th><th>Best stat</th></tr><tr><td>1</td><td>Fox</td><td>silver whiskers</td><td>Int</td></tr><tr><td>2</td><td>Hare</td><td>bell tail</td><td>Agility</td></tr><tr><td>3</td><td>Owl</td><td>moon glasses</td><td>Wis</td></tr><tr><td>4</td><td>Pony</td><td>kelp mane</td><td>Strength</td></tr><tr><td>5</td><td>Dragon</td><td>teacup size</td><td>Luck</td></tr><tr><td>6</td><td>Sheep</td><td>cloud wool</td><td>Luck</td></tr></table>
+{qa('<strong>Example:</strong> Roll 4, 2, 1: a pony with a bell tail. Give it Strength +1, Agility +2, Wis +1, Int +0, Luck +1. It lost the bell that tells the loch when to sleep.')}
 <div class='card-grid'>
-{card('Finish the entry', p('Add one line for what the creature wants, one line for how it helps, and one safe complication.'))}
+{card('Set the stats', p('Pick one +3, one +2, two +1, and one +0. Very tiny creatures may have one -1 and one +3.'))}
 {card('Make it child-friendly', p('Replace defeat with help, chase, song, puzzle, promise, snack, or finding a lost thing.'))}
-{card('Quick stat choice', p('Brave for scary noises, Kind for feelings, Quick for movement or noticing.'))}
+{card('Choose moves', p('Give it two safe moves: one helpful, one troublesome.'))}
 {card('Reward idea', p('A friend, clue, safe path, tiny charm, bedtime-song note, or funny drawing prompt.'))}
 </div>
 """, columns=False)
@@ -366,7 +423,7 @@ ca.art_page("02-part-opener.png", "Campaign: The Bells Under the Heather", "Thre
 ca.text_page("Adventure 1: The Lost Moon-Bell", f"""
 {qa('<strong>Read aloud:</strong> “The moon is stuck in the loch like a silver coin. A young kelpie foal stamps at the water and tries not to cry.”')}
 <h3>Scenes</h3>{ul(['Meet the nervous kelpie foal.', 'Search reeds, stones, or bubbles for clues.', 'Return the bell by singing, wading, or asking the loch nicely.'])}
-<h3>Roll moments</h3><table><tr><th>Idea</th><th>Stat</th></tr><tr><td>Step onto slippery stones</td><td>Quick</td></tr><tr><td>Comfort the foal</td><td>Kind</td></tr><tr><td>Hold the rope in a gust</td><td>Brave</td></tr><tr><td>Notice bubbles making an arrow</td><td>Quick</td></tr><tr><td>Promise to bring the bell back</td><td>Kind</td></tr></table>
+<h3>Roll moments</h3><table><tr><th>Idea</th><th>Stat</th></tr><tr><td>Step onto slippery stones</td><td>Agility</td></tr><tr><td>Comfort the foal</td><td>Wis</td></tr><tr><td>Hold the rope in a gust</td><td>Strength</td></tr><tr><td>Notice bubbles making an arrow</td><td>Wis</td></tr><tr><td>Promise to bring the bell back</td><td>Luck</td></tr></table>
 <h3>Ending choices</h3>{ul(['The kelpie foal carries everyone one careful step across the shallows.', 'The loch hums the first note of the bedtime song.', 'A wet map reveals the next path when it dries.'])}
 """)
 ca.text_page("Adventure 2: The Grumpy Bridge", f"""
@@ -398,8 +455,9 @@ sheet.text_page("Blank hero sheet", f"""
 <div class='sheet'>
 <div class='sheet-box'><strong>Hero name</strong><div class='line'></div></div><div class='sheet-box'><strong>Player name</strong><div class='line'></div></div>
 <div class='sheet-box'><strong>Kindred</strong><div class='line'></div></div><div class='sheet-box'><strong>Adventure job</strong><div class='line'></div></div>
-<div class='sheet-box'><strong>Brave</strong><br><span class='big-stat'>□ □</span></div><div class='sheet-box'><strong>Kind</strong><br><span class='big-stat'>□ □</span></div>
-<div class='sheet-box'><strong>Quick</strong><br><span class='big-stat'>□ □</span></div><div class='sheet-box'><strong>My gift</strong><div class='line'></div></div>
+<div class='sheet-box'><strong>Strength</strong><br><span class='big-stat'>+__</span></div><div class='sheet-box'><strong>Int</strong><br><span class='big-stat'>+__</span></div>
+<div class='sheet-box'><strong>Agility</strong><br><span class='big-stat'>+__</span></div><div class='sheet-box'><strong>Wis</strong><br><span class='big-stat'>+__</span></div>
+<div class='sheet-box'><strong>Luck</strong><br><span class='big-stat'>+__</span></div><div class='sheet-box'><strong>My gift</strong><div class='line'></div></div>
 <div class='sheet-box big'><strong>Gear and charm</strong><div class='line'></div><div class='line'></div></div><div class='sheet-box big'><strong>I want to help...</strong><div class='line'></div><div class='line'></div></div>
 <div class='sheet-box tall'><strong>Draw your hero</strong></div><div class='sheet-box tall'><strong>Adventure notes / stickers</strong></div>
 </div>
@@ -408,15 +466,16 @@ sheet.text_page("Finished example sheet", f"""
 <div class='sheet'>
 <div class='sheet-box'><strong>Hero name</strong><p>Rowan Moonbutton</p></div><div class='sheet-box'><strong>Player name</strong><p>Example</p></div>
 <div class='sheet-box'><strong>Kindred</strong><p>Selkie-Born</p></div><div class='sheet-box'><strong>Adventure job</strong><p>Beast Friend</p></div>
-<div class='sheet-box'><strong>Brave</strong><br><span class='big-stat'>—</span></div><div class='sheet-box'><strong>Kind</strong><br><span class='big-stat'>★★</span></div>
-<div class='sheet-box'><strong>Quick</strong><br><span class='big-stat'>★</span></div><div class='sheet-box'><strong>My gift</strong><p>Ask a friendly creature for a small favor.</p></div>
+<div class='sheet-box'><strong>Strength</strong><br><span class='big-stat'>+0</span></div><div class='sheet-box'><strong>Int</strong><br><span class='big-stat'>+0</span></div>
+<div class='sheet-box'><strong>Agility</strong><br><span class='big-stat'>+1</span></div><div class='sheet-box'><strong>Wis</strong><br><span class='big-stat'>+2</span></div>
+<div class='sheet-box'><strong>Luck</strong><br><span class='big-stat'>+1</span></div><div class='sheet-box'><strong>My gift</strong><p>Ask a friendly creature for a small favor.</p></div>
 <div class='sheet-box big'><strong>Gear and charm</strong><p>Oat pouch, sea-glass button.</p></div><div class='sheet-box big'><strong>I want to help...</strong><p>nervous animals feel safe.</p></div>
 <div class='sheet-box tall'><strong>Draw your hero</strong><p class='small'>Soft seal-cloak, muddy boots, kind smile.</p></div><div class='sheet-box tall'><strong>Adventure notes</strong><p>Helped the moon-kelpie foal.</p></div>
 </div>
 """, columns=False)
 sheet.text_page("Quick reference cards", f"""
-{card('Roll rule', p('Roll d6 + stat stars. 1–2 wobble. 3–4 yes, but. 5+ bright success.'))}
-{card('Stats', p('<strong>Brave</strong> faces pressure. <strong>Kind</strong> helps feelings. <strong>Quick</strong> moves, spots, and sneaks.'))}
+{card('Roll rule', p('Roll d6 + stat bonus. 1–3 wobble. 4–5 yes, but. 6+ bright success.'))}
+{card('Stats', p('<strong>Strength</strong> lifts/protects. <strong>Int</strong> solves/knows. <strong>Agility</strong> moves/sneaks. <strong>Wis</strong> notices/understands. <strong>Luck</strong> handles charms/surprises.'))}
 {card('Turn prompt', p('“What do you try?” then “How does your hero do it?”'))}
 {card('Kindness rule', p('Heroes can be muddy, surprised, or silly. The story never shames a child for helping.'))}
 {card('Wobble ideas', p('Lost hat, wet map, wrong door, sleepy troll, ringing bell, muddied boots.'))}

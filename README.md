@@ -8,9 +8,9 @@ This repo uses an original child-friendly setting and rules engine. The supplied
 
 Rendered A4 PDFs live in `pdf/`:
 
-- `pdf/player-handbook.pdf` — 21 pages; character creation, simple dice rule, stats, one full painterly illustrated page per kindred/race, one full painterly illustrated page per adventure job/class, spells, gear, and worked example.
-- `pdf/guide-book.pdf` — 7 pages; how to guide scenes for 5–7 year olds, wobbles, adventure structure, and tiny tables.
-- `pdf/bestiary.pdf` — 7 pages; friendly creature entries and creature builder.
+- `pdf/player-handbook.pdf` — 23 pages; character creation, simple dice rule, classic five-stat setup, one full painterly illustrated page per kindred/race, one full painterly illustrated page per adventure job/class, expanded spell list, starter money, equipment shop, and worked example.
+- `pdf/guide-book.pdf` — 7 pages; how to guide scenes for 5–7 year olds using Strength, Int, Agility, Wis, and Luck, wobbles, adventure structure, and tiny tables.
+- `pdf/bestiary.pdf` — 13 pages; each creature has its own artwork page, classic stat block, moves, wants, complications, and creature builder.
 - `pdf/campaigns.pdf` — 7 pages; ready-to-run linked mini campaign.
 - `pdf/character-sheets.pdf` — 4 pages; blank sheet, finished example, and quick-reference cards.
 - `pdf/style-proof.pdf` — original 10-page style proof.
@@ -18,10 +18,10 @@ Rendered A4 PDFs live in `pdf/`:
 ## Rules summary
 
 - Roll one six-sided die only when the answer is exciting.
-- Add stat stars: `★★`, `★`, or `—`.
-- Total `1–2`: wobble. Total `3–4`: yes, but. Total `5+`: bright success.
-- Three stats: Brave, Kind, Quick.
-- Character creation stays simple: pick one best stat `★★`, one okay stat `★`, and leave one blank `—`.
+- Add the matching classic stat bonus: Strength, Int, Agility, Wis, or Luck.
+- Total `1–3`: wobble. Total `4–5`: yes, but. Total `6+`: bright success.
+- Character creation: choose one best stat at `+2`, two good stats at `+1`, and two normal stats at `+0`.
+- Each hero starts with 10 thistle pennies to buy starter gear.
 
 ## Build
 
