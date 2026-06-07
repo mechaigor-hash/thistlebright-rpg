@@ -2,11 +2,18 @@
       <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
       <rect width='820' height='1120' fill='#efe2bd'/>
       <rect width='820' height='1120' fill='url(#glow)'/>
-      <circle cx='125' cy='74' r='2' fill='#87312d' opacity='.25'/><circle cx='515' cy='120' r='3' fill='#87312d' opacity='.25'/><circle cx='747' cy='321' r='4' fill='#87312d' opacity='.25'/><circle cx='549' cy='135' r='5' fill='#87312d' opacity='.25'/><circle cx='137' cy='221' r='2' fill='#87312d' opacity='.25'/><circle cx='667' cy='287' r='3' fill='#87312d' opacity='.25'/><circle cx='269' cy='189' r='4' fill='#87312d' opacity='.25'/><circle cx='456' cy='163' r='5' fill='#87312d' opacity='.25'/><circle cx='586' cy='174' r='2' fill='#87312d' opacity='.25'/><circle cx='338' cy='358' r='3' fill='#87312d' opacity='.25'/><circle cx='600' cy='318' r='4' fill='#87312d' opacity='.25'/><circle cx='68' cy='322' r='5' fill='#87312d' opacity='.25'/><circle cx='188' cy='192' r='2' fill='#87312d' opacity='.25'/><circle cx='635' cy='151' r='3' fill='#87312d' opacity='.25'/><circle cx='195' cy='154' r='4' fill='#87312d' opacity='.25'/><circle cx='361' cy='179' r='5' fill='#87312d' opacity='.25'/><circle cx='481' cy='370' r='2' fill='#87312d' opacity='.25'/><circle cx='577' cy='334' r='3' fill='#87312d' opacity='.25'/><path d='M-59 1120 L31 735 L151 1120 Z' fill='#315b4a' opacity='0.16'/><path d='M156 1120 L246 663 L366 1120 Z' fill='#315b4a' opacity='0.21'/><path d='M351 1120 L441 724 L561 1120 Z' fill='#315b4a' opacity='0.26'/><path d='M555 1120 L645 670 L765 1120 Z' fill='#315b4a' opacity='0.31'/><path d='M780 1120 L870 715 L990 1120 Z' fill='#315b4a' opacity='0.36'/>
-      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#7aa07b' opacity='.54'/>
-      <circle cx='410' cy='410' r='185' fill='#87312d' opacity='.17'/>
-      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
-      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#315b4a' opacity='.88'>✦</text>
-      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#87312d' stroke-width='16' opacity='.35' stroke-linecap='round'/>
-      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#315b4a'>Creature Mist Stag</text>
+      <circle cx='125' cy='74' r='2' fill='#87312d' opacity='.20'/><circle cx='515' cy='120' r='3' fill='#87312d' opacity='.20'/><circle cx='747' cy='321' r='4' fill='#87312d' opacity='.20'/><circle cx='549' cy='135' r='2' fill='#87312d' opacity='.20'/><circle cx='137' cy='221' r='3' fill='#87312d' opacity='.20'/><circle cx='667' cy='287' r='4' fill='#87312d' opacity='.20'/><circle cx='269' cy='189' r='2' fill='#87312d' opacity='.20'/><circle cx='456' cy='163' r='3' fill='#87312d' opacity='.20'/><circle cx='586' cy='174' r='4' fill='#87312d' opacity='.20'/><circle cx='338' cy='358' r='2' fill='#87312d' opacity='.20'/><circle cx='600' cy='318' r='3' fill='#87312d' opacity='.20'/><circle cx='68' cy='322' r='4' fill='#87312d' opacity='.20'/><circle cx='188' cy='192' r='2' fill='#87312d' opacity='.20'/><circle cx='635' cy='151' r='3' fill='#87312d' opacity='.20'/><path d='M-59 1120 L31 735 L151 1120 Z' fill='#315b4a' opacity='0.14'/><path d='M156 1120 L246 663 L366 1120 Z' fill='#315b4a' opacity='0.18'/><path d='M351 1120 L441 724 L561 1120 Z' fill='#315b4a' opacity='0.22'/><path d='M555 1120 L645 670 L765 1120 Z' fill='#315b4a' opacity='0.26'/><path d='M780 1120 L870 715 L990 1120 Z' fill='#315b4a' opacity='0.30'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#7aa07b' opacity='.42'/>
+      <circle cx='410' cy='430' r='210' fill='#87312d' opacity='.10'/>
+      
+        <g transform='translate(0,8)' opacity='.94'>
+          <ellipse cx='410' cy='478' rx='135' ry='70' fill='#315b4a'/>
+          <circle cx='535' cy='438' r='54' fill='#315b4a'/>
+          <path d='M557 386 q30 -92 72 -135 q-10 86 -39 146' fill='none' stroke='#315b4a' stroke-width='18' stroke-linecap='round'/>
+          <path d='M524 389 q-42 -82 -86 -132 q18 92 64 147' fill='none' stroke='#315b4a' stroke-width='16' stroke-linecap='round'/>
+          <path d='M310 520 l-44 118 M370 535 l-32 118 M455 535 l24 116 M520 515 l54 112' stroke='#315b4a' stroke-width='22' stroke-linecap='round'/>
+          <path d='M270 455 q-84 -48 -126 18 q73 -4 126 42' fill='#315b4a' opacity='.72'/>
+          <circle cx='550' cy='426' r='7' fill='#fff6d6'/>
+        </g>
+      <text x='410' y='790' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#315b4a'>Creature Mist Stag</text>
     </svg>

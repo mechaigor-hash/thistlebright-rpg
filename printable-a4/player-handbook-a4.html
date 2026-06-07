@@ -106,7 +106,10 @@ th,td { border:1px solid #b9934c; padding:2mm 1.8mm; vertical-align:top; } th { 
 .low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.16 !important; filter:none !important; }
 .print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
 .print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.92); break-inside:avoid; overflow:hidden; }
-.print-card .card-illo { float:right; width:18mm; height:18mm; margin:0 0 1mm 1.8mm; border-radius:50%; background:linear-gradient(135deg,#f2d68b,#9fc88b); border:1px solid rgba(135,49,45,.42); display:flex; align-items:center; justify-content:center; color:#6f2d29; font-size:13pt; font-weight:700; }
+.print-card .card-illo { float:right; position:relative; width:20mm; height:18mm; margin:0 0 1mm 1.8mm; border-radius:2mm; border:1px solid rgba(135,49,45,.42); display:block; overflow:hidden; }
+.print-card .card-illo .ci-hill { position:absolute; left:-2mm; right:-2mm; bottom:-2mm; height:9mm; border-radius:50% 50% 0 0; opacity:.55; }
+.print-card .card-illo .ci-moon { position:absolute; right:3mm; top:2mm; width:5mm; height:5mm; border-radius:50%; background:rgba(255,248,220,.82); }
+.print-card .card-illo .ci-line { position:absolute; left:3mm; right:3mm; bottom:5mm; height:1.2mm; border-radius:2mm; opacity:.45; }
 .print-card h3 { margin-top:0; font-size:12pt; }
 .quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
 

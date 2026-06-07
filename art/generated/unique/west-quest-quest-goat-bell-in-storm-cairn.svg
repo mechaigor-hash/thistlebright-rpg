@@ -2,11 +2,18 @@
       <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
       <rect width='820' height='1120' fill='#ead6a7'/>
       <rect width='820' height='1120' fill='url(#glow)'/>
-      <circle cx='541' cy='98' r='2' fill='#6f2d29' opacity='.25'/><circle cx='723' cy='287' r='3' fill='#6f2d29' opacity='.25'/><circle cx='501' cy='250' r='4' fill='#6f2d29' opacity='.25'/><circle cx='426' cy='100' r='5' fill='#6f2d29' opacity='.25'/><circle cx='425' cy='358' r='2' fill='#6f2d29' opacity='.25'/><circle cx='461' cy='356' r='3' fill='#6f2d29' opacity='.25'/><circle cx='166' cy='378' r='4' fill='#6f2d29' opacity='.25'/><circle cx='405' cy='258' r='5' fill='#6f2d29' opacity='.25'/><circle cx='561' cy='376' r='2' fill='#6f2d29' opacity='.25'/><circle cx='675' cy='304' r='3' fill='#6f2d29' opacity='.25'/><circle cx='419' cy='136' r='4' fill='#6f2d29' opacity='.25'/><circle cx='677' cy='231' r='5' fill='#6f2d29' opacity='.25'/><circle cx='493' cy='147' r='2' fill='#6f2d29' opacity='.25'/><circle cx='87' cy='283' r='3' fill='#6f2d29' opacity='.25'/><circle cx='271' cy='375' r='4' fill='#6f2d29' opacity='.25'/><circle cx='399' cy='289' r='5' fill='#6f2d29' opacity='.25'/><circle cx='150' cy='115' r='2' fill='#6f2d29' opacity='.25'/><circle cx='62' cy='361' r='3' fill='#6f2d29' opacity='.25'/><path d='M-51 1120 L39 679 L159 1120 Z' fill='#24516a' opacity='0.16'/><path d='M133 1120 L223 731 L343 1120 Z' fill='#24516a' opacity='0.21'/><path d='M360 1120 L450 735 L570 1120 Z' fill='#24516a' opacity='0.26'/><path d='M560 1120 L650 655 L770 1120 Z' fill='#24516a' opacity='0.31'/><path d='M765 1120 L855 660 L975 1120 Z' fill='#24516a' opacity='0.36'/>
-      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#7ba8bd' opacity='.54'/>
-      <circle cx='410' cy='410' r='185' fill='#6f2d29' opacity='.17'/>
-      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
-      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#24516a' opacity='.88'>❧</text>
-      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#6f2d29' stroke-width='16' opacity='.35' stroke-linecap='round'/>
-      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#24516a'>Quest: Goat Bell in Storm Cairn</text>
+      <circle cx='541' cy='98' r='2' fill='#6f2d29' opacity='.20'/><circle cx='723' cy='287' r='3' fill='#6f2d29' opacity='.20'/><circle cx='501' cy='250' r='4' fill='#6f2d29' opacity='.20'/><circle cx='426' cy='100' r='2' fill='#6f2d29' opacity='.20'/><circle cx='425' cy='358' r='3' fill='#6f2d29' opacity='.20'/><circle cx='461' cy='356' r='4' fill='#6f2d29' opacity='.20'/><circle cx='166' cy='378' r='2' fill='#6f2d29' opacity='.20'/><circle cx='405' cy='258' r='3' fill='#6f2d29' opacity='.20'/><circle cx='561' cy='376' r='4' fill='#6f2d29' opacity='.20'/><circle cx='675' cy='304' r='2' fill='#6f2d29' opacity='.20'/><circle cx='419' cy='136' r='3' fill='#6f2d29' opacity='.20'/><circle cx='677' cy='231' r='4' fill='#6f2d29' opacity='.20'/><circle cx='493' cy='147' r='2' fill='#6f2d29' opacity='.20'/><circle cx='87' cy='283' r='3' fill='#6f2d29' opacity='.20'/><path d='M-51 1120 L39 679 L159 1120 Z' fill='#24516a' opacity='0.14'/><path d='M133 1120 L223 731 L343 1120 Z' fill='#24516a' opacity='0.18'/><path d='M360 1120 L450 735 L570 1120 Z' fill='#24516a' opacity='0.22'/><path d='M560 1120 L650 655 L770 1120 Z' fill='#24516a' opacity='0.26'/><path d='M765 1120 L855 660 L975 1120 Z' fill='#24516a' opacity='0.30'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#7ba8bd' opacity='.42'/>
+      <circle cx='410' cy='430' r='210' fill='#6f2d29' opacity='.10'/>
+      
+        <g transform='translate(0,8)' opacity='.94'>
+          <ellipse cx='410' cy='478' rx='135' ry='70' fill='#24516a'/>
+          <circle cx='535' cy='438' r='54' fill='#24516a'/>
+          <path d='M557 386 q30 -92 72 -135 q-10 86 -39 146' fill='none' stroke='#24516a' stroke-width='18' stroke-linecap='round'/>
+          <path d='M524 389 q-42 -82 -86 -132 q18 92 64 147' fill='none' stroke='#24516a' stroke-width='16' stroke-linecap='round'/>
+          <path d='M310 520 l-44 118 M370 535 l-32 118 M455 535 l24 116 M520 515 l54 112' stroke='#24516a' stroke-width='22' stroke-linecap='round'/>
+          <path d='M270 455 q-84 -48 -126 18 q73 -4 126 42' fill='#24516a' opacity='.72'/>
+          <circle cx='550' cy='426' r='7' fill='#fff6d6'/>
+        </g>
+      <text x='410' y='790' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#24516a'>Quest: Goat Bell in Storm Cairn</text>
     </svg>

@@ -2,11 +2,16 @@
       <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
       <rect width='820' height='1120' fill='#f0deb7'/>
       <rect width='820' height='1120' fill='url(#glow)'/>
-      <circle cx='642' cy='259' r='2' fill='#285740' opacity='.25'/><circle cx='74' cy='212' r='3' fill='#285740' opacity='.25'/><circle cx='526' cy='212' r='4' fill='#285740' opacity='.25'/><circle cx='89' cy='236' r='5' fill='#285740' opacity='.25'/><circle cx='607' cy='271' r='2' fill='#285740' opacity='.25'/><circle cx='552' cy='312' r='3' fill='#285740' opacity='.25'/><circle cx='211' cy='201' r='4' fill='#285740' opacity='.25'/><circle cx='77' cy='169' r='5' fill='#285740' opacity='.25'/><circle cx='747' cy='177' r='2' fill='#285740' opacity='.25'/><circle cx='68' cy='204' r='3' fill='#285740' opacity='.25'/><circle cx='465' cy='86' r='4' fill='#285740' opacity='.25'/><circle cx='700' cy='361' r='5' fill='#285740' opacity='.25'/><circle cx='154' cy='212' r='2' fill='#285740' opacity='.25'/><circle cx='268' cy='316' r='3' fill='#285740' opacity='.25'/><circle cx='711' cy='81' r='4' fill='#285740' opacity='.25'/><circle cx='619' cy='142' r='5' fill='#285740' opacity='.25'/><circle cx='260' cy='351' r='2' fill='#285740' opacity='.25'/><circle cx='467' cy='169' r='3' fill='#285740' opacity='.25'/><path d='M-62 1120 L28 732 L148 1120 Z' fill='#56336d' opacity='0.16'/><path d='M144 1120 L234 737 L354 1120 Z' fill='#56336d' opacity='0.21'/><path d='M369 1120 L459 729 L579 1120 Z' fill='#56336d' opacity='0.26'/><path d='M573 1120 L663 720 L783 1120 Z' fill='#56336d' opacity='0.31'/><path d='M766 1120 L856 678 L976 1120 Z' fill='#56336d' opacity='0.36'/>
-      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#a480b5' opacity='.54'/>
-      <circle cx='410' cy='410' r='185' fill='#285740' opacity='.17'/>
-      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
-      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#56336d' opacity='.88'>✦</text>
-      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#285740' stroke-width='16' opacity='.35' stroke-linecap='round'/>
-      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#56336d'>Wash Quickstart Pack 003 33Cf</text>
+      <circle cx='642' cy='259' r='2' fill='#285740' opacity='.20'/><circle cx='74' cy='212' r='3' fill='#285740' opacity='.20'/><circle cx='526' cy='212' r='4' fill='#285740' opacity='.20'/><circle cx='89' cy='236' r='2' fill='#285740' opacity='.20'/><circle cx='607' cy='271' r='3' fill='#285740' opacity='.20'/><circle cx='552' cy='312' r='4' fill='#285740' opacity='.20'/><circle cx='211' cy='201' r='2' fill='#285740' opacity='.20'/><circle cx='77' cy='169' r='3' fill='#285740' opacity='.20'/><circle cx='747' cy='177' r='4' fill='#285740' opacity='.20'/><circle cx='68' cy='204' r='2' fill='#285740' opacity='.20'/><circle cx='465' cy='86' r='3' fill='#285740' opacity='.20'/><circle cx='700' cy='361' r='4' fill='#285740' opacity='.20'/><circle cx='154' cy='212' r='2' fill='#285740' opacity='.20'/><circle cx='268' cy='316' r='3' fill='#285740' opacity='.20'/><path d='M-62 1120 L28 732 L148 1120 Z' fill='#56336d' opacity='0.14'/><path d='M144 1120 L234 737 L354 1120 Z' fill='#56336d' opacity='0.18'/><path d='M369 1120 L459 729 L579 1120 Z' fill='#56336d' opacity='0.22'/><path d='M573 1120 L663 720 L783 1120 Z' fill='#56336d' opacity='0.26'/><path d='M766 1120 L856 678 L976 1120 Z' fill='#56336d' opacity='0.30'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#a480b5' opacity='.42'/>
+      <circle cx='410' cy='430' r='210' fill='#285740' opacity='.10'/>
+      
+        <g opacity='.94'>
+          <path d='M255 560 q155 -260 310 0 z' fill='#56336d' opacity='.86'/>
+          <path d='M315 560 q95 -165 190 0' fill='#a480b5' opacity='.70'/>
+          <circle cx='410' cy='390' r='66' fill='#fff2c3' opacity='.68'/>
+          <path d='M220 640 q190 -96 420 0' fill='none' stroke='#285740' stroke-width='18' opacity='.54' stroke-linecap='round'/>
+          <path d='M175 710 q240 -80 470 0' fill='none' stroke='#56336d' stroke-width='12' opacity='.32' stroke-linecap='round'/>
+        </g>
+      <text x='410' y='790' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#56336d'>Wash Quickstart Pack 003 33Cf</text>
     </svg>

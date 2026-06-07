@@ -2,11 +2,16 @@
       <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
       <rect width='820' height='1120' fill='#efe7c7'/>
       <rect width='820' height='1120' fill='url(#glow)'/>
-      <circle cx='194' cy='91' r='2' fill='#81382f' opacity='.25'/><circle cx='550' cy='283' r='3' fill='#81382f' opacity='.25'/><circle cx='64' cy='93' r='4' fill='#81382f' opacity='.25'/><circle cx='558' cy='331' r='5' fill='#81382f' opacity='.25'/><circle cx='491' cy='319' r='2' fill='#81382f' opacity='.25'/><circle cx='494' cy='181' r='3' fill='#81382f' opacity='.25'/><circle cx='532' cy='136' r='4' fill='#81382f' opacity='.25'/><circle cx='588' cy='292' r='5' fill='#81382f' opacity='.25'/><circle cx='302' cy='83' r='2' fill='#81382f' opacity='.25'/><circle cx='546' cy='312' r='3' fill='#81382f' opacity='.25'/><circle cx='354' cy='295' r='4' fill='#81382f' opacity='.25'/><circle cx='645' cy='155' r='5' fill='#81382f' opacity='.25'/><circle cx='127' cy='109' r='2' fill='#81382f' opacity='.25'/><circle cx='604' cy='109' r='3' fill='#81382f' opacity='.25'/><circle cx='529' cy='288' r='4' fill='#81382f' opacity='.25'/><circle cx='528' cy='246' r='5' fill='#81382f' opacity='.25'/><circle cx='214' cy='248' r='2' fill='#81382f' opacity='.25'/><circle cx='94' cy='118' r='3' fill='#81382f' opacity='.25'/><path d='M-54 1120 L36 676 L156 1120 Z' fill='#4f6b3b' opacity='0.16'/><path d='M153 1120 L243 661 L363 1120 Z' fill='#4f6b3b' opacity='0.21'/><path d='M350 1120 L440 732 L560 1120 Z' fill='#4f6b3b' opacity='0.26'/><path d='M575 1120 L665 665 L785 1120 Z' fill='#4f6b3b' opacity='0.31'/><path d='M775 1120 L865 732 L985 1120 Z' fill='#4f6b3b' opacity='0.36'/>
-      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#8ea86b' opacity='.54'/>
-      <circle cx='410' cy='410' r='185' fill='#81382f' opacity='.17'/>
-      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
-      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#4f6b3b' opacity='.88'>☽</text>
-      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#81382f' stroke-width='16' opacity='.35' stroke-linecap='round'/>
-      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#4f6b3b'>Crafting recipes</text>
+      <circle cx='194' cy='91' r='2' fill='#81382f' opacity='.20'/><circle cx='550' cy='283' r='3' fill='#81382f' opacity='.20'/><circle cx='64' cy='93' r='4' fill='#81382f' opacity='.20'/><circle cx='558' cy='331' r='2' fill='#81382f' opacity='.20'/><circle cx='491' cy='319' r='3' fill='#81382f' opacity='.20'/><circle cx='494' cy='181' r='4' fill='#81382f' opacity='.20'/><circle cx='532' cy='136' r='2' fill='#81382f' opacity='.20'/><circle cx='588' cy='292' r='3' fill='#81382f' opacity='.20'/><circle cx='302' cy='83' r='4' fill='#81382f' opacity='.20'/><circle cx='546' cy='312' r='2' fill='#81382f' opacity='.20'/><circle cx='354' cy='295' r='3' fill='#81382f' opacity='.20'/><circle cx='645' cy='155' r='4' fill='#81382f' opacity='.20'/><circle cx='127' cy='109' r='2' fill='#81382f' opacity='.20'/><circle cx='604' cy='109' r='3' fill='#81382f' opacity='.20'/><path d='M-54 1120 L36 676 L156 1120 Z' fill='#4f6b3b' opacity='0.14'/><path d='M153 1120 L243 661 L363 1120 Z' fill='#4f6b3b' opacity='0.18'/><path d='M350 1120 L440 732 L560 1120 Z' fill='#4f6b3b' opacity='0.22'/><path d='M575 1120 L665 665 L785 1120 Z' fill='#4f6b3b' opacity='0.26'/><path d='M775 1120 L865 732 L985 1120 Z' fill='#4f6b3b' opacity='0.30'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#8ea86b' opacity='.42'/>
+      <circle cx='410' cy='430' r='210' fill='#81382f' opacity='.10'/>
+      
+        <g opacity='.94'>
+          <path d='M255 560 q155 -260 310 0 z' fill='#4f6b3b' opacity='.86'/>
+          <path d='M315 560 q95 -165 190 0' fill='#8ea86b' opacity='.70'/>
+          <circle cx='410' cy='390' r='66' fill='#fff2c3' opacity='.68'/>
+          <path d='M220 640 q190 -96 420 0' fill='none' stroke='#81382f' stroke-width='18' opacity='.54' stroke-linecap='round'/>
+          <path d='M175 710 q240 -80 470 0' fill='none' stroke='#4f6b3b' stroke-width='12' opacity='.32' stroke-linecap='round'/>
+        </g>
+      <text x='410' y='790' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#4f6b3b'>Crafting recipes</text>
     </svg>

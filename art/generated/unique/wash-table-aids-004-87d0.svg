@@ -2,11 +2,17 @@
       <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
       <rect width='820' height='1120' fill='#efe7c7'/>
       <rect width='820' height='1120' fill='url(#glow)'/>
-      <circle cx='169' cy='367' r='2' fill='#81382f' opacity='.25'/><circle cx='187' cy='266' r='3' fill='#81382f' opacity='.25'/><circle cx='233' cy='84' r='4' fill='#81382f' opacity='.25'/><circle cx='642' cy='327' r='5' fill='#81382f' opacity='.25'/><circle cx='183' cy='317' r='2' fill='#81382f' opacity='.25'/><circle cx='340' cy='335' r='3' fill='#81382f' opacity='.25'/><circle cx='455' cy='368' r='4' fill='#81382f' opacity='.25'/><circle cx='199' cy='253' r='5' fill='#81382f' opacity='.25'/><circle cx='458' cy='374' r='2' fill='#81382f' opacity='.25'/><circle cx='274' cy='148' r='3' fill='#81382f' opacity='.25'/><circle cx='218' cy='368' r='4' fill='#81382f' opacity='.25'/><circle cx='227' cy='347' r='5' fill='#81382f' opacity='.25'/><circle cx='268' cy='205' r='2' fill='#81382f' opacity='.25'/><circle cx='675' cy='157' r='3' fill='#81382f' opacity='.25'/><circle cx='215' cy='157' r='4' fill='#81382f' opacity='.25'/><circle cx='371' cy='335' r='5' fill='#81382f' opacity='.25'/><circle cx='486' cy='293' r='2' fill='#81382f' opacity='.25'/><circle cx='230' cy='140' r='3' fill='#81382f' opacity='.25'/><path d='M-51 1120 L39 743 L159 1120 Z' fill='#4f6b3b' opacity='0.16'/><path d='M145 1120 L235 657 L355 1120 Z' fill='#4f6b3b' opacity='0.21'/><path d='M349 1120 L439 716 L559 1120 Z' fill='#4f6b3b' opacity='0.26'/><path d='M551 1120 L641 654 L761 1120 Z' fill='#4f6b3b' opacity='0.31'/><path d='M764 1120 L854 724 L974 1120 Z' fill='#4f6b3b' opacity='0.36'/>
-      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#8ea86b' opacity='.54'/>
-      <circle cx='410' cy='410' r='185' fill='#81382f' opacity='.17'/>
-      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
-      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#4f6b3b' opacity='.88'>☽</text>
-      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#81382f' stroke-width='16' opacity='.35' stroke-linecap='round'/>
-      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#4f6b3b'>Item and coin cards</text>
+      <circle cx='169' cy='367' r='2' fill='#81382f' opacity='.20'/><circle cx='187' cy='266' r='3' fill='#81382f' opacity='.20'/><circle cx='233' cy='84' r='4' fill='#81382f' opacity='.20'/><circle cx='642' cy='327' r='2' fill='#81382f' opacity='.20'/><circle cx='183' cy='317' r='3' fill='#81382f' opacity='.20'/><circle cx='340' cy='335' r='4' fill='#81382f' opacity='.20'/><circle cx='455' cy='368' r='2' fill='#81382f' opacity='.20'/><circle cx='199' cy='253' r='3' fill='#81382f' opacity='.20'/><circle cx='458' cy='374' r='4' fill='#81382f' opacity='.20'/><circle cx='274' cy='148' r='2' fill='#81382f' opacity='.20'/><circle cx='218' cy='368' r='3' fill='#81382f' opacity='.20'/><circle cx='227' cy='347' r='4' fill='#81382f' opacity='.20'/><circle cx='268' cy='205' r='2' fill='#81382f' opacity='.20'/><circle cx='675' cy='157' r='3' fill='#81382f' opacity='.20'/><path d='M-51 1120 L39 743 L159 1120 Z' fill='#4f6b3b' opacity='0.14'/><path d='M145 1120 L235 657 L355 1120 Z' fill='#4f6b3b' opacity='0.18'/><path d='M349 1120 L439 716 L559 1120 Z' fill='#4f6b3b' opacity='0.22'/><path d='M551 1120 L641 654 L761 1120 Z' fill='#4f6b3b' opacity='0.26'/><path d='M764 1120 L854 724 L974 1120 Z' fill='#4f6b3b' opacity='0.30'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#8ea86b' opacity='.42'/>
+      <circle cx='410' cy='430' r='210' fill='#81382f' opacity='.10'/>
+      
+        <g opacity='.95'>
+          <rect x='300' y='390' width='120' height='180' rx='28' fill='#4f6b3b' opacity='.92'/>
+          <rect x='330' y='340' width='60' height='50' rx='15' fill='#81382f' opacity='.80'/>
+          <path d='M490 340 q95 65 24 164 q-62 71 -170 66' fill='none' stroke='#4f6b3b' stroke-width='24' stroke-linecap='round'/>
+          <circle cx='360' cy='470' r='34' fill='#fff6d6' opacity='.38'/>
+          <path d='M220 610 q170 -92 390 0' fill='none' stroke='#81382f' stroke-width='18' opacity='.50' stroke-linecap='round'/>
+          <path d='M250 655 h320' stroke='#4f6b3b' stroke-width='16' opacity='.45' stroke-linecap='round'/>
+        </g>
+      <text x='410' y='790' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#4f6b3b'>Item and coin cards</text>
     </svg>
