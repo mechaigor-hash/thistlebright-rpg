@@ -185,47 +185,89 @@ def real_art_base(title: str, kind: str = 'scene') -> Path:
         slug.replace('of-alba','').strip('-') + '.png',
     ]
     keyword_map = [
-        (['goat','pony','stag','warg','mouse','moth','hedgehog','owl','seal','pet','mount','companion'], 'bg-mounts-pets.png'),
-        (['gear','potion','poison','item','lantern','rope','shield','blade','tea','vial','tool','treasure','craft'], 'item-gear-sheet.png'),
-        (['spell','magic','mage','spark'], 'bg-spell-gear.png'),
-        (['atlas','map','loch','road','border','town','kettleford','thistlewood'], 'alba-regional-map.png'),
-        (['quest','adventure','scene','campaign','banner','fort','march'], 'bg-campaign-red-banner.png'),
-        (['table','aid','checklist'], 'table-aids.png'),
+        (['goat','pony','stag','warg','mouse','moth','hedgehog','owl','seal','pet','mount','companion'], [
+            'bg-mounts-pets.png','mount-pet-highland-pony.png','mount-pet-cairn-goat.png','mount-pet-fairy-stag.png','mount-pet-kelp-mane-pony.png','mount-pet-rowan-owl.png','mount-pet-border-warg.png','mount-pet-rowan-mouse.png','mount-pet-cloud-moth.png','mount-pet-thistle-hedgehog.png'
+        ]),
+        (['gear','potion','poison','item','lantern','rope','shield','blade','tea','vial','tool','treasure','craft','card'], [
+            'item-gear-sheet.png','item-magic-sheet.png','item-potions-poisons-sheet.png','bg-spell-gear.png','bg-treasure.png','bg-tiny-tables.png'
+        ]),
+        (['spell','magic','mage','spark','rune','thorn','glow','mist'], [
+            'bg-spell-gear.png','item-magic-sheet.png','item-potions-poisons-sheet.png','bg-treasure.png'
+        ]),
+        (['atlas','map','loch','road','border','town','kettleford','thistlewood','area','region'], [
+            'alba-regional-map.png','alba-town-dungeon-map.png','alba-frontier-map.png','map-alba-region.png','map-kettleford-village.png','map-moon-loch.png'
+        ]),
+        (['quest','adventure','scene','campaign','banner','fort','march','albion','clan','oath','bridge'], [
+            'bg-campaign-red-banner.png','adventure-thistle-crown.png','adventure-red-banner-road.png','bg-starter-adventure.png','alba-frontier-map.png','creature-albion-redcloak-captain.png','creature-barbarian-storm-berserker.png'
+        ]),
+        (['creature','monster','beast','drake','draugr','redcap','crow','tax','berserker'], [
+            'creature-black-bog-drake.png','creature-border-warg.png','creature-draugr-oath-raider.png','creature-iron-crow-swarm.png','creature-albion-redcloak-captain.png','creature-redcap-warband-boss.png','creature-albion-tax-mage.png','creature-barbarian-storm-berserker.png'
+        ]),
+        (['kindred','glenfolk','fairy','brownie','selkie','rowan','giantling','cairnling','mosskin','corbie','sprite','myceling'], [
+            '03-race-kindreds.png','kindred-cairnling.png','kindred-mosskin.png','kindred-corbie-folk.png','kindred-star-sprite.png','kindred-myceling.png','kindred-glenfolk.png','kindred-thistle-fairy.png','kindred-brownie-helper.png','kindred-selkie-born.png','kindred-rowan-kin.png','kindred-heather-giantling.png'
+        ]),
+        (['table','aid','checklist'], ['table-aids.png','bg-tiny-tables.png','item-gear-sheet.png']),
     ]
     for name in candidates:
         p = ART / name
         if p.exists(): return p
-    for words, name in keyword_map:
+    for words, names in keyword_map:
         if kind in words or any(w in lower for w in words):
-            p = ART / name
-            if p.exists(): return p
+            existing = [ART / name for name in names if (ART / name).exists()]
+            if existing:
+                return existing[stable_seed(title + kind + 'keyword-pool') % len(existing)]
     cycle = [ART / n for n in ART_CYCLE if (ART / n).exists()]
     return cycle[stable_seed(title + kind) % len(cycle)]
 
 def make_real_art_variant(outdir: Path, filename: str, title: str, kind: str = 'scene', width: int = 1400, height: int = 1980) -> str:
-    """Create a cropped raster artwork variant from painterly PNG art; no SVG shapes/icons."""
+    """Create a visibly distinct raster artwork variant from painterly PNG art.
+
+    This deliberately goes beyond a tiny crop/color tweak: each output uses a
+    context-picked main artwork plus a second painterly texture/scene blended at
+    low opacity, different crop anchors, optional flip, and color grading. That
+    keeps repeated card/opening/map subjects related to their context while making
+    each final file visually distinct in contact-sheet QA.
+    """
     outdir.mkdir(parents=True, exist_ok=True)
     stem = Path(filename).stem
     dest = outdir / f"{stem}.png"
-    base = real_art_base(title, kind)
     seed = stable_seed(str(dest) + title + kind)
-    if dest.exists() and dest.stat().st_size > 10000:
-        return dest.name
-    # ffmpeg gives deterministic crop/scale/modulation without needing PIL.
-    sat = 0.88 + (seed % 17) / 100
-    bright = 0.94 + ((seed >> 4) % 14) / 100
-    gamma = 0.96 + ((seed >> 8) % 10) / 100
-    # Overscale then crop at a seed-specific position so reused bases still read as different framed artwork.
-    vf = (
-        f"scale={width}:{height}:force_original_aspect_ratio=increase,"
-        f"crop={width}:{height}:x='(iw-{width})*{(seed % 997)/997:.3f}':y='(ih-{height})*{((seed>>10)%997)/997:.3f}',"
-        f"eq=saturation={sat:.2f}:brightness={(bright-1):.3f}:gamma={gamma:.2f}"
-    )
-    cmd = ['ffmpeg','-y','-loglevel','error','-i',str(base),'-vf',vf,'-frames:v','1',str(dest)]
+    base = real_art_base(title + f" {seed % 29}", kind)
+    pool = [ART / n for n in ART_CYCLE if (ART / n).exists()]
+    # Add subject-specific PNGs without using generated derivative folders as bases.
+    pool += [p for p in ART.glob('*.png') if p.exists()]
+    pool = list(dict.fromkeys(pool))
+    base2 = pool[(seed >> 7) % len(pool)] if pool else base
+    # Always regenerate; stale earlier variants may have been too visually similar.
+    if dest.exists():
+        try: dest.unlink()
+        except Exception: pass
+    sat = 0.82 + (seed % 31) / 100
+    bright = 0.90 + ((seed >> 4) % 21) / 100
+    gamma = 0.88 + ((seed >> 8) % 24) / 100
+    hue = ((seed >> 12) % 15) / 100 - 0.07
+    flip1 = 'hflip,' if seed & 1 else ''
+    flip2 = 'vflip,' if seed & 2 else ''
+    x1 = (seed % 997) / 997
+    y1 = ((seed >> 10) % 997) / 997
+    x2 = ((seed >> 20) % 997) / 997
+    y2 = ((seed >> 5) % 997) / 997
+    f1 = (f"[0:v]{flip1}scale={width}:{height}:force_original_aspect_ratio=increase,"
+          f"crop={width}:{height}:x='(iw-{width})*{x1:.3f}':y='(ih-{height})*{y1:.3f}',"
+          f"eq=saturation={sat:.2f}:brightness={(bright-1):.3f}:gamma={gamma:.2f},hue=h={hue:.3f}[a]")
+    f2 = (f"[1:v]{flip2}scale={width}:{height}:force_original_aspect_ratio=increase,"
+          f"crop={width}:{height}:x='(iw-{width})*{x2:.3f}':y='(ih-{height})*{y2:.3f}',"
+          f"eq=saturation=.55:brightness=.015:gamma=1.08,boxblur=2:1[b]")
+    opacity = 0.16 + ((seed >> 16) % 15) / 100
+    fc = f"{f1};{f2};[a][b]blend=all_mode=softlight:all_opacity={opacity:.2f},unsharp=3:3:.45:3:3:.08"
+    cmd = ['ffmpeg','-y','-loglevel','error','-i',str(base),'-i',str(base2),'-filter_complex',fc,'-frames:v','1',str(dest)]
     try:
         subprocess.run(cmd, check=True)
     except Exception:
-        shutil.copyfile(base, dest)
+        # Fallback still creates a deterministic unique crop from the subject base.
+        vf = f"{flip1}scale={width}:{height}:force_original_aspect_ratio=increase,crop={width}:{height}:x='(iw-{width})*{x1:.3f}':y='(ih-{height})*{y1:.3f}',eq=saturation={sat:.2f}:brightness={(bright-1):.3f}:gamma={gamma:.2f}"
+        subprocess.run(['ffmpeg','-y','-loglevel','error','-i',str(base),'-vf',vf,'-frames:v','1',str(dest)], check=False)
+        if not dest.exists(): shutil.copyfile(base, dest)
     return dest.name
 
 def make_unique_scene_asset(filename: str, title: str, kind: str = 'scene') -> str:
@@ -245,12 +287,20 @@ def illustrated_print_card(label: str, text: str) -> str:
     return f"<div class='print-card'>{make_card_badge(label)}<h3>{label}</h3><p>{text}</p></div>"
 
 def no_reuse_img_src(src: str, book_slug: str) -> str:
+    """Return a globally unique, context-related raster artwork src for every repeated use.
+
+    The first occurrence can keep its original stable artwork. Every later occurrence
+    gets a separate PNG variant keyed by book/use count and the original subject so
+    printable cards, low-ink cards, openers, and catalog pages never share the same
+    image file across the finished book set.
+    """
     count = GLOBAL_IMG_SEEN.get(src, 0)
     GLOBAL_IMG_SEEN[src] = count + 1
     if count == 0:
         return src
-    filename = f"no-reuse-{book_slug}-{count:03d}-{stable_seed(src+str(count)) & 0xffff:04x}.svg"
-    title = Path(src).stem.replace('-', ' ').title()
+    stem = Path(src).stem
+    title = stem.replace('card-', '').replace('no-reuse-', '').replace('-', ' ').title()
+    filename = f"no-reuse-{book_slug}-{count:03d}-{stable_seed(src + book_slug + str(count)) & 0xffff:04x}.png"
     rel = make_unique_scene_asset(filename, title, 'scene')
     return '../art/generated/' + rel
 
@@ -301,8 +351,11 @@ class Book:
     def write(self):
         html = '<!doctype html><html><head><meta charset="utf-8"><title>'+esc(self.title)+'</title><style>'+CSS+'</style></head><body><main class="book">' + '\n'.join(self.pages) + '</main></body></html>'
         def repl(m):
-            return 'src="' + no_reuse_img_src(m.group(1), self.slug) + '"'
-        html = re.sub(r'src="(\.\./art/generated/[^"]+)"', repl, html)
+            quote = m.group(1)
+            src = m.group(2)
+            return f'src={quote}{no_reuse_img_src(src, self.slug)}{quote}'
+        # Catch both double-quoted page art and single-quoted printable-card art.
+        html = re.sub(r"src=(['\"])(\.\./art/generated/[^'\"]+)\1", repl, html)
         (PRINT / f"{self.slug}-a4.html").write_text(html, encoding="utf-8")
 
 def p(text): return f"<p>{text}</p>"
@@ -1383,16 +1436,18 @@ seen_final = {}
 for html_path in sorted(PRINT.glob('*-a4.html')):
     txt = html_path.read_text(encoding='utf-8')
     def repl_final(m):
-        src = m.group(1)
+        quote = m.group(1)
+        src = m.group(2)
         n = seen_final.get(src, 0)
         seen_final[src] = n + 1
         legacy_shape_src = src.endswith('.svg') or '/unique/' in src
         if n == 0 and not legacy_shape_src:
-            return 'src="' + src + '"'
+            return f'src={quote}{src}{quote}'
+        title = Path(src).stem.replace('card-', '').replace('final-no-reuse-', '').replace('no-reuse-', '').replace('-', ' ').title()
         filename = f"final-no-reuse-{html_path.stem}-{n+1:03d}-{stable_seed(src+html_path.name+str(n)) & 0xffff:04x}.png"
-        rel = make_unique_scene_asset(filename, Path(src).stem.replace('-', ' ').title(), 'scene')
-        return 'src="../art/generated/' + rel + '"'
-    txt = re.sub(r'src="(\.\./art/generated/[^"]+)"', repl_final, txt)
+        rel = make_unique_scene_asset(filename, title, 'scene')
+        return f'src={quote}../art/generated/{rel}{quote}'
+    txt = re.sub(r"src=(['\"])(\.\./art/generated/[^'\"]+)\1", repl_final, txt)
     html_path.write_text(txt, encoding='utf-8')
 
 print('built book HTML files:', ', '.join(sorted(p.name for p in PRINT.glob('*-a4.html'))))
