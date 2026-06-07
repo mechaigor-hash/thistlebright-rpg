@@ -1,0 +1,116 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Guide Extra</title><style>
+@page { size:A4 portrait; margin:0; background:#f8efd8; }
+* { box-sizing:border-box; }
+:root { --ink:#2b2118; --muted:#665540; --red:#87312d; --gold:#b9892e; --green:#285740; --purple:#56336d; --paper:#fff8e9; --paper2:#f5e8ca; --line:#c7aa70; --blue:#24516a; }
+html, body { margin:0; background:#f8efd8; color:var(--ink); font-family: Georgia, 'Times New Roman', serif; }
+.book { font-size:10.25pt; line-height:1.31; }
+p { margin:0 0 2.5mm; } p, li { orphans:3; widows:3; }
+ul, ol { margin:1mm 0 3mm; padding-left:5.2mm; break-inside:avoid-page; } li { margin:.42mm 0; }
+h1,h2,h3,h4 { break-after:avoid-page; text-wrap:balance; }
+.page { position:relative; height:297mm; min-height:297mm; padding:12mm 14mm 19mm; background:
+  radial-gradient(circle at 9% 5%, rgba(184,138,45,.14), transparent 42mm),
+  radial-gradient(circle at 94% 18%, rgba(86,51,109,.08), transparent 48mm),
+  linear-gradient(90deg, rgba(91,56,22,.08), transparent 8mm, transparent calc(100% - 8mm), rgba(91,56,22,.07)),
+  var(--paper); page-break-after:always; overflow:hidden; }
+.page::before { content:''; position:absolute; left:12mm; right:12mm; bottom:12mm; height:1px; background:linear-gradient(90deg, transparent, rgba(184,138,45,.72), transparent); pointer-events:none; z-index:0; }
+.page::after { content:''; position:absolute; inset:5mm; border:1px solid rgba(184,138,45,.43); pointer-events:none; z-index:4; }
+.page > * { position:relative; z-index:1; }
+.page-number { position:absolute; z-index:5; right:14mm; bottom:5.1mm; min-width:8mm; text-align:center; color:#765f37; font-size:8pt; line-height:1; letter-spacing:.08em; padding:1.2mm 0; background:rgba(255,248,229,.84); border-top:1px solid rgba(184,138,45,.55); border-bottom:1px solid rgba(184,138,45,.35); }
+.full-bleed { padding:0; background:#251b16; }
+.full-bleed::before { display:none; }
+.full-bleed::after { inset:6mm; border-color:rgba(255,234,168,.56); }
+.full-bleed img.bg { position:relative; z-index:0; display:block; width:100%; height:309mm; margin:-6mm 0; object-fit:cover; object-position:center; transform:scale(1.035); }
+.scrim { position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(15,10,6,.10), rgba(15,10,6,.04) 45%, rgba(15,10,6,.57)); }
+.title-panel, .overlay { position:absolute; z-index:2; left:50%; transform:translateX(-50%); background:linear-gradient(180deg, rgba(255,250,238,.96), rgba(244,224,180,.91)); border:1px solid rgba(91,57,22,.55); box-shadow:0 1.5mm 8mm rgba(0,0,0,.30); }
+.title-panel { top:19mm; width:166mm; padding:6mm 8mm 5mm; border-top:2.2mm solid var(--red); text-align:center; }
+.title-panel h1 { margin:0; color:#692620; font-size:32pt; line-height:.96; font-variant:small-caps; letter-spacing:.015em; }
+.title-panel p { margin:2.5mm 0 0; color:#3b2a1d; font-size:12.4pt; }
+.overlay { bottom:9mm; width:158mm; padding:4mm 5mm; border-left:2.5mm solid rgba(135,49,45,.78); border-radius:1.4mm 4mm 4mm 1.4mm; }
+.overlay h2, .overlay h3 { margin:0 0 1.5mm; padding:0 0 1mm; border-bottom:1px solid rgba(135,49,45,.35); color:#722c28; font-size:17.5pt; line-height:1.04; font-variant:small-caps; }
+.overlay p:last-child { margin-bottom:0; }
+h2.section { margin:0 0 3mm; color:#6f2d29; font-size:21pt; font-variant:small-caps; letter-spacing:.015em; }
+h2.section::first-letter { font-size:1.25em; }
+h3 { margin:3.6mm 0 1.3mm; color:#285640; font-size:13pt; border-bottom:1px solid rgba(184,138,45,.55); }
+h4 { margin:2.2mm 0 1mm; color:#56336d; font-size:10.8pt; }
+.columns { display:grid; grid-template-columns:1fr 1fr; gap:4.5mm 7mm; align-items:start; }
+.three { display:grid; grid-template-columns:1fr 1fr 1fr; gap:3.3mm; }
+.card-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.6mm; }
+.split { display:grid; grid-template-columns:1fr 1fr; gap:5mm 7mm; align-items:start; }
+.col { break-inside:avoid-page; page-break-inside:avoid; }
+.dense-list li { margin:.25mm 0; }
+.mini-card { break-inside:avoid-page; page-break-inside:avoid; margin:2mm 0; padding:2.3mm 2.8mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
+.columns > .option-card { min-height:62mm; }
+.columns > .creature { min-height:58mm; }
+.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.94), rgba(242,226,187,.78)); border:1px solid rgba(154,116,55,.55); box-shadow:inset 0 0 0 1px rgba(255,255,255,.38); }
+.option-card h3, .creature h3 { margin-top:0; }
+.rulebox, .readaloud { margin:2.6mm 0; border-left:2.2mm solid rgba(86,51,109,.66); }
+.questbox { margin:2.8mm 0; border-left:2.2mm solid rgba(40,87,64,.75); }
+.small { font-size:8.8pt; color:var(--muted); }
+.big-stat { font-size:20pt; color:#74322d; letter-spacing:.04em; }
+table { width:100%; border-collapse:collapse; margin:2.2mm 0 3mm; font-size:8.6pt; break-inside:avoid-page; }
+th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { background:#dfd0a4; color:#263b2e; } tr:nth-child(even) td { background:rgba(235,222,184,.58); }
+.keep { break-inside:avoid-page; page-break-inside:avoid; }
+.drop:first-letter { font-size:23pt; line-height:1; color:#87312d; padding-right:1mm; font-weight:700; }
+.spot { height:54mm; overflow:hidden; margin:0 0 3mm; background:#241a16; border:1px solid rgba(128,92,45,.48); break-inside:avoid-page; }
+.spot img { width:100%; height:100%; object-fit:cover; object-position:center; transform:scale(1.025); display:block; }
+.hero-strip { position:relative; height:88mm; margin:-3mm -4mm 4mm; overflow:hidden; background:#271d17; break-inside:avoid-page; }
+.hero-strip img { width:100%; height:100%; object-fit:cover; transform:scale(1.035); }
+.hero-strip .mini { position:absolute; left:6mm; bottom:5mm; right:6mm; padding:2.8mm 3.4mm; background:rgba(255,248,229,.92); border-left:2mm solid var(--red); box-shadow:0 1mm 5mm rgba(0,0,0,.22); }
+.feature-page { padding:10mm 12mm 18mm; }
+.feature-top { display:grid; grid-template-columns:82mm 1fr; gap:6mm; align-items:stretch; margin-bottom:4mm; }
+.feature-art { height:130mm; overflow:hidden; border:1px solid rgba(112,77,35,.55); background:#2b2118; box-shadow:0 1.4mm 5mm rgba(0,0,0,.18); }
+.feature-art img { width:100%; height:100%; object-fit:cover; display:block; }
+.feature-intro { padding:4mm; background:linear-gradient(180deg, rgba(255,251,239,.92), rgba(242,226,187,.72)); border:1px solid rgba(184,138,45,.46); }
+.feature-intro h2 { margin:0 0 2mm; color:#6f2d29; font-size:22pt; line-height:1; font-variant:small-caps; border-bottom:1px solid rgba(184,138,45,.55); padding-bottom:1.5mm; }
+.feature-kicker { color:#56336d; text-transform:uppercase; letter-spacing:.08em; font-size:8pt; margin-bottom:1.5mm; }
+.feature-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.4mm 5mm; }
+.feature-box { break-inside:avoid-page; min-height:38mm; padding:3mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
+.feature-box h3 { margin-top:0; font-size:12pt; }
+.feature-quote { margin-top:3mm; padding:3mm; background:rgba(86,51,109,.10); border-left:2mm solid rgba(86,51,109,.65); font-style:italic; }
+.statline { display:grid; grid-template-columns:repeat(5,1fr); gap:1.2mm; margin:1.7mm 0 2.5mm; }
+.vitals { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2mm; margin:1.8mm 0 2.2mm; }
+.stat, .vital { text-align:center; padding:1.45mm .8mm; background:#ead9ad; border:1px solid #b9954d; font-size:8pt; }
+.stat strong, .vital strong { display:block; color:#6f2d29; font-size:9.4pt; }
+.shop table, .spell-list table, .advancement table, .currency table { font-size:8.1pt; }
+.creature-feature .feature-top { grid-template-columns:76mm 1fr; align-items:start; }
+.creature-feature .feature-art { height:125mm; }
+.creature-feature .feature-intro { min-height:125mm; }
+.creature-feature .feature-box { min-height:28mm; }
+.creature-lore { font-size:9.3pt; line-height:1.25; margin-bottom:1.2mm; }
+.stat-note { font-size:8.2pt; color:var(--muted); margin-top:1mm; }
+.sheet-page .page { padding:11mm 13mm 18mm; }
+.sheet { display:grid; grid-template-columns:1fr 1fr; gap:3.2mm; }
+.sheet-box { min-height:17mm; }
+.sheet-box.big { min-height:44mm; }
+.sheet-box.tall { min-height:62mm; }
+.line { border-bottom:1px solid #836a42; min-height:7mm; margin-top:2mm; }
+.badge { display:inline-block; padding:.8mm 2mm; margin:.4mm .8mm .4mm 0; background:#ead9ad; border:1px solid #b9954d; border-radius:4mm; font-size:8.5pt; }
+.toc li { margin:1.2mm 0; }
+
+.artwash.auto { right:-22mm; bottom:-16mm; width:142mm; height:132mm; object-fit:cover; object-position:center; opacity:.20; filter:saturate(.92); }
+.artwash.auto.left { left:-22mm; right:auto; }
+.page .columns, .page .split, .page table, .page .card-grid, .page .sheet, .page .draw-frame { position:relative; z-index:2; }
+.low-ink .page { background:#fffdf6 !important; }
+.low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.10 !important; filter:grayscale(1) contrast(.85) !important; }
+.print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
+.print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.78); break-inside:avoid; }
+.print-card h3 { margin-top:0; font-size:12pt; }
+.quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
+
+.page:not(.full-bleed) { background-image: linear-gradient(rgba(255,248,233,.82), rgba(255,248,233,.88)), url('../art/generated/bg-tiny-tables.png') !important; background-size:auto, cover !important; background-position:center, center !important; }
+.print-card { min-height:38mm !important; padding:2.5mm !important; }
+.print-card h3 { font-size:10.8pt !important; margin-bottom:1mm !important; }
+.print-card p { font-size:8.4pt !important; line-height:1.18 !important; }
+.session-grid .option-card { padding:2mm !important; }
+.session-grid .option-card h3 { font-size:10.2pt !important; margin-bottom:.8mm !important; }
+.session-grid .option-card p, .session-grid .option-card li { font-size:8pt !important; line-height:1.18 !important; }
+.scene-packet { padding:3mm; border:1px solid rgba(184,138,45,.55); background:rgba(255,251,239,.80); margin:2mm 0; break-inside:avoid; }
+.scene-packet h3 { margin-top:0; }
+
+</style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/bg-tiny-tables.png" alt="Guide Extra cover"><div class="scrim"></div><div class="title-panel"><h1>Adventures in Alba</h1><p>Guide Extra — Running young Adventurers, safety, pacing, page flipping, and table-play QA notes</p></div><div class="overlay"><h3>Adventures in Alba</h3><p>Scottish fairy myth, classic fantasy adventure, gentle danger, and table rules made for brave Adventurers.</p></div></section>
+<section class="page"><img class="artwash auto left" src="../art/generated/creature-black-bog-drake.png" alt=""><h2 class="section">Running young Adventurers</h2><div class="">
+<div class='split'><div class='col'><h3>Keep turns short</h3><ul><li>Ask one concrete question at a time.</li><li>Let pointing at art count as an answer.</li><li>Rotate spotlight after one idea and one roll.</li><li>Offer two choices when players freeze.</li></ul><div class='rulebox'><strong>Best prompt:</strong> “What do you try, and who helps?”</div></div><div class='col'><h3>Scary but safe</h3><ul><li>Describe sound, weather, shadow, and size before danger.</li><li>Never trap a player in hopelessness.</li><li>Show a counter: true name, light, oath, kindness, broken collar.</li><li>At 0 HP use rescue, rest, bargain, or lost gear.</li></ul></div></div>
+</div><div class="page-number">2</div></section>
+<section class="page"><img class="artwash auto right" src="../art/generated/creature-border-warg.png" alt=""><h2 class="section">Table-play QA checklist</h2><div class="">
+<div class='quick-grid'><div class='option-card'><h3>Before play</h3><ul><li>Print quickstart, map, character, cards.</li><li>Pick one adventure and three monsters.</li><li>Read boxed text once.</li></ul></div><div class='option-card'><h3>During play</h3><ul><li>Mark where page flipping slows you.</li><li>Circle unclear rules.</li><li>Star pages that need more art.</li></ul></div><div class='option-card'><h3>After play</h3><ul><li>Ask each Adventurer their favourite picture.</li><li>Ask which rule was confusing.</li><li>Write one new pet/mount hook.</li></ul></div><div class='option-card'><h3>Fix pass</h3><ul><li>Simplify wording.</li><li>Move repeated rules to cards.</li><li>Add art to blank zones.</li><li>Turn dead prose into table tools.</li></ul></div></div>
+</div><div class="page-number">3</div></section></main></body></html>

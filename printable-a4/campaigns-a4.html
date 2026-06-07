@@ -86,8 +86,29 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .line { border-bottom:1px solid #836a42; min-height:7mm; margin-top:2mm; }
 .badge { display:inline-block; padding:.8mm 2mm; margin:.4mm .8mm .4mm 0; background:#ead9ad; border:1px solid #b9954d; border-radius:4mm; font-size:8.5pt; }
 .toc li { margin:1.2mm 0; }
+
+.artwash.auto { right:-22mm; bottom:-16mm; width:142mm; height:132mm; object-fit:cover; object-position:center; opacity:.20; filter:saturate(.92); }
+.artwash.auto.left { left:-22mm; right:auto; }
+.page .columns, .page .split, .page table, .page .card-grid, .page .sheet, .page .draw-frame { position:relative; z-index:2; }
+.low-ink .page { background:#fffdf6 !important; }
+.low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.10 !important; filter:grayscale(1) contrast(.85) !important; }
+.print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
+.print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.78); break-inside:avoid; }
+.print-card h3 { margin-top:0; font-size:12pt; }
+.quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
+
+.page:not(.full-bleed) { background-image: linear-gradient(rgba(255,248,233,.82), rgba(255,248,233,.88)), url('../art/generated/bg-tiny-tables.png') !important; background-size:auto, cover !important; background-position:center, center !important; }
+.print-card { min-height:38mm !important; padding:2.5mm !important; }
+.print-card h3 { font-size:10.8pt !important; margin-bottom:1mm !important; }
+.print-card p { font-size:8.4pt !important; line-height:1.18 !important; }
+.session-grid .option-card { padding:2mm !important; }
+.session-grid .option-card h3 { font-size:10.2pt !important; margin-bottom:.8mm !important; }
+.session-grid .option-card p, .session-grid .option-card li { font-size:8pt !important; line-height:1.18 !important; }
+.scene-packet { padding:3mm; border:1px solid rgba(184,138,45,.55); background:rgba(255,251,239,.80); margin:2mm 0; break-inside:avoid; }
+.scene-packet h3 { margin-top:0; }
+
 </style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/02-part-opener.png" alt="Example Campaigns cover"><div class="scrim"></div><div class="title-panel"><h1>Adventures in Alba</h1><p>Example Campaigns — Ready-to-run adventures and a small linked campaign for Adventures in Alba</p></div><div class="overlay"><h3>Adventures in Alba</h3><p>Scottish fairy myth, classic fantasy adventure, gentle danger, and table rules made for brave Adventurers.</p></div></section>
-<section class="page"><h2 class="section">How campaigns work</h2><div class="columns">
+<section class="page"><img class="artwash auto left" src="../art/generated/kindred-star-sprite.png" alt=""><h2 class="section">How campaigns work</h2><div class="columns">
 <p class='drop'>A campaign for this age is a string of friendly episodes. Each session should have a clear helper, a magical place, one puzzle, and one warm ending.</p>
 <div class='hero-strip'><img src='../art/generated/02-part-opener.png' alt='art'><div class='mini'><strong>Campaign rhythm:</strong> arrive, discover, help, celebrate.</div></div>
 <div class='rulebox'><strong>Length:</strong> 20–40 minutes per adventure. Stop while adventurers still want more.</div>
@@ -95,25 +116,25 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <table><tr><th>Minute</th><th>What to do</th></tr><tr><td>0–5</td><td>Read the hook and ask what the heroes notice.</td></tr><tr><td>5–15</td><td>Meet a creature or obstacle with a feeling.</td></tr><tr><td>15–30</td><td>Try two or three adventurer ideas, rolling only for exciting moments.</td></tr><tr><td>End</td><td>Name the friend helped and draw one treasure.</td></tr></table>
 </div><div class="page-number">2</div></section>
 <section class="page full-bleed"><img class="bg" src="../art/generated/02-part-opener.png" alt="Campaign: The Bells Under the Heather"><div class="scrim"></div><div class="overlay"><h2>Campaign: The Bells Under the Heather</h2><p>Three fairy bells have gone quiet, and the glen is forgetting its bedtime songs.</p></div><div class="page-number">3</div></section>
-<section class="page"><h2 class="section">Adventure 1: The Lost Moon-Bell</h2><div class="columns">
+<section class="page"><img class="artwash auto left" src="../art/generated/creature-black-bog-drake.png" alt=""><h2 class="section">Adventure 1: The Lost Moon-Bell</h2><div class="columns">
 <div class='questbox'><strong>Read aloud:</strong> “The moon is stuck in the loch like a silver coin. A young kelpie foal stamps at the water and tries not to cry.”</div>
 <h3>Scenes</h3><ul><li>Meet the nervous kelpie foal.</li><li>Search reeds, stones, or bubbles for clues.</li><li>Return the bell by singing, wading, or asking the loch nicely.</li></ul>
 <h3>Roll moments</h3><table><tr><th>Idea</th><th>Stat</th></tr><tr><td>Step onto slippery stones</td><td>Agility</td></tr><tr><td>Comfort the foal</td><td>Wis</td></tr><tr><td>Hold the rope in a gust</td><td>Strength</td></tr><tr><td>Notice bubbles making an arrow</td><td>Wis</td></tr><tr><td>Promise to bring the bell back</td><td>Luck</td></tr></table>
 <h3>Ending choices</h3><ul><li>The kelpie foal carries everyone one careful step across the shallows.</li><li>The loch hums the first note of the bedtime song.</li><li>A wet map reveals the next path when it dries.</li></ul>
 </div><div class="page-number">4</div></section>
-<section class="page"><h2 class="section">Adventure 2: The Grumpy Bridge</h2><div class="columns">
+<section class="page"><img class="artwash auto right" src="../art/generated/creature-border-warg.png" alt=""><h2 class="section">Adventure 2: The Grumpy Bridge</h2><div class="columns">
 <div class='questbox'><strong>Read aloud:</strong> “The bridge folds its stony arms. ‘No crossing,’ it rumbles, ‘unless someone remembers how to laugh politely.’”</div>
 <ul><li>The bridge is not mean; it is embarrassed because moss covers its carvings.</li><li>Adventurers can clean, joke, sing, draw, or ask what happened.</li><li>A wobble makes the bridge sneeze pebbles, not hurt anyone.</li></ul>
 <div class='rulebox'><strong>Reward:</strong> the bridge teaches the party the safe stepping rhythm: clap, step, clap, step.</div>
 <h3>Extra clues</h3><ul><li>Moss hides a carved smiling face.</li><li>The bridge remembers adventurers who thanked it long ago.</li><li>A silver fox waits on the other side with dry socks.</li></ul>
 </div><div class="page-number">5</div></section>
-<section class="page"><h2 class="section">Adventure 3: The Thistle Crown</h2><div class="columns">
+<section class="page"><img class="artwash auto left" src="../art/generated/creature-draugr-oath-raider.png" alt=""><h2 class="section">Adventure 3: The Thistle Crown</h2><div class="columns">
 <div class='questbox'><strong>Read aloud:</strong> “A tiny sprite wears a crown too big for its head. It declares itself King of All Paths, then whispers, ‘Do I look brave?’”</div>
 <h3>What is really happening?</h3><p>The sprite is scared of guarding the path alone. It needs help making a promise flag.</p>
 <h3>Good solutions</h3><ul><li>Make a tiny flag.</li><li>Share a brave story.</li><li>Ask another creature to visit.</li><li>Let the sprite choose a less lonely job.</li></ul>
 <h3>If the heroes wobble</h3><ul><li>The crown slips over the sprite’s eyes.</li><li>The path grows extra thistles, but they smell like jam.</li><li>The sprite declares a snack break and forgets to be bossy.</li></ul>
 </div><div class="page-number">6</div></section>
-<section class="page"><h2 class="section">Mini campaign tracker</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/creature-iron-crow-swarm.png" alt=""><h2 class="section">Mini campaign tracker</h2><div class="">
 <table><tr><th>Session</th><th>Bell or promise</th><th>Friend made</th><th>Drawing space</th></tr><tr><td>1</td><td>Moon-Bell</td><td></td><td></td></tr><tr><td>2</td><td>Bridge rhythm</td><td></td><td></td></tr><tr><td>3</td><td>Thistle Crown promise</td><td></td><td></td></tr><tr><td>Finale</td><td>Bedtime song returns</td><td></td><td></td></tr></table>
 <div class='rulebox'><strong>Finale idea:</strong> every friend returns and adds one sound to the bedtime song: splash, clap, rustle, giggle, bell.</div>
 <div class='card-grid'>
@@ -128,7 +149,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <h3>Six-session arc</h3><table><tr><th>Session</th><th>Episode</th><th>Main pressure</th></tr><tr><td>1</td><td>Taxes at Kettleford Bridge</td><td>Redcloak patrol demands coin and maps.</td></tr><tr><td>2</td><td>The Stolen Standing Stone</td><td>Albion surveyors move a fairy boundary marker.</td></tr><tr><td>3</td><td>Warg with the Iron Collar</td><td>Free a border warg from command magic.</td></tr><tr><td>4</td><td>Clan Moot under Rain</td><td>Unite rival clans without starting a feud.</td></tr><tr><td>5</td><td>Raid on the Red Supply Cart</td><td>Rescue prisoners, charms, and stolen maps.</td></tr><tr><td>6</td><td>The Banner That Lied</td><td>Break an enchanted conquest banner.</td></tr></table>
 <h3>Villain note</h3><p>The Dominion of Albion is a fantasy imperial faction. Do not say every southerner is evil; make the villains the army, greedy nobles, cursed banners, and officials trying to erase Alba's names.</p><h3>Scene tools</h3><div class='card-grid'><div class='option-card'><h3>Redcloak patrol</h3><p>2 guards, 1 tax-mage, one nervous local guide.</p></div><div class='option-card'><h3>Moral choice</h3><p>Rescue prisoners now, or steal the map that saves three villages later?</p></div><div class='option-card'><h3>Magic problem</h3><p>The banner makes locals forget their own hill names.</p></div><div class='option-card'><h3>Reward</h3><p>Clan reputation, a freed warg ally, or a red-sealed map.</p></div><div class='option-card'><h3>Recurring place</h3><p>Kettleford Bridge changes each visit: tax chain, rumor crowd, warg tracks, then banner shadow.</p></div><div class='option-card'><h3>Boss prep</h3><p>Redcloak Captain carries orders, fear, and a banner tassel that points to the final true-name ritual.</p></div></div>
 </div></div><div class="page-number">10</div></section>
-<section class="page"><h2 class="section">Red Banner Road: session packets</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/creature-barbarian-storm-berserker.png" alt=""><h2 class="section">Red Banner Road: session packets</h2><div class="">
 <div class='session-grid'>
 <div class='option-card'><h3>1. Taxes at Kettleford Bridge</h3><p>Read aloud: Red cloaks block the bridge while a nervous goat chews their map. Goal: protect villagers without starting a battle. Key rolls: Wis to calm the crowd, Int to spot false tax marks, Strength to hold the bridge chain. Reward: bridge oath token.</p></div>
 <div class='option-card'><h3>2. Stolen Standing Stone</h3><p>Surveyors moved a fairy border stone. Goal: learn its true name and roll it home. Wobble: the wrong hill wakes first. Reward: Rowan Compact favour.</p></div>
@@ -152,7 +173,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 </div>
 <h3>Episodes</h3><ul><li>The Empty Longship</li><li>Market Day under Axes</li><li>Draugr in the Sea Cave</li><li>The Storm-Knot Duel</li><li>Feast-right at the Clan Hall</li><li>The Oath-Raiders Rest</li></ul><h3>Sea encounters</h3><table><tr><td>1</td><td>Fog hides a friendly trader and a hostile raider.</td></tr><tr><td>2</td><td>A seal-spirit demands the party judge an oath.</td></tr><tr><td>3</td><td>Draugr row beneath the boat at midnight.</td></tr><tr><td>4</td><td>A storm knot must be untied with song.</td></tr></table><div class='card-grid'><div class='option-card'><h3>Harbor clock</h3><p>At three bells, market closes. At six bells, raiders choose a target. At nine, the tide opens the sea cave.</p></div><div class='option-card'><h3>Peace route</h3><p>A feast, repaired sail, and returned oath-ring can turn raiders into rivals instead of enemies.</p></div><div class='option-card'><h3>Treasure route</h3><p>Each episode gives one ship-token clue: lantern, shield, ring, cup, knot, final oath.</p></div><div class='option-card'><h3>Draugr route</h3><p>If ignored, the ghost crew grows louder and colder; if honored, they guide the party through fog.</p></div></div>
 </div></div><div class="page-number">12</div></section>
-<section class="page"><h2 class="section">Longships in the Mist: session packets</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/alba-regional-map.png" alt=""><h2 class="section">Longships in the Mist: session packets</h2><div class="">
 <div class='session-grid'>
 <div class='option-card'><h3>1. Empty Longship</h3><p>The ship arrives crewless with one blue lantern. Search cargo, comfort frightened harbor folk, learn the shield oath.</p></div>
 <div class='option-card'><h3>2. Market Day Under Axes</h3><p>Traders and raiders argue. Keep guest-right, separate Skull-Sail Rurik from peaceful Jorunn, and save the bell stall.</p></div>
@@ -171,7 +192,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <h3>Key NPCs</h3><table><tr><th>Name</th><th>Role</th><th>What they want</th></tr><tr><td>Queen Maev Stormbraid</td><td>Clan war-leader</td><td>Return of a stolen clan cauldron.</td></tr><tr><td>Old Duthac</td><td>Oath poet</td><td>Someone to remember the true story.</td></tr><tr><td>Bran of the Broken Axe</td><td>Hot-headed champion</td><td>A fair duel, not a massacre.</td></tr><tr><td>Eithne Rowan-Seer</td><td>Seer</td><td>The Thorn Court kept out of clan dreams.</td></tr></table>
 <h3>Adventure structure</h3><ul><li>Prove guest-right by sharing food.</li><li>Solve a stolen-cauldron mystery.</li><li>Stop a duel using truth, not force.</li><li>Enter the storm cairn and face an oath monster.</li><li>Choose whether clans join Alba against the Dominion.</li></ul><h3>Clan customs</h3><table><tr><td>Guest-right</td><td>Food shared means no one may attack under that roof.</td></tr><tr><td>Truth-song</td><td>A bard may settle disputes by singing the true version.</td></tr><tr><td>Fair challenge</td><td>A duel can be riddle, wrestling, race, poem, or shield-hold.</td></tr></table><div class='card-grid'><div class='option-card'><h3>Respect scene</h3><p>Before each roll, ask: do you speak as guest, challenger, witness, or helper? The answer changes the stat.</p></div><div class='option-card'><h3>Cauldron clues</h3><p>Ash on red wax, wagon tracks, missing feast song, and a frightened page point to Albion theft.</p></div><div class='option-card'><h3>Duel variants</h3><p>Run Bran’s duel as race, shield-hold, riddle, wrestling, poem, or carrying water through wind.</p></div><div class='option-card'><h3>Alliance reward</h3><p>If won respectfully, the party earns storm-clan shelter and a cairn goat companion hook.</p></div></div>
 </div></div><div class="page-number">14</div></section>
-<section class="page"><h2 class="section">Barbarian Queen: session packets</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/alba-frontier-map.png" alt=""><h2 class="section">Barbarian Queen: session packets</h2><div class="">
 <div class='session-grid'>
 <div class='option-card'><h3>1. Guest-right Test</h3><p>The heroes must share food and answer a challenge without insulting the storm-clans. Reward: safe fire and one honest question.</p></div>
 <div class='option-card'><h3>2. Stolen Cauldron</h3><p>Investigate tracks, lies, and red wax. Twist: Albion agents stole the cauldron to stop clan feasts.</p></div>
@@ -185,6 +206,6 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <div class='option-card'><h3>Finale checklist</h3><p>Return the cauldron, settle Bran without humiliation, name the ancestor, and ask Maev for alliance as an equal.</p></div>
 </div>
 </div><div class="page-number">15</div></section>
-<section class="page"><h2 class="section">Encounter maps and travel procedures</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/bg-spell-gear.png" alt=""><h2 class="section">Encounter maps and travel procedures</h2><div class="">
 <div class='split'><div class='col'><h3>Travel turn</h3><ul><li>Pick route: road, moor, loch, forest, coast, old Roman road, fairy path.</li><li>Choose pace: careful, normal, urgent.</li><li>Roll one travel event if the route is dangerous.</li><li>Mark food, weather, one rumor, and one map change.</li></ul><h3>Map symbols</h3><table><tr><td>Castle</td><td>law, soldiers, taxes</td></tr><tr><td>Cairn</td><td>oaths, ghosts, memory</td></tr><tr><td>Loch</td><td>water magic, kelpies, secrets</td></tr><tr><td>Longship</td><td>raids, trade, oaths</td></tr></table></div><div class='col'><h3>Travel events</h3><table><tr><td>1</td><td>Redcloak patrol measuring land.</td></tr><tr><td>2</td><td>Norse trader offers a cursed bargain.</td></tr><tr><td>3</td><td>Barbarian scouts test guest-right.</td></tr><tr><td>4</td><td>Fairy ring moves the road.</td></tr><tr><td>5</td><td>Monster sign: claw marks, cold fog, iron feathers.</td></tr><tr><td>6</td><td>Helpful local: shepherd, fisher, brownie, corbie messenger.</td></tr></table><h3>After travel</h3><ul><li>Ask one player to mark the route on the map.</li><li>Ask another to name a rumor learned on the road.</li><li>If a companion helped, advance its bond if the table cared for it.</li><li>Turn one travel event into tomorrow’s hook.</li></ul><h3>Route costs</h3><table><tr><td>Careful</td><td>safe clue, slower clock.</td></tr><tr><td>Normal</td><td>one event.</td></tr><tr><td>Urgent</td><td>arrive fast, start with mud/noise/tired companion.</td></tr></table></div></div>
 </div><div class="page-number">16</div></section></main></body></html>

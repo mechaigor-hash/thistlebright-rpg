@@ -86,12 +86,33 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .line { border-bottom:1px solid #836a42; min-height:7mm; margin-top:2mm; }
 .badge { display:inline-block; padding:.8mm 2mm; margin:.4mm .8mm .4mm 0; background:#ead9ad; border:1px solid #b9954d; border-radius:4mm; font-size:8.5pt; }
 .toc li { margin:1.2mm 0; }
+
+.artwash.auto { right:-22mm; bottom:-16mm; width:142mm; height:132mm; object-fit:cover; object-position:center; opacity:.20; filter:saturate(.92); }
+.artwash.auto.left { left:-22mm; right:auto; }
+.page .columns, .page .split, .page table, .page .card-grid, .page .sheet, .page .draw-frame { position:relative; z-index:2; }
+.low-ink .page { background:#fffdf6 !important; }
+.low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.10 !important; filter:grayscale(1) contrast(.85) !important; }
+.print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
+.print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.78); break-inside:avoid; }
+.print-card h3 { margin-top:0; font-size:12pt; }
+.quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
+
+.page:not(.full-bleed) { background-image: linear-gradient(rgba(255,248,233,.82), rgba(255,248,233,.88)), url('../art/generated/bg-tiny-tables.png') !important; background-size:auto, cover !important; background-position:center, center !important; }
+.print-card { min-height:38mm !important; padding:2.5mm !important; }
+.print-card h3 { font-size:10.8pt !important; margin-bottom:1mm !important; }
+.print-card p { font-size:8.4pt !important; line-height:1.18 !important; }
+.session-grid .option-card { padding:2mm !important; }
+.session-grid .option-card h3 { font-size:10.2pt !important; margin-bottom:.8mm !important; }
+.session-grid .option-card p, .session-grid .option-card li { font-size:8pt !important; line-height:1.18 !important; }
+.scene-packet { padding:3mm; border:1px solid rgba(184,138,45,.55); background:rgba(255,251,239,.80); margin:2mm 0; break-inside:avoid; }
+.scene-packet h3 { margin-top:0; }
+
 </style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/02-part-opener.png" alt="Guide Book cover"><div class="scrim"></div><div class="title-panel"><h1>Adventures in Alba</h1><p>Guide Book — How to run warm high-fantasy adventures for Adventurers 5–7, with examples and dialogue</p></div><div class="overlay"><h3>Adventures in Alba</h3><p>Scottish fairy myth, classic fantasy adventure, gentle danger, and table rules made for brave Adventurers.</p></div></section>
-<section class="page"><h2 class="section">Your job as Guide</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/kindred-myceling.png" alt=""><h2 class="section">Your job as Guide</h2><div class="">
 <p class='drop'>The Guide is not the boss of fun. You describe the world, listen to adventurers, ask what they try, and help the dice turn ideas into surprises.</p>
 <div class='split'><div class='col'><ul><li>Use short scenes: 5 to 12 minutes each.</li><li>Give choices in twos or threes, not long menus.</li><li>Name feelings before fights: scared, proud, sleepy, lonely, worried.</li><li>Let adventurers succeed often. The fun is in how it happens.</li></ul><div class='hero-strip'><img src='../art/generated/03-race-kindreds.png' alt='art'><div class='mini'><strong>Guide stance:</strong> make every scene readable from the art, then support the adventurer’s idea.</div></div></div><div class='col'><div class='rulebox'><strong>Safety tone:</strong> no gore, no cruelty, no permanent harm. Trouble can be spooky, muddy, noisy, or puzzling.</div><h3>Useful phrases</h3><ul><li>“Yes, and what does that look like?”</li><li>“Who are you helping?”</li><li>“Which stat fits your idea?”</li><li>“That is a wobble, so something funny changes.”</li></ul><div class='mini-card'><strong>Guide rhythm</strong><br>Picture → feeling → choice → roll only if exciting → warm change.</div></div></div>
 </div><div class="page-number">2</div></section>
-<section class="page"><h2 class="section">Scene recipe</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/creature-black-bog-drake.png" alt=""><h2 class="section">Scene recipe</h2><div class="">
 <div class='option-card'><h3>1. A picture</h3><p>Start with something adventurers can see: misty bridge, silver fox, giant teacup, glowing thistle.</p></div>
 <div class='option-card'><h3>2. A feeling</h3><p>Pick one: worried, excited, lonely, sleepy, proud, grumpy, curious.</p></div>
 <div class='option-card'><h3>3. A choice</h3><p>Offer two helpful directions: follow the bells or talk to the fox.</p></div>
@@ -100,12 +121,12 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <div class='questbox'><strong>Read aloud:</strong> “The moon is caught in the loch like a silver coin. The kelpie foal stamps, worried and wet. What do you do?”</div>
 </div><div class="page-number">3</div></section>
 <section class="page full-bleed"><img class="bg" src="../art/generated/05-bestiary-catalog.png" alt="Creatures are characters"><div class="scrim"></div><div class="overlay"><h2>Creatures are characters</h2><p>A creature should usually want something before it blocks something. Adventurers can help, trick, soothe, race, sing, or befriend it.</p></div><div class="page-number">4</div></section>
-<section class="page"><h2 class="section">Running rolls and wobbles</h2><div class="columns">
+<section class="page"><img class="artwash auto right" src="../art/generated/creature-draugr-oath-raider.png" alt=""><h2 class="section">Running rolls and wobbles</h2><div class="columns">
 <h3>Choosing the stat</h3><ul><li>Use <strong>Strength</strong> for lifting, climbing, holding, pushing, or protecting.</li><li>Use <strong>Int</strong> for puzzles, plans, facts, reading runes, or clever tricks.</li><li>Use <strong>Agility</strong> for speed, balance, dodging, sneaking, or catching.</li><li>Use <strong>Wis</strong> for feelings, nature, animals, and noticing what matters.</li><li>Use <strong>Luck</strong> for charms, surprises, fairy bargains, and last chances.</li></ul>
 <h3>Good wobbles</h3><ul><li>A hat blows away.</li><li>The map gets wet.</li><li>A bell rings and wakes someone.</li><li>A helpful creature misunderstands.</li><li>A path opens, but it is muddy.</li></ul>
 <div class='rulebox'><strong>Never make a wobble mean “you did nothing.”</strong> Always move the story.</div>
 </div><div class="page-number">5</div></section>
-<section class="page"><h2 class="section">Building adventures</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/creature-iron-crow-swarm.png" alt=""><h2 class="section">Building adventures</h2><div class="">
 <table><tr><th>Part</th><th>Question</th><th>Example</th></tr><tr><td>Hook</td><td>Who needs help?</td><td>A fairy cannot find the right door.</td></tr><tr><td>Path</td><td>Where must heroes go?</td><td>Across the heather bridge.</td></tr><tr><td>Friend</td><td>Who can help?</td><td>A shy fox with silver whiskers.</td></tr><tr><td>Puzzle</td><td>What needs a clever choice?</td><td>Three bells ring, but only one is kind.</td></tr><tr><td>Ending</td><td>How is the glen warmer now?</td><td>The lost moon-bell is returned.</td></tr></table>
 <div class='questbox'><strong>Guide promise:</strong> prepare situations, not answers. If an adventurer invents a kind solution, let it matter.</div>
 </div><div class="page-number">6</div></section>
@@ -114,10 +135,10 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <div class='tiny-row alt'><div class='tiny-heading'><h3>What does the creature want?</h3><p>Give every encounter a want before it becomes a fight.</p></div><table><tr><td>1</td><td>A snack.</td></tr><tr><td>2</td><td>A song.</td></tr><tr><td>3</td><td>Someone to listen.</td></tr><tr><td>4</td><td>A lost button.</td></tr><tr><td>5</td><td>Help being brave.</td></tr><tr><td>6</td><td>A promise kept.</td></tr></table></div>
 <div class='tiny-row'><div class='tiny-heading'><h3>How can it enter a scene?</h3><p>Drop the creature into the map with one action.</p></div><table><tr><td>1</td><td>It blocks a path by accident.</td></tr><tr><td>2</td><td>It is crying quietly.</td></tr><tr><td>3</td><td>It has the clue but misunderstands it.</td></tr><tr><td>4</td><td>It challenges the heroes to a silly contest.</td></tr><tr><td>5</td><td>It asks for a promise.</td></tr><tr><td>6</td><td>It follows the heroes home.</td></tr></table></div>
 </div></div><div class="page-number">7</div></section>
-<section class="page"><h2 class="section">Scene dressing examples</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/creature-redcap-warband-boss.png" alt=""><h2 class="section">Scene dressing examples</h2><div class="">
 <div class='split'><div class='col'><h3>What to put in a scene</h3><ul><li><strong>One clear picture:</strong> a bridge with mossy faces, a teacup storm, a silver fox in heather.</li><li><strong>One sound:</strong> bell, splash, snore, giggle, creak, whisper.</li><li><strong>One feeling:</strong> lonely, proud, worried, sleepy, curious, embarrassed.</li><li><strong>One useful object:</strong> rope, button, lantern, map, boot, key, ribbon.</li><li><strong>One choice:</strong> talk first or look closer; cross now or find a safer path.</li></ul><div class='rulebox'><strong>Example setup:</strong> “Rain taps the old bridge. A carved face blinks under moss. A red ribbon is tied around the middle stone.”</div></div><div class='col'><h3>Dialogue starters</h3><ul><li>Bridge: “I will not open for stomping feet. I open for polite ones.”</li><li>Sprite: “I am not lost. I am doing royal path inspection.”</li><li>Brownie: “Hold still! Those boots have clues on them!”</li><li>Fox: “A clever adventurer would notice the quiet puddle, and you look very clever.”</li><li>Owl: “Young acorn, I remember the path. I forgot the name of remembering.”</li></ul><div class='questbox'><strong>Ask the players:</strong> “What do you say back?” “Who helps?” “Which stat fits your idea?”</div></div></div>
 </div><div class="page-number">8</div></section>
-<section class="page"><h2 class="section">Running dialogue with Adventurers</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/creature-albion-tax-mage.png" alt=""><h2 class="section">Running dialogue with Adventurers</h2><div class="">
 <div class='card-grid'>
 <div class='option-card'><h3>Offer two tones</h3><p>“Do you ask gently, make a joke, or stand tall?” Adventurers often answer faster when the choices are emotional.</p></div>
 <div class='option-card'><h3>Repeat their idea proudly</h3><p>Adventurer: “I give it a biscuit.” Guide: “Excellent. You offer the dragon a biscuit like a peace treaty.”</p></div>
@@ -126,21 +147,21 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 </div>
 <div class='questbox'><strong>Mini example:</strong> Guide: “The kelpie foal stamps, but its ears droop.” Player: “I talk quietly.” Guide: “That sounds like Wis. What do you say?” Player: “It is okay.” Guide: “Roll, and your friend may add +1 if they hum softly.”</div>
 </div><div class="page-number">9</div></section>
-<section class="page"><h2 class="section">Using HP, MP, and enemy DR</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/creature-barbarian-storm-berserker.png" alt=""><h2 class="section">Using HP, MP, and enemy DR</h2><div class="">
 <table><tr><th>Number</th><th>Guide meaning</th><th>Example</th></tr><tr><td>HP</td><td>How long a creature can stay in a tense scene.</td><td>A troll with high HP can keep holding a log bridge while heroes help.</td></tr><tr><td>MP</td><td>How much fairy weirdness it can use.</td><td>A sprite spends MP to grow thistles or vanish in petals.</td></tr><tr><td>Level</td><td>How experienced or important it is.</td><td>A level 1 hare is a messenger; a level 4 hare might guard a moon gate.</td></tr><tr><td>DR</td><td>Difficulty Rating: a quick “how big is this encounter?” number.</td><td>DR 1–2 easy, DR 3–4 fair, DR 5+ big scene or boss.</td></tr></table>
 <div class='rulebox'><strong>DR formula:</strong> round((HP + MP + Level×3 + positive stat bonuses×2) ÷ 10). Use it to pace scenes, not to punish players.</div>
 <div class='questbox'><strong>Example:</strong> Bog-Boot Brownie has HP 8, MP 3, Level 2, positive stats total 5. DR = round((8+3+6+10)/10) = 3.</div>
 </div><div class="page-number">10</div></section>
-<section class="page"><h2 class="section">Ready scene examples</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/02-part-opener.png" alt=""><h2 class="section">Ready scene examples</h2><div class="">
 <div class='split'><div class='col'><h3>Scene: The Bootprint Road</h3><p><strong>Read aloud:</strong> “Golden bootprints glow in the mud. They walk in circles around a huge soggy boot. A muddy brownie waves a brush like a sword.”</p><ul><li>Ask: “Do you let it clean your boots, ask about the prints, or follow them?”</li><li>Roll Wis to understand the brownie, Int to read the pattern, Agility to hop print to print.</li><li>Wobble: the brownie cleans the map instead of the boots.</li></ul></div><div class='col'><h3>Scene: The Star Sheep</h3><p><strong>Read aloud:</strong> “A sheep made of cloud wool floats just above the hill. It bleats at a lonely star hiding behind a cloud.”</p><ul><li>Ask: “Do you sing, climb, shine a light, or ask what it lost?”</li><li>Roll Luck for star magic, Wis for feelings, Strength to hold the kite-rope.</li><li>Reward: the sheep makes a cloud bridge for one careful crossing.</li></ul></div></div>
 </div><div class="page-number">11</div></section>
-<section class="page"><h2 class="section">Scenario from the Guide side: Bell-Root Path</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/alba-regional-map.png" alt=""><h2 class="section">Scenario from the Guide side: Bell-Root Path</h2><div class="">
 <div class='split'><div class='col'><h3>What the adventurers see</h3><p><strong>Read aloud:</strong> The path is moss-soft. Tiny bells hang from sleepy roots. A fox dreams beside a moon-rune door.</p><h3>What is really happening?</h3><ul><li>The bells are an alarm, but also a puzzle.</li><li>The fox is guarding the door because it lost the key.</li><li>The silver acorn key is under the quietest root.</li></ul></div><div class='col'><h3>Checks to offer</h3><table><tr><th>Idea</th><th>Stat</th><th>Result</th></tr><tr><td>Step around bells</td><td>Agility</td><td>Reach the door quietly.</td></tr><tr><td>Untie bells</td><td>Int</td><td>Learn which root hides the key.</td></tr><tr><td>Talk to fox</td><td>Wis</td><td>Fox admits it is worried.</td></tr><tr><td>Hold branch</td><td>Strength</td><td>Friend gets +1.</td></tr><tr><td>Lucky button</td><td>Luck</td><td>Find the quietest root.</td></tr></table><div class='rulebox'><strong>Wobble:</strong> a bell rings, but it wakes the fox instead of starting a fight. Now dialogue begins.</div></div></div>
 </div><div class="page-number">12</div></section>
-<section class="page"><h2 class="section">Scenario from the Guide side: Bramble combat</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/alba-town-dungeon-map.png" alt=""><h2 class="section">Scenario from the Guide side: Bramble combat</h2><div class="">
 <div class='split'><div class='col'><h3>Scene purpose</h3><p>This is a combat scene that teaches danger without cruelty. The Bramble Sneak wants its shiny bell back and uses thorns to look bigger than it feels.</p><h3>Creature plan</h3><ul><li>Round 1: block the path and shout.</li><li>Round 2: use Thorn Tangle if adventurers rush.</li><li>At half HP: admit the bell is important.</li><li>At 0 HP: tangled, tired, and ready to bargain.</li></ul></div><div class='col'><h3>Guide moves</h3><table><tr><th>Move</th><th>Use when</th><th>Safe result</th></tr><tr><td>Thorn Tangle</td><td>A hero runs straight in.</td><td>2 HP and stuck cloak.</td></tr><tr><td>Shiny Distraction</td><td>Someone shows treasure.</td><td>It pauses; next hero gets +1.</td></tr><tr><td>Cap Snag</td><td>On a wobble.</td><td>Its cap catches and reveals fear.</td></tr></table><div class='questbox'><strong>End warm:</strong> if adventurers return the bell, trade a button, or promise help, the Bramble Sneak becomes a grumpy shortcut guide.</div></div></div>
 </div><div class="page-number">13</div></section>
-<section class="page"><h2 class="section">More ready dialogue</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/alba-frontier-map.png" alt=""><h2 class="section">More ready dialogue</h2><div class="">
 <div class='card-grid'>
 <div class='option-card'><h3>Gate with a voice</h3><p>Read aloud: “The gate yawns. Password? it asks. Or snack-word. I accept both.” Use Int for clues, Luck for guessing, Wis for asking what it wants.</p></div>
 <div class='option-card'><h3>Proud tiny ruler</h3><p>Sprite: “I decree that all heroes must admire my crown.” Good replies include compliments, jokes, drawing a flag, or asking if the sprite is lonely.</p></div>
@@ -149,6 +170,6 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 </div>
 <div class='questbox'><strong>Scene loop example:</strong> picture → feeling → choice → roll → wobble or success → new clue. Keep naming the next useful thing adventurers can touch, ask, follow, or comfort.</div>
 </div><div class="page-number">14</div></section>
-<section class="page"><h2 class="section">Guide depth: boss scenes and safety</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/bg-spell-gear.png" alt=""><h2 class="section">Guide depth: boss scenes and safety</h2><div class="">
 <div class='split'><div class='col'><h3>Boss scene shape</h3><ul><li>Show the scary picture safely: shadow, noise, weather, big feelings.</li><li>Give the creature a want that can be discovered.</li><li>Use HP to pace attention; use MP for special moves.</li><li>At half HP, reveal the softer truth.</li><li>At 0 HP, offer a bargain, apology, nap, or rescue.</li></ul></div><div class='col'><h3>Safety dials</h3><table><tr><th>If players are nervous</th><th>If players want more</th></tr><tr><td>Lower HP by 3.</td><td>Add a second objective.</td></tr><tr><td>Make special attacks cost +1 MP.</td><td>Let the creature change the map.</td></tr><tr><td>Have an NPC friend offer a hint.</td><td>Add a countdown: three bells before fog.</td></tr></table><div class='rulebox'><strong>Rule:</strong> scary is allowed; hopeless is not. Always leave a visible kind choice.</div></div></div>
 </div><div class="page-number">15</div></section></main></body></html>

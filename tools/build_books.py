@@ -107,10 +107,39 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .line { border-bottom:1px solid #836a42; min-height:7mm; margin-top:2mm; }
 .badge { display:inline-block; padding:.8mm 2mm; margin:.4mm .8mm .4mm 0; background:#ead9ad; border:1px solid #b9954d; border-radius:4mm; font-size:8.5pt; }
 .toc li { margin:1.2mm 0; }
+
+.artwash.auto { right:-22mm; bottom:-16mm; width:142mm; height:132mm; object-fit:cover; object-position:center; opacity:.20; filter:saturate(.92); }
+.artwash.auto.left { left:-22mm; right:auto; }
+.page .columns, .page .split, .page table, .page .card-grid, .page .sheet, .page .draw-frame { position:relative; z-index:2; }
+.low-ink .page { background:#fffdf6 !important; }
+.low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.10 !important; filter:grayscale(1) contrast(.85) !important; }
+.print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
+.print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.78); break-inside:avoid; }
+.print-card h3 { margin-top:0; font-size:12pt; }
+.quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
+
+.page:not(.full-bleed) { background-image: linear-gradient(rgba(255,248,233,.82), rgba(255,248,233,.88)), url('../art/generated/bg-tiny-tables.png') !important; background-size:auto, cover !important; background-position:center, center !important; }
+.print-card { min-height:38mm !important; padding:2.5mm !important; }
+.print-card h3 { font-size:10.8pt !important; margin-bottom:1mm !important; }
+.print-card p { font-size:8.4pt !important; line-height:1.18 !important; }
+.session-grid .option-card { padding:2mm !important; }
+.session-grid .option-card h3 { font-size:10.2pt !important; margin-bottom:.8mm !important; }
+.session-grid .option-card p, .session-grid .option-card li { font-size:8pt !important; line-height:1.18 !important; }
+.scene-packet { padding:3mm; border:1px solid rgba(184,138,45,.55); background:rgba(255,251,239,.80); margin:2mm 0; break-inside:avoid; }
+.scene-packet h3 { margin-top:0; }
+
 '''
 
 def art(name: str) -> str:
     return f"../art/generated/{name}"
+
+ART_CYCLE = [
+    '02-part-opener.png','alba-regional-map.png','alba-town-dungeon-map.png','alba-frontier-map.png',
+    'bg-spell-gear.png','bg-tiny-tables.png','bg-mounts-pets.png','bg-campaign-red-banner.png',
+    'kindred-cairnling.png','kindred-mosskin.png','kindred-corbie-folk.png','kindred-star-sprite.png','kindred-myceling.png',
+    'creature-black-bog-drake.png','creature-border-warg.png','creature-draugr-oath-raider.png','creature-iron-crow-swarm.png',
+    'creature-albion-redcloak-captain.png','creature-redcap-warband-boss.png','creature-albion-tax-mage.png','creature-barbarian-storm-berserker.png'
+]
 
 def esc(s: str) -> str:
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
@@ -132,14 +161,16 @@ class Book:
     def text_page(self, title: str, body: str, columns=True):
         p = self.page_no()
         cls = 'columns' if columns else ''
-        self.pages.append(f'''<section class="page"><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div><div class="page-number">{p}</div></section>''')
+        img = ART_CYCLE[(p + len(self.slug)) % len(ART_CYCLE)]
+        side = 'left' if p % 2 == 0 else 'right'
+        self.pages.append(f'''<section class="page"><img class="artwash auto {side}" src="{art(img)}" alt=""><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div><div class="page-number">{p}</div></section>''')
     def art_text_page(self, title: str, body: str, image: str, side: str = 'right', columns=False, extra_cls: str = ''):
         p = self.page_no()
         cls = 'columns' if columns else ''
         self.pages.append(f'''<section class="page {extra_cls}"><img class="artwash {side}" src="{art(image)}" alt=""><div class="wash-content"><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div></div><div class="page-number">{p}</div></section>''')
     def drawing_page(self):
         p = self.page_no()
-        self.pages.append(f'''<section class="page"><h2 class="section">Draw your Adventurer</h2><div class="draw-frame"></div><div class="page-number">{p}</div></section>''')
+        self.pages.append(f'''<section class="page"><img class="artwash auto full" src="{art('bg-mounts-pets.png')}" alt=""><h2 class="section">Draw your Adventurer</h2><div class="draw-frame"></div><div class="page-number">{p}</div></section>''')
     def feature_page(self, kicker: str, title: str, image: str, intro: str, body: str, more: str = ''):
         p = self.page_no()
         self.pages.append(f'''<section class="page feature-page"><div class="feature-top"><figure class="feature-art"><img src="{art(image)}" alt="{esc(title)} illustration"></figure><div class="feature-intro"><div class="feature-kicker">{esc(kicker)}</div><h2>{esc(title)}</h2><p class="drop">{intro}</p>{more}</div></div>{body}<div class="page-number">{p}</div></section>''')
@@ -426,7 +457,7 @@ ph.art_text_page("More spell and gear examples", f"""
 ph.text_page("Making a hero: quick checklist", f"""
 <ol><li>Name your hero.</li><li>Pick a kindred.</li><li>Pick an adventure job.</li><li>Choose stats: one +2, two +1, two +0.</li><li>Pick one gear item and one charm.</li><li>Answer: “Who do I want to help?”</li></ol>
 {qa('<strong>Worked example:</strong> Rowan Moonbutton is a Selkie-Born Beast Friend. Stats: Wis +2, Agility +1, Luck +1, Strength +0, Int +0. Gear: oat pouch. Charm: sea-glass button. Rowan wants to help nervous animals.')}
-{rb('<strong>Grown-up tip:</strong> do not quiz a adventurer on rules. Ask what they imagine, then translate that into Strength, Int, Agility, Wis, or Luck.')}
+{rb('<strong>Grown-up tip:</strong> do not quiz an Adventurer on rules. Ask what they imagine, then translate that into Strength, Int, Agility, Wis, or Luck.')}
 <h3>Common first purchases</h3><table><tr><th>Hero idea</th><th>Good buys</th></tr><tr><td>Protector</td><td>Shield, rope, snack bundle.</td></tr><tr><td>Explorer</td><td>Lantern, chalk, soft boots.</td></tr><tr><td>Mage</td><td>Lucky button, bell, notebook.</td></tr><tr><td>Animal friend</td><td>Oat pouch, warm cloak, snack.</td></tr></table>
 <div class='card-grid'>
 {card('End of session', p('Ask: “Who did we help?” “What should we draw?” “What promise did we make?”'))}
@@ -450,6 +481,17 @@ ph.art_text_page("Earned mounts and pets", f"""
 )}
 <h3>Companion bond track</h3><table><tr><th>Bond</th><th>What it means</th><th>Unlock</th></tr><tr><td>1</td><td>Trusts the party.</td><td>+1 once per session.</td></tr><tr><td>2</td><td>Comes when called.</td><td>Can carry a message or small item.</td></tr><tr><td>3</td><td>Chooses the heroes.</td><td>May return dramatically once per campaign.</td></tr></table>
 """, image="bg-mounts-pets.png", side="left", columns=False)
+ph.text_page("Player choices: more jobs and backgrounds", f"""
+<div class='quick-grid'>
+{card('New jobs', ul(['Cairn-Warden: protect oaths and stones.', 'Storm-Singer: weather songs and brave speeches.', 'Rune Tinker: locks, maps, clever gadgets.', 'Goat Knight: mountain travel and comic bravery.', 'Loch Herbalist: potions, cures, water lore.', 'Crow Messenger: secrets, scouting, omens.']))}
+{card('Backgrounds', ul(['Raised by bridge-keepers.', 'Found in a fairy ring.', 'Apprentice to a kettle witch.', 'Kin to a storm-clan poet.', 'Grew up on a longship market.', 'Escaped a Red Banner border fort.']))}
+{card('Starting gift ideas', ul(['Ask one bridge/road question.', 'Know one old hill name.', 'Carry one tiny healing tea.', 'Understand one animal mood.', 'Find one hidden door in mist.', 'Turn a wobble into funny mud once.']))}
+{card('Pet/mount hooks', ul(['Find a lost cairn bell.', 'Break a warg collar.', 'Protect a fairy stag grove.', 'Guide a cloud moth home.', 'Share oats with a Highland pony.', 'Solve a rowan owl riddle.']))}
+</div>
+""", columns=False)
+ph.text_page("Progression beyond level 1", f"""
+{split('<h3>Level rewards</h3><table><tr><th>Level</th><th>Reward</th></tr><tr><td>2</td><td>+2 HP or +2 MP; learn one spell/card.</td></tr><tr><td>3</td><td>Choose a feat/gift.</td></tr><tr><td>4</td><td>Upgrade one companion bond or home base.</td></tr><tr><td>5</td><td>Earn a named mythral story relic.</td></tr></table>' + rb('<strong>Feat examples:</strong> Brave Helper, Quick Feet, Old Name Knower, Gentle Beast Voice, Red Wax Breaker, Storm-Song.'), '<h3>Campaign tracks</h3><table><tr><th>Track</th><th>How it grows</th></tr><tr><td>Companion bond</td><td>care, rescue, trust scenes.</td></tr><tr><td>Faction reputation</td><td>help clans/courts/towns.</td></tr><tr><td>Home base</td><td>add stable, library, kitchen, map room.</td></tr><tr><td>Spell upgrade</td><td>name, promise, ingredient.</td></tr></table>')}
+""", columns=False)
 ph.text_page("More magic: schools and rituals", f"""
 {split(
 '<h3>Four gentle spell schools</h3><p>Schools are story flavors, not homework. Use them to describe how magic looks, sounds, and asks for promises.</p><table><tr><th>School</th><th>Feels like</th><th>Examples</th></tr><tr><td>Hearth</td><td>warmth, light, mending</td><td>Glow-Pebble, Tiny Mend</td></tr><tr><td>Loch</td><td>mist, water, memory</td><td>Mist Step, Moon Reflection</td></tr><tr><td>Thistle</td><td>protection, brambles, courage</td><td>Shield of Thistles, Prickle Path</td></tr><tr><td>Story</td><td>songs, names, promises</td><td>Courage Note, Name Echo</td></tr></table>',
@@ -808,7 +850,7 @@ sheet.text_page("Quick reference cards", f"""
 {card('HP / MP', p('HP handles bumps and tiredness. MP fuels spells. Cantrips cost 0 MP.'))}
 {card('Stats', p('<strong>Strength</strong> lifts/protects. <strong>Int</strong> solves/knows. <strong>Agility</strong> moves/sneaks. <strong>Wis</strong> notices/understands. <strong>Luck</strong> handles charms/surprises.'))}
 {card('Turn prompt', p('“What do you try?” then “How does your hero do it?”'))}
-{card('Kindness rule', p('Heroes can be muddy, surprised, or silly. The story never shames a adventurer for helping.'))}
+{card('Kindness rule', p('Heroes can be muddy, surprised, or silly. The story never shames an Adventurer for helping.'))}
 {card('Wobble ideas', p('Lost hat, wet map, wrong door, sleepy troll, ringing bell, muddied boots.'))}
 {card('End of session', p('Name one friend made, one brave choice, and one thing to draw.'))}
 """, columns=False)
@@ -953,6 +995,94 @@ for c in [
     b2.creature_page(c['name'], c['img'], c['intro'], c['stats'], c['hp'], c['mp'], c['level'], c['lore'], feature_grid([('Wants', p(c['wants'])), ('Helps by', p(c['helps'])), ('Spells / special attacks', ul(c['moves'])), ('Complication', p(c['comp'])), ('Approach', p('Find the law, oath, collar, true name, or respect that changes the fight.')), ('Reward', p('Faction clue, battle map, freed ally, or magic item ingredient.'))]))
 b2.write()
 
+
+# Quickstart / Starter Box pack
+qs = Book("quickstart-pack", "Starter Box Quickstart", "Print-this-first pack: rules, hero, adventure, map, monsters, treasure, and table aids", "alba-town-dungeon-map.png")
+qs.cover_page()
+qs.art_page("alba-town-dungeon-map.png", "Print this first", "A tiny boxed-set version of Adventures in Alba: one map, one adventure, one hero, one sheet, and cards.")
+qs.text_page("One-page rules", f"""
+{split(
+'<h3>Core roll</h3>' + ul(['Say what your Adventurer tries.', 'Choose Strength, Int, Agility, Wis, or Luck.', 'Roll d6 + stat bonus.', '1–3 wobble: it works badly or costs something.', '4–5 yes, but: success with a twist.', '6+ bright success: clean success plus a little advantage.']) + rb('<strong>Only roll when the answer is exciting.</strong> If the idea is kind, clever, and safe, let it work.'),
+'<h3>Turn order</h3>' + ul(['Everyone says one idea before dice.', 'One helper may give +1 if they describe how.', 'HP is bumps/tiredness. MP fuels spells.', 'At 0 HP, rest, get rescued, or accept a story cost — no gore.']) + '<h3>Stats</h3><table><tr><td>Strength</td><td>lift, hold, protect</td></tr><tr><td>Int</td><td>runes, plans, puzzles</td></tr><tr><td>Agility</td><td>sneak, dodge, climb</td></tr><tr><td>Wis</td><td>notice, comfort, understand</td></tr><tr><td>Luck</td><td>charms, surprises, fairy chances</td></tr></table>'
+)}
+""", columns=False)
+qs.text_page("Ready Adventurer: Rowan Moonbutton", f"""
+{split(
+'<h3>Rowan Moonbutton</h3><p><strong>Kindred:</strong> Selkie-Born. <strong>Job:</strong> Beast Friend. <strong>Look:</strong> seal-cloak, muddy boots, kind eyes.</p><table><tr><th>STR</th><th>INT</th><th>AGI</th><th>WIS</th><th>LUK</th></tr><tr><td>+0</td><td>+0</td><td>+1</td><td>+2</td><td>+1</td></tr></table>' + rb('<strong>HP 10 / MP 8.</strong> Gift: once per session, ask a creature what it really wants.'),
+'<h3>Gear and spells</h3>' + ul(['Oat pouch: +1 Wis with hungry animals.', 'Sea-glass button: ask for one Luck clue near water.', 'Glow-Pebble: 0 MP soft light.', 'Kind Whisper: 0 MP help a creature name its feeling.', 'Shield of Thistles: 1 MP protect a friend from 2 HP.']) + '<h3>Goal</h3><p>Help nervous animals feel safe, then draw the friend you made.</p>'
+)}
+""", columns=False)
+qs.drawing_page()
+qs.text_page("Starter adventure: The Moon-Bell at Kettleford", f"""
+<div class='scene-packet'><h3>Read aloud</h3><p>The Kettleford bridge is folded shut like grumpy arms. A moon-bell hangs beneath it, ringing underwater, while a wet fox points at bubbles.</p></div>
+<div class='quick-grid'>
+{card('What is really happening', p('A red wax tax charm made the bridge forget its name. The moon-bell can wake it if returned to the top stone.'))}
+{card('Three clues', ul(['Bubbles spell the bridge name backwards.', 'The fox has red wax on one paw.', 'A cairn goat keeps staring at the loose keystone.']))}
+{card('Three solutions', ul(['Sing the bridge name while lifting the bell.', 'Break the red wax seal with clean water.', 'Ask the fox to lead them under the safe arch.']))}
+{card('Wobble results', ul(['Muddy boots and -1 Agility until cleaned.', 'The bell rings too loudly and wakes a redcap.', 'The bridge opens halfway, making a silly steep ramp.']))}
+{card('Bright success', p('The bridge opens fully, the fox becomes a guide, and the moon-bell marks the map.'))}
+{card('Reward', p('1 silver, Bridge-Friend badge, and a companion hook: earn the cairn goat by finding its lost bell.'))}
+</div>
+""", columns=False)
+qs.art_page("alba-town-dungeon-map.png", "Starter map", "Point to village, bridge, fairy mound, loch shrine, cave, and watchtower. Let players choose the route.")
+qs.text_page("Six quick monsters and NPCs", f"""
+<div class='quick-grid'>
+{card('Wet Fox Guide', p('HP 6, DR 1. Wants dry socks. Helps find hidden arches.'))}
+{card('Redcap Bramble Sneak', p('HP 10, MP 4, DR 3. Wants shiny bells. Stops if offered a safer joke.'))}
+{card('Cairn Goat', p('HP 9, DR 2. Wants lost bell. Earn as companion after a rescue.'))}
+{card('Bridge That Forgot', p('HP 18, MP 6, DR 4. Wants its true name sung.'))}
+{card('Tax-Mage Echo', p('MP 8, DR 4. A leftover spell, broken by washing red wax away.'))}
+{card('Moon-Bell Sprite', p('HP 5, MP 8, DR 2. Wants to be useful, not trapped under stone.'))}
+</div>
+""", columns=False)
+qs.text_page("Twelve treasure cards", f"""
+<div class='print-card-grid'>
+{''.join([card('Treasure '+str(i+1), p(txt)) for i,txt in enumerate(['Bridge-Friend badge: +1 when asking bridges for help.','Moon-water vial: clean one curse mark.','Fox map: reveals a safe path.','Oat cake: calm one hungry creature.','Glow pebble: soft light for one scene.','Promise button: ask for one Luck clue.','Dry socks: remove Muddy once.','Cairn bell: starts a mount/pet quest.','Rowan twig: keeps fairies polite.','Silver thistle coin: worth 1 silver or one favor.','Red wax scrap: proof of Albion meddling.','Tiny kettle: tea with any friendly NPC.'])])}
+</div>
+""", columns=False)
+qs.write()
+
+# Standalone printable cards deck
+pc = Book("printable-cards", "Printable Cards", "Cut-out spell, item, potion, companion, monster, quest, reward, and condition cards", "table-aids.png")
+pc.cover_page()
+card_sets = [
+('Spell cards', ['Glow-Pebble|0 MP. Make soft light for one scene.','Mist Step|1 MP. Slip past a watcher/root/trap.','Shield of Thistles|1 MP. Block 2 HP trouble.','Kind Whisper|0 MP. Help a creature name its feeling.','Rune Read|1 MP. Ask one question about old writing.','Foxfire Path|1 MP. Find the gentlest route.','Wake Charm|2 MP. Ask a magic item what it wants.','Thorn Thread|1 MP. Tie or tangle gently.','Loch Breath|2 MP. Breathe underwater one scene.']),
+('Magic item cards', ['Rowan-Bark Shield|Reduce thorn/arrow/fear trouble by 2 HP.','Loch-Mirror Cloak|+1 to sneak in mist/moonlight.','Cairn-Knuckle Ring|+1 to hold, lift, or remember an oath.','Star-Moth Lantern|Reveals invisible ink and ghost tracks.','Mythral Seed Blade|Cuts curses; refuses cruelty.','Bridge-Friend Badge|+1 when asking bridges or roads for help.','Promise Button|Ask for one Luck clue.','Moon-Water Vial|Clean one curse mark.','Fox Map|Reveal one safe path.']),
+('Potion and poison cards', ['Heatherheart Draught|Regain 3 HP; ignore Startled once.','Loch-Breath Sip|Breathe underwater for one calm scene.','Foxwit Tea|+1 Int for riddles/runes/traps.','Nightshade Jam|Sleepy until bitter tea or warm song.','Black Bog Venom|-1 Agility until washed in running water.','Iron Crow Ink|Cannot speak a lie until one useful truth.','Warm Oats|Calm a hungry animal.','Bitter Tea|Cures Sleepy poison.','Storm Honey|+1 Strength in thunder.']),
+('Pet and mount cards', ['Highland Pony|Earn by freeing it from a bog rope. Helps travel/carrying.','Cairn Goat|Earn by finding its lost bell. Helps climbing paths.','Fairy Stag|Earn by protecting its grove. Fast travel once/adventure.','Kelp-Mane Pony|Earn by returning moon-water charm. Safe loch crossing.','Rowan Owl|Earn by solving old-name riddle. Night warnings.','Border Warg|Earn by breaking command collar. Tracking/defense.','Rowan Mouse|Earn by returning crumb-hoard. Tiny keys.','Cloud Moth|Earn by guiding to starlight. Soft light.','Thistle Hedgehog|Earn by saving from boot-trap. Danger sense.']),
+('Monster/NPC cards', ['Wet Fox Guide|Wants dry socks; knows hidden arches.','Redcap Sneak|Wants shiny bells; stops for safer joke.','Black Bog Drake|Wants poisoned pool cleansed; hates clean lantern-light.','Border Warg|Wants collar broken; can become ally.','Draugr Oath-Raider|Wants broken ship oath finished.','Iron Crow Swarm|Wants a secret; bargains for true names.','Albion Tax-Mage|Wants names/maps/taxes; stopped by true-name song.','Storm-Berserker|Wants fair challenge and respect.','Bridge That Forgot|Wants its true name sung.']),
+('Quest and reward cards', ['Find the Moon-Bell|Return it before moonset.','Break Red Wax|Clean a tax charm from a local place.','Guest-Right Feast|Win trust by sharing food and truth.','Storm Cairn Oath|Return an ancestor story.','Longship Lantern|Learn why a ghost crew still rows.','Bridge-Friend|Roads and bridges answer one question.','Clan Respect|+1 with storm-clans after fair action.','Fairy Favor|Ask one small courtly help.','Map Mark|Add a discovered safe route.']),
+('Condition cards', ['Muddy|-1 Agility until cleaned or dried.','Startled|-1 until soothed by friend/song/snack.','Tangled|Need help or check to move freely.','Sleepy|Slow; fresh air or tea helps.','Inspired|+1 to next brave/helpful action.','Oathbound|Must keep a clear promise.','Glittered|Easy to track; pretty but inconvenient.','Lost|Need clue, map, or guide.','Boss Phase|Scene changes; reveal true want.'])
+]
+for title, cards in card_sets:
+    pc.text_page(title, "<div class='print-card-grid'>" + ''.join([f"<div class='print-card'><h3>{c.split('|')[0]}</h3><p>{c.split('|')[1]}</p></div>" for c in cards]) + "</div>", columns=False)
+pc.write()
+
+# Extra guide section, atlas, progression, and choices inserted as small companion books/pages.
+gx = Book("guide-extra", "Guide Extra", "Running young Adventurers, safety, pacing, page flipping, and table-play QA notes", "bg-tiny-tables.png")
+gx.cover_page()
+gx.text_page("Running young Adventurers", f"""
+{split('<h3>Keep turns short</h3>'+ul(['Ask one concrete question at a time.','Let pointing at art count as an answer.','Rotate spotlight after one idea and one roll.','Offer two choices when players freeze.'])+rb('<strong>Best prompt:</strong> “What do you try, and who helps?”'), '<h3>Scary but safe</h3>'+ul(['Describe sound, weather, shadow, and size before danger.','Never trap a player in hopelessness.','Show a counter: true name, light, oath, kindness, broken collar.','At 0 HP use rescue, rest, bargain, or lost gear.']))}
+""", columns=False)
+gx.text_page("Table-play QA checklist", f"""
+<div class='quick-grid'>{card('Before play', ul(['Print quickstart, map, character, cards.','Pick one adventure and three monsters.','Read boxed text once.']))}{card('During play', ul(['Mark where page flipping slows you.','Circle unclear rules.','Star pages that need more art.']))}{card('After play', ul(['Ask each Adventurer their favourite picture.','Ask which rule was confusing.','Write one new pet/mount hook.']))}{card('Fix pass', ul(['Simplify wording.','Move repeated rules to cards.','Add art to blank zones.','Turn dead prose into table tools.']))}</div>
+""", columns=False)
+gx.write()
+
+atlas = Book("alba-atlas", "Alba Atlas", "Regions, clan lands, fairy courts, Norse sea routes, Dominion border, towns, dungeons, and legends", "alba-regional-map.png")
+atlas.cover_page()
+atlas.art_page("alba-regional-map.png", "Atlas map of Alba", "Use as a living map; name places when Adventurers discover them.")
+atlas.text_page("Regions, roads, and routes", f"""
+<table><tr><th>Place</th><th>Look</th><th>Hooks</th></tr><tr><td>Heatherhigh Hills</td><td>purple slopes, cairns, storm goats</td><td>oath ghosts, giant crowns, clan challenges</td></tr><tr><td>Glass Loch</td><td>moon water, kelp paths, seal songs</td><td>selkie bargains, serpent bridges, drowned bells</td></tr><tr><td>Northern Whale-Road</td><td>mist, longships, black rocks</td><td>trade, raids, draugr oaths</td></tr><tr><td>Red Banner Border</td><td>forts, roads, tax chains</td><td>Albion patrols, false maps, freed wargs</td></tr><tr><td>Thistlewood</td><td>brambles, fairy doors, fox tracks</td><td>redcaps, lost paths, court bargains</td></tr></table>
+""", columns=False)
+atlas.text_page("Factions and reputation", f"""
+<table><tr><th>Faction</th><th>Wants</th><th>Reputation reward</th></tr><tr><td>Rowan Compact</td><td>promises remembered</td><td>safe fairy passage</td></tr><tr><td>Storm-Clans</td><td>respect, guest-right, returned cauldron</td><td>shelter and cairn goat hook</td></tr><tr><td>Norse Sea-Kin</td><td>trade, honor, settled oaths</td><td>ship passage and rune repairs</td></tr><tr><td>Dominion of Albion</td><td>taxes, maps, obedience</td><td>villain faction; defectors can help</td></tr><tr><td>Thorn Court</td><td>pranks, bargains, old laws</td><td>charms with exact promises</td></tr></table>
+""", columns=False)
+atlas.text_page("Towns, dungeons, and legends", f"""
+<div class='quick-grid'>{card('Kettleford', p('Bridge town with toll bells, goat laws, and a market that moves in rain.'))}{card('Alba-Brae', p('Warm village with crooked clocktower and a guild of useful string.'))}{card('Root Warrens', p('Dungeon under Thistlewood: jam doors, mice, bells, redcap tunnels.'))}{card('Storm Cairn', p('Old burial hill where thunder answers broken promises.'))}{card('Loch Shrine', p('Moon-water shrine watched by selkies and glass serpents.'))}{card('Red Wall Fort', p('Dominion border fort with tax-magic and nervous local guides.'))}</div>
+""", columns=False)
+atlas.write()
+
 # Printable table aids
 ta = Book("table-aids", "Printable Table Aids", "Cards, tokens, trackers, and quick references for the table", "table-aids.png")
 ta.cover_page()
@@ -997,7 +1127,14 @@ ta.write()
 
 
 # Plain markdown notes for repo browsing
-for slug, title in [(ph.slug, ph.title), (gm.slug, gm.title), (be.slug, be.title), (ca.slug, ca.title), (sheet.slug, sheet.title), (am.slug, am.title), (sg.slug, sg.title), (tc.slug, tc.title), (b2.slug, b2.title), (ta.slug, ta.title)]:
+for slug, title in [(ph.slug, ph.title), (gm.slug, gm.title), (be.slug, be.title), (ca.slug, ca.title), (sheet.slug, sheet.title), (am.slug, am.title), (sg.slug, sg.title), (tc.slug, tc.title), (b2.slug, b2.title), (ta.slug, ta.title), (qs.slug, qs.title), (pc.slug, pc.title), (gx.slug, gx.title), (atlas.slug, atlas.title)]:
     (BOOKS / f"{slug}.md").write_text(f"# {title}\n\nSee `printable-a4/{slug}-a4.html` and `pdf/{slug}.pdf`.\n", encoding="utf-8")
 
+# low-ink quickstart/cards variants
+for slug in ['quickstart-pack','printable-cards']:
+    src = PRINT / f'{slug}-a4.html'
+    if src.exists():
+        txt = src.read_text(encoding='utf-8')
+        txt = txt.replace('<main class="book">', '<main class="book low-ink">')
+        (PRINT / f'{slug}-low-ink-a4.html').write_text(txt, encoding='utf-8')
 print('built book HTML files:', ', '.join(sorted(p.name for p in PRINT.glob('*-a4.html'))))
