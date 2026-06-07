@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
+      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
+      <rect width='820' height='1120' fill='#e9d7a2'/>
+      <rect width='820' height='1120' fill='url(#glow)'/>
+      <circle cx='433' cy='294' r='2' fill='#2e5940' opacity='.25'/><circle cx='319' cy='230' r='3' fill='#2e5940' opacity='.25'/><circle cx='649' cy='221' r='4' fill='#2e5940' opacity='.25'/><circle cx='150' cy='85' r='5' fill='#2e5940' opacity='.25'/><circle cx='637' cy='196' r='2' fill='#2e5940' opacity='.25'/><circle cx='567' cy='275' r='3' fill='#2e5940' opacity='.25'/><circle cx='569' cy='338' r='4' fill='#2e5940' opacity='.25'/><circle cx='256' cy='238' r='5' fill='#2e5940' opacity='.25'/><circle cx='136' cy='211' r='2' fill='#2e5940' opacity='.25'/><circle cx='113' cy='221' r='3' fill='#2e5940' opacity='.25'/><circle cx='138' cy='95' r='4' fill='#2e5940' opacity='.25'/><circle cx='537' cy='210' r='5' fill='#2e5940' opacity='.25'/><circle cx='423' cy='136' r='2' fill='#2e5940' opacity='.25'/><circle cx='402' cy='123' r='3' fill='#2e5940' opacity='.25'/><circle cx='428' cy='295' r='4' fill='#2e5940' opacity='.25'/><circle cx='478' cy='94' r='5' fill='#2e5940' opacity='.25'/><circle cx='189' cy='327' r='2' fill='#2e5940' opacity='.25'/><circle cx='81' cy='157' r='3' fill='#2e5940' opacity='.25'/><path d='M-51 1120 L39 743 L159 1120 Z' fill='#7b3f30' opacity='0.16'/><path d='M157 1120 L247 663 L367 1120 Z' fill='#7b3f30' opacity='0.21'/><path d='M343 1120 L433 666 L553 1120 Z' fill='#7b3f30' opacity='0.26'/><path d='M574 1120 L664 677 L784 1120 Z' fill='#7b3f30' opacity='0.31'/><path d='M787 1120 L877 675 L997 1120 Z' fill='#7b3f30' opacity='0.36'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#d28a5d' opacity='.54'/>
+      <circle cx='410' cy='410' r='185' fill='#2e5940' opacity='.17'/>
+      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
+      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#7b3f30' opacity='.88'>✦</text>
+      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#2e5940' stroke-width='16' opacity='.35' stroke-linecap='round'/>
+      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#7b3f30'>01 Cover</text>
+    </svg>

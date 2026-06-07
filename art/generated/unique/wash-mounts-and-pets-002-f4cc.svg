@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
+      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
+      <rect width='820' height='1120' fill='#f0deb7'/>
+      <rect width='820' height='1120' fill='url(#glow)'/>
+      <circle cx='667' cy='284' r='2' fill='#285740' opacity='.25'/><circle cx='86' cy='225' r='3' fill='#285740' opacity='.25'/><circle cx='182' cy='374' r='4' fill='#285740' opacity='.25'/><circle cx='267' cy='317' r='5' fill='#285740' opacity='.25'/><circle cx='696' cy='312' r='2' fill='#285740' opacity='.25'/><circle cx='597' cy='178' r='3' fill='#285740' opacity='.25'/><circle cx='234' cy='134' r='4' fill='#285740' opacity='.25'/><circle cx='439' cy='291' r='5' fill='#285740' opacity='.25'/><circle cx='228' cy='238' r='2' fill='#285740' opacity='.25'/><circle cx='159' cy='80' r='3' fill='#285740' opacity='.25'/><circle cx='511' cy='334' r='4' fill='#285740' opacity='.25'/><circle cx='723' cy='175' r='5' fill='#285740' opacity='.25'/><circle cx='516' cy='274' r='2' fill='#285740' opacity='.25'/><circle cx='99' cy='347' r='3' fill='#285740' opacity='.25'/><circle cx='627' cy='97' r='4' fill='#285740' opacity='.25'/><circle cx='227' cy='305' r='5' fill='#285740' opacity='.25'/><circle cx='64' cy='123' r='2' fill='#285740' opacity='.25'/><circle cx='369' cy='210' r='3' fill='#285740' opacity='.25'/><path d='M-77 1120 L13 653 L133 1120 Z' fill='#56336d' opacity='0.16'/><path d='M130 1120 L220 714 L340 1120 Z' fill='#56336d' opacity='0.21'/><path d='M356 1120 L446 718 L566 1120 Z' fill='#56336d' opacity='0.26'/><path d='M552 1120 L642 654 L762 1120 Z' fill='#56336d' opacity='0.31'/><path d='M764 1120 L854 722 L974 1120 Z' fill='#56336d' opacity='0.36'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#a480b5' opacity='.54'/>
+      <circle cx='410' cy='410' r='185' fill='#285740' opacity='.17'/>
+      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
+      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#56336d' opacity='.88'>☽</text>
+      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#285740' stroke-width='16' opacity='.35' stroke-linecap='round'/>
+      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#56336d'>Companions are earned friends</text>
+    </svg>

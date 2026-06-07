@@ -8,6 +8,8 @@ trade dress.
 from __future__ import annotations
 from pathlib import Path
 import textwrap
+import re
+import hashlib
 
 ROOT = Path(__file__).resolve().parents[1]
 PRINT = ROOT / "printable-a4"
@@ -59,17 +61,17 @@ h4 { margin:2.2mm 0 1mm; color:#56336d; font-size:10.8pt; }
 .split { display:grid; grid-template-columns:1fr 1fr; gap:5mm 7mm; align-items:start; }
 .col { break-inside:avoid-page; page-break-inside:avoid; }
 .dense-list li { margin:.25mm 0; }
-.mini-card { break-inside:avoid-page; page-break-inside:avoid; margin:2mm 0; padding:2.3mm 2.8mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
+.mini-card { break-inside:avoid-page; page-break-inside:avoid; margin:2mm 0; padding:2.3mm 2.8mm; background:rgba(255,251,239,.88); border:1px solid rgba(184,138,45,.52); }
 .columns > .option-card { min-height:62mm; }
 .columns > .creature { min-height:58mm; }
-.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.94), rgba(242,226,187,.78)); border:1px solid rgba(154,116,55,.55); box-shadow:inset 0 0 0 1px rgba(255,255,255,.38); }
+.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.96), rgba(242,226,187,.86)); border:1px solid rgba(154,116,55,.60); box-shadow:inset 0 0 0 1px rgba(255,255,255,.50); }
 .option-card h3, .creature h3 { margin-top:0; }
 .rulebox, .readaloud { margin:2.6mm 0; border-left:2.2mm solid rgba(86,51,109,.66); }
 .questbox { margin:2.8mm 0; border-left:2.2mm solid rgba(40,87,64,.75); }
 .small { font-size:8.8pt; color:var(--muted); }
 .big-stat { font-size:20pt; color:#74322d; letter-spacing:.04em; }
 table { width:100%; border-collapse:collapse; margin:2.2mm 0 3mm; font-size:8.6pt; break-inside:avoid-page; }
-th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { background:#dfd0a4; color:#263b2e; } tr:nth-child(even) td { background:rgba(235,222,184,.58); }
+th,td { border:1px solid #b9934c; padding:2mm 1.8mm; vertical-align:top; } th { background:rgba(217,195,135,.96); color:#263b2e; } td { background:rgba(255,251,239,.78); } tr:nth-child(even) td { background:rgba(242,229,193,.86); }
 .keep { break-inside:avoid-page; page-break-inside:avoid; }
 .drop:first-letter { font-size:23pt; line-height:1; color:#87312d; padding-right:1mm; font-weight:700; }
 .spot { height:54mm; overflow:hidden; margin:0 0 3mm; background:#241a16; border:1px solid rgba(128,92,45,.48); break-inside:avoid-page; }
@@ -85,7 +87,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .feature-intro h2 { margin:0 0 2mm; color:#6f2d29; font-size:22pt; line-height:1; font-variant:small-caps; border-bottom:1px solid rgba(184,138,45,.55); padding-bottom:1.5mm; }
 .feature-kicker { color:#56336d; text-transform:uppercase; letter-spacing:.08em; font-size:8pt; margin-bottom:1.5mm; }
 .feature-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.4mm 5mm; }
-.feature-box { break-inside:avoid-page; min-height:38mm; padding:3mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
+.feature-box { break-inside:avoid-page; min-height:38mm; padding:3mm; background:rgba(255,251,239,.88); border:1px solid rgba(184,138,45,.50); }
 .feature-box h3 { margin-top:0; font-size:12pt; }
 .feature-quote { margin-top:3mm; padding:3mm; background:rgba(86,51,109,.10); border-left:2mm solid rgba(86,51,109,.65); font-style:italic; }
 .statline { display:grid; grid-template-columns:repeat(5,1fr); gap:1.2mm; margin:1.7mm 0 2.5mm; }
@@ -122,11 +124,12 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .page > h2.section, .page > div:not(.page-number), .page > table, .page > p, .page > ol, .page > ul { position:relative; z-index:2; }
 
 .page .columns, .page .split, .page table, .page .card-grid, .page .sheet, .page .draw-frame { position:relative; z-index:2; }
-.wash-content .split, .wash-content table, .page > .columns, .page > .split { background:rgba(255,251,239,.58); backdrop-filter:none; border-radius:2mm; padding:1mm; }
+.wash-content .split, .wash-content table, .page > .columns, .page > .split { background:rgba(255,251,239,.76); backdrop-filter:none; border-radius:2mm; padding:1mm; box-shadow:0 0 0 1px rgba(184,138,45,.22); }
 .low-ink .page { background:#fffdf6 !important; }
 .low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.16 !important; filter:none !important; }
 .print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
-.print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.78); break-inside:avoid; }
+.print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.92); break-inside:avoid; overflow:hidden; }
+.print-card .card-illo { float:right; width:18mm; height:18mm; margin:0 0 1mm 1.8mm; border-radius:50%; background:linear-gradient(135deg,#f2d68b,#9fc88b); border:1px solid rgba(135,49,45,.42); display:flex; align-items:center; justify-content:center; color:#6f2d29; font-size:13pt; font-weight:700; }
 .print-card h3 { margin-top:0; font-size:12pt; }
 .quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
 
@@ -162,6 +165,76 @@ ART_CYCLE = [
 def esc(s: str) -> str:
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
+
+GLOBAL_IMG_SEEN = {}
+
+def stable_seed(text: str) -> int:
+    return int(hashlib.sha256(text.encode('utf-8')).hexdigest()[:8], 16)
+
+def make_unique_scene_asset(filename: str, title: str, kind: str = 'scene') -> str:
+    """Create unique printable SVG art; never reuse an image source for a page."""
+    outdir = ART / 'unique'
+    outdir.mkdir(parents=True, exist_ok=True)
+    dest = outdir / filename
+    if dest.exists():
+        return 'unique/' + filename
+    seed = stable_seed(filename + title + kind)
+    palettes = [('#efe2bd','#7aa07b','#315b4a','#87312d'),('#ead6a7','#7ba8bd','#24516a','#6f2d29'),('#f0deb7','#a480b5','#56336d','#285740'),('#e9d7a2','#d28a5d','#7b3f30','#2e5940'),('#efe7c7','#8ea86b','#4f6b3b','#81382f')]
+    bg, mid, dark, accent = palettes[seed % len(palettes)]
+    hills = []
+    for i in range(5):
+        x = -80 + i*210 + (seed >> (i*3) & 31)
+        y = 650 + (seed >> (i*4) & 95)
+        hills.append(f"<path d='M{x} 1120 L{x+90} {y} L{x+210} 1120 Z' fill='{dark}' opacity='{0.16+i*.05:.2f}'/>")
+    stars = []
+    for i in range(18):
+        x = 60 + ((seed >> (i%24)) + i*73) % 700
+        y = 72 + ((seed >> ((i+5)%24)) + i*47) % 310
+        stars.append(f"<circle cx='{x}' cy='{y}' r='{2+(i%4)}' fill='{accent}' opacity='.25'/>")
+    symbols = {'scene':'✦','item':'⚒','pet':'♞','quest':'❧','atlas':'⌂','card':'✶','wash':'☽'}
+    sym = symbols.get(kind, '✦')
+    esc_title = esc(title)[:42]
+    svg=f"""<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
+      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
+      <rect width='820' height='1120' fill='{bg}'/>
+      <rect width='820' height='1120' fill='url(#glow)'/>
+      {''.join(stars)}{''.join(hills)}
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='{mid}' opacity='.54'/>
+      <circle cx='410' cy='410' r='185' fill='{accent}' opacity='.17'/>
+      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
+      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='{dark}' opacity='.88'>{sym}</text>
+      <path d='M150 655 q260 -95 520 0' fill='none' stroke='{accent}' stroke-width='16' opacity='.35' stroke-linecap='round'/>
+      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='{dark}'>{esc_title}</text>
+    </svg>"""
+    dest.write_text(svg, encoding='utf-8')
+    return 'unique/' + filename
+
+def make_unique_wash_asset(book_slug: str, page_no: int, title: str) -> str:
+    name = f"wash-{book_slug}-{page_no:03d}-{stable_seed(title) & 0xffff:04x}.svg"
+    rel = make_unique_scene_asset(name, title, 'wash')
+    return rel
+
+def make_card_badge(label: str) -> str:
+    seed = stable_seed(label)
+    icons = ['✦','☘','⚒','☽','♞','✶','❧','⚗','⌂','✚','★','☼']
+    colors = ['#f2d68b,#8fbf78','#d7b2e6,#8a5fa4','#aad7e8,#497894','#e8b88f,#9a553e','#cde2a6,#6f8d49']
+    sym = icons[seed % len(icons)]
+    grad = colors[seed % len(colors)]
+    return f"<span class='card-illo' style='background:linear-gradient(135deg,{grad})'>{sym}</span>"
+
+def illustrated_print_card(label: str, text: str) -> str:
+    return f"<div class='print-card'>{make_card_badge(label)}<h3>{label}</h3><p>{text}</p></div>"
+
+def no_reuse_img_src(src: str, book_slug: str) -> str:
+    count = GLOBAL_IMG_SEEN.get(src, 0)
+    GLOBAL_IMG_SEEN[src] = count + 1
+    if count == 0:
+        return src
+    filename = f"no-reuse-{book_slug}-{count:03d}-{stable_seed(src+str(count)) & 0xffff:04x}.svg"
+    title = Path(src).stem.replace('-', ' ').title()
+    rel = make_unique_scene_asset(filename, title, 'scene')
+    return '../art/generated/' + rel
+
 class Book:
     def __init__(self, slug: str, title: str, subtitle: str, cover: str = "01-cover.png"):
         self.slug, self.title, self.subtitle, self.cover = slug, title, subtitle, cover
@@ -179,16 +252,21 @@ class Book:
     def text_page(self, title: str, body: str, columns=True):
         p = self.page_no()
         cls = 'columns' if columns else ''
-        img = ART_CYCLE[(p + len(self.slug)) % len(ART_CYCLE)]
+        img = make_unique_wash_asset(self.slug, p, title)
         side = 'left' if p % 2 == 0 else 'right'
         self.pages.append(f'''<section class="page"><img class="artwash auto {side}" src="{wash_art(img)}" alt=""><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div><div class="page-number">{p}</div></section>''')
     def art_text_page(self, title: str, body: str, image: str, side: str = 'right', columns=False, extra_cls: str = ''):
         p = self.page_no()
         cls = 'columns' if columns else ''
-        self.pages.append(f'''<section class="page {extra_cls}"><img class="artwash {side}" src="{wash_art(image)}" alt=""><div class="wash-content"><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div></div><div class="page-number">{p}</div></section>''')
+        if image.startswith('unique/'):
+            src = art(image)
+        else:
+            src = wash_art(image)
+        self.pages.append(f'''<section class="page {extra_cls}"><img class="artwash {side}" src="{src}" alt=""><div class="wash-content"><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div></div><div class="page-number">{p}</div></section>''')
     def drawing_page(self):
         p = self.page_no()
-        self.pages.append(f'''<section class="page"><img class="artwash auto full" src="{wash_art('bg-mounts-pets.png')}" alt=""><h2 class="section">Draw your Adventurer</h2><div class="draw-frame"></div><div class="page-number">{p}</div></section>''')
+        img = make_unique_wash_asset(self.slug, p, 'Draw your Adventurer')
+        self.pages.append(f'''<section class="page"><img class="artwash auto full" src="{wash_art(img)}" alt=""><h2 class="section">Draw your Adventurer</h2><div class="draw-frame"></div><div class="page-number">{p}</div></section>''')
     def feature_page(self, kicker: str, title: str, image: str, intro: str, body: str, more: str = ''):
         p = self.page_no()
         self.pages.append(f'''<section class="page feature-page"><div class="feature-top"><figure class="feature-art"><img src="{art(image)}" alt="{esc(title)} illustration"></figure><div class="feature-intro"><div class="feature-kicker">{esc(kicker)}</div><h2>{esc(title)}</h2><p class="drop">{intro}</p>{more}</div></div>{body}<div class="page-number">{p}</div></section>''')
@@ -203,6 +281,9 @@ class Book:
         self.pages.append(f'''<section class="page feature-page creature-feature"><div class="feature-top"><figure class="feature-art"><img src="{art(image)}" alt="{esc(title)} creature art"></figure><div class="feature-intro"><div class="feature-kicker">Creature stat block</div><h2>{esc(title)}</h2><p class="drop">{intro}</p><p class="creature-lore">{lore}</p>{vital_html}{stat_html}{note}</div></div>{body}<div class="page-number">{p}</div></section>''')
     def write(self):
         html = '<!doctype html><html><head><meta charset="utf-8"><title>'+esc(self.title)+'</title><style>'+CSS+'</style></head><body><main class="book">' + '\n'.join(self.pages) + '</main></body></html>'
+        def repl(m):
+            return 'src="' + no_reuse_img_src(m.group(1), self.slug) + '"'
+        html = re.sub(r'src="(\.\./art/generated/[^"]+)"', repl, html)
         (PRINT / f"{self.slug}-a4.html").write_text(html, encoding="utf-8")
 
 def p(text): return f"<p>{text}</p>"
@@ -833,6 +914,37 @@ ca.text_page("Encounter maps and travel procedures", f"""
 '<h3>Travel events</h3><table><tr><td>1</td><td>Redcloak patrol measuring land.</td></tr><tr><td>2</td><td>Norse trader offers a cursed bargain.</td></tr><tr><td>3</td><td>Barbarian scouts test guest-right.</td></tr><tr><td>4</td><td>Fairy ring moves the road.</td></tr><tr><td>5</td><td>Monster sign: claw marks, cold fog, iron feathers.</td></tr><tr><td>6</td><td>Helpful local: shepherd, fisher, brownie, corbie messenger.</td></tr></table><h3>After travel</h3>' + ul(['Ask one player to mark the route on the map.', 'Ask another to name a rumor learned on the road.', 'If a companion helped, advance its bond if the table cared for it.', 'Turn one travel event into tomorrow’s hook.']) + '<h3>Route costs</h3><table><tr><td>Careful</td><td>safe clue, slower clock.</td></tr><tr><td>Normal</td><td>one event.</td></tr><tr><td>Urgent</td><td>arrive fast, start with mud/noise/tired companion.</td></tr></table>'
 )}
 """, columns=False)
+ca.art_text_page("Campaign Workshop: scenes, NPCs, and clues", f"""
+<div class='card-grid'>
+{card('Scene packet template', p('Every adventure now gets: read-aloud, visible place, helpful NPC, tricky NPC, encounter, clue chain, wobble, reward, and next hook.'))}
+{card('NPC voices', p('Give each NPC one tiny stage direction: speaks into a sleeve, counts buttons, whistles before telling truth, or stamps when worried.'))}
+{card('Encounter choice', p('Run danger as talk, trick, travel, chase, rescue, puzzle, or careful combat. Young Adventurers should always see a kind or clever route.'))}
+{card('Clue chain', p('Use three clues per adventure: one picture clue, one NPC clue, one touchable clue. If one is missed, another still points forward.'))}
+</div>
+<table><tr><th>Adventure</th><th>New NPCs</th><th>Extra scenes</th><th>Encounter</th></tr><tr><td>Lost Moon-Bell</td><td>Fia the Kelpie Foal, Auntie Reed, Bubble-Nose Trout</td><td>reed maze, moon-stone shelf, underwater humming gate</td><td>comfort frightened foal while water rises</td></tr><tr><td>Grumpy Bridge</td><td>Old Clapperbridge, Nessa Toll-Keeper, Silver Fox in Socks</td><td>moss-cleaning, carving riddle, toll-bell repair</td><td>bridge sneeze sends pebbles rolling toward picnic baskets</td></tr><tr><td>Thistle Crown</td><td>King Pricklecap, Moth Page, Granny Buttonroot</td><td>tiny court parade, lonely guard post, promise-flag craft</td><td>redcaps try to recruit the scared sprite with flattery</td></tr></table>
+""", image="bg-campaign-red-banner.png", side="left", columns=False)
+
+ca.text_page("Expanded Adventure 1: The Lost Moon-Bell", f"""
+{qa('<strong>Read aloud:</strong> “Cold moonlight trembles on the loch. A tiny foal with a kelp mane whispers, ‘My bell fell where the water remembers every splash.’”')}
+<div class='scene-packet'><h3>Scene 1 — Reeds that whisper back</h3>{ul(['NPC: Auntie Reed, an old plant spirit who dislikes rushing.', 'Clues: silver bubbles spell CLAP-SING-STEP; reed scratches show something dragged a bell.', 'Checks: Wis to soothe reeds, Agility to step dry, Luck to notice the moon’s reflection points left.'])}</div>
+<div class='scene-packet'><h3>Scene 2 — Moon-stone shelf</h3>{ul(['NPC: Bubble-Nose Trout, very proud of knowing one secret.', 'Encounter: slippery shelf; a hero can tie rope, sing to water, or ask the foal to trust them.', 'Wobble: boots fill with harmless glowing water; everyone can see hidden snail tracks.'])}</div>
+<div class='scene-packet'><h3>Scene 3 — Bell under the humming gate</h3>{ul(['The bell is caught in a gate that opens only for a promise.', 'Good solutions: return a lost shell, promise not to ride kelpies without asking, hum the bedtime note.', 'Reward: Moon-Bell token; once, ask water to show the safest stepping stone.'])}</div>
+""", columns=False)
+
+ca.text_page("Expanded Adventure 2: The Grumpy Bridge", f"""
+{qa('<strong>Read aloud:</strong> “The bridge pulls its stones close like crossed arms. ‘I am not grumpy,’ it grumbles. ‘I am historically underappreciated.’”')}
+<div class='scene-packet'><h3>Scene 1 — Toll bells and a scared crowd</h3>{ul(['NPC: Nessa Toll-Keeper hides behind a ledger but wants to help.', 'Challenge: everyone wants to cross before rain; one goat keeps eating the toll rope.', 'Clues: the bridge’s name is partly hidden under moss: Clap-per-bridge.'])}</div>
+<div class='scene-packet'><h3>Scene 2 — The carved face</h3>{ul(['Encounter: clean moss without hurting sleepy moss-mice.', 'Checks: Int to read old letters, Wis to move mice kindly, Strength to hold ladder in wind.', 'Wobble: the bridge sneezes; pebbles roll but reveal the missing smile carving.'])}</div>
+<div class='scene-packet'><h3>Scene 3 — Laugh politely</h3>{ul(['NPC: Silver Fox in Socks offers terrible jokes and dry socks.', 'Solution: tell a kind joke, clap the stepping rhythm, or thank the bridge by its true name.', 'Reward: Bridge-Friend badge; roads answer one question per adventure.'])}</div>
+""", columns=False)
+
+ca.text_page("Expanded Adventure 3: The Thistle Crown", f"""
+{qa('<strong>Read aloud:</strong> “A fairy no taller than a teacup wears a crown the size of a soup bowl. ‘Behold my empire!’ it squeaks, then trips over a petal.”')}
+<div class='scene-packet'><h3>Scene 1 — Tiny parade of one</h3>{ul(['NPC: King Pricklecap, secretly lonely and trying too hard.', 'NPC: Moth Page, loyal but exhausted from carrying proclamations.', 'Clue: the sprite’s guard post has three empty friend cups.'])}</div>
+<div class='scene-packet'><h3>Scene 2 — Redcap flattery</h3>{ul(['Encounter: two redcaps promise Pricklecap a bigger crown if he blocks every path.', 'Solutions: expose the trick, offer a real job, make a promise flag, or invite neighbours to visit.', 'Wobble: thistles grow into a maze, but their flowers point to anyone who tells the truth.'])}</div>
+<div class='scene-packet'><h3>Scene 3 — A better royal duty</h3>{ul(['The sprite chooses to be Keeper of Safe Paths rather than King of All Paths.', 'Reward: Thistle Crown ribbon; it untangles one bramble or social misunderstanding.', 'Next hook: Pricklecap saw a red wax seal near the southern road.'])}</div>
+""", columns=False)
+
 ca.write()
 
 # Character sheet
@@ -1073,7 +1185,7 @@ card_sets = [
 ('Condition cards', ['Muddy|-1 Agility until cleaned or dried.','Startled|-1 until soothed by friend/song/snack.','Tangled|Need help or check to move freely.','Sleepy|Slow; fresh air or tea helps.','Inspired|+1 to next brave/helpful action.','Oathbound|Must keep a clear promise.','Glittered|Easy to track; pretty but inconvenient.','Lost|Need clue, map, or guide.','Boss Phase|Scene changes; reveal true want.'])
 ]
 for title, cards in card_sets:
-    pc.text_page(title, "<div class='print-card-grid'>" + ''.join([f"<div class='print-card'><h3>{c.split('|')[0]}</h3><p>{c.split('|')[1]}</p></div>" for c in cards]) + "</div>", columns=False)
+    pc.text_page(title, "<div class='print-card-grid'>" + ''.join([illustrated_print_card(c.split('|')[0], c.split('|')[1]) for c in cards]) + "</div>", columns=False)
 pc.write()
 
 # Extra guide section, atlas, progression, and choices inserted as small companion books/pages.
@@ -1144,8 +1256,97 @@ ta.art_page("alba-town-dungeon-map.png", "Printable town/dungeon map", "Use for 
 ta.write()
 
 
+
+# West Marches setting and quest notice board
+wm = Book("west-marches", "West Marches of Alba", "Open-table frontier adventures, safe exploration turns, printable notice board, and quest cards", "alba-frontier-map.png")
+wm.cover_page()
+wm.art_page("alba-frontier-map.png", "The West Marches", "A frontier sandbox: choose a notice, mark a route, explore one place, and return home with a story.")
+wm.text_page("How West Marches play works", f"""
+{split('<h3>One safe home base</h3>'+p('The hearth-town of Kettleford is where each session starts and ends. The notice board gives choices, but the Guide only needs one chosen quest ready.')+ul(['Pick one notice from the board.', 'Ask the party which route they take.', 'Run three exploration turns.', 'Bring everyone home before bedtime.']), '<h3>Exploration turn</h3>'+table if False else '<table><tr><th>Step</th><th>Question</th></tr><tr><td>1. Look</td><td>What do the Adventurers notice in the art or map?</td></tr><tr><td>2. Choose</td><td>Careful, normal, or brave shortcut?</td></tr><tr><td>3. Meet</td><td>Creature, clue, weather, or local helper?</td></tr><tr><td>4. Mark</td><td>Add a sticker, path, friend, danger, or treasure to the map.</td></tr></table>'+rb('<strong>West Marches rule:</strong> no quest is mandatory; players choose the next notice.'))}
+""", columns=False)
+wm.text_page("Printable quest notice board", f"""
+<h3>Cut out or pin this page</h3>
+<div class='print-card-grid'>
+{illustrated_print_card('Lost Bell at Moon Loch','Reward: Moon-water vial. Route: reeds and stepping stones. Danger: worried kelpie foal.')}
+{illustrated_print_card('Red Wax on the Toll Gate','Reward: Bridge-Friend badge. Route: south road. Danger: tax-mage echo.')}
+{illustrated_print_card('Goat Bell in Storm Cairn','Reward: cairn goat bond. Route: high path. Danger: oath thunder.')}
+{illustrated_print_card('Longship Lantern','Reward: sea-token map. Route: north coast. Danger: draugr oath.')}
+{illustrated_print_card('Fox Map in Thistlewood','Reward: safe route mark. Route: bramble path. Danger: redcap bargain.')}
+{illustrated_print_card('Potion Garden Rescue','Reward: heatherheart draught recipe. Route: bog edge. Danger: sleepy nightshade jam.')}
+</div>
+""", columns=False)
+for title, body in [
+('Quest: Lost Bell at Moon Loch', '<h3>Scenes</h3>'+ul(['Meet Fia the kelpie foal at the wet stones.','Follow silver bubbles through a reed maze.','Open the humming gate with a promise.'])+'<h3>NPCs</h3>'+ul(['Fia: scared but brave if praised.','Auntie Reed: slow, formal, hates grabbing.','Bubble-Nose Trout: wants to be paid in compliments.'])+'<h3>Encounter</h3><p>Rising water makes choices urgent. Rope, song, stepping stones, or animal friendship all work.</p>'),
+('Quest: Red Wax on the Toll Gate', '<h3>Scenes</h3>'+ul(['Spot red wax on Kettleford gate.','Question villagers without scaring them.','Wash the false-tax charm while the echo complains.'])+'<h3>NPCs</h3>'+ul(['Nessa Toll-Keeper: nervous ledger keeper.','Tax-Mage Echo: bossy spell that repeats old orders.','Goat Mungo: chewing evidence.'])+'<h3>Encounter</h3><p>The echo tries to rename the bridge. True names, water, songs, and proof break it.</p>'),
+('Quest: Goat Bell in Storm Cairn', '<h3>Scenes</h3>'+ul(['Climb heather hills in wind.','Hear thunder answer wrong promises.','Return the bell to a cairn goat without waking the wight.'])+'<h3>NPCs</h3>'+ul(['Pebblehorn Goat: stubborn, hungry, honorable.','Old Duthac: poet guide.','Cairn Wight: scary but fair.'])+'<h3>Encounter</h3><p>Hold a cloak rope, speak an oath, and choose whether to bargain or sneak.</p>'),
+('Quest: Longship Lantern', '<h3>Scenes</h3>'+ul(['Find a blue lantern on an empty longship.','Trade clues at the harbor market.','Carry the lantern to the sea cave before tide turns.'])+'<h3>NPCs</h3>'+ul(['Jorunn Wave-Smith: friendly trader.','Skull-Sail Rurik: loud rival.','Draugr Rowers: want oath finished.'])+'<h3>Encounter</h3><p>Fog, rowing sounds, and a rising tide. Peace, trade, and oath-work beat fighting.</p>')]:
+    img = make_unique_scene_asset('west-quest-'+title.lower().replace(':','').replace(' ','-')+'.svg', title, 'quest')
+    wm.art_text_page(title, body, image=img, side='right', columns=False)
+wm.write()
+
+# Dedicated gear/items/potions/poisons book
+gear = Book("gear-items-potions", "Gear, Items, Potions and Poisons", "Dedicated equipment catalogue with illustrated object cards, prices, recipes, and table use", "item-gear-sheet.png")
+gear.cover_page()
+gear.art_text_page("Gear that changes scenes", f"""
+{split('<h3>Starter gear shelves</h3><table><tr><th>Item</th><th>Cost</th><th>Use</th></tr><tr><td>Rope with ribbon knots</td><td>5 copper</td><td>+1 climbing/rescue when someone holds the end.</td></tr><tr><td>Lantern with beetle glass</td><td>8 copper</td><td>Reveal one clue before a dark roll.</td></tr><tr><td>Tiny toolkit</td><td>1 silver</td><td>Try Int checks on locks, carts, toys, traps.</td></tr><tr><td>Oat pouch</td><td>2 copper</td><td>+1 Wis with hungry animals.</td></tr></table>', '<h3>Gear scenes</h3>'+ul(['Rope makes teamwork visible: one climbs, one holds, one watches.','Lanterns should show clues, not just remove darkness.','Tools let small hands fix things instead of smash them.','Food is social magic: it starts conversations.'])+rb('<strong>Rule:</strong> gear gives +1 only when the player describes how it helps.'))}
+""", image="item-gear-sheet.png", side="right", columns=False)
+gear.art_text_page("Magic items", f"""
+<div class='card-grid'>
+{card('Rowan-Bark Shield', p('Reduces thorn, arrow, or fear trouble by 2 HP. Wants to protect someone smaller.'))}
+{card('Loch-Mirror Cloak', p('+1 to sneak in mist or moonlight. Shows the wearer one honest reflection.'))}
+{card('Cairn-Knuckle Ring', p('+1 to hold, lift, or remember an oath. Heavy when lies are near.'))}
+{card('Star-Moth Lantern', p('Reveals invisible ink, ghost tracks, and shy fairies if spoken to politely.'))}
+{card('Mythral Seed Blade', p('Cuts curses and refuses cruelty. It becomes dull if used to bully.'))}
+{card('Bridge-Friend Badge', p('Roads and bridges answer one practical question per adventure.'))}
+</div>
+""", image="item-magic-sheet.png", side="left", columns=False)
+gear.art_text_page("Potions and poisons", f"""
+<table><tr><th>Name</th><th>Kind</th><th>Effect</th><th>Cure/cost</th></tr><tr><td>Heatherheart Draught</td><td>Potion</td><td>Regain 3 HP; ignore Startled once.</td><td>Needs heather honey and kind words.</td></tr><tr><td>Loch-Breath Sip</td><td>Potion</td><td>Breathe underwater for one calm scene.</td><td>Cannot shout until dry.</td></tr><tr><td>Foxwit Tea</td><td>Potion</td><td>+1 Int for riddles, runes, traps.</td><td>Must answer one question honestly.</td></tr><tr><td>Nightshade Jam</td><td>Poison</td><td>Sleepy until bitter tea or warm song.</td><td>Bitter tea, fresh air, friend song.</td></tr><tr><td>Black Bog Venom</td><td>Poison</td><td>-1 Agility until washed in running water.</td><td>Clean stream or moon-water vial.</td></tr><tr><td>Iron Crow Ink</td><td>Poison</td><td>Cannot speak a lie until one useful truth.</td><td>Tell the truth that helps someone.</td></tr></table>
+""", image="item-potions-poisons-sheet.png", side="right", columns=False)
+gear.text_page("Illustrated item cards", "<div class='print-card-grid'>" + ''.join([illustrated_print_card(n,t) for n,t in [('Rope with ribbon knots','+1 to climb/rescue when a friend holds the end.'),('Beetle-glass lantern','Reveal one clue before a dark roll.'),('Tiny toolkit','Allows Int checks on small devices.'),('Oat pouch','+1 Wis with hungry animals.'),('Rowan-Bark Shield','Reduce one thorn/arrow/fear trouble by 2 HP.'),('Star-Moth Lantern','See invisible ink or ghost tracks.'),('Heatherheart Draught','Regain 3 HP; ignore Startled once.'),('Black Bog Venom','Poison: -1 Agility until washed.'),('Promise Button','Ask for one Luck clue.')]]) + "</div>", columns=False)
+gear.write()
+
+# Dedicated mounts and pets book
+mp = Book("mounts-and-pets", "Mounts and Pets", "Story-earned companions, bond tracks, quests, care scenes, and printable companion cards", "bg-mounts-pets.png")
+mp.cover_page()
+mp.art_text_page("Companions are earned friends", f"""
+{split('<h3>Bond rule</h3><table><tr><th>Bond</th><th>Trust</th><th>Unlock</th></tr><tr><td>1</td><td>Trusts the party.</td><td>+1 once per session when cared for.</td></tr><tr><td>2</td><td>Comes when called.</td><td>Carry message/small item.</td></tr><tr><td>3</td><td>Chooses the heroes.</td><td>Return dramatically once per campaign.</td></tr></table>', '<h3>Care scenes</h3>'+ul(['Feed: oats, berries, warm milk, moon-water, or story.','Rest: companions need safe sleep too.','Respect: ask before riding magical creatures.','Job: every companion wants a useful role.'])+rb('<strong>No punishment:</strong> if a pet is threatened, offer a rescue choice, not a cruel scene.'))}
+""", image="bg-mounts-pets.png", side="right", columns=False)
+for title, txt in [
+('Highland Pony', 'Earn by freeing it from bog rope. Helps travel, carrying, and brave parade entrances. Likes oat cakes and steady voices.'),
+('Cairn Goat', 'Earn by finding its lost bell. Helps climbing, stubborn pushing, and storm-path warnings. Likes hill songs.'),
+('Fairy Stag', 'Earn by protecting its grove. Fast travel once per adventure. Will not carry anyone who breaks a promise.'),
+('Kelp-Mane Pony', 'Earn by returning a moon-water charm. Carries careful riders across lochs. Needs polite asking.'),
+('Rowan Owl', 'Earn by solving its old-name riddle. Gives night warnings and sees red wax in the dark.'),
+('Border Warg', 'Earn by breaking its command collar. Tracks danger and protects friends. Needs trust after fear.'),
+('Rowan Mouse', 'Earn by returning crumb-hoard. Helps tiny keys, hiding, and finding snack-sized clues.'),
+('Cloud Moth', 'Earn by guiding it to starlight. Gives soft light and gentle weather hints.'),
+('Thistle Hedgehog', 'Earn by saving it from a boot-trap. Notices danger and curls into a tiny shield.')]:
+    img = make_unique_scene_asset('mount-pet-'+title.lower().replace(' ','-')+'.svg', title, 'pet')
+    mp.art_text_page(title, '<div class="card-grid">'+card('How to earn', p(txt))+card('Care promise', p('Name one food, one comfort, and one job this companion enjoys.'))+card('Adventure hook', p('Someone else wants the companion for the wrong reason; prove kindness works better.'))+card('Table help', p('+1 only when the companion’s special talent clearly matters and the party cared for it.'))+'</div>', image=img, side='right', columns=False)
+mp.text_page("Printable companion cards", "<div class='print-card-grid'>" + ''.join([illustrated_print_card(n,t) for n,t in [('Highland Pony','Travel/carrying. Earn: free from bog rope.'),('Cairn Goat','Climbing. Earn: find lost bell.'),('Fairy Stag','Fast travel. Earn: protect grove.'),('Kelp-Mane Pony','Loch crossing. Earn: return moon charm.'),('Rowan Owl','Night warning. Earn: old-name riddle.'),('Border Warg','Tracking/defense. Earn: break collar.'),('Rowan Mouse','Tiny keys. Earn: return crumbs.'),('Cloud Moth','Soft light. Earn: guide to stars.'),('Thistle Hedgehog','Danger sense. Earn: save from trap.')]]) + "</div>", columns=False)
+mp.write()
+
+# Expanded atlas with area-specific art and lore
+atlas2 = Book("alba-atlas-expanded", "Alba Atlas Expanded", "Every major area with location, unique art, factions, history, folklore, and adventure hooks", "alba-regional-map.png")
+atlas2.cover_page()
+atlas2.art_page("alba-regional-map.png", "Expanded map of Alba", "Each region below has its own page, art, factions, folklore, and play hooks.")
+for name, location, factions, folklore, hooks in [
+('Heatherhigh Hills','West-central Alba above Kettleford, between Storm Cairn and the old goat roads.','Storm-Clans, cairn goats, oath poets, hidden Rowan Compact messengers.','Thunder is said to be old chiefs arguing until someone remembers the exact promise.','lost goat bell; oath ghost; storm-clan fair challenge; mythral spring rumor'),
+('Glass Loch','Northern lowlands where moon-water gathers beneath seal roads and kelp paths.','Selkie families, kelpie foals, loch herbalists, glass serpent guardians.','The loch reflects not faces but promises; a liar sees an empty sky.','moon-bell rescue; underwater shrine; serpent bridge; stolen seal-cloak'),
+('Northern Whale-Road','Cold sea lanes and skerries north of Skerryvik harbor.','Norse Sea-Kin, draugr oath-raiders, whale singers, harbor traders.','Blue lanterns mark ships whose crews still owe one last kindness.','empty longship; ghost oars; feast-right bargain; storm-knot duel'),
+('Red Banner Border','Southern forts, tax roads, and measured fields where Albion pushes north.','Dominion officials, defecting guides, Redcloak patrols, freed border wargs.','The red banner steals place-names first; people vanish only after maps are changed.','tax charm; false map; iron collar; banner true-name ritual'),
+('Thistlewood','Eastern fairy wood between Alba-Brae and the hidden Thorn Court gates.','Thorn Court, redcaps, fox guides, brownie helpers, myceling scouts.','Every bramble has a door, but only polite knockers learn which door is theirs.','redcap bargain; moving road; fox map; tiny court trial'),
+('Cauldron Pass','High northern pass from lowland farms to Queen Maev’s storm-clan halls.','Storm-clans, Queen Maev, Albion spies, cairn wights.','A stolen feast cauldron can make a whole valley forget guest-right.','returned cauldron; fair duel; ancestor story; pass of two banners'),
+('Kettleford','Home-base bridge town on the road between loch, hills, woods, and border.','Toll-keepers, market aunties, bridge spirits, young adventurers.','The bridge was built by a giant child who wanted everyone to get home dry.','notice board; toll bell; market mystery; grumpy bridge'),
+('Root Warrens','Dungeon tangle under Thistlewood, full of jam doors, mouse paths, and bell roots.','Redcaps, rowan mice, root goblins, Buttonroot elders.','Roots remember every footstep and repeat rude words until someone apologises.','lost crumbs; jam lock; redcap tunnel; bedtime song root')]:
+    body = '<div class="card-grid">'+card('Location in wider Alba', p(location))+card('Factions', p(factions))+card('History or folklore', p(folklore))+card('Adventure hooks', p(hooks))+'</div><h3>Local table</h3><table><tr><th>d6</th><th>Discovery</th></tr><tr><td>1</td><td>A friendly local asks for help before danger appears.</td></tr><tr><td>2</td><td>A faction mark points to a secret path.</td></tr><tr><td>3</td><td>Old folklore explains a safe solution.</td></tr><tr><td>4</td><td>Weather changes the route.</td></tr><tr><td>5</td><td>A pet or mount notices the real clue.</td></tr><tr><td>6</td><td>A reward becomes tomorrow’s notice-board quest.</td></tr></table>'
+    img = make_unique_scene_asset('atlas-area-'+name.lower().replace(' ','-')+'.svg', name, 'atlas')
+    atlas2.art_text_page(name, body, image=img, side='right', columns=False)
+atlas2.write()
+
 # Plain markdown notes for repo browsing
-for slug, title in [(ph.slug, ph.title), (gm.slug, gm.title), (be.slug, be.title), (ca.slug, ca.title), (sheet.slug, sheet.title), (am.slug, am.title), (sg.slug, sg.title), (tc.slug, tc.title), (b2.slug, b2.title), (ta.slug, ta.title), (qs.slug, qs.title), (pc.slug, pc.title), (gx.slug, gx.title), (atlas.slug, atlas.title)]:
+for slug, title in [(ph.slug, ph.title), (gm.slug, gm.title), (be.slug, be.title), (ca.slug, ca.title), (sheet.slug, sheet.title), (am.slug, am.title), (sg.slug, sg.title), (tc.slug, tc.title), (b2.slug, b2.title), (ta.slug, ta.title), (qs.slug, qs.title), (pc.slug, pc.title), (gx.slug, gx.title), (atlas.slug, atlas.title), (wm.slug, wm.title), (gear.slug, gear.title), (mp.slug, mp.title), (atlas2.slug, atlas2.title)]:
     (BOOKS / f"{slug}.md").write_text(f"# {title}\n\nSee `printable-a4/{slug}-a4.html` and `pdf/{slug}.pdf`.\n", encoding="utf-8")
 
 # low-ink quickstart/cards variants
@@ -1155,4 +1356,23 @@ for slug in ['quickstart-pack','printable-cards']:
         txt = src.read_text(encoding='utf-8')
         txt = txt.replace('<main class="book">', '<main class="book low-ink">')
         (PRINT / f'{slug}-low-ink-a4.html').write_text(txt, encoding='utf-8')
+
+# Final no-reused-art pass across every generated HTML, including low-ink variants
+# and style-proof HTML that may pre-exist in printable-a4/. Exact src reuse is
+# replaced with unique generated SVG art so no page points at the same artwork.
+seen_final = {}
+for html_path in sorted(PRINT.glob('*-a4.html')):
+    txt = html_path.read_text(encoding='utf-8')
+    def repl_final(m):
+        src = m.group(1)
+        n = seen_final.get(src, 0)
+        seen_final[src] = n + 1
+        if n == 0:
+            return 'src="' + src + '"'
+        filename = f"final-no-reuse-{html_path.stem}-{n:03d}-{stable_seed(src+html_path.name+str(n)) & 0xffff:04x}.svg"
+        rel = make_unique_scene_asset(filename, Path(src).stem.replace('-', ' ').title(), 'scene')
+        return 'src="../art/generated/' + rel + '"'
+    txt = re.sub(r'src="(\.\./art/generated/[^"]+)"', repl_final, txt)
+    html_path.write_text(txt, encoding='utf-8')
+
 print('built book HTML files:', ', '.join(sorted(p.name for p in PRINT.glob('*-a4.html'))))

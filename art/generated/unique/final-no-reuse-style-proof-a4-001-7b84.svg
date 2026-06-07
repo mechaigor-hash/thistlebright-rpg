@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
+      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
+      <rect width='820' height='1120' fill='#e9d7a2'/>
+      <rect width='820' height='1120' fill='url(#glow)'/>
+      <circle cx='88' cy='374' r='2' fill='#2e5940' opacity='.25'/><circle cx='147' cy='270' r='3' fill='#2e5940' opacity='.25'/><circle cx='563' cy='86' r='4' fill='#2e5940' opacity='.25'/><circle cx='107' cy='328' r='5' fill='#2e5940' opacity='.25'/><circle cx='616' cy='317' r='2' fill='#2e5940' opacity='.25'/><circle cx='207' cy='335' r='3' fill='#2e5940' opacity='.25'/><circle cx='739' cy='368' r='4' fill='#2e5940' opacity='.25'/><circle cx='341' cy='253' r='5' fill='#2e5940' opacity='.25'/><circle cx='179' cy='374' r='2' fill='#2e5940' opacity='.25'/><circle cx='134' cy='303' r='3' fill='#2e5940' opacity='.25'/><circle cx='498' cy='291' r='4' fill='#2e5940' opacity='.25'/><circle cx='367' cy='308' r='5' fill='#2e5940' opacity='.25'/><circle cx='688' cy='185' r='2' fill='#2e5940' opacity='.25'/><circle cx='185' cy='302' r='3' fill='#2e5940' opacity='.25'/><circle cx='320' cy='74' r='4' fill='#2e5940' opacity='.25'/><circle cx='74' cy='294' r='5' fill='#2e5940' opacity='.25'/><circle cx='687' cy='117' r='2' fill='#2e5940' opacity='.25'/><circle cx='680' cy='362' r='3' fill='#2e5940' opacity='.25'/><path d='M-76 1120 L14 718 L134 1120 Z' fill='#7b3f30' opacity='0.16'/><path d='M138 1120 L228 670 L348 1120 Z' fill='#7b3f30' opacity='0.21'/><path d='M353 1120 L443 653 L563 1120 Z' fill='#7b3f30' opacity='0.26'/><path d='M551 1120 L641 738 L761 1120 Z' fill='#7b3f30' opacity='0.31'/><path d='M784 1120 L874 737 L994 1120 Z' fill='#7b3f30' opacity='0.36'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#d28a5d' opacity='.54'/>
+      <circle cx='410' cy='410' r='185' fill='#2e5940' opacity='.17'/>
+      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
+      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#7b3f30' opacity='.88'>✦</text>
+      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#2e5940' stroke-width='16' opacity='.35' stroke-linecap='round'/>
+      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#7b3f30'>Bg Spell Gear</text>
+    </svg>

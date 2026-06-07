@@ -38,17 +38,17 @@ h4 { margin:2.2mm 0 1mm; color:#56336d; font-size:10.8pt; }
 .split { display:grid; grid-template-columns:1fr 1fr; gap:5mm 7mm; align-items:start; }
 .col { break-inside:avoid-page; page-break-inside:avoid; }
 .dense-list li { margin:.25mm 0; }
-.mini-card { break-inside:avoid-page; page-break-inside:avoid; margin:2mm 0; padding:2.3mm 2.8mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
+.mini-card { break-inside:avoid-page; page-break-inside:avoid; margin:2mm 0; padding:2.3mm 2.8mm; background:rgba(255,251,239,.88); border:1px solid rgba(184,138,45,.52); }
 .columns > .option-card { min-height:62mm; }
 .columns > .creature { min-height:58mm; }
-.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.94), rgba(242,226,187,.78)); border:1px solid rgba(154,116,55,.55); box-shadow:inset 0 0 0 1px rgba(255,255,255,.38); }
+.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.96), rgba(242,226,187,.86)); border:1px solid rgba(154,116,55,.60); box-shadow:inset 0 0 0 1px rgba(255,255,255,.50); }
 .option-card h3, .creature h3 { margin-top:0; }
 .rulebox, .readaloud { margin:2.6mm 0; border-left:2.2mm solid rgba(86,51,109,.66); }
 .questbox { margin:2.8mm 0; border-left:2.2mm solid rgba(40,87,64,.75); }
 .small { font-size:8.8pt; color:var(--muted); }
 .big-stat { font-size:20pt; color:#74322d; letter-spacing:.04em; }
 table { width:100%; border-collapse:collapse; margin:2.2mm 0 3mm; font-size:8.6pt; break-inside:avoid-page; }
-th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { background:#dfd0a4; color:#263b2e; } tr:nth-child(even) td { background:rgba(235,222,184,.58); }
+th,td { border:1px solid #b9934c; padding:2mm 1.8mm; vertical-align:top; } th { background:rgba(217,195,135,.96); color:#263b2e; } td { background:rgba(255,251,239,.78); } tr:nth-child(even) td { background:rgba(242,229,193,.86); }
 .keep { break-inside:avoid-page; page-break-inside:avoid; }
 .drop:first-letter { font-size:23pt; line-height:1; color:#87312d; padding-right:1mm; font-weight:700; }
 .spot { height:54mm; overflow:hidden; margin:0 0 3mm; background:#241a16; border:1px solid rgba(128,92,45,.48); break-inside:avoid-page; }
@@ -64,7 +64,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .feature-intro h2 { margin:0 0 2mm; color:#6f2d29; font-size:22pt; line-height:1; font-variant:small-caps; border-bottom:1px solid rgba(184,138,45,.55); padding-bottom:1.5mm; }
 .feature-kicker { color:#56336d; text-transform:uppercase; letter-spacing:.08em; font-size:8pt; margin-bottom:1.5mm; }
 .feature-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.4mm 5mm; }
-.feature-box { break-inside:avoid-page; min-height:38mm; padding:3mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
+.feature-box { break-inside:avoid-page; min-height:38mm; padding:3mm; background:rgba(255,251,239,.88); border:1px solid rgba(184,138,45,.50); }
 .feature-box h3 { margin-top:0; font-size:12pt; }
 .feature-quote { margin-top:3mm; padding:3mm; background:rgba(86,51,109,.10); border-left:2mm solid rgba(86,51,109,.65); font-style:italic; }
 .statline { display:grid; grid-template-columns:repeat(5,1fr); gap:1.2mm; margin:1.7mm 0 2.5mm; }
@@ -101,11 +101,12 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .page > h2.section, .page > div:not(.page-number), .page > table, .page > p, .page > ol, .page > ul { position:relative; z-index:2; }
 
 .page .columns, .page .split, .page table, .page .card-grid, .page .sheet, .page .draw-frame { position:relative; z-index:2; }
-.wash-content .split, .wash-content table, .page > .columns, .page > .split { background:rgba(255,251,239,.58); backdrop-filter:none; border-radius:2mm; padding:1mm; }
+.wash-content .split, .wash-content table, .page > .columns, .page > .split { background:rgba(255,251,239,.76); backdrop-filter:none; border-radius:2mm; padding:1mm; box-shadow:0 0 0 1px rgba(184,138,45,.22); }
 .low-ink .page { background:#fffdf6 !important; }
 .low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.16 !important; filter:none !important; }
 .print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
-.print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.78); break-inside:avoid; }
+.print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.92); break-inside:avoid; overflow:hidden; }
+.print-card .card-illo { float:right; width:18mm; height:18mm; margin:0 0 1mm 1.8mm; border-radius:50%; background:linear-gradient(135deg,#f2d68b,#9fc88b); border:1px solid rgba(135,49,45,.42); display:flex; align-items:center; justify-content:center; color:#6f2d29; font-size:13pt; font-weight:700; }
 .print-card h3 { margin-top:0; font-size:12pt; }
 .quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
 
@@ -123,13 +124,13 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .item-inline-art img { width:100%; display:block; }
 
 </style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/alba-map.png" alt="Adventure Module cover"><div class="scrim"></div><div class="title-panel"><h1>Adventures in Alba</h1><p>Adventure Module — Five linked one-shots with maps, read-alouds, encounters, treasure, and scaling</p></div><div class="overlay"><h3>Adventures in Alba</h3><p>Scottish fairy myth, classic fantasy adventure, gentle danger, and table rules made for brave Adventurers.</p></div></section>
-<section class="page full-bleed"><img class="bg" src="../art/generated/alba-map.png" alt="The Bells of Alba"><div class="scrim"></div><div class="overlay"><h2>The Bells of Alba</h2><p>A five-part starter campaign across lochs, hills, cottages, fairy mounds, and a stormy thorn crown.</p></div><div class="page-number">2</div></section>
-<section class="page full-bleed"><img class="bg" src="../art/generated/alba-town-dungeon-map.png" alt="Adventure map spread"><div class="scrim"></div><div class="overlay"><h2>Adventure map spread</h2><p>Use this map for village, keep, loch shrine, fairy mound, cave, and watchtower scenes.</p></div><div class="page-number">3</div></section>
+<section class="page full-bleed"><img class="bg" src="../art/generated/unique/no-reuse-adventure-module-001-9247.svg" alt="The Bells of Alba"><div class="scrim"></div><div class="overlay"><h2>The Bells of Alba</h2><p>A five-part starter campaign across lochs, hills, cottages, fairy mounds, and a stormy thorn crown.</p></div><div class="page-number">2</div></section>
+<section class="page full-bleed"><img class="bg" src="../art/generated/unique/no-reuse-adventure-module-001-7e43.svg" alt="Adventure map spread"><div class="scrim"></div><div class="overlay"><h2>Adventure map spread</h2><p>Use this map for village, keep, loch shrine, fairy mound, cave, and watchtower scenes.</p></div><div class="page-number">3</div></section>
 <section class="page full-bleed"><img class="bg" src="../art/generated/alba-frontier-map.png" alt="Border threat map"><div class="scrim"></div><div class="overlay"><h2>Border threat map</h2><p>Use this map when Redcloak patrols, Norse longships, storm-clans, or monsters enter the campaign.</p></div><div class="page-number">4</div></section>
-<section class="page"><img class="artwash auto right" src="../art/generated/wash/creature-redcap-warband-boss.png" alt=""><h2 class="section">How to run these adventures</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/wash/unique/wash-adventure-module-005-54dc.svg" alt=""><h2 class="section">How to run these adventures</h2><div class="">
 <div class='split'><div class='col'><h3>Session recipe</h3><ul><li>Read the boxed opening.</li><li>Ask what the adventurers notice.</li><li>Run two scenes and one creature moment.</li><li>Give treasure that changes the next scene.</li><li>End with a friend, promise, or map mark.</li></ul><div class='rulebox'><strong>Length:</strong> each adventure is built for 30–45 minutes.</div><h3>DM checklist</h3><ul><li>Circle one feeling: scared, proud, lonely, sleepy, worried.</li><li>Underline one clue the heroes can touch.</li><li>Pick one NPC voice: whispery, grand, grumpy, giggly.</li><li>Choose one safe cost before rolling: noise, mud, delay, lost hat.</li></ul></div><div class='col'><h3>Scaling</h3><table><tr><th>Group</th><th>Change</th></tr><tr><td>1 adventurer</td><td>Reduce enemy HP by 4 and MP by 2.</td></tr><tr><td>2–3 adventurers</td><td>Use listed stats.</td></tr><tr><td>4+ adventurers</td><td>Add one clue objective or +3 HP to the main creature.</td></tr><tr><td>Older Adventurers</td><td>Add a timer, locked door, or rival helper.</td></tr></table><h3>Quick rewards</h3><table><tr><td>1</td><td>Helpful map mark</td></tr><tr><td>2</td><td>1d6 copper</td></tr><tr><td>3</td><td>Friendly promise</td></tr><tr><td>4</td><td>Consumable charm</td></tr></table></div></div>
 </div><div class="page-number">5</div></section>
-<section class="page"><img class="artwash auto left" src="../art/generated/wash/creature-albion-tax-mage.png" alt=""><h2 class="section">1. The Bell-Root Path</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/wash/unique/wash-adventure-module-006-2564.svg" alt=""><h2 class="section">1. The Bell-Root Path</h2><div class="">
 <div class='questbox'><strong>Read aloud:</strong> Tiny bells hang from sleepy roots. A fox dreams beside a moon-rune door, and the path is holding its breath.</div>
 <h3>Scenes</h3><ul><li>Notice the bells before they ring.</li><li>Find the silver acorn key.</li><li>Wake the fox kindly or sneak past.</li></ul>
 <h3>Main creature</h3><p>Redcap Bramble Sneak, DR 3, wants its shiny bell back.</p>
@@ -137,7 +138,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <h3>Treasure</h3><p>Silver acorn key; 6 copper; fox promise.</p>
 <div class='card-grid'><div class='option-card'><h3>Read-aloud closer</h3><p>Ask each adventurer what their hero looks like at the end of the scene: muddy boots, proud smile, glowing pocket, or new friend.</p></div><div class='option-card'><h3>If they get stuck</h3><p>Show one clue in the art, have an NPC ask a simple question, or let a pet notice the safest path.</p></div><div class='option-card'><h3>Optional twist</h3><p>A rival helper arrives, the weather changes, or the treasure points to the next map mark.</p></div><div class='option-card'><h3>Level note</h3><p>After a big kindness, mark one star toward the next level.</p></div></div>
 </div><div class="page-number">6</div></section>
-<section class="page"><img class="artwash auto right" src="../art/generated/wash/creature-barbarian-storm-berserker.png" alt=""><h2 class="section">2. The Glass Loch</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/wash/unique/wash-adventure-module-007-e75d.svg" alt=""><h2 class="section">2. The Glass Loch</h2><div class="">
 <div class='questbox'><strong>Read aloud:</strong> The loch is clear as a window. Something long and blue coils below, guarding a bridge made of moon-reflection.</div>
 <h3>Scenes</h3><ul><li>Gather three dry stones.</li><li>Convince the Glass Loch Serpent the party is not stealing moonlight.</li><li>Cross without waking the cold current.</li></ul>
 <h3>Main creature</h3><p>Glass Loch Serpent, DR 5, uses Mirror Wave.</p>
@@ -145,7 +146,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <h3>Treasure</h3><p>Moon-water vial; 1 silver; safe crossing song.</p>
 <div class='card-grid'><div class='option-card'><h3>Read-aloud closer</h3><p>Ask each adventurer what their hero looks like at the end of the scene: muddy boots, proud smile, glowing pocket, or new friend.</p></div><div class='option-card'><h3>If they get stuck</h3><p>Show one clue in the art, have an NPC ask a simple question, or let a pet notice the safest path.</p></div><div class='option-card'><h3>Optional twist</h3><p>A rival helper arrives, the weather changes, or the treasure points to the next map mark.</p></div><div class='option-card'><h3>Level note</h3><p>After a big kindness, mark one star toward the next level.</p></div></div>
 </div><div class="page-number">7</div></section>
-<section class="page"><img class="artwash auto left" src="../art/generated/wash/02-part-opener.png" alt=""><h2 class="section">3. The Sooty Chimney</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/wash/unique/wash-adventure-module-008-a5bf.svg" alt=""><h2 class="section">3. The Sooty Chimney</h2><div class="">
 <div class='questbox'><strong>Read aloud:</strong> A cottage coughs black sparkles. Every spoon is missing, and the chimney giggles.</div>
 <h3>Scenes</h3><ul><li>Climb or talk to the chimney.</li><li>Sort useful soot from imp tricks.</li><li>Return the spoon chorus before dinner.</li></ul>
 <h3>Main creature</h3><p>Soot Chimney Imp, DR 3, casts Soot Puff.</p>
@@ -153,7 +154,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <h3>Treasure</h3><p>Warm oatcakes; soot chalk; 8 copper.</p>
 <div class='card-grid'><div class='option-card'><h3>Read-aloud closer</h3><p>Ask each adventurer what their hero looks like at the end of the scene: muddy boots, proud smile, glowing pocket, or new friend.</p></div><div class='option-card'><h3>If they get stuck</h3><p>Show one clue in the art, have an NPC ask a simple question, or let a pet notice the safest path.</p></div><div class='option-card'><h3>Optional twist</h3><p>A rival helper arrives, the weather changes, or the treasure points to the next map mark.</p></div><div class='option-card'><h3>Level note</h3><p>After a big kindness, mark one star toward the next level.</p></div></div>
 </div><div class="page-number">8</div></section>
-<section class="page"><img class="artwash auto right" src="../art/generated/wash/alba-regional-map.png" alt=""><h2 class="section">4. The Hollow Hill Warning</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/wash/unique/wash-adventure-module-009-59be.svg" alt=""><h2 class="section">4. The Hollow Hill Warning</h2><div class="">
 <div class='questbox'><strong>Read aloud:</strong> A ribbon of cold wind circles the mound. The Banshee is crying names no one remembers.</div>
 <h3>Scenes</h3><ul><li>Listen inside the wail.</li><li>Find the forgotten promise stone.</li><li>Choose whether to open the fairy door.</li></ul>
 <h3>Main creature</h3><p>Hollow Hill Banshee, DR 6, uses Warning Wail.</p>
@@ -161,7 +162,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <h3>Treasure</h3><p>Promise stone; 1 gold; ghost door favor.</p>
 <div class='card-grid'><div class='option-card'><h3>Read-aloud closer</h3><p>Ask each adventurer what their hero looks like at the end of the scene: muddy boots, proud smile, glowing pocket, or new friend.</p></div><div class='option-card'><h3>If they get stuck</h3><p>Show one clue in the art, have an NPC ask a simple question, or let a pet notice the safest path.</p></div><div class='option-card'><h3>Optional twist</h3><p>A rival helper arrives, the weather changes, or the treasure points to the next map mark.</p></div><div class='option-card'><h3>Level note</h3><p>After a big kindness, mark one star toward the next level.</p></div></div>
 </div><div class="page-number">9</div></section>
-<section class="page"><img class="artwash auto left" src="../art/generated/wash/alba-town-dungeon-map.png" alt=""><h2 class="section">5. The Thorn Crown Storm</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/wash/unique/wash-adventure-module-010-b7ec.svg" alt=""><h2 class="section">5. The Thorn Crown Storm</h2><div class="">
 <div class='questbox'><strong>Read aloud:</strong> The hill giant kneels under thunder. Its crown is too tight, and every thorn points at the village.</div>
 <h3>Scenes</h3><ul><li>Survive stormy brambles.</li><li>Learn the giant is in pain.</li><li>Remove the thorn crown using teamwork and ritual magic.</li></ul>
 <h3>Main creature</h3><p>Thorn Crown Giant, DR 7, phase change at half HP.</p>
@@ -169,7 +170,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <h3>Treasure</h3><p>Mythral thorn seed; village feast; level-up feat.</p>
 <div class='card-grid'><div class='option-card'><h3>Read-aloud closer</h3><p>Ask each adventurer what their hero looks like at the end of the scene: muddy boots, proud smile, glowing pocket, or new friend.</p></div><div class='option-card'><h3>If they get stuck</h3><p>Show one clue in the art, have an NPC ask a simple question, or let a pet notice the safest path.</p></div><div class='option-card'><h3>Optional twist</h3><p>A rival helper arrives, the weather changes, or the treasure points to the next map mark.</p></div><div class='option-card'><h3>Level note</h3><p>After a big kindness, mark one star toward the next level.</p></div></div>
 </div><div class="page-number">10</div></section>
-<section class="page"><img class="artwash auto right" src="../art/generated/wash/alba-frontier-map.png" alt=""><h2 class="section">Campaign tracker</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/wash/unique/wash-adventure-module-011-dbd4.svg" alt=""><h2 class="section">Campaign tracker</h2><div class="">
 <p>Use this tracker to connect every one-shot to the larger war for Alba. Add map marks, faction reputation, and which monster became an ally.</p><table><tr><th>Adventure</th><th>Friend made</th><th>Treasure</th><th>Promise</th></tr><tr><td>Bell-Root Path</td><td></td><td></td><td></td></tr><tr><td>Glass Loch</td><td></td><td></td><td></td></tr><tr><td>Sooty Chimney</td><td></td><td></td><td></td></tr><tr><td>Hollow Hill</td><td></td><td></td><td></td></tr><tr><td>Thorn Crown Storm</td><td></td><td></td><td></td></tr></table>
 <div class='rulebox'><strong>Leveling suggestion:</strong> level up after adventures 2 and 5. Award a feat after adventure 5 if the party reaches level 4.</div>
 </div><div class="page-number">11</div></section></main></body></html>

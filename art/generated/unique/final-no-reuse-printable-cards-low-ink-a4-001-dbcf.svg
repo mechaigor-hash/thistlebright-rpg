@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
+      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
+      <rect width='820' height='1120' fill='#e9d7a2'/>
+      <rect width='820' height='1120' fill='url(#glow)'/>
+      <circle cx='563' cy='157' r='2' fill='#2e5940' opacity='.25'/><circle cx='734' cy='161' r='3' fill='#2e5940' opacity='.25'/><circle cx='506' cy='187' r='4' fill='#2e5940' opacity='.25'/><circle cx='79' cy='223' r='5' fill='#2e5940' opacity='.25'/><circle cx='602' cy='265' r='2' fill='#2e5940' opacity='.25'/><circle cx='550' cy='154' r='3' fill='#2e5940' opacity='.25'/><circle cx='560' cy='277' r='4' fill='#2e5940' opacity='.25'/><circle cx='252' cy='207' r='5' fill='#2e5940' opacity='.25'/><circle cx='134' cy='351' r='2' fill='#2e5940' opacity='.25'/><circle cx='112' cy='136' r='3' fill='#2e5940' opacity='.25'/><circle cx='137' cy='362' r='4' fill='#2e5940' opacity='.25'/><circle cx='536' cy='189' r='5' fill='#2e5940' opacity='.25'/><circle cx='422' cy='126' r='2' fill='#2e5940' opacity='.25'/><circle cx='752' cy='118' r='3' fill='#2e5940' opacity='.25'/><circle cx='603' cy='137' r='4' fill='#2e5940' opacity='.25'/><circle cx='215' cy='170' r='5' fill='#2e5940' opacity='.25'/><circle cx='408' cy='210' r='2' fill='#2e5940' opacity='.25'/><circle cx='191' cy='99' r='3' fill='#2e5940' opacity='.25'/><path d='M-77 1120 L13 653 L133 1120 Z' fill='#7b3f30' opacity='0.16'/><path d='M150 1120 L240 724 L360 1120 Z' fill='#7b3f30' opacity='0.21'/><path d='M366 1120 L456 728 L576 1120 Z' fill='#7b3f30' opacity='0.26'/><path d='M573 1120 L663 720 L783 1120 Z' fill='#7b3f30' opacity='0.31'/><path d='M766 1120 L856 678 L976 1120 Z' fill='#7b3f30' opacity='0.36'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#d28a5d' opacity='.54'/>
+      <circle cx='410' cy='410' r='185' fill='#2e5940' opacity='.17'/>
+      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
+      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#7b3f30' opacity='.88'>✦</text>
+      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#2e5940' stroke-width='16' opacity='.35' stroke-linecap='round'/>
+      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#7b3f30'>No Reuse Printable Cards 001 47D9</text>
+    </svg>

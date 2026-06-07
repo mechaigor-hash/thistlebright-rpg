@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
+      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
+      <rect width='820' height='1120' fill='#e9d7a2'/>
+      <rect width='820' height='1120' fill='url(#glow)'/>
+      <circle cx='728' cy='244' r='2' fill='#2e5940' opacity='.25'/><circle cx='117' cy='360' r='3' fill='#2e5940' opacity='.25'/><circle cx='548' cy='131' r='4' fill='#2e5940' opacity='.25'/><circle cx='450' cy='350' r='5' fill='#2e5940' opacity='.25'/><circle cx='437' cy='328' r='2' fill='#2e5940' opacity='.25'/><circle cx='467' cy='186' r='3' fill='#2e5940' opacity='.25'/><circle cx='169' cy='138' r='4' fill='#2e5940' opacity='.25'/><circle cx='406' cy='293' r='5' fill='#2e5940' opacity='.25'/><circle cx='561' cy='239' r='2' fill='#2e5940' opacity='.25'/><circle cx='675' cy='80' r='3' fill='#2e5940' opacity='.25'/><circle cx='419' cy='334' r='4' fill='#2e5940' opacity='.25'/><circle cx='327' cy='175' r='5' fill='#2e5940' opacity='.25'/><circle cx='318' cy='119' r='2' fill='#2e5940' opacity='.25'/><circle cx='700' cy='114' r='3' fill='#2e5940' opacity='.25'/><circle cx='227' cy='135' r='4' fill='#2e5940' opacity='.25'/><circle cx='727' cy='324' r='5' fill='#2e5940' opacity='.25'/><circle cx='314' cy='287' r='2' fill='#2e5940' opacity='.25'/><circle cx='144' cy='137' r='3' fill='#2e5940' opacity='.25'/><path d='M-56 1120 L34 738 L154 1120 Z' fill='#7b3f30' opacity='0.16'/><path d='M157 1120 L247 743 L367 1120 Z' fill='#7b3f30' opacity='0.21'/><path d='M363 1120 L453 719 L573 1120 Z' fill='#7b3f30' opacity='0.26'/><path d='M568 1120 L658 720 L778 1120 Z' fill='#7b3f30' opacity='0.31'/><path d='M766 1120 L856 680 L976 1120 Z' fill='#7b3f30' opacity='0.36'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#d28a5d' opacity='.54'/>
+      <circle cx='410' cy='410' r='185' fill='#2e5940' opacity='.17'/>
+      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
+      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#7b3f30' opacity='.88'>☽</text>
+      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#2e5940' stroke-width='16' opacity='.35' stroke-linecap='round'/>
+      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#7b3f30'>Stat creation: classic five stats</text>
+    </svg>

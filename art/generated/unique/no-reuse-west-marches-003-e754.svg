@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
+      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
+      <rect width='820' height='1120' fill='#efe2bd'/>
+      <rect width='820' height='1120' fill='url(#glow)'/>
+      <circle cx='710' cy='216' r='2' fill='#87312d' opacity='.25'/><circle cx='458' cy='346' r='3' fill='#87312d' opacity='.25'/><circle cx='718' cy='279' r='4' fill='#87312d' opacity='.25'/><circle cx='535' cy='269' r='5' fill='#87312d' opacity='.25'/><circle cx='480' cy='288' r='2' fill='#87312d' opacity='.25'/><circle cx='139' cy='166' r='3' fill='#87312d' opacity='.25'/><circle cx='705' cy='128' r='4' fill='#87312d' opacity='.25'/><circle cx='324' cy='133' r='5' fill='#87312d' opacity='.25'/><circle cx='520' cy='314' r='2' fill='#87312d' opacity='.25'/><circle cx='655' cy='118' r='3' fill='#87312d' opacity='.25'/><circle cx='759' cy='198' r='4' fill='#87312d' opacity='.25'/><circle cx='147' cy='107' r='5' fill='#87312d' opacity='.25'/><circle cx='228' cy='240' r='2' fill='#87312d' opacity='.25'/><circle cx='655' cy='330' r='3' fill='#87312d' opacity='.25'/><circle cx='555' cy='88' r='4' fill='#87312d' opacity='.25'/><circle cx='191' cy='301' r='5' fill='#87312d' opacity='.25'/><circle cx='396' cy='276' r='2' fill='#87312d' opacity='.25'/><circle cx='535' cy='132' r='3' fill='#87312d' opacity='.25'/><path d='M-78 1120 L12 716 L132 1120 Z' fill='#315b4a' opacity='0.16'/><path d='M154 1120 L244 726 L364 1120 Z' fill='#315b4a' opacity='0.21'/><path d='M359 1120 L449 718 L569 1120 Z' fill='#315b4a' opacity='0.26'/><path d='M552 1120 L642 718 L762 1120 Z' fill='#315b4a' opacity='0.31'/><path d='M764 1120 L854 718 L974 1120 Z' fill='#315b4a' opacity='0.36'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#7aa07b' opacity='.54'/>
+      <circle cx='410' cy='410' r='185' fill='#87312d' opacity='.17'/>
+      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
+      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#315b4a' opacity='.88'>✦</text>
+      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#87312d' stroke-width='16' opacity='.35' stroke-linecap='round'/>
+      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#315b4a'>Alba Frontier Map</text>
+    </svg>

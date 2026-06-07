@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
+      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
+      <rect width='820' height='1120' fill='#ead6a7'/>
+      <rect width='820' height='1120' fill='url(#glow)'/>
+      <circle cx='596' cy='259' r='2' fill='#6f2d29' opacity='.25'/><circle cx='751' cy='367' r='3' fill='#6f2d29' opacity='.25'/><circle cx='165' cy='290' r='4' fill='#6f2d29' opacity='.25'/><circle cx='608' cy='275' r='5' fill='#6f2d29' opacity='.25'/><circle cx='166' cy='291' r='2' fill='#6f2d29' opacity='.25'/><circle cx='682' cy='322' r='3' fill='#6f2d29' opacity='.25'/><circle cx='626' cy='206' r='4' fill='#6f2d29' opacity='.25'/><circle cx='635' cy='172' r='5' fill='#6f2d29' opacity='.25'/><circle cx='326' cy='178' r='2' fill='#6f2d29' opacity='.25'/><circle cx='208' cy='360' r='3' fill='#6f2d29' opacity='.25'/><circle cx='535' cy='164' r='4' fill='#6f2d29' opacity='.25'/><circle cx='385' cy='245' r='5' fill='#6f2d29' opacity='.25'/><circle cx='697' cy='154' r='2' fill='#6f2d29' opacity='.25'/><circle cx='539' cy='132' r='3' fill='#6f2d29' opacity='.25'/><circle cx='147' cy='299' r='4' fill='#6f2d29' opacity='.25'/><circle cx='687' cy='251' r='5' fill='#6f2d29' opacity='.25'/><circle cx='644' cy='251' r='2' fill='#6f2d29' opacity='.25'/><circle cx='659' cy='274' r='3' fill='#6f2d29' opacity='.25'/><path d='M-68 1120 L22 662 L142 1120 Z' fill='#24516a' opacity='0.16'/><path d='M135 1120 L225 716 L345 1120 Z' fill='#24516a' opacity='0.21'/><path d='M364 1120 L454 736 L574 1120 Z' fill='#24516a' opacity='0.26'/><path d='M561 1120 L651 719 L771 1120 Z' fill='#24516a' opacity='0.31'/><path d='M765 1120 L855 726 L975 1120 Z' fill='#24516a' opacity='0.36'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#7ba8bd' opacity='.54'/>
+      <circle cx='410' cy='410' r='185' fill='#6f2d29' opacity='.17'/>
+      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
+      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#24516a' opacity='.88'>☽</text>
+      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#6f2d29' stroke-width='16' opacity='.35' stroke-linecap='round'/>
+      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#24516a'>Condition and initiative tents</text>
+    </svg>

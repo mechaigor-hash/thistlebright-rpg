@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
+      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
+      <rect width='820' height='1120' fill='#e9d7a2'/>
+      <rect width='820' height='1120' fill='url(#glow)'/>
+      <circle cx='148' cy='251' r='2' fill='#2e5940' opacity='.25'/><circle cx='177' cy='208' r='3' fill='#2e5940' opacity='.25'/><circle cx='578' cy='365' r='4' fill='#2e5940' opacity='.25'/><circle cx='115' cy='312' r='5' fill='#2e5940' opacity='.25'/><circle cx='270' cy='154' r='2' fill='#2e5940' opacity='.25'/><circle cx='384' cy='254' r='3' fill='#2e5940' opacity='.25'/><circle cx='477' cy='327' r='4' fill='#2e5940' opacity='.25'/><circle cx='210' cy='232' r='5' fill='#2e5940' opacity='.25'/><circle cx='113' cy='363' r='2' fill='#2e5940' opacity='.25'/><circle cx='451' cy='297' r='3' fill='#2e5940' opacity='.25'/><circle cx='657' cy='133' r='4' fill='#2e5940' opacity='.25'/><circle cx='446' cy='74' r='5' fill='#2e5940' opacity='.25'/><circle cx='727' cy='378' r='2' fill='#2e5940' opacity='.25'/><circle cx='554' cy='244' r='3' fill='#2e5940' opacity='.25'/><circle cx='504' cy='355' r='4' fill='#2e5940' opacity='.25'/><circle cx='166' cy='124' r='5' fill='#2e5940' opacity='.25'/><circle cx='733' cy='187' r='2' fill='#2e5940' opacity='.25'/><circle cx='703' cy='242' r='3' fill='#2e5940' opacity='.25'/><path d='M-80 1120 L10 714 L130 1120 Z' fill='#7b3f30' opacity='0.16'/><path d='M158 1120 L248 744 L368 1120 Z' fill='#7b3f30' opacity='0.21'/><path d='M363 1120 L453 679 L573 1120 Z' fill='#7b3f30' opacity='0.26'/><path d='M580 1120 L670 741 L790 1120 Z' fill='#7b3f30' opacity='0.31'/><path d='M787 1120 L877 743 L997 1120 Z' fill='#7b3f30' opacity='0.36'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#d28a5d' opacity='.54'/>
+      <circle cx='410' cy='410' r='185' fill='#2e5940' opacity='.17'/>
+      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
+      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#7b3f30' opacity='.88'>☽</text>
+      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#2e5940' stroke-width='16' opacity='.35' stroke-linecap='round'/>
+      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#7b3f30'>Glass Loch</text>
+    </svg>

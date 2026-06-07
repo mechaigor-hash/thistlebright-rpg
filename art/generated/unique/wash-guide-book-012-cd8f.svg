@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
+      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
+      <rect width='820' height='1120' fill='#f0deb7'/>
+      <rect width='820' height='1120' fill='url(#glow)'/>
+      <circle cx='107' cy='149' r='2' fill='#285740' opacity='.25'/><circle cx='156' cy='157' r='3' fill='#285740' opacity='.25'/><circle cx='567' cy='340' r='4' fill='#285740' opacity='.25'/><circle cx='109' cy='145' r='5' fill='#285740' opacity='.25'/><circle cx='267' cy='381' r='2' fill='#285740' opacity='.25'/><circle cx='382' cy='212' r='3' fill='#285740' opacity='.25'/><circle cx='126' cy='151' r='4' fill='#285740' opacity='.25'/><circle cx='735' cy='144' r='5' fill='#285740' opacity='.25'/><circle cx='726' cy='164' r='2' fill='#285740' opacity='.25'/><circle cx='408' cy='353' r='3' fill='#285740' opacity='.25'/><circle cx='285' cy='161' r='4' fill='#285740' opacity='.25'/><circle cx='610' cy='88' r='5' fill='#285740' opacity='.25'/><circle cx='109' cy='230' r='2' fill='#285740' opacity='.25'/><circle cx='245' cy='170' r='3' fill='#285740' opacity='.25'/><circle cx='700' cy='318' r='4' fill='#285740' opacity='.25'/><circle cx='614' cy='106' r='5' fill='#285740' opacity='.25'/><circle cx='257' cy='333' r='2' fill='#285740' opacity='.25'/><circle cx='115' cy='315' r='3' fill='#285740' opacity='.25'/><path d='M-57 1120 L33 673 L153 1120 Z' fill='#56336d' opacity='0.16'/><path d='M136 1120 L226 717 L346 1120 Z' fill='#56336d' opacity='0.21'/><path d='M364 1120 L454 680 L574 1120 Z' fill='#56336d' opacity='0.26'/><path d='M565 1120 L655 739 L775 1120 Z' fill='#56336d' opacity='0.31'/><path d='M785 1120 L875 671 L995 1120 Z' fill='#56336d' opacity='0.36'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#a480b5' opacity='.54'/>
+      <circle cx='410' cy='410' r='185' fill='#285740' opacity='.17'/>
+      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
+      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#56336d' opacity='.88'>☽</text>
+      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#285740' stroke-width='16' opacity='.35' stroke-linecap='round'/>
+      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#56336d'>Scenario from the Guide side: Bell-Root Pa</text>
+    </svg>

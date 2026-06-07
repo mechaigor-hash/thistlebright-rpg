@@ -38,17 +38,17 @@ h4 { margin:2.2mm 0 1mm; color:#56336d; font-size:10.8pt; }
 .split { display:grid; grid-template-columns:1fr 1fr; gap:5mm 7mm; align-items:start; }
 .col { break-inside:avoid-page; page-break-inside:avoid; }
 .dense-list li { margin:.25mm 0; }
-.mini-card { break-inside:avoid-page; page-break-inside:avoid; margin:2mm 0; padding:2.3mm 2.8mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
+.mini-card { break-inside:avoid-page; page-break-inside:avoid; margin:2mm 0; padding:2.3mm 2.8mm; background:rgba(255,251,239,.88); border:1px solid rgba(184,138,45,.52); }
 .columns > .option-card { min-height:62mm; }
 .columns > .creature { min-height:58mm; }
-.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.94), rgba(242,226,187,.78)); border:1px solid rgba(154,116,55,.55); box-shadow:inset 0 0 0 1px rgba(255,255,255,.38); }
+.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.96), rgba(242,226,187,.86)); border:1px solid rgba(154,116,55,.60); box-shadow:inset 0 0 0 1px rgba(255,255,255,.50); }
 .option-card h3, .creature h3 { margin-top:0; }
 .rulebox, .readaloud { margin:2.6mm 0; border-left:2.2mm solid rgba(86,51,109,.66); }
 .questbox { margin:2.8mm 0; border-left:2.2mm solid rgba(40,87,64,.75); }
 .small { font-size:8.8pt; color:var(--muted); }
 .big-stat { font-size:20pt; color:#74322d; letter-spacing:.04em; }
 table { width:100%; border-collapse:collapse; margin:2.2mm 0 3mm; font-size:8.6pt; break-inside:avoid-page; }
-th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { background:#dfd0a4; color:#263b2e; } tr:nth-child(even) td { background:rgba(235,222,184,.58); }
+th,td { border:1px solid #b9934c; padding:2mm 1.8mm; vertical-align:top; } th { background:rgba(217,195,135,.96); color:#263b2e; } td { background:rgba(255,251,239,.78); } tr:nth-child(even) td { background:rgba(242,229,193,.86); }
 .keep { break-inside:avoid-page; page-break-inside:avoid; }
 .drop:first-letter { font-size:23pt; line-height:1; color:#87312d; padding-right:1mm; font-weight:700; }
 .spot { height:54mm; overflow:hidden; margin:0 0 3mm; background:#241a16; border:1px solid rgba(128,92,45,.48); break-inside:avoid-page; }
@@ -64,7 +64,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .feature-intro h2 { margin:0 0 2mm; color:#6f2d29; font-size:22pt; line-height:1; font-variant:small-caps; border-bottom:1px solid rgba(184,138,45,.55); padding-bottom:1.5mm; }
 .feature-kicker { color:#56336d; text-transform:uppercase; letter-spacing:.08em; font-size:8pt; margin-bottom:1.5mm; }
 .feature-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.4mm 5mm; }
-.feature-box { break-inside:avoid-page; min-height:38mm; padding:3mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
+.feature-box { break-inside:avoid-page; min-height:38mm; padding:3mm; background:rgba(255,251,239,.88); border:1px solid rgba(184,138,45,.50); }
 .feature-box h3 { margin-top:0; font-size:12pt; }
 .feature-quote { margin-top:3mm; padding:3mm; background:rgba(86,51,109,.10); border-left:2mm solid rgba(86,51,109,.65); font-style:italic; }
 .statline { display:grid; grid-template-columns:repeat(5,1fr); gap:1.2mm; margin:1.7mm 0 2.5mm; }
@@ -101,11 +101,12 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .page > h2.section, .page > div:not(.page-number), .page > table, .page > p, .page > ol, .page > ul { position:relative; z-index:2; }
 
 .page .columns, .page .split, .page table, .page .card-grid, .page .sheet, .page .draw-frame { position:relative; z-index:2; }
-.wash-content .split, .wash-content table, .page > .columns, .page > .split { background:rgba(255,251,239,.58); backdrop-filter:none; border-radius:2mm; padding:1mm; }
+.wash-content .split, .wash-content table, .page > .columns, .page > .split { background:rgba(255,251,239,.76); backdrop-filter:none; border-radius:2mm; padding:1mm; box-shadow:0 0 0 1px rgba(184,138,45,.22); }
 .low-ink .page { background:#fffdf6 !important; }
 .low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.16 !important; filter:none !important; }
 .print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
-.print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.78); break-inside:avoid; }
+.print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.92); break-inside:avoid; overflow:hidden; }
+.print-card .card-illo { float:right; width:18mm; height:18mm; margin:0 0 1mm 1.8mm; border-radius:50%; background:linear-gradient(135deg,#f2d68b,#9fc88b); border:1px solid rgba(135,49,45,.42); display:flex; align-items:center; justify-content:center; color:#6f2d29; font-size:13pt; font-weight:700; }
 .print-card h3 { margin-top:0; font-size:12pt; }
 .quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
 
@@ -123,9 +124,9 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .item-inline-art img { width:100%; display:block; }
 
 </style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/bg-tiny-tables.png" alt="Guide Extra cover"><div class="scrim"></div><div class="title-panel"><h1>Adventures in Alba</h1><p>Guide Extra — Running young Adventurers, safety, pacing, page flipping, and table-play QA notes</p></div><div class="overlay"><h3>Adventures in Alba</h3><p>Scottish fairy myth, classic fantasy adventure, gentle danger, and table rules made for brave Adventurers.</p></div></section>
-<section class="page"><img class="artwash auto left" src="../art/generated/wash/kindred-corbie-folk.png" alt=""><h2 class="section">Running young Adventurers</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/wash/unique/wash-guide-extra-002-9fb5.svg" alt=""><h2 class="section">Running young Adventurers</h2><div class="">
 <div class='split'><div class='col'><h3>Keep turns short</h3><ul><li>Ask one concrete question at a time.</li><li>Let pointing at art count as an answer.</li><li>Rotate spotlight after one idea and one roll.</li><li>Offer two choices when players freeze.</li></ul><div class='rulebox'><strong>Best prompt:</strong> “What do you try, and who helps?”</div></div><div class='col'><h3>Scary but safe</h3><ul><li>Describe sound, weather, shadow, and size before danger.</li><li>Never trap a player in hopelessness.</li><li>Show a counter: true name, light, oath, kindness, broken collar.</li><li>At 0 HP use rescue, rest, bargain, or lost gear.</li></ul></div></div>
 </div><div class="page-number">2</div></section>
-<section class="page"><img class="artwash auto right" src="../art/generated/wash/kindred-star-sprite.png" alt=""><h2 class="section">Table-play QA checklist</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/wash/unique/wash-guide-extra-003-cc52.svg" alt=""><h2 class="section">Table-play QA checklist</h2><div class="">
 <div class='quick-grid'><div class='option-card'><h3>Before play</h3><ul><li>Print quickstart, map, character, cards.</li><li>Pick one adventure and three monsters.</li><li>Read boxed text once.</li></ul></div><div class='option-card'><h3>During play</h3><ul><li>Mark where page flipping slows you.</li><li>Circle unclear rules.</li><li>Star pages that need more art.</li></ul></div><div class='option-card'><h3>After play</h3><ul><li>Ask each Adventurer their favourite picture.</li><li>Ask which rule was confusing.</li><li>Write one new pet/mount hook.</li></ul></div><div class='option-card'><h3>Fix pass</h3><ul><li>Simplify wording.</li><li>Move repeated rules to cards.</li><li>Add art to blank zones.</li><li>Turn dead prose into table tools.</li></ul></div></div>
 </div><div class="page-number">3</div></section></main></body></html>

@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
+      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
+      <rect width='820' height='1120' fill='#efe2bd'/>
+      <rect width='820' height='1120' fill='url(#glow)'/>
+      <circle cx='65' cy='304' r='2' fill='#87312d' opacity='.25'/><circle cx='485' cy='80' r='3' fill='#87312d' opacity='.25'/><circle cx='382' cy='301' r='4' fill='#87312d' opacity='.25'/><circle cx='367' cy='280' r='5' fill='#87312d' opacity='.25'/><circle cx='396' cy='138' r='2' fill='#87312d' opacity='.25'/><circle cx='447' cy='91' r='3' fill='#87312d' opacity='.25'/><circle cx='509' cy='246' r='4' fill='#87312d' opacity='.25'/><circle cx='226' cy='192' r='5' fill='#87312d' opacity='.25'/><circle cx='121' cy='343' r='2' fill='#87312d' opacity='.25'/><circle cx='105' cy='287' r='3' fill='#87312d' opacity='.25'/><circle cx='134' cy='283' r='4' fill='#87312d' opacity='.25'/><circle cx='185' cy='149' r='5' fill='#87312d' opacity='.25'/><circle cx='247' cy='261' r='2' fill='#87312d' opacity='.25'/><circle cx='314' cy='340' r='3' fill='#87312d' opacity='.25'/><circle cx='384' cy='93' r='4' fill='#87312d' opacity='.25'/><circle cx='456' cy='148' r='5' fill='#87312d' opacity='.25'/><circle cx='178' cy='199' r='2' fill='#87312d' opacity='.25'/><circle cx='76' cy='248' r='3' fill='#87312d' opacity='.25'/><path d='M-79 1120 L11 715 L131 1120 Z' fill='#315b4a' opacity='0.16'/><path d='M154 1120 L244 678 L364 1120 Z' fill='#315b4a' opacity='0.21'/><path d='M347 1120 L437 667 L557 1120 Z' fill='#315b4a' opacity='0.26'/><path d='M574 1120 L664 725 L784 1120 Z' fill='#315b4a' opacity='0.31'/><path d='M771 1120 L861 744 L981 1120 Z' fill='#315b4a' opacity='0.36'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#7aa07b' opacity='.54'/>
+      <circle cx='410' cy='410' r='185' fill='#87312d' opacity='.17'/>
+      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
+      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#315b4a' opacity='.88'>☽</text>
+      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#87312d' stroke-width='16' opacity='.35' stroke-linecap='round'/>
+      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#315b4a'>Albion, Vikings, and barbarians</text>
+    </svg>

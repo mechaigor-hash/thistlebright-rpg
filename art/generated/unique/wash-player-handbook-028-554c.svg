@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
+      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
+      <rect width='820' height='1120' fill='#e9d7a2'/>
+      <rect width='820' height='1120' fill='url(#glow)'/>
+      <circle cx='368' cy='351' r='2' fill='#2e5940' opacity='.25'/><circle cx='287' cy='103' r='3' fill='#2e5940' opacity='.25'/><circle cx='283' cy='313' r='4' fill='#2e5940' opacity='.25'/><circle cx='317' cy='286' r='5' fill='#2e5940' opacity='.25'/><circle cx='371' cy='141' r='2' fill='#2e5940' opacity='.25'/><circle cx='434' cy='92' r='3' fill='#2e5940' opacity='.25'/><circle cx='152' cy='246' r='4' fill='#2e5940' opacity='.25'/><circle cx='398' cy='192' r='5' fill='#2e5940' opacity='.25'/><circle cx='207' cy='343' r='2' fill='#2e5940' opacity='.25'/><circle cx='148' cy='132' r='3' fill='#2e5940' opacity='.25'/><circle cx='155' cy='360' r='4' fill='#2e5940' opacity='.25'/><circle cx='545' cy='343' r='5' fill='#2e5940' opacity='.25'/><circle cx='427' cy='358' r='2' fill='#2e5940' opacity='.25'/><circle cx='404' cy='234' r='3' fill='#2e5940' opacity='.25'/><circle cx='79' cy='350' r='4' fill='#2e5940' opacity='.25'/><circle cx='303' cy='122' r='5' fill='#2e5940' opacity='.25'/><circle cx='452' cy='186' r='2' fill='#2e5940' opacity='.25'/><circle cx='563' cy='242' r='3' fill='#2e5940' opacity='.25'/><path d='M-60 1120 L30 670 L150 1120 Z' fill='#7b3f30' opacity='0.16'/><path d='M152 1120 L242 741 L362 1120 Z' fill='#7b3f30' opacity='0.21'/><path d='M370 1120 L460 737 L580 1120 Z' fill='#7b3f30' opacity='0.26'/><path d='M577 1120 L667 721 L787 1120 Z' fill='#7b3f30' opacity='0.31'/><path d='M767 1120 L857 734 L977 1120 Z' fill='#7b3f30' opacity='0.36'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#d28a5d' opacity='.54'/>
+      <circle cx='410' cy='410' r='185' fill='#2e5940' opacity='.17'/>
+      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
+      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#7b3f30' opacity='.88'>☽</text>
+      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#2e5940' stroke-width='16' opacity='.35' stroke-linecap='round'/>
+      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#7b3f30'>Combat and danger</text>
+    </svg>

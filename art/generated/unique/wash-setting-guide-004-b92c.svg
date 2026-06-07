@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
+      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
+      <rect width='820' height='1120' fill='#e9d7a2'/>
+      <rect width='820' height='1120' fill='url(#glow)'/>
+      <circle cx='83' cy='110' r='2' fill='#2e5940' opacity='.25'/><circle cx='144' cy='138' r='3' fill='#2e5940' opacity='.25'/><circle cx='211' cy='175' r='4' fill='#2e5940' opacity='.25'/><circle cx='631' cy='372' r='5' fill='#2e5940' opacity='.25'/><circle cx='528' cy='339' r='2' fill='#2e5940' opacity='.25'/><circle cx='163' cy='346' r='3' fill='#2e5940' opacity='.25'/><circle cx='717' cy='218' r='4' fill='#2e5940' opacity='.25'/><circle cx='330' cy='333' r='5' fill='#2e5940' opacity='.25'/><circle cx='523' cy='104' r='2' fill='#2e5940' opacity='.25'/><circle cx='656' cy='323' r='3' fill='#2e5940' opacity='.25'/><circle cx='759' cy='146' r='4' fill='#2e5940' opacity='.25'/><circle cx='147' cy='236' r='5' fill='#2e5940' opacity='.25'/><circle cx='228' cy='149' r='2' fill='#2e5940' opacity='.25'/><circle cx='305' cy='284' r='3' fill='#2e5940' opacity='.25'/><circle cx='730' cy='375' r='4' fill='#2e5940' opacity='.25'/><circle cx='629' cy='289' r='5' fill='#2e5940' opacity='.25'/><circle cx='615' cy='115' r='2' fill='#2e5940' opacity='.25'/><circle cx='644' cy='361' r='3' fill='#2e5940' opacity='.25'/><path d='M-73 1120 L17 721 L137 1120 Z' fill='#7b3f30' opacity='0.16'/><path d='M154 1120 L244 742 L364 1120 Z' fill='#7b3f30' opacity='0.21'/><path d='M371 1120 L461 657 L581 1120 Z' fill='#7b3f30' opacity='0.26'/><path d='M553 1120 L643 730 L763 1120 Z' fill='#7b3f30' opacity='0.31'/><path d='M776 1120 L866 665 L986 1120 Z' fill='#7b3f30' opacity='0.36'/>
+      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='#d28a5d' opacity='.54'/>
+      <circle cx='410' cy='410' r='185' fill='#2e5940' opacity='.17'/>
+      <circle cx='410' cy='410' r='108' fill='#fff6d6' opacity='.70'/>
+      <text x='410' y='450' text-anchor='middle' font-family='Georgia,serif' font-size='124' fill='#7b3f30' opacity='.88'>☽</text>
+      <path d='M150 655 q260 -95 520 0' fill='none' stroke='#2e5940' stroke-width='16' opacity='.35' stroke-linecap='round'/>
+      <text x='410' y='760' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='#7b3f30'>Factions and fairy courts</text>
+    </svg>

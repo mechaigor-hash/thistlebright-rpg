@@ -38,17 +38,17 @@ h4 { margin:2.2mm 0 1mm; color:#56336d; font-size:10.8pt; }
 .split { display:grid; grid-template-columns:1fr 1fr; gap:5mm 7mm; align-items:start; }
 .col { break-inside:avoid-page; page-break-inside:avoid; }
 .dense-list li { margin:.25mm 0; }
-.mini-card { break-inside:avoid-page; page-break-inside:avoid; margin:2mm 0; padding:2.3mm 2.8mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
+.mini-card { break-inside:avoid-page; page-break-inside:avoid; margin:2mm 0; padding:2.3mm 2.8mm; background:rgba(255,251,239,.88); border:1px solid rgba(184,138,45,.52); }
 .columns > .option-card { min-height:62mm; }
 .columns > .creature { min-height:58mm; }
-.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.94), rgba(242,226,187,.78)); border:1px solid rgba(154,116,55,.55); box-shadow:inset 0 0 0 1px rgba(255,255,255,.38); }
+.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.96), rgba(242,226,187,.86)); border:1px solid rgba(154,116,55,.60); box-shadow:inset 0 0 0 1px rgba(255,255,255,.50); }
 .option-card h3, .creature h3 { margin-top:0; }
 .rulebox, .readaloud { margin:2.6mm 0; border-left:2.2mm solid rgba(86,51,109,.66); }
 .questbox { margin:2.8mm 0; border-left:2.2mm solid rgba(40,87,64,.75); }
 .small { font-size:8.8pt; color:var(--muted); }
 .big-stat { font-size:20pt; color:#74322d; letter-spacing:.04em; }
 table { width:100%; border-collapse:collapse; margin:2.2mm 0 3mm; font-size:8.6pt; break-inside:avoid-page; }
-th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { background:#dfd0a4; color:#263b2e; } tr:nth-child(even) td { background:rgba(235,222,184,.58); }
+th,td { border:1px solid #b9934c; padding:2mm 1.8mm; vertical-align:top; } th { background:rgba(217,195,135,.96); color:#263b2e; } td { background:rgba(255,251,239,.78); } tr:nth-child(even) td { background:rgba(242,229,193,.86); }
 .keep { break-inside:avoid-page; page-break-inside:avoid; }
 .drop:first-letter { font-size:23pt; line-height:1; color:#87312d; padding-right:1mm; font-weight:700; }
 .spot { height:54mm; overflow:hidden; margin:0 0 3mm; background:#241a16; border:1px solid rgba(128,92,45,.48); break-inside:avoid-page; }
@@ -64,7 +64,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .feature-intro h2 { margin:0 0 2mm; color:#6f2d29; font-size:22pt; line-height:1; font-variant:small-caps; border-bottom:1px solid rgba(184,138,45,.55); padding-bottom:1.5mm; }
 .feature-kicker { color:#56336d; text-transform:uppercase; letter-spacing:.08em; font-size:8pt; margin-bottom:1.5mm; }
 .feature-grid { display:grid; grid-template-columns:1fr 1fr; gap:3.4mm 5mm; }
-.feature-box { break-inside:avoid-page; min-height:38mm; padding:3mm; background:rgba(255,251,239,.72); border:1px solid rgba(184,138,45,.42); }
+.feature-box { break-inside:avoid-page; min-height:38mm; padding:3mm; background:rgba(255,251,239,.88); border:1px solid rgba(184,138,45,.50); }
 .feature-box h3 { margin-top:0; font-size:12pt; }
 .feature-quote { margin-top:3mm; padding:3mm; background:rgba(86,51,109,.10); border-left:2mm solid rgba(86,51,109,.65); font-style:italic; }
 .statline { display:grid; grid-template-columns:repeat(5,1fr); gap:1.2mm; margin:1.7mm 0 2.5mm; }
@@ -101,11 +101,12 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .page > h2.section, .page > div:not(.page-number), .page > table, .page > p, .page > ol, .page > ul { position:relative; z-index:2; }
 
 .page .columns, .page .split, .page table, .page .card-grid, .page .sheet, .page .draw-frame { position:relative; z-index:2; }
-.wash-content .split, .wash-content table, .page > .columns, .page > .split { background:rgba(255,251,239,.58); backdrop-filter:none; border-radius:2mm; padding:1mm; }
+.wash-content .split, .wash-content table, .page > .columns, .page > .split { background:rgba(255,251,239,.76); backdrop-filter:none; border-radius:2mm; padding:1mm; box-shadow:0 0 0 1px rgba(184,138,45,.22); }
 .low-ink .page { background:#fffdf6 !important; }
 .low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.16 !important; filter:none !important; }
 .print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
-.print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.78); break-inside:avoid; }
+.print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.92); break-inside:avoid; overflow:hidden; }
+.print-card .card-illo { float:right; width:18mm; height:18mm; margin:0 0 1mm 1.8mm; border-radius:50%; background:linear-gradient(135deg,#f2d68b,#9fc88b); border:1px solid rgba(135,49,45,.42); display:flex; align-items:center; justify-content:center; color:#6f2d29; font-size:13pt; font-weight:700; }
 .print-card h3 { margin-top:0; font-size:12pt; }
 .quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
 
@@ -122,9 +123,9 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .item-inline-art { float:right; width:72mm; margin:0 0 3mm 5mm; }
 .item-inline-art img { width:100%; display:block; }
 
-</style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/table-aids.png" alt="Printable Table Aids cover"><div class="scrim"></div><div class="title-panel"><h1>Adventures in Alba</h1><p>Printable Table Aids — Cards, tokens, trackers, and quick references for the table</p></div><div class="overlay"><h3>Adventures in Alba</h3><p>Scottish fairy myth, classic fantasy adventure, gentle danger, and table rules made for brave Adventurers.</p></div></section>
-<section class="page full-bleed"><img class="bg" src="../art/generated/table-aids.png" alt="Table tools"><div class="scrim"></div><div class="overlay"><h2>Table tools</h2><p>Print, cut, and use these at the table for faster play.</p></div><div class="page-number">2</div></section>
-<section class="page"><img class="artwash auto right" src="../art/generated/wash/kindred-corbie-folk.png" alt=""><h2 class="section">Spell cards</h2><div class="">
+</style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/unique/no-reuse-table-aids-002-b5b3.svg" alt="Printable Table Aids cover"><div class="scrim"></div><div class="title-panel"><h1>Adventures in Alba</h1><p>Printable Table Aids — Cards, tokens, trackers, and quick references for the table</p></div><div class="overlay"><h3>Adventures in Alba</h3><p>Scottish fairy myth, classic fantasy adventure, gentle danger, and table rules made for brave Adventurers.</p></div></section>
+<section class="page full-bleed"><img class="bg" src="../art/generated/unique/no-reuse-table-aids-003-801b.svg" alt="Table tools"><div class="scrim"></div><div class="overlay"><h2>Table tools</h2><p>Print, cut, and use these at the table for faster play.</p></div><div class="page-number">2</div></section>
+<section class="page"><img class="artwash auto right" src="../art/generated/wash/unique/wash-table-aids-003-e48c.svg" alt=""><h2 class="section">Spell cards</h2><div class="">
 <div class='card-grid'>
 <div class='option-card'><h3>Glow-Pebble</h3><p>0 MP. Make candlelight for one scene.</p></div>
 <div class='option-card'><h3>Mist Step</h3><p>1 MP. Slip past a watcher, root, or trap.</p></div>
@@ -134,7 +135,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <div class='option-card'><h3>Foxfire Path</h3><p>1 MP. Find the gentlest route.</p></div>
 </div>
 </div><div class="page-number">3</div></section>
-<section class="page"><img class="artwash auto left" src="../art/generated/wash/kindred-star-sprite.png" alt=""><h2 class="section">Item and coin cards</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/wash/unique/wash-table-aids-004-87d0.svg" alt=""><h2 class="section">Item and coin cards</h2><div class="">
 <div class='card-grid'>
 <div class='option-card'><h3>Rope</h3><p>+1 when climbing, tying, or rescuing.</p></div>
 <div class='option-card'><h3>Lantern</h3><p>Reveal one clue before a dark-scene roll.</p></div>
@@ -144,10 +145,10 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <div class='option-card'><h3>Promise Button</h3><p>Ask for one Luck clue when a promise matters.</p></div>
 </div>
 </div><div class="page-number">4</div></section>
-<section class="page"><img class="artwash auto right" src="../art/generated/wash/kindred-myceling.png" alt=""><h2 class="section">Condition and initiative tents</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/wash/unique/wash-table-aids-005-408f.svg" alt=""><h2 class="section">Condition and initiative tents</h2><div class="">
 <table><tr><th>Tent</th><th>Front</th><th>Back note</th></tr><tr><td>Hero turn</td><td>What do you try?</td><td>Pick stat after idea.</td></tr><tr><td>Tangled</td><td>Need help to move.</td><td>Ends with help/check.</td></tr><tr><td>Startled</td><td>-1 until soothed.</td><td>Kind words end it.</td></tr><tr><td>Sleepy</td><td>Slow but okay.</td><td>Snack/song/fresh air.</td></tr><tr><td>Boss phase</td><td>Scene changes.</td><td>Reveal true want.</td></tr></table>
 </div><div class="page-number">5</div></section>
-<section class="page"><img class="artwash auto left" src="../art/generated/wash/creature-black-bog-drake.png" alt=""><h2 class="section">Potion, poison, and enchantment cards</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/wash/unique/wash-table-aids-006-94eb.svg" alt=""><h2 class="section">Potion, poison, and enchantment cards</h2><div class="">
 <div class='card-grid'>
 <div class='option-card'><h3>Heatherheart Draught</h3><p>Potion. Regain 3 HP and ignore Startled once.</p></div>
 <div class='option-card'><h3>Loch-Breath Sip</h3><p>Potion. Breathe underwater for one calm scene.</p></div>
@@ -157,5 +158,5 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <div class='option-card'><h3>Wake Charm</h3><p>Enchanting spell. Ask a magic item what it wants.</p></div>
 </div>
 </div><div class="page-number">6</div></section>
-<section class="page full-bleed"><img class="bg" src="../art/generated/alba-regional-map.png" alt="Printable regional map"><div class="scrim"></div><div class="overlay"><h2>Printable regional map</h2><p>Use for routes, factions, borders, and campaign travel.</p></div><div class="page-number">7</div></section>
-<section class="page full-bleed"><img class="bg" src="../art/generated/alba-town-dungeon-map.png" alt="Printable town/dungeon map"><div class="scrim"></div><div class="overlay"><h2>Printable town/dungeon map</h2><p>Use for village, keep, cave, loch shrine, tower, and fairy mound encounters.</p></div><div class="page-number">8</div></section></main></body></html>
+<section class="page full-bleed"><img class="bg" src="../art/generated/unique/no-reuse-table-aids-004-9a2f.svg" alt="Printable regional map"><div class="scrim"></div><div class="overlay"><h2>Printable regional map</h2><p>Use for routes, factions, borders, and campaign travel.</p></div><div class="page-number">7</div></section>
+<section class="page full-bleed"><img class="bg" src="../art/generated/unique/no-reuse-table-aids-005-83d1.svg" alt="Printable town/dungeon map"><div class="scrim"></div><div class="overlay"><h2>Printable town/dungeon map</h2><p>Use for village, keep, cave, loch shrine, tower, and fairy mound encounters.</p></div><div class="page-number">8</div></section></main></body></html>
