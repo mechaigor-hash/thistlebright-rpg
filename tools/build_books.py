@@ -108,17 +108,23 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .badge { display:inline-block; padding:.8mm 2mm; margin:.4mm .8mm .4mm 0; background:#ead9ad; border:1px solid #b9954d; border-radius:4mm; font-size:8.5pt; }
 .toc li { margin:1.2mm 0; }
 
-.artwash.auto { right:-22mm; bottom:-16mm; width:142mm; height:132mm; object-fit:cover; object-position:center; opacity:.20; filter:saturate(.92); }
+.artwash { position:absolute; z-index:0; pointer-events:none; opacity:1; filter:none; object-fit:contain; object-position:center; }
+.artwash.right { right:-18mm; bottom:8mm; width:118mm; height:112mm; }
+.artwash.left { left:-18mm; bottom:8mm; width:118mm; height:112mm; }
+.artwash.full { left:20mm; right:20mm; bottom:15mm; width:170mm; height:170mm; }
+.wash-content { position:relative; z-index:2; }
+.page > h2.section, .page > div:not(.page-number), .page > table, .page > p, .page > ol, .page > ul { position:relative; z-index:2; }
+
+.artwash.auto { right:-26mm; bottom:-18mm; width:142mm; height:132mm; object-fit:contain; object-position:center; opacity:1; filter:none; }
 .artwash.auto.left { left:-22mm; right:auto; }
 .page .columns, .page .split, .page table, .page .card-grid, .page .sheet, .page .draw-frame { position:relative; z-index:2; }
 .low-ink .page { background:#fffdf6 !important; }
-.low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.10 !important; filter:grayscale(1) contrast(.85) !important; }
+.low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.16 !important; filter:none !important; }
 .print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
 .print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.78); break-inside:avoid; }
 .print-card h3 { margin-top:0; font-size:12pt; }
 .quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
 
-.page:not(.full-bleed) { background-image: linear-gradient(rgba(255,248,233,.82), rgba(255,248,233,.88)), url('../art/generated/bg-tiny-tables.png') !important; background-size:auto, cover !important; background-position:center, center !important; }
 .print-card { min-height:38mm !important; padding:2.5mm !important; }
 .print-card h3 { font-size:10.8pt !important; margin-bottom:1mm !important; }
 .print-card p { font-size:8.4pt !important; line-height:1.18 !important; }
@@ -127,15 +133,22 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .session-grid .option-card p, .session-grid .option-card li { font-size:8pt !important; line-height:1.18 !important; }
 .scene-packet { padding:3mm; border:1px solid rgba(184,138,45,.55); background:rgba(255,251,239,.80); margin:2mm 0; break-inside:avoid; }
 .scene-packet h3 { margin-top:0; }
+.item-art-band { margin:0 0 4mm; height:58mm; overflow:hidden; position:relative; break-inside:avoid; }
+.item-art-band img { width:100%; height:100%; object-fit:contain; display:block; }
+.item-inline-art { float:right; width:72mm; margin:0 0 3mm 5mm; }
+.item-inline-art img { width:100%; display:block; }
 
 '''
 
 def art(name: str) -> str:
     return f"../art/generated/{name}"
 
+def wash_art(name: str) -> str:
+    return f"../art/generated/wash/{name}"
+
 ART_CYCLE = [
     '02-part-opener.png','alba-regional-map.png','alba-town-dungeon-map.png','alba-frontier-map.png',
-    'bg-spell-gear.png','bg-tiny-tables.png','bg-mounts-pets.png','bg-campaign-red-banner.png',
+    'item-gear-sheet.png','item-magic-sheet.png','item-potions-poisons-sheet.png','bg-spell-gear.png','bg-tiny-tables.png','bg-mounts-pets.png','bg-campaign-red-banner.png',
     'kindred-cairnling.png','kindred-mosskin.png','kindred-corbie-folk.png','kindred-star-sprite.png','kindred-myceling.png',
     'creature-black-bog-drake.png','creature-border-warg.png','creature-draugr-oath-raider.png','creature-iron-crow-swarm.png',
     'creature-albion-redcloak-captain.png','creature-redcap-warband-boss.png','creature-albion-tax-mage.png','creature-barbarian-storm-berserker.png'
@@ -163,14 +176,14 @@ class Book:
         cls = 'columns' if columns else ''
         img = ART_CYCLE[(p + len(self.slug)) % len(ART_CYCLE)]
         side = 'left' if p % 2 == 0 else 'right'
-        self.pages.append(f'''<section class="page"><img class="artwash auto {side}" src="{art(img)}" alt=""><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div><div class="page-number">{p}</div></section>''')
+        self.pages.append(f'''<section class="page"><img class="artwash auto {side}" src="{wash_art(img)}" alt=""><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div><div class="page-number">{p}</div></section>''')
     def art_text_page(self, title: str, body: str, image: str, side: str = 'right', columns=False, extra_cls: str = ''):
         p = self.page_no()
         cls = 'columns' if columns else ''
-        self.pages.append(f'''<section class="page {extra_cls}"><img class="artwash {side}" src="{art(image)}" alt=""><div class="wash-content"><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div></div><div class="page-number">{p}</div></section>''')
+        self.pages.append(f'''<section class="page {extra_cls}"><img class="artwash {side}" src="{wash_art(image)}" alt=""><div class="wash-content"><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div></div><div class="page-number">{p}</div></section>''')
     def drawing_page(self):
         p = self.page_no()
-        self.pages.append(f'''<section class="page"><img class="artwash auto full" src="{art('bg-mounts-pets.png')}" alt=""><h2 class="section">Draw your Adventurer</h2><div class="draw-frame"></div><div class="page-number">{p}</div></section>''')
+        self.pages.append(f'''<section class="page"><img class="artwash auto full" src="{wash_art('bg-mounts-pets.png')}" alt=""><h2 class="section">Draw your Adventurer</h2><div class="draw-frame"></div><div class="page-number">{p}</div></section>''')
     def feature_page(self, kicker: str, title: str, image: str, intro: str, body: str, more: str = ''):
         p = self.page_no()
         self.pages.append(f'''<section class="page feature-page"><div class="feature-top"><figure class="feature-art"><img src="{art(image)}" alt="{esc(title)} illustration"></figure><div class="feature-intro"><div class="feature-kicker">{esc(kicker)}</div><h2>{esc(title)}</h2><p class="drop">{intro}</p>{more}</div></div>{body}<div class="page-number">{p}</div></section>''')
@@ -377,12 +390,12 @@ ph.text_page("Combat and danger", f"""
 '''<h3>Combat actions</h3><table><tr><th>Action</th><th>Stat</th><th>On success</th></tr><tr><td>Protect a friend</td><td>Strength</td><td>Friend avoids 2 HP of trouble.</td></tr><tr><td>Dodge claws, roots, or falling stones</td><td>Agility</td><td>You avoid harm and move somewhere useful.</td></tr><tr><td>Spot the weak point in a spell</td><td>Int</td><td>Next hero gets +1.</td></tr><tr><td>Calm or distract</td><td>Wis</td><td>Creature loses 1 MP or changes feeling.</td></tr><tr><td>Use a charm</td><td>Luck</td><td>Turn a bad moment into a funny cost.</td></tr></table>''' + rb('<strong>Damage guide:</strong> small bump 1 HP, scary hit or trap 2 HP, boss special 3 HP. Keep descriptions safe: muddy, tangled, dizzy, startled, sleepy.')
 )}
 """, columns=False)
-ph.text_page("Traps, obstacles, and gear", f"""
+ph.art_text_page("Traps, obstacles, and gear", f"""
 {split(
 '''<h3>Traps are puzzles with a warning</h3><p>Use traps as playful obstacles: bell strings, sleepy roots, sticky jam doors, rune locks, puddle mirrors, or a bridge that sneezes. Always give a clue before a trap matters.</p><table><tr><th>Trap</th><th>Notice</th><th>Checks</th></tr><tr><td>Twig-bell alarm</td><td>Tiny bells in moss</td><td>Wis notice, Agility step, Int untie.</td></tr><tr><td>Sleepy root snare</td><td>Roots yawn quietly</td><td>Agility hop, Strength pull, Wis sing awake.</td></tr><tr><td>Moon-rune lock</td><td>Cold silver letters</td><td>Int read, Luck button, MP Rune Read.</td></tr></table>''',
 '''<h3>Equipment matters</h3><table><tr><th>Gear</th><th>Helps with</th><th>Table effect</th></tr><tr><td>Rope</td><td>Climb, rescue, measure.</td><td>+1 when it clearly helps.</td></tr><tr><td>Lantern</td><td>Dark, mist, caves.</td><td>Reveals one clue before a roll.</td></tr><tr><td>Chalk</td><td>Maps and marks.</td><td>Prevents getting lost once.</td></tr><tr><td>Tiny toolkit</td><td>Locks and repairs.</td><td>Allows Int checks on devices.</td></tr><tr><td>Oat pouch</td><td>Animal trust.</td><td>+1 Wis with hungry creatures.</td></tr></table>''' + qa('<strong>Gear question:</strong> “What do you pull from your pack, and how does it help the adventurer?”')
 )}
-""", columns=False)
+""", image="item-gear-sheet.png", side="right", columns=False)
 ph.text_page("Example scenario: adventurer view", f"""
 {split(
 '''<h3>The Bell-Root Path</h3><p><strong>You see:</strong> a path of soft moss, tiny silver bells tied to roots, and a sleeping fox curled beside a moon-rune door.</p><p><strong>You feel:</strong> the place is quiet, like it is holding its breath.</p><h3>Your choices</h3>''' + ul(['Step carefully between the bells: Agility.', 'Study how the bells are tied: Int.', 'Whisper to the fox and ask what it knows: Wis.', 'Hold the branch up for a friend: Strength.', 'Tap your lucky button and choose the quietest root: Luck.']),
@@ -423,7 +436,7 @@ ph.text_page("Spell list", f"""
 {rb('<strong>Spell rule:</strong> spells solve one small problem. Big problems still need choices, friends, and consequences.')}
 </div>
 """, columns=False)
-ph.text_page("Equipment shop", f"""
+ph.art_text_page("Equipment shop", f"""
 <div class='shop'>
 {rb('<strong>Starter money:</strong> each hero starts with 1 silver (10 copper). Choose a few useful things before the first adventure. Save at least 1 copper for snacks, tolls, or lucky wishes.')}
 <table><tr><th>Item</th><th>Cost</th><th>Use</th></tr>
@@ -447,7 +460,7 @@ ph.text_page("Equipment shop", f"""
 <tr><td>Friend kit</td><td>8 copper</td><td>Oat pouch, warm cloak, snack bundle, bell.</td></tr>
 </table>
 </div>
-""", columns=False)
+""", image="item-gear-sheet.png", side="right", columns=False)
 ph.art_text_page("More spell and gear examples", f"""
 {split(
 '<h3>Class cantrips in play</h3><table><tr><th>Job</th><th>Cantrip scene</th></tr><tr><td>Thistle Knight</td><td>Shield Spark marks the safest place to stand.</td></tr><tr><td>Loch Scout</td><td>Mist Mark leaves friend-only glowing footprints.</td></tr><tr><td>Song-Spark Bard</td><td>Courage Note steadies a worried friend.</td></tr><tr><td>Hearth Mage</td><td>Glow-Pebble lights a cupboard, bridge, or cave.</td></tr><tr><td>Beast Friend</td><td>Gentle Scent makes a hand smell like oats or apples.</td></tr><tr><td>Puzzle Tinker</td><td>Button-Click wiggles one latch or knot.</td></tr></table>',
@@ -523,7 +536,7 @@ ph.text_page("Enchantments and magic items", f"""
 '<h3>Enchantment spells</h3><table><tr><th>Spell</th><th>Cost</th><th>Effect</th></tr><tr><td>Wake Charm</td><td>1 MP</td><td>Ask a sleeping magic item what it wants.</td></tr><tr><td>Bind Brightness</td><td>2 MP + silver dust</td><td>Store one cantrip inside an item until next dawn.</td></tr><tr><td>Rune-Lock</td><td>2 MP</td><td>Seal a door, chest, or promise until the right word is spoken.</td></tr><tr><td>Unweave Curse</td><td>3 MP group ritual</td><td>Turn a harmful enchantment into a clue, mark, or choice.</td></tr></table>'
 )}
 """, columns=False)
-ph.text_page("Magic item examples", f"""
+ph.art_text_page("Magic item examples", f"""
 <div class='card-grid'>
 {card('Cairn-Knuckle Ring', p('+1 Strength when holding, bracing, or remembering an oath. If used selfishly, it grows heavy.'))}
 {card('Rowan-Bark Shield', p('Once per scene, reduce 2 HP of trouble from thorns, arrows, or frightened beasts.'))}
@@ -532,13 +545,13 @@ ph.text_page("Magic item examples", f"""
 {card('Storm-Harp String', p('A bard can spend 1 MP to turn thunder, shouting, or battle-noise into a steady rhythm.'))}
 {card('Mythral Seed Blade', p('A legendary story weapon. It cuts curses and brambles, not helpless foes. Worth 100 gold or one impossible promise.'))}
 </div>
-""", columns=False)
-ph.text_page("Potions and poisons", f"""
+""", image="item-magic-sheet.png", side="right", columns=False)
+ph.art_text_page("Potions and poisons", f"""
 {split(
 '<h3>Potions</h3><table><tr><th>Potion</th><th>Cost</th><th>Effect</th></tr><tr><td>Heatherheart Draught</td><td>2 silver</td><td>Regain 3 HP and ignore Startled once.</td></tr><tr><td>Loch-Breath Sip</td><td>3 silver</td><td>Breathe under calm water for one scene.</td></tr><tr><td>Giant-Step Tonic</td><td>1 gold</td><td>+1 Strength for lifting, pushing, or carrying in one scene.</td></tr><tr><td>Foxwit Tea</td><td>1 gold</td><td>+1 Int for riddles, traps, or runes in one scene.</td></tr></table>',
 '<h3>Poisons and venoms</h3><p>Poisons in this game are scary obstacles, not lethal gore. They make adventurers sleepy, confused, glittered, or slowed until treated.</p><table><tr><th>Poison</th><th>Source</th><th>Effect / cure</th></tr><tr><td>Nightshade Jam</td><td>Redcap trick</td><td>Sleepy for one scene; cured by bitter tea.</td></tr><tr><td>Black Bog Venom</td><td>Bog drake bite or thorn</td><td>-1 Agility until washed with clean running water.</td></tr><tr><td>Iron Crow Ink</td><td>Cursed feather</td><td>Cannot speak a lie; cured by confessing one useful truth.</td></tr><tr><td>Frost-Thistle Prickle</td><td>Winter barb</td><td>Startled; cured by warm cloak and a brave song.</td></tr></table>'
 )}
-""", columns=False)
+""", image="item-potions-poisons-sheet.png", side="right", columns=False)
 ph.write()
 
 # Guide book
@@ -952,18 +965,18 @@ tc.text_page("Fairy bargains", f"""
 )}
 """, columns=False)
 
-tc.text_page("Magic item catalogue", f"""
+tc.art_text_page("Magic item catalogue", f"""
 <p class='drop'>Magic items in Alba are named, opinionated, and tied to promises. Even simple relics should change a scene or create a hook.</p><table><tr><th>Item</th><th>Cost</th><th>Power</th><th>Quirk</th></tr><tr><td>Rowan-Bark Shield</td><td>8 gold</td><td>Reduce thorn, arrow, or fear trouble by 2 HP once per scene.</td><td>hums near broken promises.</td></tr><tr><td>Loch-Mirror Cloak</td><td>12 gold</td><td>+1 to sneak, dodge, or hide in mist/moonlight.</td><td>reflection sometimes waves first.</td></tr><tr><td>Cairn-Knuckle Ring</td><td>15 gold</td><td>+1 to hold, lift, brace, or remember an oath.</td><td>heavy when the wearer lies.</td></tr><tr><td>Star-Moth Lantern</td><td>20 gold</td><td>Reveals invisible ink, fairy doors, and ghost footprints.</td><td>attracts curious moths.</td></tr><tr><td>Mythral Seed Blade</td><td>1 mythral</td><td>Cuts curses, brambles, and conquest banners; refuses cruelty.</td><td>needs a promise before each quest.</td></tr></table>
-""", columns=False)
+""", image="item-magic-sheet.png", side="left", columns=False)
 tc.text_page("Enchanting recipes", f"""
 {split(
 '<h3>Enchanting steps</h3>' + ul(['Choose item and enchantment word.', 'Gather ingredient: rowan berry, loch glass, cairn dust, star moth wing, storm nail, mythral shaving.', 'Spend 2 MP or perform a group ritual.', 'State the promise that limits the item.']) + rb('<strong>Cost:</strong> simple enchantment 5 gold, strong enchantment 20 gold, mythral enchantment 100 gold or one mythral relic.'),
 '<h3>Recipe table</h3><table><tr><th>Enchantment</th><th>Ingredient</th><th>Effect</th></tr><tr><td>Bright</td><td>star moth wing</td><td>reveals hidden things.</td></tr><tr><td>Thorn</td><td>red thorn</td><td>protects or tangles.</td></tr><tr><td>Loch</td><td>moon-water</td><td>mist, water, memory.</td></tr><tr><td>Cairn</td><td>oath dust</td><td>stone, memory, endurance.</td></tr><tr><td>Storm</td><td>storm nail</td><td>speed, thunder, courage.</td></tr></table>'
 )}
 """, columns=False)
-tc.text_page("Potion and poison recipes", f"""
+tc.art_text_page("Potion and poison recipes", f"""
 <p>Potions are bought, brewed, stolen, gifted, or found in monster lairs. Poisons are obstacles with cures, not instant defeat.</p><table><tr><th>Recipe</th><th>Type</th><th>Ingredients</th><th>Effect</th></tr><tr><td>Heatherheart Draught</td><td>Potion</td><td>heather honey, warm oats, rowan berry</td><td>Regain 3 HP; ignore Startled once.</td></tr><tr><td>Loch-Breath Sip</td><td>Potion</td><td>moon-water, shell dust, seal-song</td><td>Breathe underwater for one scene.</td></tr><tr><td>Foxwit Tea</td><td>Potion</td><td>silver mint, foxglove leaf, honest riddle</td><td>+1 Int for riddles/runes/traps.</td></tr><tr><td>Nightshade Jam</td><td>Poison</td><td>dark berry, redcap sugar, sleepy root</td><td>Sleepy until bitter tea is drunk.</td></tr><tr><td>Black Bog Venom</td><td>Poison</td><td>bog drake scale, peat smoke, sour water</td><td>-1 Agility until washed in running water.</td></tr><tr><td>Iron Crow Ink</td><td>Poison/curse</td><td>iron feather, black salt, stolen word</td><td>Cannot speak a lie until one useful truth is told.</td></tr></table>
-""", columns=False)
+""", image="item-potions-poisons-sheet.png", side="left", columns=False)
 tc.write()
 
 # Bestiary volume 2

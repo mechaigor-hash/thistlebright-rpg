@@ -87,17 +87,23 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .badge { display:inline-block; padding:.8mm 2mm; margin:.4mm .8mm .4mm 0; background:#ead9ad; border:1px solid #b9954d; border-radius:4mm; font-size:8.5pt; }
 .toc li { margin:1.2mm 0; }
 
-.artwash.auto { right:-22mm; bottom:-16mm; width:142mm; height:132mm; object-fit:cover; object-position:center; opacity:.20; filter:saturate(.92); }
+.artwash { position:absolute; z-index:0; pointer-events:none; opacity:1; filter:none; object-fit:contain; object-position:center; }
+.artwash.right { right:-18mm; bottom:8mm; width:118mm; height:112mm; }
+.artwash.left { left:-18mm; bottom:8mm; width:118mm; height:112mm; }
+.artwash.full { left:20mm; right:20mm; bottom:15mm; width:170mm; height:170mm; }
+.wash-content { position:relative; z-index:2; }
+.page > h2.section, .page > div:not(.page-number), .page > table, .page > p, .page > ol, .page > ul { position:relative; z-index:2; }
+
+.artwash.auto { right:-26mm; bottom:-18mm; width:142mm; height:132mm; object-fit:contain; object-position:center; opacity:1; filter:none; }
 .artwash.auto.left { left:-22mm; right:auto; }
 .page .columns, .page .split, .page table, .page .card-grid, .page .sheet, .page .draw-frame { position:relative; z-index:2; }
 .low-ink .page { background:#fffdf6 !important; }
-.low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.10 !important; filter:grayscale(1) contrast(.85) !important; }
+.low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.16 !important; filter:none !important; }
 .print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
 .print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.78); break-inside:avoid; }
 .print-card h3 { margin-top:0; font-size:12pt; }
 .quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
 
-.page:not(.full-bleed) { background-image: linear-gradient(rgba(255,248,233,.82), rgba(255,248,233,.88)), url('../art/generated/bg-tiny-tables.png') !important; background-size:auto, cover !important; background-position:center, center !important; }
 .print-card { min-height:38mm !important; padding:2.5mm !important; }
 .print-card h3 { font-size:10.8pt !important; margin-bottom:1mm !important; }
 .print-card p { font-size:8.4pt !important; line-height:1.18 !important; }
@@ -106,17 +112,21 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .session-grid .option-card p, .session-grid .option-card li { font-size:8pt !important; line-height:1.18 !important; }
 .scene-packet { padding:3mm; border:1px solid rgba(184,138,45,.55); background:rgba(255,251,239,.80); margin:2mm 0; break-inside:avoid; }
 .scene-packet h3 { margin-top:0; }
+.item-art-band { margin:0 0 4mm; height:58mm; overflow:hidden; position:relative; break-inside:avoid; }
+.item-art-band img { width:100%; height:100%; object-fit:contain; display:block; }
+.item-inline-art { float:right; width:72mm; margin:0 0 3mm 5mm; }
+.item-inline-art img { width:100%; display:block; }
 
 </style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/alba-town-dungeon-map.png" alt="Starter Box Quickstart cover"><div class="scrim"></div><div class="title-panel"><h1>Adventures in Alba</h1><p>Starter Box Quickstart — Print-this-first pack: rules, hero, adventure, map, monsters, treasure, and table aids</p></div><div class="overlay"><h3>Adventures in Alba</h3><p>Scottish fairy myth, classic fantasy adventure, gentle danger, and table rules made for brave Adventurers.</p></div></section>
 <section class="page full-bleed"><img class="bg" src="../art/generated/alba-town-dungeon-map.png" alt="Print this first"><div class="scrim"></div><div class="overlay"><h2>Print this first</h2><p>A tiny boxed-set version of Adventures in Alba: one map, one adventure, one hero, one sheet, and cards.</p></div><div class="page-number">2</div></section>
-<section class="page"><img class="artwash auto right" src="../art/generated/creature-redcap-warband-boss.png" alt=""><h2 class="section">One-page rules</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/wash/creature-draugr-oath-raider.png" alt=""><h2 class="section">One-page rules</h2><div class="">
 <div class='split'><div class='col'><h3>Core roll</h3><ul><li>Say what your Adventurer tries.</li><li>Choose Strength, Int, Agility, Wis, or Luck.</li><li>Roll d6 + stat bonus.</li><li>1–3 wobble: it works badly or costs something.</li><li>4–5 yes, but: success with a twist.</li><li>6+ bright success: clean success plus a little advantage.</li></ul><div class='rulebox'><strong>Only roll when the answer is exciting.</strong> If the idea is kind, clever, and safe, let it work.</div></div><div class='col'><h3>Turn order</h3><ul><li>Everyone says one idea before dice.</li><li>One helper may give +1 if they describe how.</li><li>HP is bumps/tiredness. MP fuels spells.</li><li>At 0 HP, rest, get rescued, or accept a story cost — no gore.</li></ul><h3>Stats</h3><table><tr><td>Strength</td><td>lift, hold, protect</td></tr><tr><td>Int</td><td>runes, plans, puzzles</td></tr><tr><td>Agility</td><td>sneak, dodge, climb</td></tr><tr><td>Wis</td><td>notice, comfort, understand</td></tr><tr><td>Luck</td><td>charms, surprises, fairy chances</td></tr></table></div></div>
 </div><div class="page-number">3</div></section>
-<section class="page"><img class="artwash auto left" src="../art/generated/creature-albion-tax-mage.png" alt=""><h2 class="section">Ready Adventurer: Rowan Moonbutton</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/wash/creature-iron-crow-swarm.png" alt=""><h2 class="section">Ready Adventurer: Rowan Moonbutton</h2><div class="">
 <div class='split'><div class='col'><h3>Rowan Moonbutton</h3><p><strong>Kindred:</strong> Selkie-Born. <strong>Job:</strong> Beast Friend. <strong>Look:</strong> seal-cloak, muddy boots, kind eyes.</p><table><tr><th>STR</th><th>INT</th><th>AGI</th><th>WIS</th><th>LUK</th></tr><tr><td>+0</td><td>+0</td><td>+1</td><td>+2</td><td>+1</td></tr></table><div class='rulebox'><strong>HP 10 / MP 8.</strong> Gift: once per session, ask a creature what it really wants.</div></div><div class='col'><h3>Gear and spells</h3><ul><li>Oat pouch: +1 Wis with hungry animals.</li><li>Sea-glass button: ask for one Luck clue near water.</li><li>Glow-Pebble: 0 MP soft light.</li><li>Kind Whisper: 0 MP help a creature name its feeling.</li><li>Shield of Thistles: 1 MP protect a friend from 2 HP.</li></ul><h3>Goal</h3><p>Help nervous animals feel safe, then draw the friend you made.</p></div></div>
 </div><div class="page-number">4</div></section>
-<section class="page"><img class="artwash auto full" src="../art/generated/bg-mounts-pets.png" alt=""><h2 class="section">Draw your Adventurer</h2><div class="draw-frame"></div><div class="page-number">5</div></section>
-<section class="page"><img class="artwash auto left" src="../art/generated/02-part-opener.png" alt=""><h2 class="section">Starter adventure: The Moon-Bell at Kettleford</h2><div class="">
+<section class="page"><img class="artwash auto full" src="../art/generated/wash/bg-mounts-pets.png" alt=""><h2 class="section">Draw your Adventurer</h2><div class="draw-frame"></div><div class="page-number">5</div></section>
+<section class="page"><img class="artwash auto left" src="../art/generated/wash/creature-redcap-warband-boss.png" alt=""><h2 class="section">Starter adventure: The Moon-Bell at Kettleford</h2><div class="">
 <div class='scene-packet'><h3>Read aloud</h3><p>The Kettleford bridge is folded shut like grumpy arms. A moon-bell hangs beneath it, ringing underwater, while a wet fox points at bubbles.</p></div>
 <div class='quick-grid'>
 <div class='option-card'><h3>What is really happening</h3><p>A red wax tax charm made the bridge forget its name. The moon-bell can wake it if returned to the top stone.</p></div>
@@ -128,7 +138,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 </div>
 </div><div class="page-number">6</div></section>
 <section class="page full-bleed"><img class="bg" src="../art/generated/alba-town-dungeon-map.png" alt="Starter map"><div class="scrim"></div><div class="overlay"><h2>Starter map</h2><p>Point to village, bridge, fairy mound, loch shrine, cave, and watchtower. Let players choose the route.</p></div><div class="page-number">7</div></section>
-<section class="page"><img class="artwash auto left" src="../art/generated/alba-town-dungeon-map.png" alt=""><h2 class="section">Six quick monsters and NPCs</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/wash/creature-barbarian-storm-berserker.png" alt=""><h2 class="section">Six quick monsters and NPCs</h2><div class="">
 <div class='quick-grid'>
 <div class='option-card'><h3>Wet Fox Guide</h3><p>HP 6, DR 1. Wants dry socks. Helps find hidden arches.</p></div>
 <div class='option-card'><h3>Redcap Bramble Sneak</h3><p>HP 10, MP 4, DR 3. Wants shiny bells. Stops if offered a safer joke.</p></div>
@@ -138,7 +148,7 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 <div class='option-card'><h3>Moon-Bell Sprite</h3><p>HP 5, MP 8, DR 2. Wants to be useful, not trapped under stone.</p></div>
 </div>
 </div><div class="page-number">8</div></section>
-<section class="page"><img class="artwash auto right" src="../art/generated/alba-frontier-map.png" alt=""><h2 class="section">Twelve treasure cards</h2><div class="">
+<section class="page"><img class="artwash auto right" src="../art/generated/wash/02-part-opener.png" alt=""><h2 class="section">Twelve treasure cards</h2><div class="">
 <div class='print-card-grid'>
 <div class='option-card'><h3>Treasure 1</h3><p>Bridge-Friend badge: +1 when asking bridges for help.</p></div><div class='option-card'><h3>Treasure 2</h3><p>Moon-water vial: clean one curse mark.</p></div><div class='option-card'><h3>Treasure 3</h3><p>Fox map: reveals a safe path.</p></div><div class='option-card'><h3>Treasure 4</h3><p>Oat cake: calm one hungry creature.</p></div><div class='option-card'><h3>Treasure 5</h3><p>Glow pebble: soft light for one scene.</p></div><div class='option-card'><h3>Treasure 6</h3><p>Promise button: ask for one Luck clue.</p></div><div class='option-card'><h3>Treasure 7</h3><p>Dry socks: remove Muddy once.</p></div><div class='option-card'><h3>Treasure 8</h3><p>Cairn bell: starts a mount/pet quest.</p></div><div class='option-card'><h3>Treasure 9</h3><p>Rowan twig: keeps fairies polite.</p></div><div class='option-card'><h3>Treasure 10</h3><p>Silver thistle coin: worth 1 silver or one favor.</p></div><div class='option-card'><h3>Treasure 11</h3><p>Red wax scrap: proof of Albion meddling.</p></div><div class='option-card'><h3>Treasure 12</h3><p>Tiny kettle: tea with any friendly NPC.</p></div>
 </div>

@@ -87,17 +87,23 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .badge { display:inline-block; padding:.8mm 2mm; margin:.4mm .8mm .4mm 0; background:#ead9ad; border:1px solid #b9954d; border-radius:4mm; font-size:8.5pt; }
 .toc li { margin:1.2mm 0; }
 
-.artwash.auto { right:-22mm; bottom:-16mm; width:142mm; height:132mm; object-fit:cover; object-position:center; opacity:.20; filter:saturate(.92); }
+.artwash { position:absolute; z-index:0; pointer-events:none; opacity:1; filter:none; object-fit:contain; object-position:center; }
+.artwash.right { right:-18mm; bottom:8mm; width:118mm; height:112mm; }
+.artwash.left { left:-18mm; bottom:8mm; width:118mm; height:112mm; }
+.artwash.full { left:20mm; right:20mm; bottom:15mm; width:170mm; height:170mm; }
+.wash-content { position:relative; z-index:2; }
+.page > h2.section, .page > div:not(.page-number), .page > table, .page > p, .page > ol, .page > ul { position:relative; z-index:2; }
+
+.artwash.auto { right:-26mm; bottom:-18mm; width:142mm; height:132mm; object-fit:contain; object-position:center; opacity:1; filter:none; }
 .artwash.auto.left { left:-22mm; right:auto; }
 .page .columns, .page .split, .page table, .page .card-grid, .page .sheet, .page .draw-frame { position:relative; z-index:2; }
 .low-ink .page { background:#fffdf6 !important; }
-.low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.10 !important; filter:grayscale(1) contrast(.85) !important; }
+.low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.16 !important; filter:none !important; }
 .print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
 .print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.78); break-inside:avoid; }
 .print-card h3 { margin-top:0; font-size:12pt; }
 .quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
 
-.page:not(.full-bleed) { background-image: linear-gradient(rgba(255,248,233,.82), rgba(255,248,233,.88)), url('../art/generated/bg-tiny-tables.png') !important; background-size:auto, cover !important; background-position:center, center !important; }
 .print-card { min-height:38mm !important; padding:2.5mm !important; }
 .print-card h3 { font-size:10.8pt !important; margin-bottom:1mm !important; }
 .print-card p { font-size:8.4pt !important; line-height:1.18 !important; }
@@ -106,9 +112,13 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .session-grid .option-card p, .session-grid .option-card li { font-size:8pt !important; line-height:1.18 !important; }
 .scene-packet { padding:3mm; border:1px solid rgba(184,138,45,.55); background:rgba(255,251,239,.80); margin:2mm 0; break-inside:avoid; }
 .scene-packet h3 { margin-top:0; }
+.item-art-band { margin:0 0 4mm; height:58mm; overflow:hidden; position:relative; break-inside:avoid; }
+.item-art-band img { width:100%; height:100%; object-fit:contain; display:block; }
+.item-inline-art { float:right; width:72mm; margin:0 0 3mm 5mm; }
+.item-inline-art img { width:100%; display:block; }
 
 </style></head><body><main class="book"><section class="page full-bleed"><img class="bg" src="../art/generated/creature-mist-stag.png" alt="Bestiary Volume 2 cover"><div class="scrim"></div><div class="title-panel"><h1>Adventures in Alba</h1><p>Bestiary Volume 2 — More spooky, magical, adventurer-safe creatures with spells and special attacks</p></div><div class="overlay"><h3>Adventures in Alba</h3><p>Scottish fairy myth, classic fantasy adventure, gentle danger, and table rules made for brave Adventurers.</p></div></section>
-<section class="page"><img class="artwash auto left" src="../art/generated/creature-iron-crow-swarm.png" alt=""><h2 class="section">Using scarier creatures safely</h2><div class="">
+<section class="page"><img class="artwash auto left" src="../art/generated/wash/creature-black-bog-drake.png" alt=""><h2 class="section">Using scarier creatures safely</h2><div class="">
 <div class='split'><div class='col'><h3>Scary, not cruel</h3><ul><li>Use shadow, fog, thunder, strange voices, and big feelings.</li><li>Avoid gore, helplessness, or hopeless consequences.</li><li>Give every scary creature a want that can be understood.</li></ul><h3>Creature pacing</h3><ul><li>Round 1: show what is strange.</li><li>Round 2: use a special attack or spell.</li><li>Half HP: reveal the true worry.</li><li>0 HP: offer help, bargain, nap, or apology.</li></ul></div><div class='col'><h3>Special attacks</h3><ul><li>Spend MP when the move changes the scene.</li><li>Name the safe result: tangled, sleepy, startled, glittered, lost, or muddy.</li><li>Let clever gear, spells, and kindness reduce danger.</li></ul><h3>DR guide</h3><table><tr><th>DR</th><th>Feeling</th><th>Use</th></tr><tr><td>3</td><td>spooky warm-up</td><td>one scene</td></tr><tr><td>5</td><td>main trouble</td><td>teamwork</td></tr><tr><td>7+</td><td>boss wonder</td><td>finale only</td></tr></table></div></div>
 </div><div class="page-number">2</div></section>
 <section class="page feature-page creature-feature"><div class="feature-top"><figure class="feature-art"><img src="../art/generated/creature-mist-stag.png" alt="Mist Stag of Alba creature art"></figure><div class="feature-intro"><div class="feature-kicker">Creature stat block</div><h2>Mist Stag of Alba</h2><p class="drop">A tall ghostly stag with antlers full of fog-lights. It appears when someone chooses the wrong path for the right reason.</p><p class="creature-lore">The Mist Stag is majestic and unsettling, but never cruel. Its hooves make no sound, and its breath shows hidden footprints.</p><div class="vitals"><div class="vital"><strong>HP</strong>18</div><div class="vital"><strong>MP</strong>12</div><div class="vital"><strong>LVL</strong>6</div><div class="vital"><strong>DR</strong>7</div></div><div class="statline"><div class="stat"><strong>STR</strong>+1</div><div class="stat"><strong>INT</strong>+1</div><div class="stat"><strong>AGI</strong>+3</div><div class="stat"><strong>WIS</strong>+3</div><div class="stat"><strong>LUK</strong>+2</div></div><p class="stat-note"><strong>DR formula:</strong> round((HP 18 + MP 12 + Level 6×3 + positive stats 10×2) ÷ 10) = 7.</p></div></div><div class='feature-grid'><div class='feature-box'><h3>Wants</h3><p>A lost traveler guided home.</p></div><div class='feature-box'><h3>Helps by</h3><p>Reveals the honest path.</p></div><div class='feature-box'><h3>Spells / special attacks</h3><ul><li>Antler Lantern (2 MP): lights all hidden tracks.</li><li>Fog Leap: moves anywhere in mist.</li><li>Wrong-Way Charm (1 MP): turns the path unless Wis resists.</li></ul></div><div class='feature-box'><h3>Complication</h3><p>Only follows honest promises.</p></div><div class='feature-box'><h3>Gentle approach</h3><p>Ask what it protects, what it fears, or what promise it needs.</p></div><div class='feature-box'><h3>Reward</h3><p>A path, charm, recipe, clue, or future ally.</p></div></div><div class="page-number">3</div></section>

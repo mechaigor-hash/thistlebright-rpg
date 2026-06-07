@@ -65,6 +65,16 @@ The project tracks QA contact sheets under `qa/`. Recent QA passes verify:
 
 ## Release notes
 
+
+
+### v0.6 transparent art-layer fix
+
+- Removed the grey full-page/background rectangle treatment.
+- Replaced background support art with transparent, feathered-edge PNG wash layers.
+- Added dedicated illustrated gear, magic-item, and potion/poison sheets.
+- Patched equipment, gear, magic item, potion/poison, and treasure/crafting pages to use visible item illustrations.
+- Rebuilt and post-compression QA’d targeted pages for no grey boxes, no square overlays, and readable text.
+
 ### v0.5 next-10 expansion
 
 This pass executes the recommended next steps:
