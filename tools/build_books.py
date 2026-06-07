@@ -417,6 +417,34 @@ ph.text_page("Making a hero: quick checklist", f"""
 {card('If the group gets loud', p('Point to the picture, name one sound in the scene, then ask one child what their hero notices.'))}
 </div>
 """, columns=False)
+
+ph.text_page("More hero options", f"""
+{split(
+'<h3>Backgrounds</h3><p>Backgrounds give adventurers a first memory, a home tie, and one table reason to ask questions.</p><table><tr><th>Background</th><th>You know</th><th>Starter thing</th></tr><tr><td>Croft Kid</td><td>Animals, weather, chores.</td><td>Oat pouch.</td></tr><tr><td>Castle Page</td><td>Heraldry, manners, maps.</td><td>Ribbon badge.</td></tr><tr><td>Loch Fisher</td><td>Knots, boats, quiet patience.</td><td>Fishing line.</td></tr><tr><td>Market Runner</td><td>Prices, gossip, shortcuts.</td><td>Coin purse.</td></tr><tr><td>Hill Dreamer</td><td>Stars, stories, odd signs.</td><td>Dream pebble.</td></tr></table>',
+'<h3>Starter pets</h3><table><tr><th>Pet</th><th>Helps with</th><th>Quirk</th></tr><tr><td>Rowan mouse</td><td>Sneaking and tiny keys.</td><td>Collects crumbs.</td></tr><tr><td>Cloud moth</td><td>Finding soft light.</td><td>Naps in pockets.</td></tr><tr><td>Thistle hedgehog</td><td>Noticing danger.</td><td>Sneezes at lies.</td></tr><tr><td>Seal pup</td><td>Water clues.</td><td>Likes songs.</td></tr></table>' + rb('<strong>Background rule:</strong> once per session, if your background or pet clearly helps, add +1 or ask the Guide for one extra clue.')
+)}
+""", columns=False)
+ph.text_page("More magic: schools and rituals", f"""
+{split(
+'<h3>Four gentle spell schools</h3><p>Schools are story flavors, not homework. Use them to describe how magic looks, sounds, and asks for promises.</p><table><tr><th>School</th><th>Feels like</th><th>Examples</th></tr><tr><td>Hearth</td><td>warmth, light, mending</td><td>Glow-Pebble, Tiny Mend</td></tr><tr><td>Loch</td><td>mist, water, memory</td><td>Mist Step, Moon Reflection</td></tr><tr><td>Thistle</td><td>protection, brambles, courage</td><td>Shield of Thistles, Prickle Path</td></tr><tr><td>Story</td><td>songs, names, promises</td><td>Courage Note, Name Echo</td></tr></table>',
+'<h3>Rituals</h3><p>A ritual is a slow spell that takes a scene, a promise, and three ingredients. It usually costs 2 MP from the group instead of one hero.</p>' + ul(['Name what you want: light, bridge, truth, calm, memory.', 'Offer three ingredients: coin, feather, song, button, water, ash, berry.', 'Every adventurer says one helpful line.', 'Roll Wis, Int, or Luck if the answer is exciting.']) + qa('<strong>Ritual mishap:</strong> on a wobble, the ritual works but leaves a funny sign: purple hair, hiccuping bells, sleepy shoes, or talking moss.')
+)}
+""", columns=False)
+ph.text_page("Spell upgrades", f"""
+<table><tr><th>Level</th><th>Upgrade choice</th><th>Example</th></tr><tr><td>2</td><td>Longer light</td><td>Glow-Pebble lasts a whole scene.</td></tr><tr><td>3</td><td>Friend boost</td><td>A cantrip can help a nearby friend.</td></tr><tr><td>4</td><td>Feat spell trick</td><td>Choose one spell feat when you gain a feat.</td></tr><tr><td>5</td><td>Big ritual</td><td>Group rituals can affect a bridge, grove, or cottage.</td></tr></table>
+<div class='card-grid'>
+{card('Spell feat: Careful Magic', p('Once per session, when you spend MP, ignore the first harmless magical mess.'))}
+{card('Spell feat: Shared Spark', p('Spend 1 extra MP so a friend also gets +1.'))}
+{card('Spell feat: Bright Cantrip', p('Pick one cantrip. It can affect two tiny things instead of one.'))}
+{card('Spell feat: Old Words', p('You may ask the Guide what one rune, rhyme, or fairy name means.'))}
+</div>
+""", columns=False)
+ph.text_page("Advanced combat options", f"""
+{split(
+'<h3>Armor and shields</h3><table><tr><th>Gear</th><th>Cost</th><th>Rule</th></tr><tr><td>Padded cloak</td><td>4 silver</td><td>Once per scene, reduce 1 HP of trouble.</td></tr><tr><td>Wooden shield</td><td>6 silver</td><td>Protect a friend at +1 if you can reach them.</td></tr><tr><td>Thistle charm</td><td>1 gold</td><td>Reduce one bramble/spell trouble by 1 HP.</td></tr></table>',
+'<h3>Conditions</h3><table><tr><th>Condition</th><th>Means</th><th>Ends when</th></tr><tr><td>Tangled</td><td>You need help to move far.</td><td>Strength, Agility, or a friend helps.</td></tr><tr><td>Startled</td><td>Next roll is -1 unless soothed.</td><td>Friend says something kind.</td></tr><tr><td>Sleepy</td><td>You can act, but slowly.</td><td>Snack, song, or fresh air.</td></tr><tr><td>Glittered</td><td>Easy to spot.</td><td>Wash, cloak, or scene ends.</td></tr></table>' + rb('<strong>Boss phases:</strong> at half HP, a boss changes the scene: fog rolls in, bridge wakes, or the creature admits what it truly wants.')
+)}
+""", columns=False)
 ph.write()
 
 # Guide book
@@ -425,7 +453,7 @@ gm.cover_page()
 gm.text_page("Your job as Guide", f"""
 <p class='drop'>The Guide is not the boss of fun. You describe the world, listen to children, ask what they try, and help the dice turn ideas into surprises.</p>
 {split(
-ul(['Use short scenes: 5 to 12 minutes each.', 'Give choices in twos or threes, not long menus.', 'Name feelings before fights: scared, proud, sleepy, lonely, worried.', 'Let the children succeed often. The fun is in how it happens.']) + spot('03-race-kindreds.png', '<strong>Guide stance:</strong> make every scene readable from the art, then support the child’s idea.'),
+ul(['Use short scenes: 5 to 12 minutes each.', 'Give choices in twos or threes, not long menus.', 'Name feelings before fights: scared, proud, sleepy, lonely, worried.', 'Let adventurers succeed often. The fun is in how it happens.']) + spot('03-race-kindreds.png', '<strong>Guide stance:</strong> make every scene readable from the art, then support the adventurer’s idea.'),
 rb('<strong>Safety tone:</strong> no gore, no cruelty, no permanent harm. Trouble can be spooky, muddy, noisy, or puzzling.') + '''<h3>Useful phrases</h3>''' + ul(['“Yes, and what does that look like?”', '“Who are you helping?”', '“Which stat fits your idea?”', '“That is a wobble, so something funny changes.”']) + mini('Guide rhythm', 'Picture → feeling → choice → roll only if exciting → warm change.')
 )}
 """, columns=False)
@@ -445,7 +473,7 @@ gm.text_page("Running rolls and wobbles", f"""
 """)
 gm.text_page("Building adventures", f"""
 <table><tr><th>Part</th><th>Question</th><th>Example</th></tr><tr><td>Hook</td><td>Who needs help?</td><td>A fairy cannot find the right door.</td></tr><tr><td>Path</td><td>Where must heroes go?</td><td>Across the heather bridge.</td></tr><tr><td>Friend</td><td>Who can help?</td><td>A shy fox with silver whiskers.</td></tr><tr><td>Puzzle</td><td>What needs a clever choice?</td><td>Three bells ring, but only one is kind.</td></tr><tr><td>Ending</td><td>How is the glen warmer now?</td><td>The lost moon-bell is returned.</td></tr></table>
-{qa('<strong>Guide promise:</strong> prepare situations, not answers. If the child invents a kind solution, let it matter.')}
+{qa('<strong>Guide promise:</strong> prepare situations, not answers. If an adventurer invents a kind solution, let it matter.')}
 """, columns=False)
 gm.text_page("Tiny tables", f"""
 <h3>What is strange here?</h3><table><tr><td>1</td><td>A thistle glows like a lantern.</td></tr><tr><td>2</td><td>Footprints turn into tiny flowers.</td></tr><tr><td>3</td><td>A crow speaks only in compliments.</td></tr><tr><td>4</td><td>The bridge asks for a joke.</td></tr><tr><td>5</td><td>A teacup storm rains indoors.</td></tr><tr><td>6</td><td>A sleeping troll snores bubbles.</td></tr></table>
@@ -455,7 +483,7 @@ gm.text_page("Tiny tables", f"""
 gm.text_page("Scene dressing examples", f"""
 {split(
 '<h3>What to put in a scene</h3>' + ul(['<strong>One clear picture:</strong> a bridge with mossy faces, a teacup storm, a silver fox in heather.', '<strong>One sound:</strong> bell, splash, snore, giggle, creak, whisper.', '<strong>One feeling:</strong> lonely, proud, worried, sleepy, curious, embarrassed.', '<strong>One useful object:</strong> rope, button, lantern, map, boot, key, ribbon.', '<strong>One choice:</strong> talk first or look closer; cross now or find a safer path.']) + rb('<strong>Example setup:</strong> “Rain taps the old bridge. A carved face blinks under moss. A red ribbon is tied around the middle stone.”'),
-'<h3>Dialogue starters</h3>' + ul(['Bridge: “I will not open for stomping feet. I open for polite ones.”', 'Sprite: “I am not lost. I am doing royal path inspection.”', 'Brownie: “Hold still! Those boots have clues on them!”', 'Fox: “A clever child would notice the quiet puddle, and you look very clever.”', 'Owl: “Young acorn, I remember the path. I forgot the name of remembering.”']) + qa('<strong>Ask the players:</strong> “What do you say back?” “Who helps?” “Which stat fits your idea?”')
+'<h3>Dialogue starters</h3>' + ul(['Bridge: “I will not open for stomping feet. I open for polite ones.”', 'Sprite: “I am not lost. I am doing royal path inspection.”', 'Brownie: “Hold still! Those boots have clues on them!”', 'Fox: “A clever adventurer would notice the quiet puddle, and you look very clever.”', 'Owl: “Young acorn, I remember the path. I forgot the name of remembering.”']) + qa('<strong>Ask the players:</strong> “What do you say back?” “Who helps?” “Which stat fits your idea?”')
 )}
 """, columns=False)
 gm.text_page("Running dialogue with young players", f"""
@@ -498,6 +526,13 @@ gm.text_page("More ready dialogue", f"""
 {card('Creature at 0 HP', p('Do not narrate harm. Say: “The creature is tired, muddy, and ready to listen.” Then offer help, promise, snack, or rest.'))}
 </div>
 {qa('<strong>Scene loop example:</strong> picture → feeling → choice → roll → wobble or success → new clue. Keep naming the next useful thing children can touch, ask, follow, or comfort.')}
+""", columns=False)
+
+gm.text_page("Guide depth: boss scenes and safety", f"""
+{split(
+'<h3>Boss scene shape</h3>' + ul(['Show the scary picture safely: shadow, noise, weather, big feelings.', 'Give the creature a want that can be discovered.', 'Use HP to pace attention; use MP for special moves.', 'At half HP, reveal the softer truth.', 'At 0 HP, offer a bargain, apology, nap, or rescue.']),
+'<h3>Safety dials</h3><table><tr><th>If players are nervous</th><th>If players want more</th></tr><tr><td>Lower HP by 3.</td><td>Add a second objective.</td></tr><tr><td>Make special attacks cost +1 MP.</td><td>Let the creature change the map.</td></tr><tr><td>Have an NPC friend offer a hint.</td><td>Add a countdown: three bells before fog.</td></tr></table>' + rb('<strong>Rule:</strong> scary is allowed; hopeless is not. Always leave a visible kind choice.')
+)}
 """, columns=False)
 gm.write()
 
@@ -638,8 +673,130 @@ sheet.text_page("Quick reference cards", f"""
 """, columns=False)
 sheet.write()
 
+# Adventure module book
+am = Book("adventure-module", "Adventure Module", "Five linked one-shots with maps, read-alouds, encounters, treasure, and scaling", "alba-map.png")
+am.cover_page()
+am.art_page("alba-map.png", "The Bells of Alba", "A five-part starter campaign across lochs, hills, cottages, fairy mounds, and a stormy thorn crown.")
+am.text_page("How to run these adventures", f"""
+{split(
+'<h3>Session recipe</h3>' + ul(['Read the boxed opening.', 'Ask what the adventurers notice.', 'Run two scenes and one creature moment.', 'Give treasure that changes the next scene.', 'End with a friend, promise, or map mark.']) + rb('<strong>Length:</strong> each adventure is built for 30–45 minutes.') + '<h3>DM checklist</h3>' + ul(['Circle one feeling: scared, proud, lonely, sleepy, worried.', 'Underline one clue the heroes can touch.', 'Pick one NPC voice: whispery, grand, grumpy, giggly.', 'Choose one safe cost before rolling: noise, mud, delay, lost hat.']),
+'<h3>Scaling</h3><table><tr><th>Group</th><th>Change</th></tr><tr><td>1 adventurer</td><td>Reduce enemy HP by 4 and MP by 2.</td></tr><tr><td>2–3 adventurers</td><td>Use listed stats.</td></tr><tr><td>4+ adventurers</td><td>Add one clue objective or +3 HP to the main creature.</td></tr><tr><td>Older kids</td><td>Add a timer, locked door, or rival helper.</td></tr></table>' + '<h3>Quick rewards</h3><table><tr><td>1</td><td>Helpful map mark</td></tr><tr><td>2</td><td>1d6 copper</td></tr><tr><td>3</td><td>Friendly promise</td></tr><tr><td>4</td><td>Consumable charm</td></tr></table>'
+)}
+""", columns=False)
+for title, read, scenes, creature, treasure in [
+('1. The Bell-Root Path','Tiny bells hang from sleepy roots. A fox dreams beside a moon-rune door, and the path is holding its breath.',['Notice the bells before they ring.','Find the silver acorn key.','Wake the fox kindly or sneak past.'],'Redcap Bramble Sneak, DR 3, wants its shiny bell back.','Silver acorn key; 6 copper; fox promise.'),
+('2. The Glass Loch','The loch is clear as a window. Something long and blue coils below, guarding a bridge made of moon-reflection.',['Gather three dry stones.','Convince the Glass Loch Serpent the party is not stealing moonlight.','Cross without waking the cold current.'],'Glass Loch Serpent, DR 5, uses Mirror Wave.','Moon-water vial; 1 silver; safe crossing song.'),
+('3. The Sooty Chimney','A cottage coughs black sparkles. Every spoon is missing, and the chimney giggles.',['Climb or talk to the chimney.','Sort useful soot from imp tricks.','Return the spoon chorus before dinner.'],'Soot Chimney Imp, DR 3, casts Soot Puff.','Warm oatcakes; soot chalk; 8 copper.'),
+('4. The Hollow Hill Warning','A ribbon of cold wind circles the mound. The Banshee is crying names no one remembers.',['Listen inside the wail.','Find the forgotten promise stone.','Choose whether to open the fairy door.'],'Hollow Hill Banshee, DR 6, uses Warning Wail.','Promise stone; 1 gold; ghost door favor.'),
+('5. The Thorn Crown Storm','The hill giant kneels under thunder. Its crown is too tight, and every thorn points at the village.',['Survive stormy brambles.','Learn the giant is in pain.','Remove the thorn crown using teamwork and ritual magic.'],'Thorn Crown Giant, DR 7, phase change at half HP.','Mythral thorn seed; village feast; level-up feat.')]:
+    am.text_page(title, f"""
+{qa('<strong>Read aloud:</strong> '+read)}
+<h3>Scenes</h3>{ul(scenes)}
+<h3>Main creature</h3><p>{creature}</p>
+<h3>Checks</h3><table><tr><th>Approach</th><th>Stat</th><th>Wobble</th></tr><tr><td>Careful movement</td><td>Agility</td><td>Noise, snag, or muddy boot.</td></tr><tr><td>Read signs/runes</td><td>Int</td><td>Right answer, awkward timing.</td></tr><tr><td>Comfort or negotiate</td><td>Wis</td><td>Creature asks for proof.</td></tr><tr><td>Hold, lift, protect</td><td>Strength</td><td>You help, but lose 1 HP.</td></tr><tr><td>Fairy chance</td><td>Luck</td><td>Magic works with a funny mark.</td></tr></table>
+<h3>Treasure</h3><p>{treasure}</p>
+<div class='card-grid'>{card('Read-aloud closer', p('Ask each adventurer what their hero looks like at the end of the scene: muddy boots, proud smile, glowing pocket, or new friend.'))}{card('If they get stuck', p('Show one clue in the art, have an NPC ask a simple question, or let a pet notice the safest path.'))}{card('Optional twist', p('A rival helper arrives, the weather changes, or the treasure points to the next map mark.'))}{card('Level note', p('After a big kindness, mark one star toward the next level.'))}</div>
+""", columns=False)
+am.text_page("Campaign tracker", f"""
+<table><tr><th>Adventure</th><th>Friend made</th><th>Treasure</th><th>Promise</th></tr><tr><td>Bell-Root Path</td><td></td><td></td><td></td></tr><tr><td>Glass Loch</td><td></td><td></td><td></td></tr><tr><td>Sooty Chimney</td><td></td><td></td><td></td></tr><tr><td>Hollow Hill</td><td></td><td></td><td></td></tr><tr><td>Thorn Crown Storm</td><td></td><td></td><td></td></tr></table>
+{rb('<strong>Leveling suggestion:</strong> level up after adventures 2 and 5. Award a feat after adventure 5 if the party reaches level 4.')}
+""", columns=False)
+am.write()
+
+# Setting guide
+sg = Book("setting-guide", "Setting Guide", "Regions, towns, fairy courts, holidays, factions, and legends of Alba", "alba-map.png")
+sg.cover_page()
+sg.art_page("alba-map.png", "Map of Alba", "Use this as a soft story map. Add names at the table when adventurers discover them.")
+sg.text_page("Regions of Alba", f"""
+<table><tr><th>Region</th><th>Look</th><th>Adventure use</th></tr><tr><td>Heatherhigh Hills</td><td>Purple slopes, cairns, windy paths.</td><td>Giants, promises, weather magic.</td></tr><tr><td>Glass Loch</td><td>Still water, moon bridges, kelp bells.</td><td>Kelpies, serpents, reflection riddles.</td></tr><tr><td>Thistlewood</td><td>Brambles, hidden doors, fox tracks.</td><td>Sprites, lost paths, thorn bargains.</td></tr><tr><td>Crofters' Glen</td><td>Warm cottages, markets, oat fields.</td><td>Chores that become quests.</td></tr><tr><td>Hollow Hill</td><td>Fairy mound, ribbons, ghost wind.</td><td>Banshees, old names, warnings.</td></tr></table><div class='card-grid'>{card('Town: Alba-Brae', p('A cozy market village with a crooked clocktower and a shop that sells useful string.'))}{card('Town: Kettleford', p('Bridge town where goats demand manners and tinkers repair enchanted pots.'))}{card('Wild site: Star Cairn', p('Old stones that hum when a promise is almost remembered.'))}{card('Dungeon: Root Warrens', p('Friendly-dark tunnels under Thistlewood, full of bells, mice, and jam doors.'))}</div>
+""", columns=False)
+sg.text_page("Factions and fairy courts", f"""
+{split(
+'<h3>Friendly groups</h3>' + ul(['The Rowan Keepers remember promises.', 'The Kettle Guild repairs tiny magical things.', 'The Lantern Jellies guide lost swimmers.', 'The Croft Circle trades gossip, oats, and maps.']),
+'<h3>Tricky courts</h3>' + ul(['The Thorn Court loves rules, flags, and compliments.', 'The Moon Court speaks in dreams and reflections.', 'The Soot Court hides useful things in messy places.', 'The Cairn Court guards old names.']) + qa('<strong>Faction question:</strong> who wants this problem solved, and who thinks the problem is useful?')
+)}
+""", columns=False)
+sg.text_page("Holidays, legends, and gods/spirits", f"""
+<div class='card-grid'>
+{card('First Thistle Day', p('Children tie ribbons to safe paths. Sprites demand tiny speeches.'))}
+{card('Loch Lantern Night', p('Families float candle boats and ask the loch to remember kind names.'))}
+{card('The Kindly Cailleach', p('An ancient winter spirit who tests manners, then gives warm socks.'))}
+{card('The Rowan Stag', p('A spirit of honest paths. Its antlers glow when a promise is true.'))}
+</div>
+""", columns=False)
+sg.write()
+
+# Treasure and crafting book
+tc = Book("treasure-crafting", "Treasure and Crafting", "Magic items, potions, mythral gear, fairy bargains, and recipes", "table-aids.png")
+tc.cover_page()
+tc.text_page("Treasure tiers", f"""
+<table><tr><th>Tier</th><th>Coin range</th><th>Examples</th></tr><tr><td>Copper</td><td>1–9 cp</td><td>chalk, snack, candle, ribbon.</td></tr><tr><td>Silver</td><td>1–9 sp</td><td>rope, lantern, padded cloak.</td></tr><tr><td>Gold</td><td>1–9 gp</td><td>spell charm, fine tool, fairy favor.</td></tr><tr><td>Mythral</td><td>1+ mp</td><td>legendary seed, moon key, named blade that refuses cruelty.</td></tr></table><div class='card-grid'>{card('Copper treasure', p('Three blue buttons, a candle stub, and a biscuit wrapped in wax paper.'))}{card('Silver treasure', p('A sturdy rope, a good lantern, or a map drawn by a fox.'))}{card('Gold treasure', p('A named charm, guild favor, or one spell scroll.'))}{card('Mythral treasure', p('A story-changing object that asks for a promise before it works.'))}</div>
+{rb('<strong>Conversion:</strong> 10 copper = 1 silver, 10 silver = 1 gold, 10 gold = 1 mythral.')}
+""", columns=False)
+tc.text_page("Crafting recipes", f"""
+<table><tr><th>Item</th><th>Ingredients</th><th>Effect</th></tr><tr><td>Glow-Pebble</td><td>pebble, firefly wink, 1 copper</td><td>Soft light for one scene.</td></tr><tr><td>Bravery Biscuit</td><td>oats, honey, brave word</td><td>Ignore Startled once.</td></tr><tr><td>Mist Ribbon</td><td>ribbon, loch water, song</td><td>+1 Agility in fog.</td></tr><tr><td>Promise Button</td><td>button, thread, true promise</td><td>Ask for one Luck clue.</td></tr><tr><td>Mythral Thorn Seed</td><td>mythral, thorn, giant tear</td><td>Grow a protective hedge in a finale.</td></tr></table>
+""", columns=False)
+tc.text_page("Fairy bargains", f"""
+{split(
+'<h3>Good bargain prices</h3>' + ul(['A song sung at sunset.', 'A promise to return a lost thing.', 'A drawing of the creature as a friend.', 'One shiny button, not a memory.', 'A day of helping clean a path.']),
+'<h3>Never take</h3>' + ul(["A real child's name, voice, or memory.", 'Anything that makes a player feel trapped.', 'A choice the adventurer cannot understand.']) + rb('<strong>Safe bargain rule:</strong> bargains are story hooks, not punishments. They should create a future scene, not remove agency.')
+)}
+""", columns=False)
+tc.write()
+
+# Bestiary volume 2
+b2 = Book("bestiary-vol-2", "Bestiary Volume 2", "More spooky, magical, child-safe creatures with spells and special attacks", "creature-mist-stag.png")
+b2.cover_page()
+b2.text_page("Using scarier creatures safely", f"""
+{split(
+'<h3>Scary, not cruel</h3>' + ul(['Use shadow, fog, thunder, strange voices, and big feelings.', 'Avoid gore, helplessness, or hopeless consequences.', 'Give every scary creature a want that can be understood.']) + '<h3>Creature pacing</h3>' + ul(['Round 1: show what is strange.', 'Round 2: use a special attack or spell.', 'Half HP: reveal the true worry.', '0 HP: offer help, bargain, nap, or apology.']),
+'<h3>Special attacks</h3>' + ul(['Spend MP when the move changes the scene.', 'Name the safe result: tangled, sleepy, startled, glittered, lost, or muddy.', 'Let clever gear, spells, and kindness reduce danger.']) + '<h3>DR guide</h3><table><tr><th>DR</th><th>Feeling</th><th>Use</th></tr><tr><td>3</td><td>spooky warm-up</td><td>one scene</td></tr><tr><td>5</td><td>main trouble</td><td>teamwork</td></tr><tr><td>7+</td><td>boss wonder</td><td>finale only</td></tr></table>'
+)}
+""", columns=False)
+for c in [
+ dict(name='Mist Stag of Alba', img='creature-mist-stag.png', intro='A tall ghostly stag with antlers full of fog-lights. It appears when someone chooses the wrong path for the right reason.', lore='The Mist Stag is majestic and unsettling, but never cruel. Its hooves make no sound, and its breath shows hidden footprints.', stats={'STR':1,'INT':1,'AGI':3,'WIS':3,'LUK':2}, hp=18, mp=12, level=6, wants='A lost traveler guided home.', helps='Reveals the honest path.', moves=['Antler Lantern (2 MP): lights all hidden tracks.', 'Fog Leap: moves anywhere in mist.', 'Wrong-Way Charm (1 MP): turns the path unless Wis resists.'], comp='Only follows honest promises.'),
+ dict(name='Glass Loch Serpent', img='creature-glass-loch-serpent.png', intro='A translucent serpent of blue loch water and moonlight. It coils around reflections and dislikes loud splashing.', lore='It guards the boundary between real water and mirror water. If treated politely, it lets heroes cross on moon ripples.', stats={'STR':2,'INT':1,'AGI':2,'WIS':2,'LUK':3}, hp=20, mp=10, level=5, wants='Moonlight returned to the loch.', helps='Creates a reflection bridge.', moves=['Mirror Wave (2 MP): swaps two reflections and confuses directions.', 'Crystal Coil: wraps a boat without crushing it.', 'Moonbite Glimmer (1 MP): 2 HP of cold sparkle trouble.'], comp='Repeats the last words spoken.'),
+ dict(name='Soot Chimney Imp', img='creature-soot-chimney-imp.png', intro='A smoky little imp with coal eyes and a grin full of harmless sparks. It steals spoons to make a tiny orchestra.', lore='It lives in chimneys and thinks mess is a language. It can be scary when it pops out, but mostly wants applause.', stats={'STR':0,'INT':2,'AGI':3,'WIS':0,'LUK':1}, hp=10, mp=7, level=3, wants='An audience for its spoon band.', helps='Finds hidden chimney passages.', moves=['Soot Puff (1 MP): makes everyone glitter-black and easy to track.', 'Spoon Clatter: startling noise; Wis to stay calm.', 'Smoke Slip: escapes through cracks.'], comp='Cannot resist applause.'),
+ dict(name='Iron-Tooth Granny Goat', img='creature-iron-tooth-granny-goat.png', intro='A stubborn magical goat with one iron tooth charm and a voice like a creaky gate. She guards bridges from rude travelers.', lore='She is scary because she knows when someone has been impolite. Compliments, oats, or a sincere apology soften her quickly.', stats={'STR':3,'INT':1,'AGI':1,'WIS':2,'LUK':0}, hp=17, mp=5, level=4, wants='Manners before crossing.', helps='Knows every bridge toll and secret step.', moves=['Bridge Stomp: 2 HP of wobbling trouble.', 'Iron Chomp (1 MP): bites through rope or bramble, not people.', 'Granny Glare: asks for an apology.'], comp='Headbutts unattended baskets.'),
+ dict(name='Thorn Crown Giant', img='creature-thorn-crown-giant.png', intro='A kneeling giant made of heather, bark, and thorn branches. It is huge, frightening, and in pain from a crown that grew too tight.', lore='This is a finale creature. Its storm is not anger; it is hurt feelings and tangled magic. Heroes must survive, listen, and remove the crown.', stats={'STR':4,'INT':0,'AGI':-1,'WIS':2,'LUK':1}, hp=30, mp=12, level=8, wants='The thorn crown loosened safely.', helps='Protects Alba once healed.', moves=['Storm Stomp (2 MP): everyone chooses dodge, hold, or shelter.', 'Thorn Wall (2 MP): divides the map until cut, sung, or soothed.', 'Half-HP Phase: the giant whispers the crown hurts.'], comp='Every movement changes the battlefield.'),
+ dict(name='Moon-Mirror Cat', img='creature-moon-mirror-cat.png', intro='A black cat whose eyes reflect stars instead of rooms. It steps through puddles and steals secrets only to keep them safe.', lore='The cat is mysterious, not mean. It tests whether adventurers can ask a careful question rather than grab an answer.', stats={'STR':-1,'INT':3,'AGI':3,'WIS':1,'LUK':3}, hp=9, mp=12, level=5, wants='A secret carried kindly.', helps='Opens a puddle portal.', moves=['Puddle Door (2 MP): creates a shortcut with a strange price.', 'Star-Eye Hint (1 MP): reveals one clue backwards.', 'Secret Swipe: steals a clue until politely asked.'], comp='Answers only one-word questions.'),
+ dict(name='Ember Kettle Kobold', img='creature-ember-kettle-kobold.png', intro='A tiny cave kobold with a glowing kettle helmet. Steam whistles when it gets nervous.', lore='It tends dungeon tea boilers and trap kettles. It looks alarming in the dark, but is mostly afraid someone will waste good tea.', stats={'STR':1,'INT':2,'AGI':2,'WIS':0,'LUK':1}, hp=12, mp=8, level=4, wants='A perfect cup of cave tea.', helps='Disarms hot-steam traps.', moves=['Steam Whistle (1 MP): Startled unless someone laughs.', 'Kettle Pop (2 MP): launches harmless sparks for 2 HP trouble.', 'Trap-Tap: points out one device if offered tea.'], comp='Corrects everyone\'s tea manners.'),
+]:
+    b2.creature_page(c['name'], c['img'], c['intro'], c['stats'], c['hp'], c['mp'], c['level'], c['lore'], feature_grid([('Wants', p(c['wants'])), ('Helps by', p(c['helps'])), ('Spells / special attacks', ul(c['moves'])), ('Complication', p(c['comp'])), ('Gentle approach', p('Ask what it protects, what it fears, or what promise it needs.')), ('Reward', p('A path, charm, recipe, clue, or future ally.'))]))
+b2.write()
+
+# Printable table aids
+ta = Book("table-aids", "Printable Table Aids", "Cards, tokens, trackers, and quick references for the table", "table-aids.png")
+ta.cover_page()
+ta.art_page("table-aids.png", "Table tools", "Print, cut, and use these at the table for faster play.")
+ta.text_page("Spell cards", f"""
+<div class='card-grid'>
+{card('Glow-Pebble', p('0 MP. Make candlelight for one scene.'))}
+{card('Mist Step', p('1 MP. Slip past a watcher, root, or trap.'))}
+{card('Shield of Thistles', p('1 MP. Protect a friend from 2 HP of trouble.'))}
+{card('Kind Whisper', p('0 MP. Help a creature name its feeling.'))}
+{card('Rune Read', p('1 MP. Ask one question about old writing.'))}
+{card('Foxfire Path', p('1 MP. Find the gentlest route.'))}
+</div>
+""", columns=False)
+ta.text_page("Item and coin cards", f"""
+<div class='card-grid'>
+{card('Rope', p('+1 when climbing, tying, or rescuing.'))}
+{card('Lantern', p('Reveal one clue before a dark-scene roll.'))}
+{card('Tiny toolkit', p('Allows Int checks on small devices.'))}
+{card('Oat pouch', p('+1 Wis with hungry animals.'))}
+{card('Copper / Silver / Gold / Mythral', p('10 copper = 1 silver. 10 silver = 1 gold. 10 gold = 1 mythral.'))}
+{card('Promise Button', p('Ask for one Luck clue when a promise matters.'))}
+</div>
+""", columns=False)
+ta.text_page("Condition and initiative tents", f"""
+<table><tr><th>Tent</th><th>Front</th><th>Back note</th></tr><tr><td>Hero turn</td><td>What do you try?</td><td>Pick stat after idea.</td></tr><tr><td>Tangled</td><td>Need help to move.</td><td>Ends with help/check.</td></tr><tr><td>Startled</td><td>-1 until soothed.</td><td>Kind words end it.</td></tr><tr><td>Sleepy</td><td>Slow but okay.</td><td>Snack/song/fresh air.</td></tr><tr><td>Boss phase</td><td>Scene changes.</td><td>Reveal true want.</td></tr></table>
+""", columns=False)
+ta.write()
+
+
 # Plain markdown notes for repo browsing
-for slug, title in [(ph.slug, ph.title), (gm.slug, gm.title), (be.slug, be.title), (ca.slug, ca.title), (sheet.slug, sheet.title)]:
+for slug, title in [(ph.slug, ph.title), (gm.slug, gm.title), (be.slug, be.title), (ca.slug, ca.title), (sheet.slug, sheet.title), (am.slug, am.title), (sg.slug, sg.title), (tc.slug, tc.title), (b2.slug, b2.title), (ta.slug, ta.title)]:
     (BOOKS / f"{slug}.md").write_text(f"# {title}\n\nSee `printable-a4/{slug}-a4.html` and `pdf/{slug}.pdf`.\n", encoding="utf-8")
 
 print('built book HTML files:', ', '.join(sorted(p.name for p in PRINT.glob('*-a4.html'))))

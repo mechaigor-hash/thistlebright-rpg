@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PRINT = ROOT/'printable-a4'
 PDF = ROOT/'pdf'
 PDF.mkdir(exist_ok=True)
-books = ['player-handbook','guide-book','bestiary','campaigns','character-sheets']
+books = sorted(p.name.replace('-a4.html','') for p in PRINT.glob('*-a4.html'))
 for slug in books:
     src = PRINT/f'{slug}-a4.html'
     out = PDF/f'{slug}.pdf'

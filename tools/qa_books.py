@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import subprocess
+import subprocess, shutil
 ROOT = Path(__file__).resolve().parents[1]
 PDF = ROOT/'pdf'
 QA = ROOT/'qa'/'book-pages'
+if QA.exists():
+    shutil.rmtree(QA)
 QA.mkdir(parents=True, exist_ok=True)
-books = ['player-handbook','guide-book','bestiary','campaigns','character-sheets']
+books = sorted(p.stem for p in PDF.glob('*.pdf'))
 for slug in books:
     pdf = PDF/f'{slug}.pdf'
     outdir = QA/slug
