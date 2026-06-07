@@ -10,6 +10,8 @@ from pathlib import Path
 import textwrap
 import re
 import hashlib
+import subprocess
+import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 PRINT = ROOT / "printable-a4"
@@ -129,10 +131,7 @@ th,td { border:1px solid #b9934c; padding:2mm 1.8mm; vertical-align:top; } th { 
 .low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.16 !important; filter:none !important; }
 .print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
 .print-card { min-height:38mm; padding:2.5mm; border:1.4px dashed rgba(135,49,45,.60); background:rgba(255,251,239,.92); break-inside:avoid; overflow:hidden; }
-.print-card .card-illo { float:right; position:relative; width:20mm; height:18mm; margin:0 0 1mm 1.8mm; border-radius:2mm; border:1px solid rgba(135,49,45,.42); display:block; overflow:hidden; }
-.print-card .card-illo .ci-hill { position:absolute; left:-2mm; right:-2mm; bottom:-2mm; height:9mm; border-radius:50% 50% 0 0; opacity:.55; }
-.print-card .card-illo .ci-moon { position:absolute; right:3mm; top:2mm; width:5mm; height:5mm; border-radius:50%; background:rgba(255,248,220,.82); }
-.print-card .card-illo .ci-line { position:absolute; left:3mm; right:3mm; bottom:5mm; height:1.2mm; border-radius:2mm; opacity:.45; }
+.print-card .card-illo { float:right; width:22mm; height:20mm; object-fit:cover; object-position:center; margin:0 0 1mm 1.8mm; border-radius:2mm; border:1px solid rgba(135,49,45,.42); display:block; overflow:hidden; box-shadow:0 .7mm 2mm rgba(0,0,0,.16); }
 .print-card h3 { margin-top:0; font-size:12pt; }
 .quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:4mm; }
 
@@ -174,101 +173,73 @@ GLOBAL_IMG_SEEN = {}
 def stable_seed(text: str) -> int:
     return int(hashlib.sha256(text.encode('utf-8')).hexdigest()[:8], 16)
 
-def make_unique_scene_asset(filename: str, title: str, kind: str = 'scene') -> str:
-    """Create unique printable SVG illustration art; no icon/glyph placeholders."""
-    outdir = ART / 'unique'
-    outdir.mkdir(parents=True, exist_ok=True)
-    dest = outdir / filename
-    seed = stable_seed(filename + title + kind)
-    palettes = [('#efe2bd','#7aa07b','#315b4a','#87312d'),('#ead6a7','#7ba8bd','#24516a','#6f2d29'),('#f0deb7','#a480b5','#56336d','#285740'),('#e9d7a2','#d28a5d','#7b3f30','#2e5940'),('#efe7c7','#8ea86b','#4f6b3b','#81382f')]
-    bg, mid, dark, accent = palettes[seed % len(palettes)]
-    esc_title = esc(title)[:42]
-    hills = []
-    for i in range(5):
-        x = -80 + i*210 + (seed >> (i*3) & 31)
-        y = 650 + (seed >> (i*4) & 95)
-        hills.append(f"<path d='M{x} 1120 L{x+90} {y} L{x+210} 1120 Z' fill='{dark}' opacity='{0.14+i*.04:.2f}'/>")
-    stars = []
-    for i in range(14):
-        x = 60 + ((seed >> (i%24)) + i*73) % 700
-        y = 72 + ((seed >> ((i+5)%24)) + i*47) % 310
-        stars.append(f"<circle cx='{x}' cy='{y}' r='{2+(i%3)}' fill='{accent}' opacity='.20'/>")
-    # Build an actual simple illustration silhouette, not a single icon glyph.
+def slug_from_title(title: str) -> str:
+    return re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+
+def real_art_base(title: str, kind: str = 'scene') -> Path:
+    """Pick existing painterly artwork, never vector silhouettes/icons, as the base."""
     lower = title.lower()
-    if kind == 'pet' or any(w in lower for w in ['pony','goat','stag','warg','mouse','moth','hedgehog','owl']):
-        subject = f"""
-        <g transform='translate(0,8)' opacity='.94'>
-          <ellipse cx='410' cy='478' rx='135' ry='70' fill='{dark}'/>
-          <circle cx='535' cy='438' r='54' fill='{dark}'/>
-          <path d='M557 386 q30 -92 72 -135 q-10 86 -39 146' fill='none' stroke='{dark}' stroke-width='18' stroke-linecap='round'/>
-          <path d='M524 389 q-42 -82 -86 -132 q18 92 64 147' fill='none' stroke='{dark}' stroke-width='16' stroke-linecap='round'/>
-          <path d='M310 520 l-44 118 M370 535 l-32 118 M455 535 l24 116 M520 515 l54 112' stroke='{dark}' stroke-width='22' stroke-linecap='round'/>
-          <path d='M270 455 q-84 -48 -126 18 q73 -4 126 42' fill='{dark}' opacity='.72'/>
-          <circle cx='550' cy='426' r='7' fill='#fff6d6'/>
-        </g>"""
-    elif kind == 'item' or any(w in lower for w in ['gear','potion','poison','item','lantern','rope','shield','blade','tea','vial','tool']):
-        subject = f"""
-        <g opacity='.95'>
-          <rect x='300' y='390' width='120' height='180' rx='28' fill='{dark}' opacity='.92'/>
-          <rect x='330' y='340' width='60' height='50' rx='15' fill='{accent}' opacity='.80'/>
-          <path d='M490 340 q95 65 24 164 q-62 71 -170 66' fill='none' stroke='{dark}' stroke-width='24' stroke-linecap='round'/>
-          <circle cx='360' cy='470' r='34' fill='#fff6d6' opacity='.38'/>
-          <path d='M220 610 q170 -92 390 0' fill='none' stroke='{accent}' stroke-width='18' opacity='.50' stroke-linecap='round'/>
-          <path d='M250 655 h320' stroke='{dark}' stroke-width='16' opacity='.45' stroke-linecap='round'/>
-        </g>"""
-    elif kind == 'quest':
-        subject = f"""
-        <g opacity='.95'>
-          <rect x='235' y='330' width='350' height='260' rx='18' fill='#fff2c3' opacity='.86' stroke='{dark}' stroke-width='10'/>
-          <path d='M280 395 h240 M280 455 h270 M280 515 h210' stroke='{dark}' stroke-width='15' opacity='.58' stroke-linecap='round'/>
-          <path d='M205 655 q185 -82 410 0' fill='none' stroke='{accent}' stroke-width='18' opacity='.55' stroke-linecap='round'/>
-          <path d='M600 270 q-55 45 -30 116 q70 -18 82 -92 q-25 25 -52 31' fill='{mid}' stroke='{dark}' stroke-width='6' opacity='.92'/>
-        </g>"""
-    elif kind == 'atlas':
-        subject = f"""
-        <g opacity='.94'>
-          <path d='M250 390 q140 -95 310 0 v210 q-160 -72 -310 0 z' fill='#fff2c3' opacity='.82' stroke='{dark}' stroke-width='10'/>
-          <path d='M285 430 q60 35 122 0 q65 -35 148 5 M300 505 q95 -45 210 20 M360 375 v210' fill='none' stroke='{accent}' stroke-width='12' opacity='.70' stroke-linecap='round'/>
-          <circle cx='500' cy='470' r='22' fill='{dark}' opacity='.75'/>
-          <path d='M180 665 q220 -78 460 0' fill='none' stroke='{dark}' stroke-width='16' opacity='.42' stroke-linecap='round'/>
-        </g>"""
-    else:
-        subject = f"""
-        <g opacity='.94'>
-          <path d='M255 560 q155 -260 310 0 z' fill='{dark}' opacity='.86'/>
-          <path d='M315 560 q95 -165 190 0' fill='{mid}' opacity='.70'/>
-          <circle cx='410' cy='390' r='66' fill='#fff2c3' opacity='.68'/>
-          <path d='M220 640 q190 -96 420 0' fill='none' stroke='{accent}' stroke-width='18' opacity='.54' stroke-linecap='round'/>
-          <path d='M175 710 q240 -80 470 0' fill='none' stroke='{dark}' stroke-width='12' opacity='.32' stroke-linecap='round'/>
-        </g>"""
-    svg=f"""<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 820 1120'>
-      <defs><radialGradient id='glow' cx='45%' cy='28%' r='64%'><stop stop-color='#fff9df' stop-opacity='.82'/><stop offset='1' stop-color='#fff9df' stop-opacity='0'/></radialGradient></defs>
-      <rect width='820' height='1120' fill='{bg}'/>
-      <rect width='820' height='1120' fill='url(#glow)'/>
-      {''.join(stars)}{''.join(hills)}
-      <path d='M0 850 C150 760 260 825 410 735 C560 640 650 760 820 690 L820 1120 L0 1120 Z' fill='{mid}' opacity='.42'/>
-      <circle cx='410' cy='430' r='210' fill='{accent}' opacity='.10'/>
-      {subject}
-      <text x='410' y='790' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='{dark}'>{esc_title}</text>
-    </svg>"""
-    dest.write_text(svg, encoding='utf-8')
-    return 'unique/' + filename
+    slug = slug_from_title(title)
+    candidates = [
+        f'{slug}.png', f'creature-{slug}.png', f'kindred-{slug}.png', f'job-{slug}.png',
+        slug.replace('of-alba','').strip('-') + '.png',
+    ]
+    keyword_map = [
+        (['goat','pony','stag','warg','mouse','moth','hedgehog','owl','seal','pet','mount','companion'], 'bg-mounts-pets.png'),
+        (['gear','potion','poison','item','lantern','rope','shield','blade','tea','vial','tool','treasure','craft'], 'item-gear-sheet.png'),
+        (['spell','magic','mage','spark'], 'bg-spell-gear.png'),
+        (['atlas','map','loch','road','border','town','kettleford','thistlewood'], 'alba-regional-map.png'),
+        (['quest','adventure','scene','campaign','banner','fort','march'], 'bg-campaign-red-banner.png'),
+        (['table','aid','checklist'], 'table-aids.png'),
+    ]
+    for name in candidates:
+        p = ART / name
+        if p.exists(): return p
+    for words, name in keyword_map:
+        if kind in words or any(w in lower for w in words):
+            p = ART / name
+            if p.exists(): return p
+    cycle = [ART / n for n in ART_CYCLE if (ART / n).exists()]
+    return cycle[stable_seed(title + kind) % len(cycle)]
+
+def make_real_art_variant(outdir: Path, filename: str, title: str, kind: str = 'scene', width: int = 1400, height: int = 1980) -> str:
+    """Create a cropped raster artwork variant from painterly PNG art; no SVG shapes/icons."""
+    outdir.mkdir(parents=True, exist_ok=True)
+    stem = Path(filename).stem
+    dest = outdir / f"{stem}.png"
+    base = real_art_base(title, kind)
+    seed = stable_seed(str(dest) + title + kind)
+    if dest.exists() and dest.stat().st_size > 10000:
+        return dest.name
+    # ffmpeg gives deterministic crop/scale/modulation without needing PIL.
+    sat = 0.88 + (seed % 17) / 100
+    bright = 0.94 + ((seed >> 4) % 14) / 100
+    gamma = 0.96 + ((seed >> 8) % 10) / 100
+    # Overscale then crop at a seed-specific position so reused bases still read as different framed artwork.
+    vf = (
+        f"scale={width}:{height}:force_original_aspect_ratio=increase,"
+        f"crop={width}:{height}:x='(iw-{width})*{(seed % 997)/997:.3f}':y='(ih-{height})*{((seed>>10)%997)/997:.3f}',"
+        f"eq=saturation={sat:.2f}:brightness={(bright-1):.3f}:gamma={gamma:.2f}"
+    )
+    cmd = ['ffmpeg','-y','-loglevel','error','-i',str(base),'-vf',vf,'-frames:v','1',str(dest)]
+    try:
+        subprocess.run(cmd, check=True)
+    except Exception:
+        shutil.copyfile(base, dest)
+    return dest.name
+
+def make_unique_scene_asset(filename: str, title: str, kind: str = 'scene') -> str:
+    name = make_real_art_variant(ART / 'real', filename, title, kind)
+    return 'real/' + name
 
 def make_unique_wash_asset(book_slug: str, page_no: int, title: str) -> str:
-    name = f"wash-{book_slug}-{page_no:03d}-{stable_seed(title) & 0xffff:04x}.svg"
-    rel = make_unique_scene_asset(name, title, 'wash')
-    return rel
+    name = f"wash-{book_slug}-{page_no:03d}-{stable_seed(title) & 0xffff:04x}.png"
+    real = make_real_art_variant(ART / 'wash' / 'real', name, title, 'wash')
+    return 'real/' + real
 
 def make_card_badge(label: str) -> str:
-    seed = stable_seed(label)
-    colors = ['#f2d68b,#8fbf78,#6f2d29','#d7b2e6,#8a5fa4,#56336d','#aad7e8,#497894,#24516a','#e8b88f,#9a553e,#6f2d29','#cde2a6,#6f8d49,#285740']
-    c1, c2, c3 = colors[seed % len(colors)].split(',')
-    # Decorative mini illustration made from shapes only: no Unicode symbols/icons.
-    return ("<span class='card-illo' style='background:linear-gradient(135deg,"+c1+","+c2+")'>"
-            "<span class='ci-hill' style='background:"+c3+"'></span>"
-            "<span class='ci-moon'></span>"
-            "<span class='ci-line' style='background:"+c3+"'></span>"
-            "</span>")
+    name = make_real_art_variant(ART / 'real' / 'cards', f"card-{slug_from_title(label)}-{stable_seed(label)&0xffff:04x}.png", label, 'card', width=640, height=480)
+    return f"<img class='card-illo' src='../art/generated/real/cards/{name}' alt='{esc(label)} artwork'>"
 
 def illustrated_print_card(label: str, text: str) -> str:
     return f"<div class='print-card'>{make_card_badge(label)}<h3>{label}</h3><p>{text}</p></div>"
@@ -306,7 +277,7 @@ class Book:
     def art_text_page(self, title: str, body: str, image: str, side: str = 'right', columns=False, extra_cls: str = ''):
         p = self.page_no()
         cls = 'columns' if columns else ''
-        if image.startswith('unique/'):
+        if image.startswith('unique/') or image.startswith('real/'):
             src = art(image)
         else:
             src = wash_art(image)
@@ -1405,9 +1376,9 @@ for slug in ['quickstart-pack','printable-cards']:
         txt = txt.replace('<main class="book">', '<main class="book low-ink">')
         (PRINT / f'{slug}-low-ink-a4.html').write_text(txt, encoding='utf-8')
 
-# Final no-reused-art pass across every generated HTML, including low-ink variants
-# and style-proof HTML that may pre-exist in printable-a4/. Exact src reuse is
-# replaced with unique generated SVG art so no page points at the same artwork.
+# Final artwork pass across every generated HTML, including low-ink variants
+# and style-proof HTML that may pre-exist in printable-a4/. Exact src reuse and
+# any legacy SVG/shape placeholder source are replaced with real raster artwork.
 seen_final = {}
 for html_path in sorted(PRINT.glob('*-a4.html')):
     txt = html_path.read_text(encoding='utf-8')
@@ -1415,9 +1386,10 @@ for html_path in sorted(PRINT.glob('*-a4.html')):
         src = m.group(1)
         n = seen_final.get(src, 0)
         seen_final[src] = n + 1
-        if n == 0:
+        legacy_shape_src = src.endswith('.svg') or '/unique/' in src
+        if n == 0 and not legacy_shape_src:
             return 'src="' + src + '"'
-        filename = f"final-no-reuse-{html_path.stem}-{n:03d}-{stable_seed(src+html_path.name+str(n)) & 0xffff:04x}.svg"
+        filename = f"final-no-reuse-{html_path.stem}-{n+1:03d}-{stable_seed(src+html_path.name+str(n)) & 0xffff:04x}.png"
         rel = make_unique_scene_asset(filename, Path(src).stem.replace('-', ' ').title(), 'scene')
         return 'src="../art/generated/' + rel + '"'
     txt = re.sub(r'src="(\.\./art/generated/[^"]+)"', repl_final, txt)
