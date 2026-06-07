@@ -67,6 +67,14 @@ The project tracks QA contact sheets under `qa/`. Recent QA passes verify:
 
 
 
+
+
+### v0.7 full-page feathered art washes
+
+- Enlarged transparent feathered-edge art layers so they fit/cover the full A4 page instead of appearing as small vignettes.
+- Kept the no-grey-box approach from v0.6 while making the art feel intentionally integrated into the page.
+- Rebuilt, compressed, and visually QA’d the complained-about gear, equipment, magic-item, potion/poison, card, atlas, and campaign pages.
+
 ### v0.6 transparent art-layer fix
 
 - Removed the grey full-page/background rectangle treatment.

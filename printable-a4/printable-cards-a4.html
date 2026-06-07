@@ -87,16 +87,21 @@ th,td { border:1px solid #c8ac72; padding:2mm 1.8mm; vertical-align:top; } th { 
 .badge { display:inline-block; padding:.8mm 2mm; margin:.4mm .8mm .4mm 0; background:#ead9ad; border:1px solid #b9954d; border-radius:4mm; font-size:8.5pt; }
 .toc li { margin:1.2mm 0; }
 
-.artwash { position:absolute; z-index:0; pointer-events:none; opacity:1; filter:none; object-fit:contain; object-position:center; }
-.artwash.right { right:-18mm; bottom:8mm; width:118mm; height:112mm; }
-.artwash.left { left:-18mm; bottom:8mm; width:118mm; height:112mm; }
-.artwash.full { left:20mm; right:20mm; bottom:15mm; width:170mm; height:170mm; }
+.artwash { position:absolute; z-index:0; pointer-events:none; opacity:.82; filter:none; object-fit:cover; object-position:center; }
+/* Full-page transparent art wash: big enough to fill A4, with feathered PNG alpha handling the dissolve. */
+.artwash.right, .artwash.left, .artwash.auto, .artwash.full {
+  left:-10mm; right:auto; top:-8mm; bottom:auto;
+  width:230mm; height:315mm;
+  object-fit:cover; object-position:center;
+}
+.artwash.auto.left, .artwash.left { left:-18mm; object-position:left center; }
+.artwash.auto.right, .artwash.right { left:-2mm; object-position:right center; }
+.artwash.full { left:-10mm; object-position:center center; }
 .wash-content { position:relative; z-index:2; }
 .page > h2.section, .page > div:not(.page-number), .page > table, .page > p, .page > ol, .page > ul { position:relative; z-index:2; }
 
-.artwash.auto { right:-26mm; bottom:-18mm; width:142mm; height:132mm; object-fit:contain; object-position:center; opacity:1; filter:none; }
-.artwash.auto.left { left:-22mm; right:auto; }
 .page .columns, .page .split, .page table, .page .card-grid, .page .sheet, .page .draw-frame { position:relative; z-index:2; }
+.wash-content .split, .wash-content table, .page > .columns, .page > .split { background:rgba(255,251,239,.58); backdrop-filter:none; border-radius:2mm; padding:1mm; }
 .low-ink .page { background:#fffdf6 !important; }
 .low-ink .artwash, .low-ink .spot, .low-ink .hero-strip, .low-ink .full-bleed img { opacity:.16 !important; filter:none !important; }
 .print-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; }
