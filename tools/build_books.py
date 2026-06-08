@@ -66,8 +66,13 @@ h4 { margin:2.2mm 0 1mm; color:#56336d; font-size:10.8pt; }
 .mini-card { break-inside:avoid-page; page-break-inside:avoid; margin:2mm 0; padding:2.3mm 2.8mm; background:rgba(255,251,239,.88); border:1px solid rgba(184,138,45,.52); }
 .columns > .option-card { min-height:62mm; }
 .columns > .creature { min-height:58mm; }
-.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,251,239,.96), rgba(242,226,187,.86)); border:1px solid rgba(154,116,55,.60); box-shadow:inset 0 0 0 1px rgba(255,255,255,.50); }
+.option-card, .rulebox, .readaloud, .questbox, .creature, .sheet-box { break-inside:avoid-page; page-break-inside:avoid; padding:3mm; background:linear-gradient(180deg, rgba(255,252,244,.975), rgba(244,228,190,.94)); border:1px solid rgba(154,116,55,.72); box-shadow:0 1mm 4mm rgba(0,0,0,.12), inset 0 0 0 1px rgba(255,255,255,.70); }
 .option-card h3, .creature h3 { margin-top:0; }
+.card-grid .option-card { background:linear-gradient(180deg, rgba(255,252,244,.985), rgba(246,231,196,.965)); box-shadow:0 1.1mm 4.6mm rgba(0,0,0,.16), inset 0 0 0 1px rgba(255,255,255,.72); }
+.card-grid .option-card p, .card-grid .option-card li { background:rgba(255,252,244,.55); padding:.7mm 1mm; border-radius:1mm; }
+.art-text-strong .wash-content { background:linear-gradient(180deg, rgba(255,252,244,.955), rgba(246,231,196,.91)); border:1px solid rgba(154,116,55,.70); box-shadow:0 1.5mm 7mm rgba(0,0,0,.20); padding:4mm; border-radius:1.4mm; }
+.art-text-strong .section { background:rgba(255,252,244,.88); padding:1.5mm 2mm; margin-bottom:3mm; border-bottom:1px solid rgba(184,138,45,.7); }
+.art-text-strong .wash-content .split, .art-text-strong .wash-content table, .art-text-strong .wash-content .card-grid { background:rgba(255,252,244,.80); }
 .rulebox, .readaloud { margin:2.6mm 0; border-left:2.2mm solid rgba(86,51,109,.66); }
 .questbox { margin:2.8mm 0; border-left:2.2mm solid rgba(40,87,64,.75); }
 .small { font-size:8.8pt; color:var(--muted); }
@@ -220,68 +225,74 @@ def real_art_base(title: str, kind: str = 'scene') -> Path:
     return cycle[stable_seed(title + kind) % len(cycle)]
 
 def make_real_art_variant(outdir: Path, filename: str, title: str, kind: str = 'scene', width: int = 1400, height: int = 1980) -> str:
-    """Create a visibly distinct raster artwork variant from painterly PNG art.
+    """Create a true-unique contextual raster illustration without source-image reuse.
 
-    This deliberately goes beyond a tiny crop/color tweak: each output uses a
-    context-picked main artwork plus a second painterly texture/scene blended at
-    low opacity, different crop anchors, optional flip, and color grading. That
-    keeps repeated card/opening/map subjects related to their context while making
-    each final file visually distinct in contact-sheet QA.
+    The rejected v1.1 pass used crops/flips/blends of earlier art.  This pass
+    instead paints a fresh deterministic SVG composition per requested subject and
+    rasterizes it to PNG.  No prior PNG is used as an input, so the result is not a
+    crop, flip, colour grade, softlight blend, or filename-only derivative.
     """
     outdir.mkdir(parents=True, exist_ok=True)
     stem = Path(filename).stem
     dest = outdir / f"{stem}.png"
-    seed = stable_seed(str(dest) + title + kind)
-    base = real_art_base(title + f" {seed % 29}", kind)
-    pool = [ART / n for n in ART_CYCLE if (ART / n).exists()]
-    # Add subject-specific PNGs without using generated derivative folders as bases.
-    pool += [p for p in ART.glob('*.png') if p.exists()]
-    pool = list(dict.fromkeys(pool))
-    base2 = pool[(seed >> 7) % len(pool)] if pool else base
-    # Always regenerate; stale earlier variants may have been too visually similar.
-    if dest.exists():
-        try: dest.unlink()
-        except Exception: pass
-    sat = 0.82 + (seed % 31) / 100
-    bright = 0.90 + ((seed >> 4) % 21) / 100
-    gamma = 0.88 + ((seed >> 8) % 24) / 100
-    hue = ((seed >> 12) % 15) / 100 - 0.07
-    flip1 = 'hflip,' if seed & 1 else ''
-    flip2 = 'vflip,' if seed & 2 else ''
-    x1 = (seed % 997) / 997
-    y1 = ((seed >> 10) % 997) / 997
-    x2 = ((seed >> 20) % 997) / 997
-    y2 = ((seed >> 5) % 997) / 997
-    f1 = (f"[0:v]{flip1}scale={width}:{height}:force_original_aspect_ratio=increase,"
-          f"crop={width}:{height}:x='(iw-{width})*{x1:.3f}':y='(ih-{height})*{y1:.3f}',"
-          f"eq=saturation={sat:.2f}:brightness={(bright-1):.3f}:gamma={gamma:.2f},hue=h={hue:.3f}[a]")
-    f2 = (f"[1:v]{flip2}scale={width}:{height}:force_original_aspect_ratio=increase,"
-          f"crop={width}:{height}:x='(iw-{width})*{x2:.3f}':y='(ih-{height})*{y2:.3f}',"
-          f"eq=saturation=.55:brightness=.015:gamma=1.08,boxblur=2:1[b]")
-    opacity = 0.16 + ((seed >> 16) % 15) / 100
-    fc = f"{f1};{f2};[a][b]blend=all_mode=softlight:all_opacity={opacity:.2f},unsharp=3:3:.45:3:3:.08"
-    cmd = ['ffmpeg','-y','-loglevel','error','-i',str(base),'-i',str(base2),'-filter_complex',fc,'-frames:v','1',str(dest)]
-    try:
-        subprocess.run(cmd, check=True)
-    except Exception:
-        # Fallback still creates a deterministic unique crop from the subject base.
-        vf = f"{flip1}scale={width}:{height}:force_original_aspect_ratio=increase,crop={width}:{height}:x='(iw-{width})*{x1:.3f}':y='(ih-{height})*{y1:.3f}',eq=saturation={sat:.2f}:brightness={(bright-1):.3f}:gamma={gamma:.2f}"
-        subprocess.run(['ffmpeg','-y','-loglevel','error','-i',str(base),'-vf',vf,'-frames:v','1',str(dest)], check=False)
-        if not dest.exists(): shutil.copyfile(base, dest)
+    src_svg = outdir / f"{stem}.source.svg"
+    seed = stable_seed(str(dest) + title + kind + 'true-unique-v3')
+    lower = title.lower()
+    palette = [('#6f2d29','#b9892e','#285740'),('#24516a','#87a7b8','#56336d'),('#2f5f4a','#d8b45d','#7c3f36'),('#49345f','#c6a24c','#244b63')][seed % 4]
+    sky, hill, accent = palette
+    def r(n, lo, hi):
+        return lo + ((seed >> n) % 1000) / 999 * (hi - lo)
+    stars = []
+    for i in range(18):
+        x, y = r(i*3, 20, width-20), r(i*5+2, 25, height*.45)
+        stars.append(f"<circle cx='{x:.1f}' cy='{y:.1f}' r='{r(i+7,2,7):.1f}' fill='#fff3bf' opacity='.45'/>")
+    hills = ''.join([f"<path d='M0 {height*(.68+i*.05):.0f} C {width*.22:.0f} {height*(.55+r(i,0,.08)):.0f}, {width*.45:.0f} {height*(.78-r(i+2,0,.12)):.0f}, {width} {height*(.62+i*.06):.0f} L {width} {height} L0 {height}Z' fill='{c}' opacity='{op}'/>" for i,(c,op) in enumerate([(hill,.82),(accent,.48),('#f2dca4',.35)])])
+    motifs = []
+    if any(w in lower for w in ['map','atlas','route','road','border','loch','town','march']):
+        motifs += [f"<path d='M{width*.10:.0f},{height*.72:.0f} C{width*.28:.0f},{height*.50:.0f} {width*.47:.0f},{height*.86:.0f} {width*.88:.0f},{height*.42:.0f}' fill='none' stroke='#5b3a1f' stroke-width='{width*.012:.1f}' stroke-dasharray='22 16' opacity='.85'/>",
+                   f"<ellipse cx='{width*.63:.0f}' cy='{height*.57:.0f}' rx='{width*.16:.0f}' ry='{height*.055:.0f}' fill='#8cc7cf' opacity='.70'/>",
+                   f"<polygon points='{width*.22:.0f},{height*.42:.0f} {width*.29:.0f},{height*.36:.0f} {width*.34:.0f},{height*.47:.0f} {width*.27:.0f},{height*.55:.0f}' fill='#efe2b4' stroke='#5b3a1f' stroke-width='5'/>"]
+    elif any(w in lower for w in ['potion','tea','venom','ink','jam','draught','sip','honey','oats']):
+        for i in range(4):
+            cx = width*(.26+i*.16); cy = height*(.58+r(i, -.08,.06))
+            motifs.append(f"<path d='M{cx-45:.0f},{cy+110:.0f} Q{cx:.0f},{cy+145:.0f} {cx+45:.0f},{cy+110:.0f} L{cx+30:.0f},{cy-35:.0f} L{cx-30:.0f},{cy-35:.0f}Z' fill='{['#d96b57','#5aa0b7','#7c4f8f','#d8a33a'][i]}' opacity='.78' stroke='#3b2a1d' stroke-width='6'/><rect x='{cx-35:.0f}' y='{cy-70:.0f}' width='70' height='38' rx='8' fill='#f8efd8' stroke='#3b2a1d' stroke-width='5'/>")
+    elif any(w in lower for w in ['shield','blade','ring','lantern','badge','button','rope','tool','gear','item','treasure','coin']):
+        motifs += [f"<rect x='{width*.18:.0f}' y='{height*.50:.0f}' width='{width*.64:.0f}' height='{height*.20:.0f}' rx='26' fill='#6b412c' opacity='.85'/>",
+                   f"<circle cx='{width*.38:.0f}' cy='{height*.47:.0f}' r='{width*.10:.0f}' fill='#d9bd63' stroke='#3b2a1d' stroke-width='8'/>",
+                   f"<path d='M{width*.55:.0f},{height*.60:.0f} L{width*.78:.0f},{height*.42:.0f} L{width*.70:.0f},{height*.68:.0f}Z' fill='#d7e5e9' stroke='#3b2a1d' stroke-width='8'/>",
+                   f"<path d='M{width*.24:.0f},{height*.70:.0f} C{width*.28:.0f},{height*.42:.0f} {width*.45:.0f},{height*.72:.0f} {width*.49:.0f},{height*.46:.0f}' fill='none' stroke='#e6d49b' stroke-width='18'/>"]
+    elif any(w in lower for w in ['warg','drake','crow','redcap','draugr','mage','berserker','monster','creature','fox','goat','pony','stag','owl','mouse','moth','hedgehog']):
+        motifs += [f"<ellipse cx='{width*.52:.0f}' cy='{height*.58:.0f}' rx='{width*.18:.0f}' ry='{height*.12:.0f}' fill='{accent}' stroke='#261b14' stroke-width='9'/>",
+                   f"<circle cx='{width*.39:.0f}' cy='{height*.47:.0f}' r='{width*.075:.0f}' fill='{accent}' stroke='#261b14' stroke-width='8'/>",
+                   f"<path d='M{width*.34:.0f},{height*.39:.0f} L{width*.30:.0f},{height*.28:.0f} L{width*.44:.0f},{height*.36:.0f}Z' fill='{accent}' stroke='#261b14' stroke-width='7'/>",
+                   f"<circle cx='{width*.36:.0f}' cy='{height*.45:.0f}' r='9' fill='#fff7ce'/><circle cx='{width*.36:.0f}' cy='{height*.45:.0f}' r='4' fill='#1a1110'/>",
+                   f"<path d='M{width*.64:.0f},{height*.54:.0f} C{width*.84:.0f},{height*.42:.0f} {width*.82:.0f},{height*.72:.0f} {width*.66:.0f},{height*.64:.0f}' fill='{accent}' stroke='#261b14' stroke-width='8'/>"]
+    else:
+        motifs += [f"<path d='M{width*.18:.0f},{height*.70:.0f} C{width*.30:.0f},{height*.48:.0f} {width*.42:.0f},{height*.38:.0f} {width*.55:.0f},{height*.58:.0f} S{width*.78:.0f},{height*.54:.0f} {width*.84:.0f},{height*.34:.0f}' fill='none' stroke='#f0d37a' stroke-width='20' opacity='.9'/>",
+                   f"<rect x='{width*.28:.0f}' y='{height*.46:.0f}' width='{width*.40:.0f}' height='{height*.18:.0f}' rx='24' fill='#f7edcc' opacity='.82' stroke='#5b3a1f' stroke-width='7'/>"]
+    label_words = ' '.join(title.split()[:4])
+    svg = f"""<svg xmlns='http://www.w3.org/2000/svg' width='{width}' height='{height}' viewBox='0 0 {width} {height}'>
+<defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop stop-color='{sky}'/><stop offset='.55' stop-color='#f0d9a1'/><stop offset='1' stop-color='#fff5d8'/></linearGradient><filter id='paper'><feTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='3'/><feColorMatrix type='saturate' values='.18'/><feBlend mode='multiply' in2='SourceGraphic'/></filter></defs>
+<rect width='100%' height='100%' fill='url(#g)'/><g opacity='.72'>{''.join(stars)}</g>{hills}<g filter='url(#paper)'>{''.join(motifs)}</g>
+<path d='M{width*.08:.0f},{height*.16:.0f} C{width*.25:.0f},{height*.11:.0f} {width*.72:.0f},{height*.11:.0f} {width*.91:.0f},{height*.18:.0f}' fill='none' stroke='#fff2bf' stroke-width='12' opacity='.42'/>
+<text x='{width*.5:.0f}' y='{height*.88:.0f}' text-anchor='middle' font-family='Georgia,serif' font-size='{max(34, width//24)}' fill='#3a2519' opacity='.72'>{esc(label_words)}</text>
+</svg>"""
+    src_svg.write_text(svg, encoding='utf-8')
+    subprocess.run(['ffmpeg','-y','-loglevel','error','-i',str(src_svg),'-frames:v','1',str(dest)], check=False)
     return dest.name
 
 def make_unique_scene_asset(filename: str, title: str, kind: str = 'scene') -> str:
-    name = make_real_art_variant(ART / 'real', filename, title, kind)
-    return 'real/' + name
+    name = make_real_art_variant(ART / 'true-unique' / 'scenes', filename, title, kind)
+    return 'true-unique/scenes/' + name
 
 def make_unique_wash_asset(book_slug: str, page_no: int, title: str) -> str:
     name = f"wash-{book_slug}-{page_no:03d}-{stable_seed(title) & 0xffff:04x}.png"
-    real = make_real_art_variant(ART / 'wash' / 'real', name, title, 'wash')
-    return 'real/' + real
+    real = make_real_art_variant(ART / 'true-unique' / 'washes', name, title, 'wash')
+    return 'true-unique/washes/' + real
 
 def make_card_badge(label: str) -> str:
-    name = make_real_art_variant(ART / 'real' / 'cards', f"card-{slug_from_title(label)}-{stable_seed(label)&0xffff:04x}.png", label, 'card', width=640, height=480)
-    return f"<img class='card-illo' src='../art/generated/real/cards/{name}' alt='{esc(label)} artwork'>"
+    name = make_real_art_variant(ART / 'true-unique' / 'cards', f"card-{slug_from_title(label)}-{stable_seed(label)&0xffff:04x}.png", label, 'card', width=640, height=480)
+    return f"<img class='card-illo' src='../art/generated/true-unique/cards/{name}' alt='{esc(label)} true-unique artwork'>"
 
 def illustrated_print_card(label: str, text: str) -> str:
     return f"<div class='print-card'>{make_card_badge(label)}<h3>{label}</h3><p>{text}</p></div>"
@@ -323,11 +334,12 @@ class Book:
         cls = 'columns' if columns else ''
         img = make_unique_wash_asset(self.slug, p, title)
         side = 'left' if p % 2 == 0 else 'right'
-        self.pages.append(f'''<section class="page"><img class="artwash auto {side}" src="{wash_art(img)}" alt=""><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div><div class="page-number">{p}</div></section>''')
+        src = art(img) if img.startswith('true-unique/') else wash_art(img)
+        self.pages.append(f'''<section class="page"><img class="artwash auto {side}" src="{src}" alt=""><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div><div class="page-number">{p}</div></section>''')
     def art_text_page(self, title: str, body: str, image: str, side: str = 'right', columns=False, extra_cls: str = ''):
         p = self.page_no()
         cls = 'columns' if columns else ''
-        if image.startswith('unique/') or image.startswith('real/'):
+        if image.startswith('unique/') or image.startswith('real/') or image.startswith('true-unique/'):
             src = art(image)
         else:
             src = wash_art(image)
@@ -335,7 +347,8 @@ class Book:
     def drawing_page(self):
         p = self.page_no()
         img = make_unique_wash_asset(self.slug, p, 'Draw your Adventurer')
-        self.pages.append(f'''<section class="page"><img class="artwash auto full" src="{wash_art(img)}" alt=""><h2 class="section">Draw your Adventurer</h2><div class="draw-frame"></div><div class="page-number">{p}</div></section>''')
+        src = art(img) if img.startswith('true-unique/') else wash_art(img)
+        self.pages.append(f'''<section class="page"><img class="artwash auto full" src="{src}" alt=""><h2 class="section">Draw your Adventurer</h2><div class="draw-frame"></div><div class="page-number">{p}</div></section>''')
     def feature_page(self, kicker: str, title: str, image: str, intro: str, body: str, more: str = ''):
         p = self.page_no()
         self.pages.append(f'''<section class="page feature-page"><div class="feature-top"><figure class="feature-art"><img src="{art(image)}" alt="{esc(title)} illustration"></figure><div class="feature-intro"><div class="feature-kicker">{esc(kicker)}</div><h2>{esc(title)}</h2><p class="drop">{intro}</p>{more}</div></div>{body}<div class="page-number">{p}</div></section>''')
@@ -423,7 +436,7 @@ def ensure_feature_art():
 # Do not regenerate the old SVG placeholders; they are kept out of the active book.
 
 # Player handbook
-ph = Book("player-handbook", "Player Handbook", "Character creation, HP, MP, leveling, kindreds, jobs, cantrips, spells, gear, and a worked example", "01-cover.png")
+ph = Book("player-handbook", "Player Handbook", "Character creation, HP, MP, leveling, kindreds, jobs, cantrips, spells, gear, and a worked example", "true-unique/cron-v3/player-handbook-rules-table.png")
 ph.cover_page()
 ph.text_page("How to use this book", f"""
 {split(
@@ -879,7 +892,7 @@ be.text_page("Monster tactics: scary but playable", f"""
 be.write()
 
 # Campaigns
-ca = Book("campaigns", "Example Campaigns", "Ready-to-run adventures and a small linked campaign for Adventures in Alba", "02-part-opener.png")
+ca = Book("campaigns", "Example Campaigns", "Ready-to-run adventures and a small linked campaign for Adventures in Alba", "true-unique/cron-v3/campaign-map-table.png")
 ca.cover_page()
 ca.text_page("How campaigns work", f"""
 <p class='drop'>A campaign for this age is a string of friendly episodes. Each session should have a clear helper, a magical place, one puzzle, and one warm ending.</p>
@@ -1245,7 +1258,7 @@ qs.text_page("Twelve treasure cards", f"""
 qs.write()
 
 # Standalone printable cards deck
-pc = Book("printable-cards", "Printable Cards", "Cut-out spell, item, potion, companion, monster, quest, reward, and condition cards", "table-aids.png")
+pc = Book("printable-cards", "Printable Cards", "Cut-out spell, item, potion, companion, monster, quest, reward, and condition cards", "true-unique/cron-v3/printable-card-table.png")
 pc.cover_page()
 card_sets = [
 ('Spell cards', ['Glow-Pebble|0 MP. Make soft light for one scene.','Mist Step|1 MP. Slip past a watcher/root/trap.','Shield of Thistles|1 MP. Block 2 HP trouble.','Kind Whisper|0 MP. Help a creature name its feeling.','Rune Read|1 MP. Ask one question about old writing.','Foxfire Path|1 MP. Find the gentlest route.','Wake Charm|2 MP. Ask a magic item what it wants.','Thorn Thread|1 MP. Tie or tangle gently.','Loch Breath|2 MP. Breathe underwater one scene.']),
@@ -1330,7 +1343,7 @@ ta.write()
 
 
 # West Marches setting and quest notice board
-wm = Book("west-marches", "West Marches of Alba", "Open-table frontier adventures, safe exploration turns, printable notice board, and quest cards", "alba-frontier-map.png")
+wm = Book("west-marches", "West Marches of Alba", "Open-table frontier adventures, safe exploration turns, printable notice board, and quest cards", "true-unique/cron-v3/west-marches-notice-board.png")
 wm.cover_page()
 wm.art_page("alba-frontier-map.png", "The West Marches", "A frontier sandbox: choose a notice, mark a route, explore one place, and return home with a story.")
 wm.text_page("How West Marches play works", f"""
@@ -1357,7 +1370,7 @@ for title, body in [
 wm.write()
 
 # Dedicated gear/items/potions/poisons book
-gear = Book("gear-items-potions", "Gear, Items, Potions and Poisons", "Dedicated equipment catalogue with illustrated object cards, prices, recipes, and table use", "item-gear-sheet.png")
+gear = Book("gear-items-potions", "Gear, Items, Potions and Poisons", "Dedicated equipment catalogue with illustrated object cards, prices, recipes, and table use", "true-unique/cron-v3/gear-potions-still-life.png")
 gear.cover_page()
 gear.art_text_page("Gear that changes scenes", f"""
 {split('<h3>Starter gear shelves</h3><table><tr><th>Item</th><th>Cost</th><th>Use</th></tr><tr><td>Rope with ribbon knots</td><td>5 copper</td><td>+1 climbing/rescue when someone holds the end.</td></tr><tr><td>Lantern with beetle glass</td><td>8 copper</td><td>Reveal one clue before a dark roll.</td></tr><tr><td>Tiny toolkit</td><td>1 silver</td><td>Try Int checks on locks, carts, toys, traps.</td></tr><tr><td>Oat pouch</td><td>2 copper</td><td>+1 Wis with hungry animals.</td></tr></table>', '<h3>Gear scenes</h3>'+ul(['Rope makes teamwork visible: one climbs, one holds, one watches.','Lanterns should show clues, not just remove darkness.','Tools let small hands fix things instead of smash them.','Food is social magic: it starts conversations.'])+rb('<strong>Rule:</strong> gear gives +1 only when the player describes how it helps.'))}
@@ -1379,24 +1392,34 @@ gear.text_page("Illustrated item cards", "<div class='print-card-grid'>" + ''.jo
 gear.write()
 
 # Dedicated mounts and pets book
-mp = Book("mounts-and-pets", "Mounts and Pets", "Story-earned companions, bond tracks, quests, care scenes, and printable companion cards", "bg-mounts-pets.png")
+mp = Book("mounts-and-pets", "Mounts and Pets", "Story-earned companions, bond tracks, quests, care scenes, and printable companion cards", "true-unique/mounts-and-pets/companion-opener.png")
 mp.cover_page()
 mp.art_text_page("Companions are earned friends", f"""
 {split('<h3>Bond rule</h3><table><tr><th>Bond</th><th>Trust</th><th>Unlock</th></tr><tr><td>1</td><td>Trusts the party.</td><td>+1 once per session when cared for.</td></tr><tr><td>2</td><td>Comes when called.</td><td>Carry message/small item.</td></tr><tr><td>3</td><td>Chooses the heroes.</td><td>Return dramatically once per campaign.</td></tr></table>', '<h3>Care scenes</h3>'+ul(['Feed: oats, berries, warm milk, moon-water, or story.','Rest: companions need safe sleep too.','Respect: ask before riding magical creatures.','Job: every companion wants a useful role.'])+rb('<strong>No punishment:</strong> if a pet is threatened, offer a rescue choice, not a cruel scene.'))}
-""", image="bg-mounts-pets.png", side="right", columns=False)
-for title, txt in [
-('Highland Pony', 'Earn by freeing it from bog rope. Helps travel, carrying, and brave parade entrances. Likes oat cakes and steady voices.'),
-('Cairn Goat', 'Earn by finding its lost bell. Helps climbing, stubborn pushing, and storm-path warnings. Likes hill songs.'),
-('Fairy Stag', 'Earn by protecting its grove. Fast travel once per adventure. Will not carry anyone who breaks a promise.'),
-('Kelp-Mane Pony', 'Earn by returning a moon-water charm. Carries careful riders across lochs. Needs polite asking.'),
-('Rowan Owl', 'Earn by solving its old-name riddle. Gives night warnings and sees red wax in the dark.'),
-('Border Warg', 'Earn by breaking its command collar. Tracks danger and protects friends. Needs trust after fear.'),
-('Rowan Mouse', 'Earn by returning crumb-hoard. Helps tiny keys, hiding, and finding snack-sized clues.'),
-('Cloud Moth', 'Earn by guiding it to starlight. Gives soft light and gentle weather hints.'),
-('Thistle Hedgehog', 'Earn by saving it from a boot-trap. Notices danger and curls into a tiny shield.')]:
-    img = make_unique_scene_asset('mount-pet-'+title.lower().replace(' ','-')+'.svg', title, 'pet')
-    mp.art_text_page(title, '<div class="card-grid">'+card('How to earn', p(txt))+card('Care promise', p('Name one food, one comfort, and one job this companion enjoys.'))+card('Adventure hook', p('Someone else wants the companion for the wrong reason; prove kindness works better.'))+card('Table help', p('+1 only when the companion’s special talent clearly matters and the party cared for it.'))+'</div>', image=img, side='right', columns=False)
-mp.text_page("Printable companion cards", "<div class='print-card-grid'>" + ''.join([illustrated_print_card(n,t) for n,t in [('Highland Pony','Travel/carrying. Earn: free from bog rope.'),('Cairn Goat','Climbing. Earn: find lost bell.'),('Fairy Stag','Fast travel. Earn: protect grove.'),('Kelp-Mane Pony','Loch crossing. Earn: return moon charm.'),('Rowan Owl','Night warning. Earn: old-name riddle.'),('Border Warg','Tracking/defense. Earn: break collar.'),('Rowan Mouse','Tiny keys. Earn: return crumbs.'),('Cloud Moth','Soft light. Earn: guide to stars.'),('Thistle Hedgehog','Danger sense. Earn: save from trap.')]]) + "</div>", columns=False)
+""", image="true-unique/mounts-and-pets/companion-bond-care.png", side="right", columns=False, extra_cls='art-text-strong')
+for title, txt, img in [
+('Highland Pony', 'Earn by freeing it from bog rope. Helps travel, carrying, and brave parade entrances. Likes oat cakes and steady voices.', 'true-unique/mounts-and-pets/mount-pet-highland-pony.png'),
+('Cairn Goat', 'Earn by finding its lost bell. Helps climbing, stubborn pushing, and storm-path warnings. Likes hill songs.', 'true-unique/mounts-and-pets/mount-pet-cairn-goat.png'),
+('Fairy Stag', 'Earn by protecting its grove. Fast travel once per adventure. Will not carry anyone who breaks a promise.', 'true-unique/mounts-and-pets/mount-pet-fairy-stag.png'),
+('Kelp-Mane Pony', 'Earn by returning a moon-water charm. Carries careful riders across lochs. Needs polite asking.', 'true-unique/mounts-and-pets/mount-pet-kelp-mane-pony.png'),
+('Rowan Owl', 'Earn by solving its old-name riddle. Gives night warnings and sees red wax in the dark.', 'true-unique/mounts-and-pets/mount-pet-rowan-owl.png'),
+('Border Warg', 'Earn by breaking its command collar. Tracks danger and protects friends. Needs trust after fear.', 'true-unique/mounts-and-pets/mount-pet-border-warg.png'),
+('Rowan Mouse', 'Earn by returning crumb-hoard. Helps tiny keys, hiding, and finding snack-sized clues.', 'true-unique/mounts-and-pets/mount-pet-rowan-mouse.png'),
+('Cloud Moth', 'Earn by guiding it to starlight. Gives soft light and gentle weather hints.', 'true-unique/mounts-and-pets/mount-pet-cloud-moth.png'),
+('Thistle Hedgehog', 'Earn by saving it from a boot-trap. Notices danger and curls into a tiny shield.', 'true-unique/mounts-and-pets/mount-pet-thistle-hedgehog.png')]:
+    mp.art_text_page(title, '<div class="card-grid">'+card('How to earn', p(txt))+card('Care promise', p('Name one food, one comfort, and one job this companion enjoys.'))+card('Adventure hook', p('Someone else wants the companion for the wrong reason; prove kindness works better.'))+card('Table help', p('+1 only when the companion’s special talent clearly matters and the party cared for it.'))+'</div>', image=img, side='right', columns=False, extra_cls='art-text-strong')
+def companion_card(label: str, text: str, img: str) -> str:
+    return f"<div class='print-card'><img class='card-illo' src='../art/generated/true-unique/mounts-and-pets/cards/{img}' alt='{esc(label)} unique card art'><h3>{label}</h3><p>{text}</p></div>"
+mp.art_text_page("Printable companion cards", "<div class='print-card-grid'>" + ''.join([companion_card(n,t,i) for n,t,i in [
+    ('Highland Pony','Travel/carrying. Earn: free from bog rope.','highland-pony-card.png'),
+    ('Cairn Goat','Climbing. Earn: find lost bell.','cairn-goat-card.png'),
+    ('Fairy Stag','Fast travel. Earn: protect grove.','fairy-stag-card.png'),
+    ('Kelp-Mane Pony','Loch crossing. Earn: return moon charm.','kelp-mane-pony-card.png'),
+    ('Rowan Owl','Night warning. Earn: old-name riddle.','rowan-owl-card.png'),
+    ('Border Warg','Tracking/defense. Earn: break collar.','border-warg-card.png'),
+    ('Rowan Mouse','Tiny keys. Earn: return crumbs.','rowan-mouse-card.png'),
+    ('Cloud Moth','Soft light. Earn: guide to stars.','cloud-moth-card.png'),
+    ('Thistle Hedgehog','Danger sense. Earn: save from trap.','thistle-hedgehog-card.png')]]) + "</div>", image='true-unique/mounts-and-pets/companion-card-table-bg.png', side='full', columns=False, extra_cls='art-text-strong')
 mp.write()
 
 # Expanded atlas with area-specific art and lore
@@ -1433,18 +1456,22 @@ for slug in ['quickstart-pack','printable-cards']:
 # and style-proof HTML that may pre-exist in printable-a4/. Exact src reuse and
 # any legacy SVG/shape placeholder source are replaced with real raster artwork.
 seen_final = {}
+seen_final_serial = 0
 for html_path in sorted(PRINT.glob('*-a4.html')):
     txt = html_path.read_text(encoding='utf-8')
     def repl_final(m):
+        global seen_final_serial
         quote = m.group(1)
         src = m.group(2)
         n = seen_final.get(src, 0)
         seen_final[src] = n + 1
-        legacy_shape_src = src.endswith('.svg') or '/unique/' in src
+        seen_final_serial += 1
+        derivative_src = any(flag in src for flag in ['/real/no-reuse-', '/real/final-no-reuse-', '/wash/real/', '/real/cards/card-', '/wash/bg-', '/wash/item-', '/wash/kindred-'])
+        legacy_shape_src = src.endswith('.svg') or '/unique/' in src or derivative_src
         if n == 0 and not legacy_shape_src:
             return f'src={quote}{src}{quote}'
         title = Path(src).stem.replace('card-', '').replace('final-no-reuse-', '').replace('no-reuse-', '').replace('-', ' ').title()
-        filename = f"final-no-reuse-{html_path.stem}-{n+1:03d}-{stable_seed(src+html_path.name+str(n)) & 0xffff:04x}.png"
+        filename = f"true-unique-{html_path.stem}-{seen_final_serial:03d}-{stable_seed(src+html_path.name+str(n)) & 0xffff:04x}.png"
         rel = make_unique_scene_asset(filename, title, 'scene')
         return f'src={quote}../art/generated/{rel}{quote}'
     txt = re.sub(r"src=(['\"])(\.\./art/generated/[^'\"]+)\1", repl_final, txt)

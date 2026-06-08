@@ -1,0 +1,84 @@
+--- adventure-module ---
+Pages:           11
+Page size:       595.276 x 841.89 pts (A4)
+File size:       14640383 bytes
+--- alba-atlas ---
+Pages:           5
+Page size:       595.276 x 841.89 pts (A4)
+File size:       4800381 bytes
+--- alba-atlas-expanded ---
+Pages:           10
+Page size:       595.276 x 841.89 pts (A4)
+File size:       9133432 bytes
+--- bestiary ---
+Pages:           27
+Page size:       595.276 x 841.89 pts (A4)
+File size:       68630744 bytes
+--- bestiary-vol-2 ---
+Pages:           13
+Page size:       595.276 x 841.89 pts (A4)
+File size:       30751039 bytes
+--- campaigns ---
+Pages:           20
+Page size:       595.276 x 841.89 pts (A4)
+File size:       25477670 bytes
+--- character-sheets ---
+Pages:           5
+Page size:       595.276 x 841.89 pts (A4)
+File size:       4198810 bytes
+--- gear-items-potions ---
+Pages:           5
+Page size:       595.276 x 841.89 pts (A4)
+File size:       8948949 bytes
+--- guide-book ---
+Pages:           15
+Page size:       595.276 x 841.89 pts (A4)
+File size:       15609503 bytes
+--- guide-extra ---
+Pages:           3
+Page size:       595.276 x 841.89 pts (A4)
+File size:       4018567 bytes
+--- mounts-and-pets ---
+Pages:           12
+Page size:       595.276 x 841.89 pts (A4)
+File size:       47529754 bytes
+--- player-handbook ---
+Pages:           47
+Page size:       595.276 x 841.89 pts (A4)
+File size:       88730111 bytes
+--- printable-cards ---
+Pages:           8
+Page size:       595.276 x 841.89 pts (A4)
+File size:       16565430 bytes
+--- printable-cards-low-ink ---
+Pages:           8
+Page size:       595.276 x 841.89 pts (A4)
+File size:       52601884 bytes
+--- quickstart-pack ---
+Pages:           9
+Page size:       595.276 x 841.89 pts (A4)
+File size:       7570683 bytes
+--- quickstart-pack-low-ink ---
+Pages:           9
+Page size:       595.276 x 841.89 pts (A4)
+File size:       7555399 bytes
+--- setting-guide ---
+Pages:           11
+Page size:       595.276 x 841.89 pts (A4)
+File size:       9954857 bytes
+--- style-proof ---
+Pages:           11
+Page size:       595.276 x 841.89 pts (A4)
+File size:       8346881 bytes
+--- table-aids ---
+Pages:           8
+Page size:       595.276 x 841.89 pts (A4)
+File size:       6366469 bytes
+--- treasure-crafting ---
+Pages:           7
+Page size:       595.276 x 841.89 pts (A4)
+File size:       7616364 bytes
+--- west-marches ---
+Pages:           8
+Page size:       595.276 x 841.89 pts (A4)
+File size:       10514882 bytes

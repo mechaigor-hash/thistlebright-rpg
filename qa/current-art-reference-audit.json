@@ -1,0 +1,2041 @@
+{
+  "classes": {
+    "base_path": 59,
+    "true_unique": 347
+  },
+  "missing": 0,
+  "duplicate_hash_pairs": 0,
+  "remaining": [],
+  "refs": [
+    {
+      "book": "adventure-module",
+      "page": 2,
+      "src": "../art/generated/alba-map.png"
+    },
+    {
+      "book": "adventure-module",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/no-reuse-adventure-module-001-20da.png"
+    },
+    {
+      "book": "adventure-module",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/no-reuse-adventure-module-001-bd86.png"
+    },
+    {
+      "book": "adventure-module",
+      "page": 5,
+      "src": "../art/generated/alba-frontier-map.png"
+    },
+    {
+      "book": "adventure-module",
+      "page": 6,
+      "src": "../art/generated/true-unique/washes/wash-adventure-module-005-54dc.png"
+    },
+    {
+      "book": "adventure-module",
+      "page": 7,
+      "src": "../art/generated/true-unique/washes/wash-adventure-module-006-2564.png"
+    },
+    {
+      "book": "adventure-module",
+      "page": 8,
+      "src": "../art/generated/true-unique/washes/wash-adventure-module-007-e75d.png"
+    },
+    {
+      "book": "adventure-module",
+      "page": 9,
+      "src": "../art/generated/true-unique/washes/wash-adventure-module-008-a5bf.png"
+    },
+    {
+      "book": "adventure-module",
+      "page": 10,
+      "src": "../art/generated/true-unique/washes/wash-adventure-module-009-59be.png"
+    },
+    {
+      "book": "adventure-module",
+      "page": 11,
+      "src": "../art/generated/true-unique/washes/wash-adventure-module-010-b7ec.png"
+    },
+    {
+      "book": "adventure-module",
+      "page": 12,
+      "src": "../art/generated/true-unique/washes/wash-adventure-module-011-dbd4.png"
+    },
+    {
+      "book": "alba-atlas",
+      "page": 2,
+      "src": "../art/generated/true-unique/scenes/no-reuse-alba-atlas-002-1b41.png"
+    },
+    {
+      "book": "alba-atlas",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/no-reuse-alba-atlas-003-8a72.png"
+    },
+    {
+      "book": "alba-atlas",
+      "page": 4,
+      "src": "../art/generated/true-unique/washes/wash-alba-atlas-003-e766.png"
+    },
+    {
+      "book": "alba-atlas",
+      "page": 5,
+      "src": "../art/generated/true-unique/washes/wash-alba-atlas-004-8f4a.png"
+    },
+    {
+      "book": "alba-atlas",
+      "page": 6,
+      "src": "../art/generated/true-unique/washes/wash-alba-atlas-005-f480.png"
+    },
+    {
+      "book": "alba-atlas-expanded",
+      "page": 2,
+      "src": "../art/generated/true-unique/scenes/no-reuse-alba-atlas-expanded-005-a6c5.png"
+    },
+    {
+      "book": "alba-atlas-expanded",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/no-reuse-alba-atlas-expanded-006-cb2d.png"
+    },
+    {
+      "book": "alba-atlas-expanded",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/atlas-area-heatherhigh-hills.png"
+    },
+    {
+      "book": "alba-atlas-expanded",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/atlas-area-glass-loch.png"
+    },
+    {
+      "book": "alba-atlas-expanded",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/atlas-area-northern-whale-road.png"
+    },
+    {
+      "book": "alba-atlas-expanded",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/atlas-area-red-banner-border.png"
+    },
+    {
+      "book": "alba-atlas-expanded",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/atlas-area-thistlewood.png"
+    },
+    {
+      "book": "alba-atlas-expanded",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/atlas-area-cauldron-pass.png"
+    },
+    {
+      "book": "alba-atlas-expanded",
+      "page": 10,
+      "src": "../art/generated/true-unique/scenes/atlas-area-kettleford.png"
+    },
+    {
+      "book": "alba-atlas-expanded",
+      "page": 11,
+      "src": "../art/generated/true-unique/scenes/atlas-area-root-warrens.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 2,
+      "src": "../art/generated/true-unique/scenes/no-reuse-bestiary-001-2c62.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 3,
+      "src": "../art/generated/true-unique/washes/wash-bestiary-002-5729.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/no-reuse-bestiary-002-174b.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 4,
+      "src": "../art/generated/true-unique/washes/wash-bestiary-003-297e.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 5,
+      "src": "../art/generated/creature-moon-kelpie-foal.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 6,
+      "src": "../art/generated/creature-thistle-sprite.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 7,
+      "src": "../art/generated/creature-moss-troll-napper.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 8,
+      "src": "../art/generated/creature-silver-fox-familiar.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 9,
+      "src": "../art/generated/creature-rowan-owl.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 10,
+      "src": "../art/generated/creature-heather-hare.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 11,
+      "src": "../art/generated/creature-teacup-dragon.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 12,
+      "src": "../art/generated/creature-loch-lantern-jelly.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 13,
+      "src": "../art/generated/creature-bog-boot-brownie.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 14,
+      "src": "../art/generated/creature-cloud-sheep.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 15,
+      "src": "../art/generated/creature-gloaming-bog-hag.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 16,
+      "src": "../art/generated/creature-cairn-wight.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 17,
+      "src": "../art/generated/creature-redcap-bramble-sneak.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 18,
+      "src": "../art/generated/creature-night-thistle-dragon.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 19,
+      "src": "../art/generated/creature-hollow-hill-banshee.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 20,
+      "src": "../art/generated/true-unique/washes/wash-bestiary-019-1749.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 21,
+      "src": "../art/generated/true-unique/washes/wash-bestiary-020-0ad4.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 22,
+      "src": "../art/generated/scary-bestiary-group.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 23,
+      "src": "../art/generated/creature-black-bog-drake.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 24,
+      "src": "../art/generated/creature-border-warg.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 25,
+      "src": "../art/generated/creature-draugr-oath-raider.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 26,
+      "src": "../art/generated/creature-iron-crow-swarm.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 27,
+      "src": "../art/generated/creature-albion-redcloak-captain.png"
+    },
+    {
+      "book": "bestiary",
+      "page": 28,
+      "src": "../art/generated/true-unique/washes/wash-bestiary-027-cebc.png"
+    },
+    {
+      "book": "bestiary-vol-2",
+      "page": 2,
+      "src": "../art/generated/creature-mist-stag.png"
+    },
+    {
+      "book": "bestiary-vol-2",
+      "page": 3,
+      "src": "../art/generated/true-unique/washes/wash-bestiary-vol-2-002-86c1.png"
+    },
+    {
+      "book": "bestiary-vol-2",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/no-reuse-bestiary-vol-2-001-11ed.png"
+    },
+    {
+      "book": "bestiary-vol-2",
+      "page": 5,
+      "src": "../art/generated/creature-glass-loch-serpent.png"
+    },
+    {
+      "book": "bestiary-vol-2",
+      "page": 6,
+      "src": "../art/generated/creature-soot-chimney-imp.png"
+    },
+    {
+      "book": "bestiary-vol-2",
+      "page": 7,
+      "src": "../art/generated/creature-iron-tooth-granny-goat.png"
+    },
+    {
+      "book": "bestiary-vol-2",
+      "page": 8,
+      "src": "../art/generated/creature-thorn-crown-giant.png"
+    },
+    {
+      "book": "bestiary-vol-2",
+      "page": 9,
+      "src": "../art/generated/creature-moon-mirror-cat.png"
+    },
+    {
+      "book": "bestiary-vol-2",
+      "page": 10,
+      "src": "../art/generated/creature-ember-kettle-kobold.png"
+    },
+    {
+      "book": "bestiary-vol-2",
+      "page": 11,
+      "src": "../art/generated/true-unique/scenes/no-reuse-bestiary-vol-2-001-e95d.png"
+    },
+    {
+      "book": "bestiary-vol-2",
+      "page": 12,
+      "src": "../art/generated/creature-redcap-warband-boss.png"
+    },
+    {
+      "book": "bestiary-vol-2",
+      "page": 13,
+      "src": "../art/generated/creature-albion-tax-mage.png"
+    },
+    {
+      "book": "bestiary-vol-2",
+      "page": 14,
+      "src": "../art/generated/creature-barbarian-storm-berserker.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 2,
+      "src": "../art/generated/true-unique/cron-v3/campaign-map-table.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 3,
+      "src": "../art/generated/true-unique/washes/wash-campaigns-002-ffa4.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/no-reuse-campaigns-004-1ac5.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/no-reuse-campaigns-005-cdb1.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 5,
+      "src": "../art/generated/true-unique/washes/wash-campaigns-004-25d4.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 6,
+      "src": "../art/generated/true-unique/washes/wash-campaigns-005-b5bc.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 7,
+      "src": "../art/generated/true-unique/washes/wash-campaigns-006-27e5.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 8,
+      "src": "../art/generated/true-unique/washes/wash-campaigns-007-c81c.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 9,
+      "src": "../art/generated/alba-regional-map.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 10,
+      "src": "../art/generated/alba-town-dungeon-map.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 11,
+      "src": "../art/generated/true-unique/scenes/true-unique-campaigns-a4-078-c9a7.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 12,
+      "src": "../art/generated/true-unique/washes/wash-campaigns-011-f640.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 13,
+      "src": "../art/generated/true-unique/scenes/true-unique-campaigns-a4-080-fef9.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 14,
+      "src": "../art/generated/true-unique/washes/wash-campaigns-013-c04b.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 15,
+      "src": "../art/generated/true-unique/scenes/true-unique-campaigns-a4-082-5994.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 16,
+      "src": "../art/generated/true-unique/washes/wash-campaigns-015-1bc5.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 17,
+      "src": "../art/generated/true-unique/washes/wash-campaigns-016-1358.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 18,
+      "src": "../art/generated/true-unique/scenes/no-reuse-campaigns-001-b40d.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 19,
+      "src": "../art/generated/true-unique/washes/wash-campaigns-018-5e3c.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 20,
+      "src": "../art/generated/true-unique/washes/wash-campaigns-019-e3ba.png"
+    },
+    {
+      "book": "campaigns",
+      "page": 21,
+      "src": "../art/generated/true-unique/washes/wash-campaigns-020-3138.png"
+    },
+    {
+      "book": "character-sheets",
+      "page": 2,
+      "src": "../art/generated/true-unique/scenes/no-reuse-character-sheets-002-26c5.png"
+    },
+    {
+      "book": "character-sheets",
+      "page": 3,
+      "src": "../art/generated/true-unique/washes/wash-character-sheets-002-8001.png"
+    },
+    {
+      "book": "character-sheets",
+      "page": 4,
+      "src": "../art/generated/true-unique/washes/wash-character-sheets-003-f537.png"
+    },
+    {
+      "book": "character-sheets",
+      "page": 5,
+      "src": "../art/generated/true-unique/washes/wash-character-sheets-004-0820.png"
+    },
+    {
+      "book": "character-sheets",
+      "page": 6,
+      "src": "../art/generated/true-unique/washes/wash-character-sheets-005-4edc.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 2,
+      "src": "../art/generated/true-unique/cron-v3/gear-potions-still-life.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/no-reuse-gear-items-potions-002-ea76.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/no-reuse-gear-items-potions-002-6349.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/no-reuse-gear-items-potions-002-c8ff.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 6,
+      "src": "../art/generated/true-unique/washes/wash-gear-items-potions-005-e4a7.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 6,
+      "src": "../art/generated/true-unique/cards/card-rope-with-ribbon-knots-b1f3.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 6,
+      "src": "../art/generated/true-unique/cards/card-beetle-glass-lantern-8cc1.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 6,
+      "src": "../art/generated/true-unique/cards/card-tiny-toolkit-a595.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 6,
+      "src": "../art/generated/true-unique/cards/card-oat-pouch-31f8.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/no-reuse-gear-items-potions-001-5ebc.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/no-reuse-gear-items-potions-001-6fbc.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/no-reuse-gear-items-potions-001-3c02.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/no-reuse-gear-items-potions-001-7a30.png"
+    },
+    {
+      "book": "gear-items-potions",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/no-reuse-gear-items-potions-001-6740.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 2,
+      "src": "../art/generated/true-unique/scenes/no-reuse-guide-book-003-db36.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 3,
+      "src": "../art/generated/true-unique/washes/wash-guide-book-002-259e.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/no-reuse-guide-book-001-2f57.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 4,
+      "src": "../art/generated/true-unique/washes/wash-guide-book-003-7f90.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 5,
+      "src": "../art/generated/05-bestiary-catalog.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 6,
+      "src": "../art/generated/true-unique/washes/wash-guide-book-005-82d2.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 7,
+      "src": "../art/generated/true-unique/washes/wash-guide-book-006-5fa7.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/true-unique-guide-book-a4-115-0cbf.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 9,
+      "src": "../art/generated/true-unique/washes/wash-guide-book-008-8727.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 10,
+      "src": "../art/generated/true-unique/washes/wash-guide-book-009-e26e.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 11,
+      "src": "../art/generated/true-unique/washes/wash-guide-book-010-e662.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 12,
+      "src": "../art/generated/true-unique/washes/wash-guide-book-011-92f2.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 13,
+      "src": "../art/generated/true-unique/washes/wash-guide-book-012-cd8f.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 14,
+      "src": "../art/generated/true-unique/washes/wash-guide-book-013-a09d.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 15,
+      "src": "../art/generated/true-unique/washes/wash-guide-book-014-8191.png"
+    },
+    {
+      "book": "guide-book",
+      "page": 16,
+      "src": "../art/generated/true-unique/washes/wash-guide-book-015-cd68.png"
+    },
+    {
+      "book": "guide-extra",
+      "page": 2,
+      "src": "../art/generated/bg-tiny-tables.png"
+    },
+    {
+      "book": "guide-extra",
+      "page": 3,
+      "src": "../art/generated/true-unique/washes/wash-guide-extra-002-9fb5.png"
+    },
+    {
+      "book": "guide-extra",
+      "page": 4,
+      "src": "../art/generated/true-unique/washes/wash-guide-extra-003-cc52.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 2,
+      "src": "../art/generated/true-unique/mounts-and-pets/companion-opener.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 3,
+      "src": "../art/generated/true-unique/mounts-and-pets/companion-bond-care.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 4,
+      "src": "../art/generated/true-unique/mounts-and-pets/mount-pet-highland-pony.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 5,
+      "src": "../art/generated/true-unique/mounts-and-pets/mount-pet-cairn-goat.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 6,
+      "src": "../art/generated/true-unique/mounts-and-pets/mount-pet-fairy-stag.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 7,
+      "src": "../art/generated/true-unique/mounts-and-pets/mount-pet-kelp-mane-pony.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 8,
+      "src": "../art/generated/true-unique/mounts-and-pets/mount-pet-rowan-owl.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 9,
+      "src": "../art/generated/true-unique/mounts-and-pets/mount-pet-border-warg.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 10,
+      "src": "../art/generated/true-unique/mounts-and-pets/mount-pet-rowan-mouse.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 11,
+      "src": "../art/generated/true-unique/mounts-and-pets/mount-pet-cloud-moth.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 12,
+      "src": "../art/generated/true-unique/mounts-and-pets/mount-pet-thistle-hedgehog.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 13,
+      "src": "../art/generated/true-unique/mounts-and-pets/companion-card-table-bg.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 13,
+      "src": "../art/generated/true-unique/mounts-and-pets/cards/highland-pony-card.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 13,
+      "src": "../art/generated/true-unique/mounts-and-pets/cards/cairn-goat-card.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 13,
+      "src": "../art/generated/true-unique/mounts-and-pets/cards/fairy-stag-card.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 13,
+      "src": "../art/generated/true-unique/mounts-and-pets/cards/kelp-mane-pony-card.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 13,
+      "src": "../art/generated/true-unique/mounts-and-pets/cards/rowan-owl-card.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 13,
+      "src": "../art/generated/true-unique/mounts-and-pets/cards/border-warg-card.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 13,
+      "src": "../art/generated/true-unique/mounts-and-pets/cards/rowan-mouse-card.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 13,
+      "src": "../art/generated/true-unique/mounts-and-pets/cards/cloud-moth-card.png"
+    },
+    {
+      "book": "mounts-and-pets",
+      "page": 13,
+      "src": "../art/generated/true-unique/mounts-and-pets/cards/thistle-hedgehog-card.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 2,
+      "src": "../art/generated/true-unique/cron-v3/player-handbook-rules-table.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 3,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-002-7cb3.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 3,
+      "src": "../art/generated/02-part-opener.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/no-reuse-player-handbook-001-dfb2.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 5,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-004-0c6a.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 6,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-005-9c2f.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 7,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-006-ca18.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 8,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-007-2bc1.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 9,
+      "src": "../art/generated/03-race-kindreds.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 10,
+      "src": "../art/generated/kindred-glenfolk.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 11,
+      "src": "../art/generated/kindred-thistle-fairy.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 12,
+      "src": "../art/generated/kindred-brownie-helper.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 13,
+      "src": "../art/generated/kindred-selkie-born.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 14,
+      "src": "../art/generated/kindred-rowan-kin.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 15,
+      "src": "../art/generated/kindred-heather-giantling.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 16,
+      "src": "../art/generated/kindred-cairnling.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 17,
+      "src": "../art/generated/kindred-mosskin.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 18,
+      "src": "../art/generated/kindred-corbie-folk.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 19,
+      "src": "../art/generated/kindred-star-sprite.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 20,
+      "src": "../art/generated/kindred-myceling.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 21,
+      "src": "../art/generated/04-class-paths.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 22,
+      "src": "../art/generated/job-thistle-knight.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 23,
+      "src": "../art/generated/job-loch-scout.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 24,
+      "src": "../art/generated/job-song-spark-bard.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 25,
+      "src": "../art/generated/job-hearth-mage.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 26,
+      "src": "../art/generated/job-beast-friend.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 27,
+      "src": "../art/generated/job-puzzle-tinker.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 28,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-027-df56.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 29,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-028-554c.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 30,
+      "src": "../art/generated/true-unique/scenes/true-unique-player-handbook-a4-177-97c1.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 31,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-030-8489.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 32,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-031-5512.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 33,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-032-7925.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 33,
+      "src": "../art/generated/true-unique/scenes/no-reuse-player-handbook-002-c2b7.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 34,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-033-8107.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 35,
+      "src": "../art/generated/true-unique/scenes/no-reuse-player-handbook-001-8036.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 36,
+      "src": "../art/generated/true-unique/scenes/true-unique-player-handbook-a4-184-14e0.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 37,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-036-66e2.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 38,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-037-90c6.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 39,
+      "src": "../art/generated/true-unique/scenes/true-unique-player-handbook-a4-187-f115.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 40,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-039-18c9.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 41,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-040-9172.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 42,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-041-5683.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 43,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-042-21f0.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 44,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-043-d91b.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 45,
+      "src": "../art/generated/nonhuman-kindreds.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 46,
+      "src": "../art/generated/true-unique/washes/wash-player-handbook-045-5107.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 47,
+      "src": "../art/generated/true-unique/scenes/true-unique-player-handbook-a4-195-d55a.png"
+    },
+    {
+      "book": "player-handbook",
+      "page": 48,
+      "src": "../art/generated/true-unique/scenes/true-unique-player-handbook-a4-196-fa6c.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 2,
+      "src": "../art/generated/true-unique/cron-v3/printable-card-table.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 3,
+      "src": "../art/generated/true-unique/washes/wash-printable-cards-002-e48c.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 3,
+      "src": "../art/generated/true-unique/cards/card-glow-pebble-b06e.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 3,
+      "src": "../art/generated/true-unique/cards/card-mist-step-0ef3.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 3,
+      "src": "../art/generated/true-unique/cards/card-shield-of-thistles-ce12.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 3,
+      "src": "../art/generated/true-unique/cards/card-kind-whisper-d16b.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 3,
+      "src": "../art/generated/true-unique/cards/card-rune-read-f346.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 3,
+      "src": "../art/generated/true-unique/cards/card-foxfire-path-0773.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 3,
+      "src": "../art/generated/true-unique/cards/card-wake-charm-75c0.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 3,
+      "src": "../art/generated/true-unique/cards/card-thorn-thread-f553.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 3,
+      "src": "../art/generated/true-unique/cards/card-loch-breath-392d.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 4,
+      "src": "../art/generated/true-unique/washes/wash-printable-cards-003-fcd4.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 4,
+      "src": "../art/generated/true-unique/cards/card-rowan-bark-shield-6b6b.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 4,
+      "src": "../art/generated/true-unique/cards/card-loch-mirror-cloak-72e4.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 4,
+      "src": "../art/generated/true-unique/cards/card-cairn-knuckle-ring-a5b9.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 4,
+      "src": "../art/generated/true-unique/cards/card-star-moth-lantern-5f61.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 4,
+      "src": "../art/generated/true-unique/cards/card-mythral-seed-blade-fcfc.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 4,
+      "src": "../art/generated/true-unique/cards/card-bridge-friend-badge-55df.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 4,
+      "src": "../art/generated/true-unique/cards/card-promise-button-fce4.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 4,
+      "src": "../art/generated/true-unique/cards/card-moon-water-vial-ae4e.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 4,
+      "src": "../art/generated/true-unique/cards/card-fox-map-5ab2.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 5,
+      "src": "../art/generated/true-unique/washes/wash-printable-cards-004-5b93.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-heatherheart-draught-641c.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-loch-breath-sip-abaf.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-foxwit-tea-e82d.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-nightshade-jam-59e6.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-black-bog-venom-5084.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-iron-crow-ink-c3c1.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-warm-oats-b65d.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-bitter-tea-32b7.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-storm-honey-e35b.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 6,
+      "src": "../art/generated/true-unique/washes/wash-printable-cards-005-953a.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 6,
+      "src": "../art/generated/true-unique/cards/card-highland-pony-2619.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 6,
+      "src": "../art/generated/true-unique/cards/card-cairn-goat-0f6a.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 6,
+      "src": "../art/generated/true-unique/cards/card-fairy-stag-e7e6.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 6,
+      "src": "../art/generated/true-unique/cards/card-kelp-mane-pony-c0d5.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 6,
+      "src": "../art/generated/true-unique/cards/card-rowan-owl-cd04.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 6,
+      "src": "../art/generated/true-unique/cards/card-border-warg-221f.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 6,
+      "src": "../art/generated/true-unique/cards/card-rowan-mouse-598a.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 6,
+      "src": "../art/generated/true-unique/cards/card-cloud-moth-a3b8.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 6,
+      "src": "../art/generated/true-unique/cards/card-thistle-hedgehog-75b8.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 7,
+      "src": "../art/generated/true-unique/washes/wash-printable-cards-006-ac5b.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 7,
+      "src": "../art/generated/true-unique/cards/card-wet-fox-guide-d87c.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 7,
+      "src": "../art/generated/true-unique/cards/card-redcap-sneak-8403.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 7,
+      "src": "../art/generated/true-unique/cards/card-black-bog-drake-d392.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/no-reuse-printable-cards-001-f487.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 7,
+      "src": "../art/generated/true-unique/cards/card-draugr-oath-raider-b154.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 7,
+      "src": "../art/generated/true-unique/cards/card-iron-crow-swarm-3b74.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 7,
+      "src": "../art/generated/true-unique/cards/card-albion-tax-mage-81cb.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 7,
+      "src": "../art/generated/true-unique/cards/card-storm-berserker-da52.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 7,
+      "src": "../art/generated/true-unique/cards/card-bridge-that-forgot-c8eb.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 8,
+      "src": "../art/generated/true-unique/washes/wash-printable-cards-007-d1b6.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 8,
+      "src": "../art/generated/true-unique/cards/card-find-the-moon-bell-d3ba.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 8,
+      "src": "../art/generated/true-unique/cards/card-break-red-wax-48b9.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 8,
+      "src": "../art/generated/true-unique/cards/card-guest-right-feast-a36e.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 8,
+      "src": "../art/generated/true-unique/cards/card-storm-cairn-oath-01bb.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 8,
+      "src": "../art/generated/true-unique/cards/card-longship-lantern-20ec.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 8,
+      "src": "../art/generated/true-unique/cards/card-bridge-friend-9db7.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 8,
+      "src": "../art/generated/true-unique/cards/card-clan-respect-2b15.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 8,
+      "src": "../art/generated/true-unique/cards/card-fairy-favor-2205.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 8,
+      "src": "../art/generated/true-unique/cards/card-map-mark-129e.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 9,
+      "src": "../art/generated/true-unique/washes/wash-printable-cards-008-31cc.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 9,
+      "src": "../art/generated/true-unique/cards/card-muddy-643a.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 9,
+      "src": "../art/generated/true-unique/cards/card-startled-112d.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 9,
+      "src": "../art/generated/true-unique/cards/card-tangled-95ee.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 9,
+      "src": "../art/generated/true-unique/cards/card-sleepy-efce.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 9,
+      "src": "../art/generated/true-unique/cards/card-inspired-3b5c.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 9,
+      "src": "../art/generated/true-unique/cards/card-oathbound-79a1.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 9,
+      "src": "../art/generated/true-unique/cards/card-glittered-83c9.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 9,
+      "src": "../art/generated/true-unique/cards/card-lost-357d.png"
+    },
+    {
+      "book": "printable-cards",
+      "page": 9,
+      "src": "../art/generated/true-unique/cards/card-boss-phase-a1ef.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 2,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-268-3e41.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-269-60b9.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-270-c9cd.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-271-010a.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-272-56d4.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-273-69d5.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-274-2f53.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-275-b668.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-276-1d98.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-277-7e82.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-278-190d.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-279-7453.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-280-1477.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-281-1ed2.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-282-62c8.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-283-bc66.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-284-3323.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-285-2263.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-286-a782.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-287-6e4a.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-288-b8f6.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-289-bfdf.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-290-43c1.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-291-b668.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-292-a578.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-293-b93f.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-294-e8e8.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-295-6c45.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-296-acf8.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-297-5c1e.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-298-7363.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-299-a906.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-300-5ca7.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-301-653a.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-302-2ca4.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-303-94ec.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-304-796a.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-305-08df.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-306-bfad.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-307-d2a0.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-308-1255.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-309-ec5a.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-310-c9d6.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-311-47ff.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-312-a326.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-313-c795.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-314-cd48.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-315-ccda.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-316-c960.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-317-d6f5.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-318-560a.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-319-d136.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-320-c41c.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-321-b54c.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-322-6d7f.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-323-2a61.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-324-57e7.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-325-f307.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-326-0262.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-327-4858.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-328-7dc4.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-329-ff72.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-330-a584.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-331-fe2f.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-332-3646.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-333-853f.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-334-1218.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-335-f0ed.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-336-8e50.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-337-c285.png"
+    },
+    {
+      "book": "printable-cards-low-ink",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-338-9af3.png"
+    },
+    {
+      "book": "quickstart-pack",
+      "page": 2,
+      "src": "../art/generated/true-unique/scenes/no-reuse-quickstart-pack-002-6813.png"
+    },
+    {
+      "book": "quickstart-pack",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/no-reuse-quickstart-pack-003-f76a.png"
+    },
+    {
+      "book": "quickstart-pack",
+      "page": 4,
+      "src": "../art/generated/true-unique/washes/wash-quickstart-pack-003-33cf.png"
+    },
+    {
+      "book": "quickstart-pack",
+      "page": 5,
+      "src": "../art/generated/true-unique/washes/wash-quickstart-pack-004-58f9.png"
+    },
+    {
+      "book": "quickstart-pack",
+      "page": 6,
+      "src": "../art/generated/true-unique/washes/wash-quickstart-pack-005-f537.png"
+    },
+    {
+      "book": "quickstart-pack",
+      "page": 7,
+      "src": "../art/generated/true-unique/washes/wash-quickstart-pack-006-b6bd.png"
+    },
+    {
+      "book": "quickstart-pack",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/no-reuse-quickstart-pack-004-be54.png"
+    },
+    {
+      "book": "quickstart-pack",
+      "page": 9,
+      "src": "../art/generated/true-unique/washes/wash-quickstart-pack-008-4e9b.png"
+    },
+    {
+      "book": "quickstart-pack",
+      "page": 10,
+      "src": "../art/generated/true-unique/washes/wash-quickstart-pack-009-6464.png"
+    },
+    {
+      "book": "quickstart-pack-low-ink",
+      "page": 2,
+      "src": "../art/generated/true-unique/scenes/true-unique-quickstart-pack-low-ink-a4-348-ab03.png"
+    },
+    {
+      "book": "quickstart-pack-low-ink",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/true-unique-quickstart-pack-low-ink-a4-349-38b2.png"
+    },
+    {
+      "book": "quickstart-pack-low-ink",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/true-unique-quickstart-pack-low-ink-a4-350-4a10.png"
+    },
+    {
+      "book": "quickstart-pack-low-ink",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/true-unique-quickstart-pack-low-ink-a4-351-4fe2.png"
+    },
+    {
+      "book": "quickstart-pack-low-ink",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/true-unique-quickstart-pack-low-ink-a4-352-b09a.png"
+    },
+    {
+      "book": "quickstart-pack-low-ink",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/true-unique-quickstart-pack-low-ink-a4-353-8787.png"
+    },
+    {
+      "book": "quickstart-pack-low-ink",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/true-unique-quickstart-pack-low-ink-a4-354-2813.png"
+    },
+    {
+      "book": "quickstart-pack-low-ink",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/true-unique-quickstart-pack-low-ink-a4-355-e534.png"
+    },
+    {
+      "book": "quickstart-pack-low-ink",
+      "page": 10,
+      "src": "../art/generated/true-unique/scenes/true-unique-quickstart-pack-low-ink-a4-356-f585.png"
+    },
+    {
+      "book": "setting-guide",
+      "page": 2,
+      "src": "../art/generated/true-unique/scenes/no-reuse-setting-guide-002-2ae2.png"
+    },
+    {
+      "book": "setting-guide",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/no-reuse-setting-guide-003-214d.png"
+    },
+    {
+      "book": "setting-guide",
+      "page": 4,
+      "src": "../art/generated/true-unique/washes/wash-setting-guide-003-4862.png"
+    },
+    {
+      "book": "setting-guide",
+      "page": 5,
+      "src": "../art/generated/true-unique/washes/wash-setting-guide-004-b92c.png"
+    },
+    {
+      "book": "setting-guide",
+      "page": 6,
+      "src": "../art/generated/true-unique/washes/wash-setting-guide-005-b4a5.png"
+    },
+    {
+      "book": "setting-guide",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/no-reuse-setting-guide-001-9496.png"
+    },
+    {
+      "book": "setting-guide",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/no-reuse-setting-guide-001-f40c.png"
+    },
+    {
+      "book": "setting-guide",
+      "page": 9,
+      "src": "../art/generated/true-unique/washes/wash-setting-guide-008-5998.png"
+    },
+    {
+      "book": "setting-guide",
+      "page": 10,
+      "src": "../art/generated/true-unique/washes/wash-setting-guide-009-44c2.png"
+    },
+    {
+      "book": "setting-guide",
+      "page": 11,
+      "src": "../art/generated/true-unique/washes/wash-setting-guide-010-b69b.png"
+    },
+    {
+      "book": "setting-guide",
+      "page": 12,
+      "src": "../art/generated/true-unique/washes/wash-setting-guide-011-427e.png"
+    },
+    {
+      "book": "style-proof",
+      "page": 2,
+      "src": "../art/generated/true-unique/scenes/true-unique-style-proof-a4-368-030f.png"
+    },
+    {
+      "book": "style-proof",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/true-unique-style-proof-a4-369-7660.png"
+    },
+    {
+      "book": "style-proof",
+      "page": 4,
+      "src": "../art/generated/true-unique/scenes/true-unique-style-proof-a4-370-3d7f.png"
+    },
+    {
+      "book": "style-proof",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/true-unique-style-proof-a4-371-532a.png"
+    },
+    {
+      "book": "style-proof",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/true-unique-style-proof-a4-372-db4c.png"
+    },
+    {
+      "book": "style-proof",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/true-unique-style-proof-a4-373-8ed9.png"
+    },
+    {
+      "book": "style-proof",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/true-unique-style-proof-a4-374-6a56.png"
+    },
+    {
+      "book": "style-proof",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/true-unique-style-proof-a4-375-bf3e.png"
+    },
+    {
+      "book": "style-proof",
+      "page": 10,
+      "src": "../art/generated/true-unique/scenes/true-unique-style-proof-a4-376-f97e.png"
+    },
+    {
+      "book": "style-proof",
+      "page": 11,
+      "src": "../art/generated/true-unique/scenes/true-unique-style-proof-a4-377-3a06.png"
+    },
+    {
+      "book": "table-aids",
+      "page": 2,
+      "src": "../art/generated/true-unique/scenes/no-reuse-table-aids-001-e8c4.png"
+    },
+    {
+      "book": "table-aids",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/no-reuse-table-aids-002-d30f.png"
+    },
+    {
+      "book": "table-aids",
+      "page": 4,
+      "src": "../art/generated/true-unique/washes/wash-table-aids-003-e48c.png"
+    },
+    {
+      "book": "table-aids",
+      "page": 5,
+      "src": "../art/generated/true-unique/washes/wash-table-aids-004-87d0.png"
+    },
+    {
+      "book": "table-aids",
+      "page": 6,
+      "src": "../art/generated/true-unique/washes/wash-table-aids-005-408f.png"
+    },
+    {
+      "book": "table-aids",
+      "page": 7,
+      "src": "../art/generated/true-unique/washes/wash-table-aids-006-94eb.png"
+    },
+    {
+      "book": "table-aids",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/no-reuse-table-aids-004-a59b.png"
+    },
+    {
+      "book": "table-aids",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/no-reuse-table-aids-005-295a.png"
+    },
+    {
+      "book": "treasure-crafting",
+      "page": 2,
+      "src": "../art/generated/table-aids.png"
+    },
+    {
+      "book": "treasure-crafting",
+      "page": 3,
+      "src": "../art/generated/true-unique/washes/wash-treasure-crafting-002-338c.png"
+    },
+    {
+      "book": "treasure-crafting",
+      "page": 4,
+      "src": "../art/generated/true-unique/washes/wash-treasure-crafting-003-2d74.png"
+    },
+    {
+      "book": "treasure-crafting",
+      "page": 5,
+      "src": "../art/generated/true-unique/washes/wash-treasure-crafting-004-6013.png"
+    },
+    {
+      "book": "treasure-crafting",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/no-reuse-treasure-crafting-001-f976.png"
+    },
+    {
+      "book": "treasure-crafting",
+      "page": 7,
+      "src": "../art/generated/true-unique/washes/wash-treasure-crafting-006-f042.png"
+    },
+    {
+      "book": "treasure-crafting",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/no-reuse-treasure-crafting-001-5545.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 2,
+      "src": "../art/generated/true-unique/cron-v3/west-marches-notice-board.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 3,
+      "src": "../art/generated/true-unique/scenes/no-reuse-west-marches-002-06a5.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 4,
+      "src": "../art/generated/true-unique/washes/wash-west-marches-003-caa5.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 5,
+      "src": "../art/generated/true-unique/washes/wash-west-marches-004-cfee.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-lost-bell-at-moon-loch-fd3b.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-red-wax-on-the-toll-gate-cb95.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-goat-bell-in-storm-cairn-6c61.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 5,
+      "src": "../art/generated/true-unique/scenes/no-reuse-west-marches-001-cac3.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-fox-map-in-thistlewood-7059.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 5,
+      "src": "../art/generated/true-unique/cards/card-potion-garden-rescue-db52.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 6,
+      "src": "../art/generated/true-unique/scenes/west-quest-quest-lost-bell-at-moon-loch.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 7,
+      "src": "../art/generated/true-unique/scenes/west-quest-quest-red-wax-on-the-toll-gate.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 8,
+      "src": "../art/generated/true-unique/scenes/west-quest-quest-goat-bell-in-storm-cairn.png"
+    },
+    {
+      "book": "west-marches",
+      "page": 9,
+      "src": "../art/generated/true-unique/scenes/west-quest-quest-longship-lantern.png"
+    }
+  ]
+}

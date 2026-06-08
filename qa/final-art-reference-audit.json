@@ -1,0 +1,11 @@
+{
+  "total_refs": 406,
+  "classes": {
+    "base_path": 59,
+    "true_unique": 347
+  },
+  "unique_hashes": 406,
+  "duplicate_hash_pairs": 0,
+  "missing": 0,
+  "remaining_procedural_or_wash_refs": []
+}
