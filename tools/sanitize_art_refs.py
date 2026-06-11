@@ -62,10 +62,18 @@ TITLE_OVERRIDES = {
     ("mounts-and-pets-a4.html", "Cloud Moth"): "true-unique/mounts-and-pets/mount-pet-cloud-moth.png",
     ("mounts-and-pets-a4.html", "Thistle Hedgehog"): "true-unique/mounts-and-pets/mount-pet-thistle-hedgehog.png",
     ("bestiary-a4.html", "How to use creature stat blocks"): "wash/05-bestiary-catalog.png",
-    ("bestiary-vol-2-a4.html", "Scary things of war and border"): "wash/scary-bestiary-group.png",
-    ("bestiary-vol-2-a4.html", "Adventures in Alba"): "wash/real/wash-bestiary-vol-2-002-86c1.png",
+    ("bestiary-vol-2-a4.html", "Adventures in Alba"): "real-context/bestiary-vol-2/cover-creature-glen.png",
     ("bestiary-vol-2-a4.html", "Mist Stag of Alba"): "creature-mist-stag.png",
+    ("bestiary-vol-2-a4.html", "Scary things of war and border"): "wash/scary-bestiary-group.png",
+    ("west-marches-a4.html", "Adventures in Alba"): "real-context/west-marches/cover-notice-board-map.png",
+    ("west-marches-a4.html", "The West Marches"): "real-context/west-marches/intro-route-map.png",
+    ("west-marches-a4.html", "Quest: Lost Bell at Moon Loch"): "real-context/west-marches/quest-lost-bell-moon-loch.png",
+    ("west-marches-a4.html", "Quest: Red Wax on the Toll Gate"): "real-context/west-marches/quest-red-wax-toll-gate.png",
+    ("west-marches-a4.html", "Quest: Goat Bell in Storm Cairn"): "real-context/west-marches/quest-goat-bell-storm-cairn.png",
+    ("west-marches-a4.html", "Quest: Longship Lantern"): "real-context/west-marches/quest-longship-lantern.png",
 }
+
+RESERVED_OVERRIDE_RELS = set(TITLE_OVERRIDES.values())
 
 
 def sha(path: Path) -> str:
@@ -144,6 +152,8 @@ def candidate_pool() -> list[dict]:
             continue
         if is_derivative_rel(rel):
             continue
+        if rel in RESERVED_OVERRIDE_RELS:
+            continue
         h = sha(p)
         if h in seen_hashes:
             continue
@@ -164,7 +174,7 @@ def acceptable(cand: dict, domain: str) -> bool:
     if domain == "bestiary":
         return rel.startswith("creature-") or "creature" in rel or bool(w & DOMAIN_WORDS["bestiary"])
     if domain == "campaign":
-        return rel.startswith("real/west-quest-") or "campaign" in rel or "quest" in rel or "banner" in rel or bool(w & DOMAIN_WORDS["campaign"])
+        return rel.startswith("real-context/west-marches/") or rel.startswith("real/west-quest-") or "campaign" in rel or "quest" in rel or "banner" in rel or bool(w & DOMAIN_WORDS["campaign"])
     if domain == "player":
         return rel.startswith("real-context/player-handbook/") or bool(w & DOMAIN_WORDS["player"] | DOMAIN_WORDS["gear"])
     return True

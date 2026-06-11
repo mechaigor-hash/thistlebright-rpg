@@ -1,6 +1,6 @@
 {
   "summary": {
-    "replacements": 216,
+    "replacements": 213,
     "total_refs": 298,
     "unique_hashes": 298,
     "duplicate_hash_pairs": 0,
@@ -208,8 +208,8 @@
       "title": "Adventures in Alba",
       "domain": "bestiary",
       "old": "art/generated/creature-mist-stag.png",
-      "new": "art/generated/wash/real/wash-bestiary-vol-2-002-86c1.png",
-      "score": 1040,
+      "new": "art/generated/real-context/bestiary-vol-2/cover-creature-glen.png",
+      "score": 1140,
       "reason": []
     },
     {
@@ -2343,42 +2343,6 @@
       ]
     },
     {
-      "html": "style-proof-a4.html",
-      "page": 2,
-      "title": "Welcome to the glen",
-      "domain": "cards",
-      "old": "art/generated/wash/real/wash-bestiary-vol-2-002-86c1.png",
-      "new": "art/generated/wash/real/wash-bestiary-003-297e.png",
-      "score": 1040,
-      "reason": [
-        "duplicate"
-      ]
-    },
-    {
-      "html": "style-proof-a4.html",
-      "page": 6,
-      "title": "",
-      "domain": "cards",
-      "old": "art/generated/wash/real/wash-bestiary-003-297e.png",
-      "new": "art/generated/wash/real/wash-bestiary-019-1749.png",
-      "score": 1040,
-      "reason": [
-        "duplicate"
-      ]
-    },
-    {
-      "html": "style-proof-a4.html",
-      "page": 8,
-      "title": "Bestiary style",
-      "domain": "cards",
-      "old": "art/generated/wash/real/wash-bestiary-019-1749.png",
-      "new": "art/generated/wash/real/wash-bestiary-020-0ad4.png",
-      "score": 1040,
-      "reason": [
-        "duplicate"
-      ]
-    },
-    {
       "html": "table-aids-a4.html",
       "page": 1,
       "title": "Adventures in Alba",
@@ -2396,8 +2360,8 @@
       "title": "Table tools",
       "domain": "cards",
       "old": "art/generated/true-unique/scenes/true-unique-table-aids-a4-281-e430.png",
-      "new": "art/generated/wash/kindred-glenfolk.png",
-      "score": 1010,
+      "new": "art/generated/wash/real/wash-bestiary-vol-2-002-86c1.png",
+      "score": 1020,
       "reason": [
         "procedural"
       ]
@@ -2408,7 +2372,7 @@
       "title": "Printable regional map",
       "domain": "cards",
       "old": "art/generated/true-unique/scenes/true-unique-table-aids-a4-282-993a.png",
-      "new": "art/generated/wash/kindred-myceling.png",
+      "new": "art/generated/wash/kindred-glenfolk.png",
       "score": 1010,
       "reason": [
         "procedural"
@@ -2420,7 +2384,7 @@
       "title": "Printable town/dungeon map",
       "domain": "cards",
       "old": "art/generated/true-unique/scenes/true-unique-table-aids-a4-283-b986.png",
-      "new": "art/generated/wash/job-puzzle-tinker.png",
+      "new": "art/generated/wash/kindred-myceling.png",
       "score": 1010,
       "reason": [
         "procedural"
@@ -2468,8 +2432,8 @@
       "title": "Adventures in Alba",
       "domain": "campaign",
       "old": "art/generated/true-unique/cron-v3/west-marches-notice-board.png",
-      "new": "art/generated/wash/real/wash-adventure-module-007-e75d.png",
-      "score": 1020,
+      "new": "art/generated/real-context/west-marches/cover-notice-board-map.png",
+      "score": 1140,
       "reason": [
         "duplicate",
         "domain"
@@ -2481,8 +2445,8 @@
       "title": "The West Marches",
       "domain": "campaign",
       "old": "art/generated/true-unique/scenes/true-unique-west-marches-a4-288-f8a3.png",
-      "new": "art/generated/wash/real/wash-campaigns-005-b5bc.png",
-      "score": 1010,
+      "new": "art/generated/real-context/west-marches/intro-route-map.png",
+      "score": 1120,
       "reason": [
         "procedural",
         "domain"
@@ -2494,7 +2458,7 @@
       "title": "Printable quest notice board",
       "domain": "campaign",
       "old": "art/generated/true-unique/cards/card-lost-bell-at-moon-loch-fd3b.png",
-      "new": "art/generated/wash/real/wash-campaigns-006-27e5.png",
+      "new": "art/generated/wash/real/wash-campaigns-005-b5bc.png",
       "score": 1010,
       "reason": [
         "procedural"
@@ -2506,7 +2470,7 @@
       "title": "Printable quest notice board",
       "domain": "campaign",
       "old": "art/generated/true-unique/cards/card-red-wax-on-the-toll-gate-cb95.png",
-      "new": "art/generated/wash/real/wash-campaigns-007-c81c.png",
+      "new": "art/generated/wash/real/wash-campaigns-006-27e5.png",
       "score": 1010,
       "reason": [
         "procedural"
@@ -2518,7 +2482,7 @@
       "title": "Printable quest notice board",
       "domain": "campaign",
       "old": "art/generated/true-unique/cards/card-goat-bell-in-storm-cairn-6c61.png",
-      "new": "art/generated/wash/real/wash-campaigns-011-f640.png",
+      "new": "art/generated/wash/real/wash-campaigns-007-c81c.png",
       "score": 1010,
       "reason": [
         "procedural"
@@ -2530,7 +2494,7 @@
       "title": "Printable quest notice board",
       "domain": "campaign",
       "old": "art/generated/true-unique/scenes/true-unique-west-marches-a4-292-12fa.png",
-      "new": "art/generated/wash/real/wash-campaigns-013-c04b.png",
+      "new": "art/generated/wash/real/wash-campaigns-011-f640.png",
       "score": 1010,
       "reason": [
         "procedural",
@@ -2543,7 +2507,7 @@
       "title": "Printable quest notice board",
       "domain": "campaign",
       "old": "art/generated/true-unique/cards/card-fox-map-in-thistlewood-7059.png",
-      "new": "art/generated/wash/real/wash-campaigns-015-1bc5.png",
+      "new": "art/generated/wash/real/wash-campaigns-013-c04b.png",
       "score": 1010,
       "reason": [
         "procedural",
@@ -2556,7 +2520,7 @@
       "title": "Printable quest notice board",
       "domain": "campaign",
       "old": "art/generated/true-unique/cards/card-potion-garden-rescue-db52.png",
-      "new": "art/generated/wash/real/wash-campaigns-016-1358.png",
+      "new": "art/generated/wash/real/wash-campaigns-015-1bc5.png",
       "score": 1010,
       "reason": [
         "procedural",
@@ -2569,8 +2533,8 @@
       "title": "Quest: Lost Bell at Moon Loch",
       "domain": "campaign",
       "old": "art/generated/true-unique/scenes/west-quest-quest-lost-bell-at-moon-loch.png",
-      "new": "art/generated/wash/real/wash-campaigns-018-5e3c.png",
-      "score": 1020,
+      "new": "art/generated/real-context/west-marches/quest-lost-bell-moon-loch.png",
+      "score": 1160,
       "reason": [
         "procedural"
       ]
@@ -2581,8 +2545,8 @@
       "title": "Quest: Red Wax on the Toll Gate",
       "domain": "campaign",
       "old": "art/generated/true-unique/scenes/west-quest-quest-red-wax-on-the-toll-gate.png",
-      "new": "art/generated/wash/real/wash-campaigns-019-e3ba.png",
-      "score": 1020,
+      "new": "art/generated/real-context/west-marches/quest-red-wax-toll-gate.png",
+      "score": 1160,
       "reason": [
         "procedural"
       ]
@@ -2593,8 +2557,8 @@
       "title": "Quest: Goat Bell in Storm Cairn",
       "domain": "campaign",
       "old": "art/generated/true-unique/scenes/west-quest-quest-goat-bell-in-storm-cairn.png",
-      "new": "art/generated/wash/real/wash-campaigns-020-3138.png",
-      "score": 1020,
+      "new": "art/generated/real-context/west-marches/quest-goat-bell-storm-cairn.png",
+      "score": 1160,
       "reason": [
         "procedural"
       ]
@@ -2605,8 +2569,8 @@
       "title": "Quest: Longship Lantern",
       "domain": "campaign",
       "old": "art/generated/true-unique/scenes/west-quest-quest-longship-lantern.png",
-      "new": "art/generated/wash/real/wash-adventure-module-008-a5bf.png",
-      "score": 1020,
+      "new": "art/generated/real-context/west-marches/quest-longship-lantern.png",
+      "score": 1140,
       "reason": [
         "procedural"
       ]
