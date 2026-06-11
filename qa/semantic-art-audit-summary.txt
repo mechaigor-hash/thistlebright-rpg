@@ -1,0 +1,10 @@
+{
+  "replacements": 216,
+  "total_refs": 298,
+  "unique_hashes": 298,
+  "duplicate_hash_pairs": 0,
+  "missing": 0,
+  "procedural_svg_backed_refs": 0,
+  "derivative_no_reuse_refs": 0,
+  "domain_mismatch_refs": 0
+}

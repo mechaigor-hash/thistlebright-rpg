@@ -298,22 +298,18 @@ def illustrated_print_card(label: str, text: str) -> str:
     return f"<div class='print-card'>{make_card_badge(label)}<h3>{label}</h3><p>{text}</p></div>"
 
 def no_reuse_img_src(src: str, book_slug: str) -> str:
-    """Return a globally unique, context-related raster artwork src for every repeated use.
+    """Preserve explicitly chosen contextual art during initial HTML writes.
 
-    The first occurrence can keep its original stable artwork. Every later occurrence
-    gets a separate PNG variant keyed by book/use count and the original subject so
-    printable cards, low-ink cards, openers, and catalog pages never share the same
-    image file across the finished book set.
+    Earlier revisions tried to make every repeated src unique by generating a
+    deterministic SVG/raster variant. Those variants had different hashes but
+    were not real artwork, and later sanitizing sometimes replaced them with
+    semantically wrong fallback art (for example gear still-lifes on atlas
+    pages). Exact/global uniqueness is now enforced by the sanitizer using real
+    raster assets and semantic domain rules, not by fabricating procedural
+    variants here.
     """
-    count = GLOBAL_IMG_SEEN.get(src, 0)
-    GLOBAL_IMG_SEEN[src] = count + 1
-    if count == 0:
-        return src
-    stem = Path(src).stem
-    title = stem.replace('card-', '').replace('no-reuse-', '').replace('-', ' ').title()
-    filename = f"no-reuse-{book_slug}-{count:03d}-{stable_seed(src + book_slug + str(count)) & 0xffff:04x}.png"
-    rel = make_unique_scene_asset(filename, title, 'scene')
-    return '../art/generated/' + rel
+    GLOBAL_IMG_SEEN[src] = GLOBAL_IMG_SEEN.get(src, 0) + 1
+    return src
 
 class Book:
     def __init__(self, slug: str, title: str, subtitle: str, cover: str = "01-cover.png"):
@@ -1466,8 +1462,11 @@ for html_path in sorted(PRINT.glob('*-a4.html')):
         n = seen_final.get(src, 0)
         seen_final[src] = n + 1
         seen_final_serial += 1
-        derivative_src = any(flag in src for flag in ['/real/no-reuse-', '/real/final-no-reuse-', '/wash/real/', '/real/cards/card-', '/wash/bg-', '/wash/item-', '/wash/kindred-'])
-        legacy_shape_src = src.endswith('.svg') or '/unique/' in src or derivative_src
+        # Do not fabricate procedural art just because an image is a card,
+        # cropped/wash layer, or a previously named no-reuse asset. Reuse is
+        # resolved in tools/sanitize_art_refs.py with semantic real-art pools.
+        # This late pass only catches explicit SVG/legacy placeholder paths.
+        legacy_shape_src = src.endswith('.svg') or '/unique/' in src
         if n == 0 and not legacy_shape_src:
             return f'src={quote}{src}{quote}'
         title = Path(src).stem.replace('card-', '').replace('final-no-reuse-', '').replace('no-reuse-', '').replace('-', ' ').title()
