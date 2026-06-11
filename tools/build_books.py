@@ -332,23 +332,23 @@ class Book:
     def text_page(self, title: str, body: str, columns=True):
         p = self.page_no()
         cls = 'columns' if columns else ''
-        img = make_unique_wash_asset(self.slug, p, title)
-        side = 'left' if p % 2 == 0 else 'right'
-        src = art(img) if img.startswith('true-unique/') else wash_art(img)
-        self.pages.append(f'''<section class="page"><img class="artwash auto {side}" src="{src}" alt=""><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div><div class="page-number">{p}</div></section>''')
+        # Do not fabricate decorative "art" for text pages. The previous pass
+        # generated abstract SVG/raster washes (curves, rectangles, hills) that
+        # looked like random geometric placeholders rather than contextual
+        # illustrations. Text pages now stay clean parchment unless a real,
+        # explicitly chosen illustration is supplied via art_text_page().
+        self.pages.append(f'''<section class="page"><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div><div class="page-number">{p}</div></section>''')
     def art_text_page(self, title: str, body: str, image: str, side: str = 'right', columns=False, extra_cls: str = ''):
         p = self.page_no()
         cls = 'columns' if columns else ''
-        if image.startswith('unique/') or image.startswith('real/') or image.startswith('true-unique/'):
+        if image.startswith('unique/') or image.startswith('real/') or image.startswith('real-context/') or image.startswith('true-unique/'):
             src = art(image)
         else:
             src = wash_art(image)
         self.pages.append(f'''<section class="page {extra_cls}"><img class="artwash {side}" src="{src}" alt=""><div class="wash-content"><h2 class="section">{esc(title)}</h2><div class="{cls}">{body}</div></div><div class="page-number">{p}</div></section>''')
     def drawing_page(self):
         p = self.page_no()
-        img = make_unique_wash_asset(self.slug, p, 'Draw your Adventurer')
-        src = art(img) if img.startswith('true-unique/') else wash_art(img)
-        self.pages.append(f'''<section class="page"><img class="artwash auto full" src="{src}" alt=""><h2 class="section">Draw your Adventurer</h2><div class="draw-frame"></div><div class="page-number">{p}</div></section>''')
+        self.pages.append(f'''<section class="page"><h2 class="section">Draw your Adventurer</h2><div class="draw-frame"></div><div class="page-number">{p}</div></section>''')
     def feature_page(self, kicker: str, title: str, image: str, intro: str, body: str, more: str = ''):
         p = self.page_no()
         self.pages.append(f'''<section class="page feature-page"><div class="feature-top"><figure class="feature-art"><img src="{art(image)}" alt="{esc(title)} illustration"></figure><div class="feature-intro"><div class="feature-kicker">{esc(kicker)}</div><h2>{esc(title)}</h2><p class="drop">{intro}</p>{more}</div></div>{body}<div class="page-number">{p}</div></section>''')
@@ -445,12 +445,12 @@ rb('<strong>For Adventurers 5–7:</strong> read choices aloud, let adventurers 
 )}
 """, columns=False)
 ph.art_page("02-part-opener.png", "Welcome to the glen", "Tiny bells ring beneath the heather. A fairy guide invites the heroes to help a magical place without making the rules too big.")
-ph.text_page("The easy dice rule", f"""
+ph.art_text_page("The easy dice rule", f"""
 {split(
 '''<p class='drop'>When the answer is obvious, no roll is needed. When everyone leans forward and wonders what might happen, roll one six-sided die and add the hero's matching stat bonus.</p><table><tr><th>Total</th><th>Result</th><th>Say it like this</th></tr><tr><td>1–3</td><td>Wobble</td><td>It goes wrong in a funny, safe, or messy way.</td></tr><tr><td>4–5</td><td>Yes, but...</td><td>It works, and there is a tiny cost or choice.</td></tr><tr><td>6+</td><td>Bright success</td><td>It works well, and the hero feels proud.</td></tr></table>''' + rb('<strong>No failure spiral:</strong> a wobble changes the scene; it does not stop the adventure.'),
 '''<h3>The five classic stats</h3>''' + ul(['<strong>Strength</strong> — lifting, climbing, holding, pushing, protecting.', '<strong>Int</strong> — puzzles, facts, plans, reading runes, remembering.', '<strong>Agility</strong> — sneaking, dodging, catching, balancing, jumping.', '<strong>Wis</strong> — feelings, animals, nature, noticing, sensible choices.', '<strong>Luck</strong> — charms, surprises, odd magic, last-chance moments.']) + '''<h3>When not to roll</h3>''' + ul(['The action is safe and obvious.', 'An adventurer is only describing how they look or feel.', 'The group already found a kind solution.', 'A roll would slow a warm moment.']) + mini('Helping rule', 'If another hero clearly helps, add +1 or let the adventurer roll again and choose the better die.')
 )}
-""", columns=False)
+""", image="real-context/player-handbook/easy-dice-rule-table.png", side="full", columns=False, extra_cls='art-text-strong')
 ph.text_page("Stat creation: classic five stats", f"""
 {card('1. Strength', p('Lifting, climbing, holding, pushing, protecting.'))}
 {card('2. Int', p('Puzzles, facts, plans, reading runes, remembering.'))}

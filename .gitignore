@@ -1,0 +1,6 @@
+
+# Do not commit procedural/geometric placeholder art generated during builds.
+art/generated/**/*.source.svg
+art/generated/true-unique/scenes/
+art/generated/true-unique/cards/
+art/generated/true-unique/washes/

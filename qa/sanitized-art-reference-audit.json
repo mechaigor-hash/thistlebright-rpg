@@ -1,0 +1,1281 @@
+{
+  "summary": {
+    "replacements": 211,
+    "total_refs": 298,
+    "unique_hashes": 298,
+    "duplicate_hash_pairs": 0,
+    "missing": 0,
+    "procedural_svg_backed_refs": 0
+  },
+  "replacements": [
+    {
+      "html": "adventure-module-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-adventure-module-001-20da.png",
+      "new": "art/generated/real/cards/card-border-warg-221f.png",
+      "score": 175
+    },
+    {
+      "html": "adventure-module-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-adventure-module-001-bd86.png",
+      "new": "art/generated/real/cards/card-longship-lantern-20ec.png",
+      "score": 175
+    },
+    {
+      "html": "alba-atlas-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-alba-atlas-002-1b41.png",
+      "new": "art/generated/real/cards/card-lost-bell-at-moon-loch-fd3b.png",
+      "score": 185
+    },
+    {
+      "html": "alba-atlas-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-alba-atlas-003-8a72.png",
+      "new": "art/generated/real/cards/card-fox-map-in-thistlewood-7059.png",
+      "score": 180
+    },
+    {
+      "html": "alba-atlas-expanded-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-alba-atlas-expanded-005-a6c5.png",
+      "new": "art/generated/real/cards/card-loch-breath-392d.png",
+      "score": 165
+    },
+    {
+      "html": "alba-atlas-expanded-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-alba-atlas-expanded-006-cb2d.png",
+      "new": "art/generated/real/cards/card-star-moth-lantern-5f61.png",
+      "score": 200
+    },
+    {
+      "html": "alba-atlas-expanded-a4.html",
+      "old": "art/generated/true-unique/scenes/atlas-area-heatherhigh-hills.png",
+      "new": "art/generated/real/cards/card-goat-bell-in-storm-cairn-6c61.png",
+      "score": 200
+    },
+    {
+      "html": "alba-atlas-expanded-a4.html",
+      "old": "art/generated/true-unique/scenes/atlas-area-glass-loch.png",
+      "new": "art/generated/real/west-quest-quest-goat-bell-in-storm-cairn.png",
+      "score": 185
+    },
+    {
+      "html": "alba-atlas-expanded-a4.html",
+      "old": "art/generated/true-unique/scenes/atlas-area-northern-whale-road.png",
+      "new": "art/generated/real/mount-pet-border-warg.png",
+      "score": 170
+    },
+    {
+      "html": "alba-atlas-expanded-a4.html",
+      "old": "art/generated/true-unique/scenes/atlas-area-red-banner-border.png",
+      "new": "art/generated/real/atlas-area-red-banner-border.png",
+      "score": 165
+    },
+    {
+      "html": "alba-atlas-expanded-a4.html",
+      "old": "art/generated/true-unique/scenes/atlas-area-thistlewood.png",
+      "new": "art/generated/real/atlas-area-northern-whale-road.png",
+      "score": 155
+    },
+    {
+      "html": "alba-atlas-expanded-a4.html",
+      "old": "art/generated/true-unique/scenes/atlas-area-cauldron-pass.png",
+      "new": "art/generated/real/cards/card-loch-breath-sip-abaf.png",
+      "score": 150
+    },
+    {
+      "html": "alba-atlas-expanded-a4.html",
+      "old": "art/generated/true-unique/scenes/atlas-area-kettleford.png",
+      "new": "art/generated/real/cards/card-loch-mirror-cloak-72e4.png",
+      "score": 150
+    },
+    {
+      "html": "alba-atlas-expanded-a4.html",
+      "old": "art/generated/true-unique/scenes/atlas-area-root-warrens.png",
+      "new": "art/generated/real/west-quest-quest-lost-bell-at-moon-loch.png",
+      "score": 155
+    },
+    {
+      "html": "bestiary-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-bestiary-001-2c62.png",
+      "new": "art/generated/real/no-reuse-gear-items-potions-001-184c.png",
+      "score": 175
+    },
+    {
+      "html": "bestiary-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-bestiary-002-174b.png",
+      "new": "art/generated/real/no-reuse-gear-items-potions-002-1cd8.png",
+      "score": 175
+    },
+    {
+      "html": "bestiary-vol-2-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-bestiary-vol-2-001-11ed.png",
+      "new": "art/generated/real/no-reuse-gear-items-potions-001-65ee.png",
+      "score": 160
+    },
+    {
+      "html": "bestiary-vol-2-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-bestiary-vol-2-001-e95d.png",
+      "new": "art/generated/real/no-reuse-bestiary-vol-2-001-e95d.png",
+      "score": 130
+    },
+    {
+      "html": "campaigns-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-campaigns-004-1ac5.png",
+      "new": "art/generated/real/no-reuse-gear-items-potions-001-dab7.png",
+      "score": 165
+    },
+    {
+      "html": "campaigns-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-campaigns-005-cdb1.png",
+      "new": "art/generated/real/no-reuse-alba-atlas-expanded-005-7dac.png",
+      "score": 140
+    },
+    {
+      "html": "campaigns-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-campaigns-a4-057-c9a7.png",
+      "new": "art/generated/real/west-quest-quest-red-wax-on-the-toll-gate.png",
+      "score": 130
+    },
+    {
+      "html": "campaigns-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-campaigns-a4-058-fef9.png",
+      "new": "art/generated/real/mount-pet-fairy-stag.png",
+      "score": 130
+    },
+    {
+      "html": "campaigns-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-campaigns-a4-059-5994.png",
+      "new": "art/generated/real/atlas-area-glass-loch.png",
+      "score": 125
+    },
+    {
+      "html": "campaigns-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-campaigns-001-b40d.png",
+      "new": "art/generated/real/no-reuse-gear-items-potions-001-dcca.png",
+      "score": 160
+    },
+    {
+      "html": "character-sheets-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-character-sheets-002-26c5.png",
+      "new": "art/generated/real/no-reuse-gear-items-potions-002-6349.png",
+      "score": 190
+    },
+    {
+      "html": "gear-items-potions-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-gear-items-potions-002-ea76.png",
+      "new": "art/generated/real/no-reuse-gear-items-potions-002-ea76.png",
+      "score": 220
+    },
+    {
+      "html": "gear-items-potions-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-gear-items-potions-002-6349.png",
+      "new": "art/generated/real/no-reuse-gear-items-potions-002-70eb.png",
+      "score": 195
+    },
+    {
+      "html": "gear-items-potions-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-gear-items-potions-002-c8ff.png",
+      "new": "art/generated/real/no-reuse-gear-items-potions-002-c8ff.png",
+      "score": 220
+    },
+    {
+      "html": "gear-items-potions-a4.html",
+      "old": "art/generated/true-unique/cards/card-rope-with-ribbon-knots-b1f3.png",
+      "new": "art/generated/real/cards/card-rope-with-ribbon-knots-b1f3.png",
+      "score": 200
+    },
+    {
+      "html": "gear-items-potions-a4.html",
+      "old": "art/generated/true-unique/cards/card-beetle-glass-lantern-8cc1.png",
+      "new": "art/generated/real/cards/card-beetle-glass-lantern-8cc1.png",
+      "score": 190
+    },
+    {
+      "html": "gear-items-potions-a4.html",
+      "old": "art/generated/true-unique/cards/card-tiny-toolkit-a595.png",
+      "new": "art/generated/real/cards/card-tiny-toolkit-a595.png",
+      "score": 180
+    },
+    {
+      "html": "gear-items-potions-a4.html",
+      "old": "art/generated/true-unique/cards/card-oat-pouch-31f8.png",
+      "new": "art/generated/real/cards/card-potion-garden-rescue-db52.png",
+      "score": 170
+    },
+    {
+      "html": "gear-items-potions-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-gear-items-potions-001-5ebc.png",
+      "new": "art/generated/real/no-reuse-gear-items-potions-001-eaaf.png",
+      "score": 150
+    },
+    {
+      "html": "gear-items-potions-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-gear-items-potions-001-6fbc.png",
+      "new": "art/generated/real/no-reuse-gear-items-potions-002-8267.png",
+      "score": 140
+    },
+    {
+      "html": "gear-items-potions-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-gear-items-potions-001-3c02.png",
+      "new": "art/generated/real/no-reuse-treasure-crafting-001-477f.png",
+      "score": 130
+    },
+    {
+      "html": "gear-items-potions-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-gear-items-potions-001-7a30.png",
+      "new": "art/generated/real/no-reuse-treasure-crafting-001-5545.png",
+      "score": 130
+    },
+    {
+      "html": "gear-items-potions-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-gear-items-potions-001-6740.png",
+      "new": "art/generated/real/no-reuse-treasure-crafting-001-d639.png",
+      "score": 130
+    },
+    {
+      "html": "guide-book-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-guide-book-003-db36.png",
+      "new": "art/generated/real/cards/card-albion-tax-mage-81cb.png",
+      "score": 135
+    },
+    {
+      "html": "guide-book-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-guide-book-001-2f57.png",
+      "new": "art/generated/real/west-quest-quest-longship-lantern.png",
+      "score": 135
+    },
+    {
+      "html": "guide-book-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-guide-book-a4-078-0cbf.png",
+      "new": "art/generated/real/atlas-area-kettleford.png",
+      "score": 110
+    },
+    {
+      "html": "player-handbook-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-player-handbook-001-dfb2.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-001-01e0.png",
+      "score": 145
+    },
+    {
+      "html": "player-handbook-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-player-handbook-a4-124-97c1.png",
+      "new": "art/generated/real/no-reuse-table-aids-002-b5b3.png",
+      "score": 115
+    },
+    {
+      "html": "player-handbook-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-player-handbook-002-c2b7.png",
+      "new": "art/generated/real/no-reuse-table-aids-002-d30f.png",
+      "score": 145
+    },
+    {
+      "html": "player-handbook-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-player-handbook-001-8036.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-001-08c5.png",
+      "score": 145
+    },
+    {
+      "html": "player-handbook-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-player-handbook-a4-127-14e0.png",
+      "new": "art/generated/real/cards/card-rowan-bark-shield-6b6b.png",
+      "score": 130
+    },
+    {
+      "html": "player-handbook-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-player-handbook-a4-128-f115.png",
+      "new": "art/generated/real/cards/card-rowan-owl-cd04.png",
+      "score": 150
+    },
+    {
+      "html": "player-handbook-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-player-handbook-a4-130-d55a.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-001-2e0f.png",
+      "score": 125
+    },
+    {
+      "html": "player-handbook-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-player-handbook-a4-131-fa6c.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-001-3433.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-glow-pebble-b06e.png",
+      "new": "art/generated/real/cards/card-glow-pebble-b06e.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-mist-step-0ef3.png",
+      "new": "art/generated/real/cards/card-mist-step-0ef3.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-shield-of-thistles-ce12.png",
+      "new": "art/generated/real/cards/card-shield-of-thistles-ce12.png",
+      "score": 160
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-kind-whisper-d16b.png",
+      "new": "art/generated/real/cards/card-kind-whisper-d16b.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-rune-read-f346.png",
+      "new": "art/generated/real/cards/card-rune-read-f346.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-foxfire-path-0773.png",
+      "new": "art/generated/real/cards/card-cairn-knuckle-ring-a5b9.png",
+      "score": 160
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-wake-charm-75c0.png",
+      "new": "art/generated/real/cards/card-redcap-sneak-8403.png",
+      "score": 155
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-thorn-thread-f553.png",
+      "new": "art/generated/real/cards/card-iron-crow-ink-c3c1.png",
+      "score": 155
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-loch-breath-392d.png",
+      "new": "art/generated/real/cards/card-mythral-seed-blade-fcfc.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-rowan-bark-shield-6b6b.png",
+      "new": "art/generated/real/cards/card-bridge-friend-badge-55df.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-loch-mirror-cloak-72e4.png",
+      "new": "art/generated/real/cards/card-moon-water-vial-ae4e.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-cairn-knuckle-ring-a5b9.png",
+      "new": "art/generated/real/cards/card-fox-map-5ab2.png",
+      "score": 170
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-star-moth-lantern-5f61.png",
+      "new": "art/generated/real/cards/card-map-mark-129e.png",
+      "score": 170
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-mythral-seed-blade-fcfc.png",
+      "new": "art/generated/real/cards/card-thorn-thread-f553.png",
+      "score": 140
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-bridge-friend-badge-55df.png",
+      "new": "art/generated/real/cards/card-foxwit-tea-e82d.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-promise-button-fce4.png",
+      "new": "art/generated/real/cards/card-promise-button-fce4.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-moon-water-vial-ae4e.png",
+      "new": "art/generated/real/cards/card-black-bog-venom-5084.png",
+      "score": 160
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-fox-map-5ab2.png",
+      "new": "art/generated/real/cards/card-black-bog-drake-d392.png",
+      "score": 155
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-heatherheart-draught-641c.png",
+      "new": "art/generated/real/cards/card-iron-crow-swarm-3b74.png",
+      "score": 155
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-loch-breath-sip-abaf.png",
+      "new": "art/generated/real/cards/card-warm-oats-b65d.png",
+      "score": 140
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-foxwit-tea-e82d.png",
+      "new": "art/generated/real/cards/card-cairn-goat-0f6a.png",
+      "score": 160
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-nightshade-jam-59e6.png",
+      "new": "art/generated/real/cards/card-highland-pony-2619.png",
+      "score": 170
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-black-bog-venom-5084.png",
+      "new": "art/generated/real/cards/card-cloud-moth-a3b8.png",
+      "score": 160
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-iron-crow-ink-c3c1.png",
+      "new": "art/generated/real/cards/card-fairy-stag-e7e6.png",
+      "score": 170
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-warm-oats-b65d.png",
+      "new": "art/generated/real/cards/card-rowan-mouse-598a.png",
+      "score": 160
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-bitter-tea-32b7.png",
+      "new": "art/generated/real/cards/card-kelp-mane-pony-c0d5.png",
+      "score": 180
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-storm-honey-e35b.png",
+      "new": "art/generated/real/cards/card-thistle-hedgehog-75b8.png",
+      "score": 160
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-highland-pony-2619.png",
+      "new": "art/generated/real/mount-pet-kelp-mane-pony.png",
+      "score": 140
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-cairn-goat-0f6a.png",
+      "new": "art/generated/real/cards/card-bitter-tea-32b7.png",
+      "score": 140
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-fairy-stag-e7e6.png",
+      "new": "art/generated/real/cards/card-storm-honey-e35b.png",
+      "score": 140
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-kelp-mane-pony-c0d5.png",
+      "new": "art/generated/real/cards/card-storm-cairn-oath-01bb.png",
+      "score": 140
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-rowan-owl-cd04.png",
+      "new": "art/generated/real/cards/card-wet-fox-guide-d87c.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-border-warg-221f.png",
+      "new": "art/generated/real/cards/card-find-the-moon-bell-d3ba.png",
+      "score": 140
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-rowan-mouse-598a.png",
+      "new": "art/generated/real/mount-pet-rowan-owl.png",
+      "score": 130
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-cloud-moth-a3b8.png",
+      "new": "art/generated/real/cards/card-lost-357d.png",
+      "score": 130
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-thistle-hedgehog-75b8.png",
+      "new": "art/generated/real/cards/card-draugr-oath-raider-b154.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-wet-fox-guide-d87c.png",
+      "new": "art/generated/real/cards/card-wake-charm-75c0.png",
+      "score": 130
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-redcap-sneak-8403.png",
+      "new": "art/generated/real/cards/card-storm-berserker-da52.png",
+      "score": 140
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-black-bog-drake-d392.png",
+      "new": "art/generated/real/cards/card-bridge-that-forgot-c8eb.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-printable-cards-001-f487.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-001-3671.png",
+      "score": 135
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-draugr-oath-raider-b154.png",
+      "new": "art/generated/real/cards/card-clan-respect-2b15.png",
+      "score": 130
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-iron-crow-swarm-3b74.png",
+      "new": "art/generated/real/cards/card-break-red-wax-48b9.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-albion-tax-mage-81cb.png",
+      "new": "art/generated/real/cards/card-guest-right-feast-a36e.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-storm-berserker-da52.png",
+      "new": "art/generated/real/cards/card-red-wax-on-the-toll-gate-cb95.png",
+      "score": 150
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-bridge-that-forgot-c8eb.png",
+      "new": "art/generated/real/cards/card-bridge-friend-9db7.png",
+      "score": 130
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-find-the-moon-bell-d3ba.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-001-a46a.png",
+      "score": 135
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-break-red-wax-48b9.png",
+      "new": "art/generated/real/cards/card-fairy-favor-2205.png",
+      "score": 140
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-guest-right-feast-a36e.png",
+      "new": "art/generated/real/cards/card-muddy-643a.png",
+      "score": 120
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-storm-cairn-oath-01bb.png",
+      "new": "art/generated/real/cards/card-sleepy-efce.png",
+      "score": 120
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-longship-lantern-20ec.png",
+      "new": "art/generated/real/cards/card-startled-112d.png",
+      "score": 130
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-bridge-friend-9db7.png",
+      "new": "art/generated/real/cards/card-tangled-95ee.png",
+      "score": 130
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-clan-respect-2b15.png",
+      "new": "art/generated/real/cards/card-inspired-3b5c.png",
+      "score": 120
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-fairy-favor-2205.png",
+      "new": "art/generated/real/cards/card-glittered-83c9.png",
+      "score": 120
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-map-mark-129e.png",
+      "new": "art/generated/real/cards/card-oathbound-79a1.png",
+      "score": 130
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-muddy-643a.png",
+      "new": "art/generated/real/cards/card-oat-pouch-31f8.png",
+      "score": 120
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-startled-112d.png",
+      "new": "art/generated/real/cards/card-boss-phase-a1ef.png",
+      "score": 140
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-tangled-95ee.png",
+      "new": "art/generated/real/cards/card-foxfire-path-0773.png",
+      "score": 120
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-sleepy-efce.png",
+      "new": "art/generated/real/cards/card-nightshade-jam-59e6.png",
+      "score": 120
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-inspired-3b5c.png",
+      "new": "art/generated/real/cards/card-heatherheart-draught-641c.png",
+      "score": 120
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-oathbound-79a1.png",
+      "new": "art/generated/real/atlas-area-thistlewood.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-glittered-83c9.png",
+      "new": "art/generated/wash/creature-loch-lantern-jelly.png",
+      "score": 108
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-lost-357d.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-001-e187.png",
+      "score": 105
+    },
+    {
+      "html": "printable-cards-a4.html",
+      "old": "art/generated/true-unique/cards/card-boss-phase-a1ef.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-001-ef38.png",
+      "score": 105
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-196-3e41.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-006e.png",
+      "score": 155
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-197-c9cd.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-01e0.png",
+      "score": 155
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-198-010a.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-08c5.png",
+      "score": 155
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-199-56d4.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-153c.png",
+      "score": 155
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-200-69d5.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-17bf.png",
+      "score": 140
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-201-2f53.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-1838.png",
+      "score": 140
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-202-b668.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-1a2d.png",
+      "score": 140
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-203-1d98.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-1a9b.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-204-7e82.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-1e57.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-205-190d.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-1e8d.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-206-1477.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-2158.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-207-1ed2.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-2bf2.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-208-62c8.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-2d5a.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-209-bc66.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-2e0f.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-210-3323.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-3433.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-211-2263.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-3671.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-212-a782.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-3776.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-213-6e4a.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-3c3b.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-214-b8f6.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-3d6d.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-215-43c1.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-3e64.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-216-b668.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-4c96.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-217-a578.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-4f14.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-218-b93f.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-5111.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-219-e8e8.png",
+      "new": "art/generated/real/mount-pet-highland-pony.png",
+      "score": 130
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-220-6c45.png",
+      "new": "art/generated/real/mount-pet-cairn-goat.png",
+      "score": 130
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-221-acf8.png",
+      "new": "art/generated/real/mount-pet-cloud-moth.png",
+      "score": 120
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-222-5c1e.png",
+      "new": "art/generated/real/mount-pet-rowan-mouse.png",
+      "score": 120
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-223-7363.png",
+      "new": "art/generated/real/mount-pet-thistle-hedgehog.png",
+      "score": 120
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-224-5ca7.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-52a6.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-225-653a.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-5502.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-226-2ca4.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-5641.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-227-94ec.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-566c.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-228-796a.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-5c4c.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-229-08df.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-611e.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-230-bfad.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-6169.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-231-d2a0.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-6266.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-232-1255.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-6774.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-233-c9d6.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-6825.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-234-47ff.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-71c3.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-235-a326.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-7409.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-236-c795.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-7597.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-237-cd48.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-7a80.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-238-ccda.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-8615.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-239-c960.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-8d46.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-240-d6f5.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-8f06.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-241-560a.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-9390.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-242-c41c.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-9baf.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-243-b54c.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-9e92.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-244-6d7f.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-a245.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-245-2a61.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-a46a.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-246-57e7.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-a57b.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-247-f307.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-a593.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-248-0262.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-ae50.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-249-4858.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-b2b1.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-250-7dc4.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-b577.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-251-a584.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-baec.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-252-fe2f.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-c07d.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-253-3646.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-c10f.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-254-853f.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-c160.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-255-1218.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-c786.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-256-f0ed.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-cf7d.png",
+      "score": 125
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-257-8e50.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-d3c2.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-258-c285.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-d7d5.png",
+      "score": 110
+    },
+    {
+      "html": "printable-cards-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-printable-cards-low-ink-a4-259-9af3.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-d7e8.png",
+      "score": 110
+    },
+    {
+      "html": "quickstart-pack-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-quickstart-pack-002-6813.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-d853.png",
+      "score": 155
+    },
+    {
+      "html": "quickstart-pack-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-quickstart-pack-003-f76a.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-d93b.png",
+      "score": 145
+    },
+    {
+      "html": "quickstart-pack-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-quickstart-pack-004-be54.png",
+      "new": "art/generated/real/no-reuse-alba-atlas-002-1b41.png",
+      "score": 120
+    },
+    {
+      "html": "quickstart-pack-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-quickstart-pack-low-ink-a4-263-ab03.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-dd18.png",
+      "score": 145
+    },
+    {
+      "html": "quickstart-pack-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-quickstart-pack-low-ink-a4-264-38b2.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-dd42.png",
+      "score": 155
+    },
+    {
+      "html": "quickstart-pack-low-ink-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-quickstart-pack-low-ink-a4-265-2813.png",
+      "new": "art/generated/real/final-no-reuse-quickstart-pack-low-ink-a4-001-47dd.png",
+      "score": 110
+    },
+    {
+      "html": "setting-guide-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-setting-guide-002-2ae2.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-e126.png",
+      "score": 145
+    },
+    {
+      "html": "setting-guide-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-setting-guide-003-214d.png",
+      "new": "art/generated/real/no-reuse-alba-atlas-003-7fd9.png",
+      "score": 140
+    },
+    {
+      "html": "setting-guide-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-setting-guide-001-9496.png",
+      "new": "art/generated/real/no-reuse-setting-guide-001-9496.png",
+      "score": 120
+    },
+    {
+      "html": "setting-guide-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-setting-guide-001-f40c.png",
+      "new": "art/generated/real/no-reuse-setting-guide-001-f40c.png",
+      "score": 120
+    },
+    {
+      "html": "style-proof-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-style-proof-a4-270-3cb5.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-e187.png",
+      "score": 125
+    },
+    {
+      "html": "style-proof-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-style-proof-a4-271-895d.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-ee38.png",
+      "score": 125
+    },
+    {
+      "html": "style-proof-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-style-proof-a4-272-cef4.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-ef38.png",
+      "score": 125
+    },
+    {
+      "html": "style-proof-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-style-proof-a4-273-41b8.png",
+      "new": "art/generated/real/no-reuse-table-aids-003-801b.png",
+      "score": 100
+    },
+    {
+      "html": "style-proof-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-style-proof-a4-274-030f.png",
+      "new": "art/generated/real/final-no-reuse-style-proof-a4-001-1b4e.png",
+      "score": 90
+    },
+    {
+      "html": "style-proof-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-style-proof-a4-275-1c3c.png",
+      "new": "art/generated/real/no-reuse-table-aids-003-afeb.png",
+      "score": 100
+    },
+    {
+      "html": "style-proof-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-style-proof-a4-276-f218.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-f5d2.png",
+      "score": 115
+    },
+    {
+      "html": "style-proof-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-style-proof-a4-278-ac40.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-f6d8.png",
+      "score": 125
+    },
+    {
+      "html": "style-proof-a4.html",
+      "old": "art/generated/true-unique/scenes/true-unique-style-proof-a4-279-55ce.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-fac9.png",
+      "score": 125
+    },
+    {
+      "html": "table-aids-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-table-aids-001-e8c4.png",
+      "new": "art/generated/real/no-reuse-printable-cards-001-47d9.png",
+      "score": 155
+    },
+    {
+      "html": "table-aids-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-table-aids-002-d30f.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-faff.png",
+      "score": 165
+    },
+    {
+      "html": "table-aids-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-table-aids-004-a59b.png",
+      "new": "art/generated/real/no-reuse-table-aids-004-a59b.png",
+      "score": 150
+    },
+    {
+      "html": "table-aids-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-table-aids-005-295a.png",
+      "new": "art/generated/real/no-reuse-table-aids-005-295a.png",
+      "score": 150
+    },
+    {
+      "html": "treasure-crafting-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-treasure-crafting-001-f976.png",
+      "new": "art/generated/real/no-reuse-treasure-crafting-001-f976.png",
+      "score": 160
+    },
+    {
+      "html": "treasure-crafting-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-treasure-crafting-001-5545.png",
+      "new": "art/generated/real/final-no-reuse-printable-cards-low-ink-a4-002-fd82.png",
+      "score": 130
+    },
+    {
+      "html": "west-marches-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-west-marches-002-06a5.png",
+      "new": "art/generated/real/no-reuse-printable-cards-001-d939.png",
+      "score": 145
+    },
+    {
+      "html": "west-marches-a4.html",
+      "old": "art/generated/true-unique/cards/card-lost-bell-at-moon-loch-fd3b.png",
+      "new": "art/generated/real/no-reuse-alba-atlas-002-41bf.png",
+      "score": 130
+    },
+    {
+      "html": "west-marches-a4.html",
+      "old": "art/generated/true-unique/cards/card-red-wax-on-the-toll-gate-cb95.png",
+      "new": "art/generated/real/no-reuse-alba-atlas-003-8a72.png",
+      "score": 110
+    },
+    {
+      "html": "west-marches-a4.html",
+      "old": "art/generated/true-unique/cards/card-goat-bell-in-storm-cairn-6c61.png",
+      "new": "art/generated/real/no-reuse-alba-atlas-expanded-005-a6c5.png",
+      "score": 110
+    },
+    {
+      "html": "west-marches-a4.html",
+      "old": "art/generated/true-unique/scenes/no-reuse-west-marches-001-cac3.png",
+      "new": "art/generated/real/no-reuse-alba-atlas-expanded-006-bc81.png",
+      "score": 120
+    },
+    {
+      "html": "west-marches-a4.html",
+      "old": "art/generated/true-unique/cards/card-fox-map-in-thistlewood-7059.png",
+      "new": "art/generated/real/no-reuse-alba-atlas-expanded-006-cb2d.png",
+      "score": 110
+    },
+    {
+      "html": "west-marches-a4.html",
+      "old": "art/generated/true-unique/cards/card-potion-garden-rescue-db52.png",
+      "new": "art/generated/real/atlas-area-cauldron-pass.png",
+      "score": 100
+    },
+    {
+      "html": "west-marches-a4.html",
+      "old": "art/generated/true-unique/scenes/west-quest-quest-lost-bell-at-moon-loch.png",
+      "new": "art/generated/real/atlas-area-heatherhigh-hills.png",
+      "score": 100
+    },
+    {
+      "html": "west-marches-a4.html",
+      "old": "art/generated/true-unique/scenes/west-quest-quest-red-wax-on-the-toll-gate.png",
+      "new": "art/generated/real/no-reuse-west-marches-001-a625.png",
+      "score": 80
+    },
+    {
+      "html": "west-marches-a4.html",
+      "old": "art/generated/true-unique/scenes/west-quest-quest-goat-bell-in-storm-cairn.png",
+      "new": "art/generated/real/no-reuse-west-marches-002-06a5.png",
+      "score": 80
+    },
+    {
+      "html": "west-marches-a4.html",
+      "old": "art/generated/true-unique/scenes/west-quest-quest-longship-lantern.png",
+      "new": "art/generated/real/no-reuse-west-marches-002-cd87.png",
+      "score": 80
+    }
+  ],
+  "missing": [],
+  "procedural": [],
+  "duplicates": []
+}
